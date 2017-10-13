@@ -3,9 +3,9 @@ package PuzzlePlane;
 import java.awt.event.*;
 
 import javax.swing.*;
-//TODO import PuzzlePlane.model.*;
+//TODO import PuzzlePlane.models.*;
 import PuzzlePlane.views.*;
-//TODO import PuzzlePlane.controller.*;
+//TODO import PuzzlePlane.controllers.*;
 
 public class Main {
 	public static void main(String[] args) {

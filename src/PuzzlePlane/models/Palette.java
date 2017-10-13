@@ -1,10 +1,9 @@
 package PuzzlePlane.models;
 
-import java.util.*;
 
 public class Palette {
-	ShapeSet shpst;
-	PlacedShape[] plshp;
+	ShapeSet shapeSet;
+	PlacedShape[] placedShape;
 	
 	public Palette( ) {
 		

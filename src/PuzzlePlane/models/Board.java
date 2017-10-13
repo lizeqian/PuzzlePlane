@@ -1,8 +1,8 @@
 package PuzzlePlane.models;
 
 public class Board {
-	Palette pltt;
-	SolutionSpace sltsp;
+	Palette palette;
+	SolutionSpace solutionSpace;
 	
 	public Board() {
 	}
