@@ -3,9 +3,9 @@ package PuzzlePlane;
 import java.awt.event.*;
 
 import javax.swing.*;
-//TODO import PuzzlePlane.models.*;
+import PuzzlePlane.models.*;
 import PuzzlePlane.views.*;
-//TODO import PuzzlePlane.controllers.*;
+import PuzzlePlane.controllers.*;
 
 public class Main {
 	public static void main(String[] args) {
@@ -15,7 +15,7 @@ public class Main {
 		g.addWindowListener (new WindowAdapter() {
 
 			public void windowClosing(WindowEvent e) {
-				new ExitApplicationController(app).process();
+				new ExitApplicationController(g).process();
 			}
 
 		});
