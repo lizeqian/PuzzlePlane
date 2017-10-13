@@ -29,7 +29,7 @@ public class PuzzlePlaneGui extends JFrame {
 		this.board = b;
 		
 		setSize(600, 600);
-//TODO add panels		
+//TODO add panels	 	
 	}
 	
 }
