@@ -1,6 +1,7 @@
 package PuzzlePlane.views;
 
 import PuzzlePlane.models.*;
+import PuzzlePlane.controllers.*;
 
 import javax.swing.JPanel;
 
@@ -25,10 +26,13 @@ public class SolutionSpace extends JPanel {
 	 */
 	JButton button_next = null;
 	Board board;
+	PuzzlePlaneGui puzzlePlaneGui;
 	
-	public SolutionSpace(Board board) {
+	public SolutionSpace(Board board, PuzzlePlaneGui p) {
 		
+		puzzlePlaneGui = p;
 		
+		ExitPuzzleSolving exitPuzzleSolving = new ExitPuzzleSolving(p);
 		
 		setLayout(null);
 		
@@ -36,10 +40,9 @@ public class SolutionSpace extends JPanel {
 		lblSolutionspace.setBounds(183, 22, 76, 14);
 		add(lblSolutionspace);
 		
-		JButton button_next = new JButton("Next");
+		JButton button_next = new JButton("Exit Puzzle");
 		button_next.setBounds(183, 64, 89, 23);
 		add(button_next);
-		
-
+		button_next.addActionListener(exitPuzzleSolving);
 	}
 }
