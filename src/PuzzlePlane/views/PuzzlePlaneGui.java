@@ -71,7 +71,8 @@ public class PuzzlePlaneGui extends JFrame {
         });
         first_b.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                card.show(pane, "p1");
+                //card.show(pane, "p1");
+                jumpPage("p1");
             }
         });
         this.getContentPane().add(pane);	//add pane to this frame
@@ -81,6 +82,10 @@ public class PuzzlePlaneGui extends JFrame {
 		
 		setSize(600, 600);
 		this.setVisible(true);
+	}
+	
+	public void jumpPage(String page) {
+		card.show(pane, page);
 	}
 	
 }
