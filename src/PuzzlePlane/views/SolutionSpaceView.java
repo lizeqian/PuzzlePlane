@@ -19,7 +19,7 @@ import javax.swing.JFrame;
 import javax.swing.UIManager;
 import java.awt.GridLayout;
 
-public class SolutionSpace extends JPanel {
+public class SolutionSpaceView extends JPanel {
 
 	/**
 	 * Create the panel.
@@ -28,7 +28,7 @@ public class SolutionSpace extends JPanel {
 	Board board;
 	PuzzlePlaneGui puzzlePlaneGui;
 	
-	public SolutionSpace(Board board, PuzzlePlaneGui p) {
+	public SolutionSpaceView(Board board, PuzzlePlaneGui p) {
 		
 		puzzlePlaneGui = p;
 		

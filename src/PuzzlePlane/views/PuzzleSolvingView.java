@@ -6,17 +6,17 @@ import PuzzlePlane.models.*;
 
 public class PuzzleSolvingView extends JPanel {
 
-	Palette palette;
-	SolutionSpace solutionSpace;
+	PaletteView palette;
+	SolutionSpaceView solutionSpace;
 	
 	public PuzzleSolvingView(Board b, PuzzlePlaneGui p) {
 		setLayout(null);
 		
-		palette = new Palette();
+		palette = new PaletteView();
 		palette.setBounds(0, 0, 450, 100);
 		add(palette);
 		
-		solutionSpace = new SolutionSpace(b, p);
+		solutionSpace = new SolutionSpaceView(b, p);
 		solutionSpace.setBounds(0, 100, 450, 200);
 		add(solutionSpace);
 
