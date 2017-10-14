@@ -14,11 +14,11 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class FirstPPGui extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtChooseAShape;
 
 	/**
 	 * Launch the application.
@@ -50,21 +50,20 @@ public class FirstPPGui extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setIcon(new ImageIcon("D:\\tu\\Screen Shot 2017-09-22 at 4.00.14 PM.png"));
-		btnNewButton.setBounds(54, 157, 436, 440);
-		contentPane.add(btnNewButton);
+		JButton traditionalsetButton = new JButton("chooseShapeSetButton");
+		traditionalsetButton.setIcon(new ImageIcon(FirstPPGui.class.getResource("/PuzzlePlane/resources/Screen Shot 2017-09-22 at 4.00.14 PM.png")));
+		traditionalsetButton.setBounds(54, 157, 436, 440);
+		contentPane.add(traditionalsetButton);
 		
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setIcon(new ImageIcon("D:\\tu\\Screen Shot 2017-09-22 at 4.10.55 PM.png"));
-		btnNewButton_1.setBounds(519, 157, 447, 432);
-		contentPane.add(btnNewButton_1);
+		JButton nontraditionalsetButton = new JButton("chooseShapeSetButton");
+		nontraditionalsetButton.setIcon(new ImageIcon(FirstPPGui.class.getResource("/PuzzlePlane/resources/Screen Shot 2017-09-22 at 4.10.55 PM.png")));
+		nontraditionalsetButton.setBounds(519, 157, 447, 432);
+		contentPane.add(nontraditionalsetButton);
 		
-		txtChooseAShape = new JTextField();
-		txtChooseAShape.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		txtChooseAShape.setText("Choose a Shape Set");
-		txtChooseAShape.setBounds(375, 62, 260, 40);
-		contentPane.add(txtChooseAShape);
-		txtChooseAShape.setColumns(2);
+		JLabel lblNewLabel = new JLabel("Choose a Shape Set");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(350, 78, 307, 46);
+		contentPane.add(lblNewLabel);
 	}
 }

@@ -11,101 +11,92 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
-public class SecondPPGui extends JFrame {
-
-	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SecondPPGui frame = new SecondPPGui();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+public class SecondPPGui extends JPanel {
 
 	/**
 	 * Create the frame.
 	 */
 	public SecondPPGui() {
+		/*
 		setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\tu\\Screen Shot 2017-09-22 at 4.00.14 PM.png"));
 		setTitle("Puzzle Plane");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 938, 806);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		setBorder(new EmptyBorder(5, 5, 5, 5));
+		*/
+		setLayout(null);
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(199, 155, 95, 101);
-		btnNewButton.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/9\u72D0100.jpeg")));
-		contentPane.add(btnNewButton);
+		JButton traditionalpuzzle1Button = new JButton("New button");
+		traditionalpuzzle1Button.setBounds(199, 155, 95, 101);
+		traditionalpuzzle1Button.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/9\u72D0100.jpeg")));
+		add(traditionalpuzzle1Button);
 		
-		JButton button = new JButton("New button");
-		button.setBounds(349, 155, 95, 101);
-		button.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/10\u72D7100.jpeg")));
-		button.addActionListener(new ActionListener() {
+		JButton traditionalPuzzle2Button = new JButton("New button");
+		traditionalPuzzle2Button.setBounds(349, 155, 95, 101);
+		traditionalPuzzle2Button.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/10\u72D7100.jpeg")));
+		traditionalPuzzle2Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		contentPane.add(button);
+		add(traditionalPuzzle2Button);
 		
-		JButton button_1 = new JButton("New button");
-		button_1.setBounds(501, 155, 95, 101);
-		button_1.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/8\u623F100.jpg")));
-		contentPane.add(button_1);
+		JButton traditionalPuzzle3Button = new JButton("New button");
+		traditionalPuzzle3Button.setBounds(501, 155, 95, 101);
+		traditionalPuzzle3Button.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/8\u623F100.jpg")));
+		add(traditionalPuzzle3Button);
 		
-		JButton button_2 = new JButton("New button");
-		button_2.setBounds(656, 155, 95, 101);
-		button_2.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/7\u9F9F.jpeg")));
-		contentPane.add(button_2);
+		JButton traditionalPuzzle4Button = new JButton("New button");
+		traditionalPuzzle4Button.setBounds(656, 155, 95, 101);
+		traditionalPuzzle4Button.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/7\u9F9F.jpeg")));
+		add(traditionalPuzzle4Button);
 		
-		JButton button_3 = new JButton("New button");
-		button_3.setBounds(199, 317, 95, 101);
-		button_3.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/6\u7AD9\u9E2D.jpeg")));
-		contentPane.add(button_3);
+		JButton traditionalPuzzle5Button = new JButton("New button");
+		traditionalPuzzle5Button.setBounds(199, 317, 95, 101);
+		traditionalPuzzle5Button.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/6\u7AD9\u9E2D.jpeg")));
+		add(traditionalPuzzle5Button);
 		
-		JButton button_4 = new JButton("New button");
-		button_4.setBounds(349, 317, 95, 101);
-		button_4.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/5\u9E2D.jpeg")));
-		contentPane.add(button_4);
+		JButton traditionalPuzzle6Button = new JButton("New button");
+		traditionalPuzzle6Button.setBounds(349, 317, 95, 101);
+		traditionalPuzzle6Button.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/5\u9E2D.jpeg")));
+		add(traditionalPuzzle6Button);
 		
-		JButton button_5 = new JButton("New button");
-		button_5.setBounds(501, 317, 95, 101);
-		button_5.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/4\u9C7C.jpeg")));
-		contentPane.add(button_5);
+		JButton traditionalPuzzle7Button = new JButton("New button");
+		traditionalPuzzle7Button.setBounds(501, 317, 95, 101);
+		traditionalPuzzle7Button.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/4\u9C7C.jpeg")));
+		add(traditionalPuzzle7Button);
 		
-		JButton button_6 = new JButton("New button");
-		button_6.setBounds(656, 317, 95, 101);
-		button_6.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/3\u6C34\u6676.jpeg")));
-		contentPane.add(button_6);
+		JButton traditionalPuzzle8Button = new JButton("New button");
+		traditionalPuzzle8Button.setBounds(656, 317, 95, 101);
+		traditionalPuzzle8Button.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/3\u6C34\u6676.jpeg")));
+		add(traditionalPuzzle8Button);
 		
-		JButton button_7 = new JButton("New button");
-		button_7.setBounds(199, 483, 95, 101);
-		button_7.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/2\u5154\u5B50.jpeg")));
-		contentPane.add(button_7);
+		JButton traditionalPuzzle9Button = new JButton("New button");
+		traditionalPuzzle9Button.setBounds(199, 483, 95, 101);
+		traditionalPuzzle9Button.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/2\u5154\u5B50.jpeg")));
+		add(traditionalPuzzle9Button);
 		
-		JButton button_8 = new JButton("New button");
-		button_8.setBounds(349, 483, 95, 101);
-		button_8.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/1\u7EB8\u9E64100.jpg")));
-		contentPane.add(button_8);
+		JButton traditionalPuzzle10Button = new JButton("New button");
+		traditionalPuzzle10Button.setBounds(349, 483, 95, 101);
+		traditionalPuzzle10Button.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/1\u7EB8\u9E64100.jpg")));
+		add(traditionalPuzzle10Button);
 		
-		JButton button_9 = new JButton("Return");
-		button_9.addActionListener(new ActionListener() {
+		JButton returnShapeSetButton = new JButton("Return");
+		returnShapeSetButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		button_9.setBounds(656, 555, 95, 46);
-		contentPane.add(button_9);
+		returnShapeSetButton.setBounds(656, 555, 95, 46);
+		add(returnShapeSetButton);
+		
+		JLabel chooseAPuzzleTitle = new JLabel("Choose a Puzzle");
+		chooseAPuzzleTitle.setHorizontalAlignment(SwingConstants.CENTER);
+		chooseAPuzzleTitle.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		chooseAPuzzleTitle.setBounds(375, 90, 221, 25);
+		add(chooseAPuzzleTitle);
 	}
 
 }
