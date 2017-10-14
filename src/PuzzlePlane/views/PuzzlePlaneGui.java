@@ -18,9 +18,9 @@ import javax.swing.UIManager;
 //This JFrame is the main Frame of application. Use JPanels as content, and switch JPanels for each different view
 public class PuzzlePlaneGui extends JFrame {
 	Board board;
-    private JPanel pane = null; //Main panel be set to cardlayout
-    private JPanel p = null;	//Panel contain buttons
-    private CardLayout card = null; // CardLayout manager
+	private JPanel pane = null; //Main panel be set to cardlayout
+	private JPanel p = null;	//Panel contain buttons
+	private CardLayout card = null; // CardLayout manager
     private JButton button_1 = null; // pre JPanel
     private JButton button_2 = null; // next Jpanel
     private JButton first_b = null; // first Jpanel
