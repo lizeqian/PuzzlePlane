@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
-public class FirstPPGui extends JPanel {
+public class FirstPPGui extends JFrame {
 
 	private JPanel contentPane;
 
