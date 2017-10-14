@@ -16,14 +16,14 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
-public class FirstPPGui extends JFrame {
+public class FirstPPGui extends JPanel {
 
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -34,13 +34,13 @@ public class FirstPPGui extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
 	public FirstPPGui() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\tu\\Screen Shot 2017-09-22 at 4.00.14 PM.png"));
+		/*setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\tu\\Screen Shot 2017-09-22 at 4.00.14 PM.png"));
 		setTitle("Puzzle Plane");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1035, 784);
@@ -48,22 +48,23 @@ public class FirstPPGui extends JFrame {
 		contentPane.setBackground(Color.WHITE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		contentPane.*/
+		setLayout(null);
 		
 		JButton traditionalsetButton = new JButton("chooseShapeSetButton");
 		traditionalsetButton.setIcon(new ImageIcon(FirstPPGui.class.getResource("/PuzzlePlane/resources/Screen Shot 2017-09-22 at 4.00.14 PM.png")));
 		traditionalsetButton.setBounds(54, 157, 436, 440);
-		contentPane.add(traditionalsetButton);
+		add(traditionalsetButton);
 		
 		JButton nontraditionalsetButton = new JButton("chooseShapeSetButton");
 		nontraditionalsetButton.setIcon(new ImageIcon(FirstPPGui.class.getResource("/PuzzlePlane/resources/Screen Shot 2017-09-22 at 4.10.55 PM.png")));
 		nontraditionalsetButton.setBounds(519, 157, 447, 432);
-		contentPane.add(nontraditionalsetButton);
+		add(nontraditionalsetButton);
 		
 		JLabel lblNewLabel = new JLabel("Choose a Shape Set");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(350, 78, 307, 46);
-		contentPane.add(lblNewLabel);
+		add(lblNewLabel);
 	}
 }
