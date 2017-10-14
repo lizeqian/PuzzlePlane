@@ -21,9 +21,9 @@ public class PuzzlePlaneGui extends JFrame {
     private JPanel pane = null; //Main panel be set to cardlayout
     private JPanel p = null;	//Panel contain buttons
     private CardLayout card = null; // CardLayout manager
-    private JButton button_1 = null; // pre
-    private JButton button_2 = null; // next
-    private JButton first_b = null; // page button
+    private JButton button_1 = null; // pre JPanel
+    private JButton button_2 = null; // next Jpanel
+    private JButton first_b = null; // first Jpanel
     private JPanel p_1 = null, p_2 = null, p_3 = null, p_4 = null, p_5 = null; // 3 JPanel
 
 	
