@@ -1,5 +1,7 @@
 package PuzzlePlane.views;
 
+import PuzzlePlane.models.*;
+
 import javax.swing.JPanel;
 
 import java.awt.Insets;
@@ -22,8 +24,12 @@ public class SolutionSpace extends JPanel {
 	 * Create the panel.
 	 */
 	JButton button_next = null;
+	Board board;
 	
-	public SolutionSpace() {
+	public SolutionSpace(Board board) {
+		
+		
+		
 		setLayout(null);
 		
 		JLabel lblSolutionspace = new JLabel("SolutionSpace");
