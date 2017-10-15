@@ -9,8 +9,20 @@ public class PlacedShape{
 	boolean horizontalFlipped;
 	int angle;
 	
-	public PlacedShape( ) {
-		
+	public PlacedShape(Point position,PolyShape shape,boolean verticalFlipped,boolean horizontalFlipped,int angle) {
+		this.position = position;
+		this.shape = shape;
+		this.verticalFlipped = verticalFlipped;
+		this.horizontalFlipped = horizontalFlipped;
+		this.angle = angle;
+	}
+	
+	public PolyShape getShape() {
+		return this.shape;
+	}
+	
+	public Point getPosition() {
+		return this.position;
 	}
 	
 	public void leftRotateShape( ) {

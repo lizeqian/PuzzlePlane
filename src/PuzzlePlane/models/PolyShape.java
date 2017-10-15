@@ -11,6 +11,10 @@ public class PolyShape{
 		
 	}
 	
+	public ArrayList<Point> getPoints() {
+		return this.points;
+	}
+	
 	public void addPoint (Point p) {
 		this.points.add(p);
 	}
