@@ -29,6 +29,6 @@ public class AddShapeTest implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		this.puzzlePlaneGui.jumpPage("p3");
-		this.palette.addPlacedShape(this.s);
+		this.palette.initialAddShape(this.s);
 	}
 }

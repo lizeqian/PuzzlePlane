@@ -8,13 +8,15 @@ public class PlacedShape{
 	boolean verticalFlipped;
 	boolean horizontalFlipped;
 	int angle;
+	int order;
 	
-	public PlacedShape(Point position,PolyShape shape,boolean verticalFlipped,boolean horizontalFlipped,int angle) {
+	public PlacedShape(Point position,PolyShape shape,boolean verticalFlipped,boolean horizontalFlipped,int angle, int order) {
 		this.position = position;
 		this.shape = shape;
 		this.verticalFlipped = verticalFlipped;
 		this.horizontalFlipped = horizontalFlipped;
 		this.angle = angle;
+		this.order = order;
 	}
 	
 	public void setPosition(int x, int y) {
@@ -27,6 +29,10 @@ public class PlacedShape{
 	
 	public Point getPosition() {
 		return this.position;
+	}
+	
+	public int getOrder() {
+		return this.order;
 	}
 	
 	public void leftRotateShape( ) {

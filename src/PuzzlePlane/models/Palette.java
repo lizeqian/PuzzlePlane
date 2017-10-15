@@ -22,9 +22,19 @@ public class Palette {
 		this.shapes.get(o).setPosition(x, y);
 	}
 	
-	public void addPlacedShape(PolyShape s) {
-		PlacedShape placedShape = new PlacedShape(this.shapePos.get(0), s, false, false, 0);
+	public void initialAddShape(PolyShape s) {
+		PlacedShape placedShape = new PlacedShape(this.shapePos.get(0), s, false, false, 0, this.order);
 		this.shapes.add(placedShape);
+		this.order += 1;
+	}
+	
+	public void addPlacedShape(PlacedShape s) {
+		int index = s.getOrder();
+		this.shapes.add(index, s);
+	}
+	
+	public void removePlacedShape(int o) {
+		this.shapes.remove(o);
 	}
 	
 	public ArrayList<PlacedShape> getShapes() {

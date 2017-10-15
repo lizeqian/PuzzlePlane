@@ -1,8 +1,10 @@
 package PuzzlePlane.models;
 
+import java.util.ArrayList;
+
 public class SolutionSpace {
 	ShapeSet shapeSet;
-	PlacedShape[] placedShape;
+	ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
 	Puzzle puzzle;
 	boolean success;
 	
