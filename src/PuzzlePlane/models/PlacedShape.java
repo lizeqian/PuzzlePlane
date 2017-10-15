@@ -2,7 +2,7 @@ package PuzzlePlane.models;
 
 public class PlacedShape{
 	Coordinate position;
-	Shape shape;
+	PolyShape shape;
 	boolean verticalFlipped;
 	boolean horizontalFlipped;
 	int angle;

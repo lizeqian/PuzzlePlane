@@ -5,9 +5,14 @@ public class Board {
 	SolutionSpace solutionSpace;
 	
 	
+	
 	public Board() {
 		this.palette = new Palette();
 		this.solutionSpace = new SolutionSpace();
+	}
+	
+	public Palette getPalette ( ) {
+		return this.palette;
 	}
 	
 	public void selectShapeSet( ) {

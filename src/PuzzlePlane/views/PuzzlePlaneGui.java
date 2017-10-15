@@ -26,6 +26,8 @@ public class PuzzlePlaneGui extends JFrame {
     private JButton first_b = null; // first Jpanel
     private JPanel p_1 = null, p_2 = null, p_3 = null, p_4 = null, p_5 = null; // 3 JPanel
     private int width = 900, height = 1100;
+    
+    private JButton testAddShape = null;
 
 	
 	public PuzzlePlaneGui(Board b) {
@@ -41,6 +43,7 @@ public class PuzzlePlaneGui extends JFrame {
 		button_2 = new JButton("Next");	//Construct two buttons
 		first_b = new JButton("Main");
 		first_b.setMargin(new Insets(2,2,2,2));//set margin for buttons
+		testAddShape = new JButton("AddShape"); //TODO Delete and Replace
         p.add(button_1);
         p.add(button_2);
         p.add(first_b);
@@ -51,6 +54,7 @@ public class PuzzlePlaneGui extends JFrame {
         p_5 = new JPanel();
         p_1.add(new JLabel("JPanel_1"));
         p_2.add(new JLabel("JPanel_2"));
+        p_2.add(testAddShape);
         p_4.add(new JLabel("JPanel_4"));
         p_5.add(new JLabel("JPanel_5"));
         pane.add(p_1, "p1");
@@ -58,6 +62,10 @@ public class PuzzlePlaneGui extends JFrame {
         pane.add(p_3, "p3");
         pane.add(p_4, "p4");
         pane.add(p_5, "p5");
+        
+        //TODO Test code, please remove
+        AddShapeTest addShapeTest = new AddShapeTest(this, b.getPalette());
+        testAddShape.addActionListener(addShapeTest);
         
         //These methods should be implemented in a controller
         button_1.addActionListener(new ActionListener(){ 		//action when a button clicked
