@@ -9,14 +9,16 @@ public class PlacedShape{
 	boolean horizontalFlipped;
 	int angle;
 	int order;
+	boolean onPalette;
 	
-	public PlacedShape(Point position,PolyShape shape,boolean verticalFlipped,boolean horizontalFlipped,int angle, int order) {
+	public PlacedShape(Point position,PolyShape shape,boolean verticalFlipped,boolean horizontalFlipped,int angle, int order, boolean onPalette) {
 		this.position = position;
 		this.shape = shape;
 		this.verticalFlipped = verticalFlipped;
 		this.horizontalFlipped = horizontalFlipped;
 		this.angle = angle;
 		this.order = order;
+		this.onPalette = onPalette;
 	}
 	
 	public void setPosition(int x, int y) {

@@ -8,8 +8,23 @@ public class SolutionSpace {
 	Puzzle puzzle;
 	boolean success;
 	
-	public SolutionSpace( ) {
-		
+	public SolutionSpace() {
+	}
+	
+	public void setShapeSet(ShapeSet s) {
+		this.shapeSet = s;
+	}
+	
+	public void setPuzzle(Puzzle p) {
+		this.puzzle = p;
+	}
+	
+	public void addPlacedShape(PlacedShape s) {
+		this.shapes.add(s);
+	}
+	
+	public void removePlacedShape(PlacedShape s) {
+		this.shapes.remove(s);
 	}
 	
 	public void selectShape( ) {

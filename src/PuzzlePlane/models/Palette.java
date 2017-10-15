@@ -23,18 +23,17 @@ public class Palette {
 	}
 	
 	public void initialAddShape(PolyShape s) {
-		PlacedShape placedShape = new PlacedShape(this.shapePos.get(0), s, false, false, 0, this.order);
+		PlacedShape placedShape = new PlacedShape(this.shapePos.get(0), s, false, false, 0, this.order, true);
 		this.shapes.add(placedShape);
 		this.order += 1;
 	}
 	
 	public void addPlacedShape(PlacedShape s) {
-		int index = s.getOrder();
-		this.shapes.add(index, s);
+		this.shapes.add(s);
 	}
 	
-	public void removePlacedShape(int o) {
-		this.shapes.remove(o);
+	public void removePlacedShape(PlacedShape s) {
+		this.shapes.remove(s);
 	}
 	
 	public ArrayList<PlacedShape> getShapes() {

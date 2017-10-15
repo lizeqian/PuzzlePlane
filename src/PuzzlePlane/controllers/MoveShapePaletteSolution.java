@@ -14,14 +14,19 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 	Board board;
 	PuzzleSolvingView puzzleSolvingView;
 	Point origin, shapePos;
-	PaletteView paletteView;
 	int x = 0;
 	int y = 0;
+	PlacedShape selectedShape;
 	
 	
-	public MoveShapePaletteSolution (Board b, PaletteView p) {
+	public MoveShapePaletteSolution (Board b, PuzzleSolvingView p) {
 		this.board = b;
-		this.paletteView = p;
+		this.puzzleSolvingView = p;
+	}
+	
+	public void register() {
+		this.puzzleSolvingView.setActiveListener(this);
+		this.puzzleSolvingView.setActiveMotionListener(this);
 	}
 	
 	@Override
@@ -39,11 +44,11 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 		int x = me.getX() - origin.x + offset_x;
 		int y = me.getY() - origin.y + offset_y;
 		this.board.getPalette().setPosition(x, y, 0);
-		paletteView.repaint();
+		this.puzzleSolvingView.repaint();
 	}
 	
 	@Override
 	public void mouseReleased(MouseEvent me) {
-		paletteView.repaint();
+		this.puzzleSolvingView.repaint();
 	}
 }
