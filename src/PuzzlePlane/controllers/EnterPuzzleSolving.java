@@ -6,15 +6,17 @@ import PuzzlePlane.views.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class ExitPuzzleSolving implements ActionListener{
+public class EnterPuzzleSolving implements ActionListener{
 	PuzzlePlaneGui puzzlePlaneGui;
+	Board board;
 	
-	public ExitPuzzleSolving(PuzzlePlaneGui p) {
+	public EnterPuzzleSolving(PuzzlePlaneGui p, Board b) {
 		this.puzzlePlaneGui = p;
+		this.board = b;
 		
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		this.puzzlePlaneGui.jumpPage("p2");
+		
 	}
 }

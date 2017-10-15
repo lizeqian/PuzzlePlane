@@ -12,13 +12,13 @@ public class PuzzleSolvingView extends JPanel {
 	public PuzzleSolvingView(Board b, PuzzlePlaneGui p) {
 		setLayout(null);
 		
-		palette = new PaletteView();
+		this.palette = new PaletteView(b);
 		palette.setBounds(0, 0, 450, 100);
 		add(palette);
 		
-		solutionSpace = new SolutionSpaceView(b, p);
-		solutionSpace.setBounds(0, 100, 450, 200);
-		add(solutionSpace);
+		this.solutionSpace = new SolutionSpaceView(b, p);
+		this.solutionSpace.setBounds(0, 100, 450, 200);
+		add(this.solutionSpace);
 
 	}
 }

@@ -30,7 +30,7 @@ public class SolutionSpaceView extends JPanel {
 	
 	public SolutionSpaceView(Board board, PuzzlePlaneGui p) {
 		
-		puzzlePlaneGui = p;
+		this.puzzlePlaneGui = p;
 		
 		ExitPuzzleSolving exitPuzzleSolving = new ExitPuzzleSolving(p);
 		
