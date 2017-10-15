@@ -1,7 +1,9 @@
 package PuzzlePlane.models;
 
+import java.awt.Point;
+
 public class PlacedShape{
-	Coordinate position;
+	Point position;
 	PolyShape shape;
 	boolean verticalFlipped;
 	boolean horizontalFlipped;
