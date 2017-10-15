@@ -17,6 +17,10 @@ public class PlacedShape{
 		this.angle = angle;
 	}
 	
+	public void setPosition(int x, int y) {
+		this.position.setLocation(x, y);
+	}
+	
 	public PolyShape getShape() {
 		return this.shape;
 	}

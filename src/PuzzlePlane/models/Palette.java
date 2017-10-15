@@ -18,6 +18,10 @@ public class Palette {
 		this.order = 0;
 	}
 	
+	public void setPosition(int x, int y, int o) {
+		this.shapes.get(o).setPosition(x, y);
+	}
+	
 	public void addPlacedShape(PolyShape s) {
 		PlacedShape placedShape = new PlacedShape(this.shapePos.get(0), s, false, false, 0);
 		this.shapes.add(placedShape);

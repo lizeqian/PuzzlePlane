@@ -22,7 +22,7 @@ public class PaletteView extends JPanel {
 		
 		this.board = b;
 
-		MoveShapePaletteSolution control = new MoveShapePaletteSolution(b, p);
+		MoveShapePaletteSolution control = new MoveShapePaletteSolution(b, this);
 		this.addMouseListener(control);
 		this.addMouseMotionListener(control);
 		
@@ -51,6 +51,7 @@ public class PaletteView extends JPanel {
 			}
 			g.setColor(Color.BLACK);
 			g.fillPolygon(p);
+			
 		}
 	}
 	

@@ -19,9 +19,9 @@ public class PuzzleSolvingView extends JPanel {
 		setLayout(null);
 		
 		
-		MoveShapePaletteSolution control = new MoveShapePaletteSolution(b, this);
+		/*MoveShapePaletteSolution control = new MoveShapePaletteSolution(b, this);
 		this.addMouseListener(control);
-		this.addMouseMotionListener(control);
+		this.addMouseMotionListener(control);*/
 		
 		palette_w = w;
 		solution_w = w;

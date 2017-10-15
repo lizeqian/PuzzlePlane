@@ -13,25 +13,37 @@ import java.awt.event.*;
 public class MoveShapePaletteSolution extends MouseAdapter{
 	Board board;
 	PuzzleSolvingView puzzleSolvingView;
-	Point origin;
+	Point origin, shapePos;
+	PaletteView paletteView;
+	int x = 0;
+	int y = 0;
 	
-	public MoveShapePaletteSolution (Board b, PuzzleSolvingView p) {
+	
+	public MoveShapePaletteSolution (Board b, PaletteView p) {
 		this.board = b;
-		this.puzzleSolvingView = p;
+		this.paletteView = p;
 	}
 	
 	@Override
 	public void mousePressed(MouseEvent me) {
-		origin = me.getPoint();
+		this.origin = me.getPoint();
+		this.shapePos = this.board.getPalette().getShapes().get(0).getPosition();
+		this.x = this.shapePos.x;
+		this.y = this.shapePos.y;
 	}
 	
 	@Override
 	public void mouseDragged(MouseEvent me) {
-		puzzleSolvingView.repaint();
+		int offset_x = this.x;
+		int offset_y = this.y;
+		int x = me.getX() - origin.x + offset_x;
+		int y = me.getY() - origin.y + offset_y;
+		this.board.getPalette().setPosition(x, y, 0);
+		paletteView.repaint();
 	}
 	
 	@Override
 	public void mouseReleased(MouseEvent me) {
-		puzzleSolvingView.repaint();
+		paletteView.repaint();
 	}
 }
