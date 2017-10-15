@@ -25,6 +25,7 @@ public class PuzzlePlaneGui extends JFrame {
     private JButton button_2 = null; // next Jpanel
     private JButton first_b = null; // first Jpanel
     private JPanel p_1 = null, p_2 = null, p_3 = null, p_4 = null, p_5 = null; // 3 JPanel
+    private int width = 900, height = 1100;
 
 	
 	public PuzzlePlaneGui(Board b) {
@@ -45,7 +46,7 @@ public class PuzzlePlaneGui extends JFrame {
         p.add(first_b);
         p_1 = new FirstPPGui();
         p_2 = new JPanel();//SecondPPGui();  //Please uncomment when this class is correctly implemented
-        p_3 = new PuzzleSolvingView(b, this);
+        p_3 = new PuzzleSolvingView(b, this, this.width, this.height);
         p_4 = new JPanel();
         p_5 = new JPanel();
         p_1.add(new JLabel("JPanel_1"));
@@ -80,7 +81,7 @@ public class PuzzlePlaneGui extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		
-		setSize(1000, 900);
+		setSize(height, width);
 		this.setVisible(true);
 	}
 	
