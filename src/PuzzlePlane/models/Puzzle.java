@@ -1,7 +1,7 @@
 package PuzzlePlane.models;
 
 public class Puzzle{
-	PolyShape puzzleShape;
+	PlacedShape puzzleShape;
 	PlacedShape solution;
 	PlacedShape lastSolution;
 	boolean isSolved;

@@ -1,41 +1,60 @@
 package PuzzlePlane.models;
 
-import java.awt.Point;
+import java.awt.*;
 
-public class PlacedShape{
+public class PlacedShape extends Polygon{
 	Point position;
-	PolyShape shape;
 	boolean verticalFlipped;
 	boolean horizontalFlipped;
 	int angle;
 	int order;
 	boolean onPalette;
+	boolean selected;
+	Color color;
+	Polygon initial;
 	
-	public PlacedShape(Point position,PolyShape shape,boolean verticalFlipped,boolean horizontalFlipped,int angle, int order, boolean onPalette) {
+	public PlacedShape(Point position, boolean verticalFlipped,boolean horizontalFlipped,int angle, int order, boolean onPalette, boolean selected, Color color) {
 		this.position = position;
-		this.shape = shape;
 		this.verticalFlipped = verticalFlipped;
 		this.horizontalFlipped = horizontalFlipped;
 		this.angle = angle;
 		this.order = order;
 		this.onPalette = onPalette;
+		this.selected = selected;
+		this.color = color;
 	}
 	
+	
 	public void setPosition(int x, int y) {
+		this.translate(x-this.position.x, y-this.position.y);
 		this.position.setLocation(x, y);
 	}
 	
-	public PolyShape getShape() {
-		return this.shape;
+	public void setSelected(boolean b) {
+		this.selected = b;
 	}
 	
+	
 	public Point getPosition() {
+		//System.out.println(this.position.x);
 		return this.position;
 	}
 	
 	public int getOrder() {
 		return this.order;
 	}
+	
+	public boolean getSelected() {
+		return this.selected;
+	}
+	
+	public Color getColor() {
+		return this.color;
+	}
+	
+/*	public boolean shapeContain(int x, int y) {
+		return this.shape.contains(x, y);
+	}*/
 	
 	public void leftRotateShape( ) {
 		

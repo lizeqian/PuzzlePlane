@@ -15,6 +15,10 @@ public class Board {
 		return this.palette;
 	}
 	
+	public SolutionSpace getSolutionSpace ( ) {
+		return this.solutionSpace;
+	}
+	
 	public void selectShapeSet( ) {
 		
 	}

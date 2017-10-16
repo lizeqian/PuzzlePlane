@@ -18,8 +18,6 @@ import PuzzlePlane.controllers.*;
 
 public class PuzzleSolvingView extends JPanel {
 
-	JPanel palette;
-	JPanel solutionSpace;
 	Board board;
 	int palette_h;
 	int palette_w;
@@ -29,23 +27,6 @@ public class PuzzleSolvingView extends JPanel {
 	MouseListener        activeListener;
 	MouseMotionListener  activeMotionListener;
 	
-	/** Properly register new listener (and unregister old one if present). */
-	public void setActiveListener(MouseListener ml) {
-		this.removeMouseListener(activeListener);
-		activeListener = ml;
-		if (ml != null) { 
-			this.addMouseListener(ml);
-		}
-	}
-	
-	/** Properly register new motion listener (and unregister old one if present). */
-	public void setActiveMotionListener(MouseMotionListener mml) {
-		this.removeMouseMotionListener(activeMotionListener);
-		activeMotionListener = mml;
-		if (mml != null) {
-			this.addMouseMotionListener(mml);
-		}
-	}
 	
 	public PuzzleSolvingView(Board b, PuzzlePlaneGui p, int w, int h) {
 		setLayout(null);		
@@ -55,47 +36,46 @@ public class PuzzleSolvingView extends JPanel {
 		this.palette_h = (int)(h*0.3);
 		this.solution_h = h - palette_h;
 		this.board = b;
-		
-		
-		this.palette = new JPanel();
-		this.palette.setBounds(0, 0, palette_w, palette_h);
-		add(this.palette);
-		
-		JLabel lblPalette = new JLabel("Palette");
-		lblPalette.setBounds(147, 11, 46, 14);
-		this.palette.add(lblPalette);
-		
-		this.solutionSpace = new JPanel();
-		this.solutionSpace.setBounds(0, palette_h, solution_w, solution_h);
-		add(this.solutionSpace);
-		
-		JLabel lblSolutionspace = new JLabel("SolutionSpace");
-		lblSolutionspace.setBounds(183, 22, 76, 14);
-		this.solutionSpace.add(lblSolutionspace);
-		
+		MoveShapePaletteSolution moveShapePaletteSolution = new MoveShapePaletteSolution(b, this, this.palette_w, this.palette_h);
+		this.addMouseListener(moveShapePaletteSolution);
+		this.addMouseMotionListener(moveShapePaletteSolution);
+		ExitPuzzleSolving exitPuzzleSolving = new ExitPuzzleSolving(p);
 		JButton button_next = new JButton("Exit Puzzle");
 		button_next.setBounds(183, 64, 89, 23);
-		this.solutionSpace.add(button_next);
+		button_next.addActionListener(exitPuzzleSolving);
+		this.add(button_next);
 	}
 	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		g.drawLine(0, this.palette_h, this.palette_w, this.palette_h);
+		
 		Palette pl = this.board.getPalette();
-		ArrayList<PlacedShape> shapes = pl.getShapes();
-		for (PlacedShape s : shapes) {
-			PolyShape polyshape = s.getShape();
-			Point pos = s.getPosition();
+		ArrayList<PlacedShape> pl_shapes = pl.getShapes();
+		SolutionSpace ss = this.board.getSolutionSpace();
+		ArrayList<PlacedShape> ss_shapes = ss.getShapes();
+		
+		for (PlacedShape s : pl_shapes) {
 			Polygon p = new Polygon();
-			ArrayList<Point> points = polyshape.getPoints();
-			for (Point point : points) {
-				int x = point.x+pos.x;
-				int y = point.y+pos.y;
-				p.addPoint(x, y);
-			}
-			g.setColor(Color.BLACK);
+			p = s;
+			
+			g.setColor(s.getColor());
 			g.fillPolygon(p);
 			
 		}
+		
+		
+		for (PlacedShape s : ss_shapes) {
+			Polygon p = new Polygon();
+			p = s;
+			
+			g.setColor(s.getColor());
+			g.fillPolygon(p);
+			
+			
+		}
 	}
+	
+	
 }
