@@ -1,50 +1,74 @@
 package PuzzlePlane.models;
 
+import java.awt.Color;
+import java.awt.Point;
+import java.util.ArrayList;
+
 public class Board {
-	Palette palette;
-	SolutionSpace solutionSpace;
 	
+	ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
+	ArrayList<Point> shapePosition = new ArrayList<Point>(); //Fixed Positions
+	int order;
+	int selectedOrder;
+	int orderOffset_x = 0, orderOffset_y=0;
 	
 	
 	public Board() {
-		this.palette = new Palette();
-		this.solutionSpace = new SolutionSpace();
+		Point firstPos = new Point();
+		firstPos.setLocation(20.0, 50.0);
+		Point sPos = new Point();
+		sPos.setLocation(120.0, 50.0);
+		this.shapePosition.add(firstPos);
+		this.shapePosition.add(sPos);
+		this.order = 0;
 	}
 	
-	public Palette getPalette ( ) {
-		return this.palette;
+	public void setPosition(int x, int y, int o) {
+		this.getShape(o).setPosition(x, y);
 	}
 	
-	public SolutionSpace getSolutionSpace ( ) {
-		return this.solutionSpace;
+	public void initialAddShape(ArrayList<Point> points, Color color) {
+		this.orderOffset_x = this.shapePosition.get(this.order).x;
+		this.orderOffset_y = this.shapePosition.get(this.order).y;
+		PlacedShape placedShape = new PlacedShape(new Point(this.orderOffset_x, this.orderOffset_y), false, false, 0, this.order, true, false, color);
+		for (Point point:points) {
+			placedShape.addPoint(point.x+this.orderOffset_x, point.y+this.orderOffset_y);
+		}
+		this.shapes.add(placedShape);
+		this.order += 1;
 	}
 	
-	public void selectShapeSet( ) {
-		
+	public boolean selectShape(int x, int y) {
+		for (PlacedShape shape: this.shapes) {
+			if (shape.contains(x, y)) {
+				this.selectedOrder = shape.getOrder();
+				shape.setSelected(true);
+				return true;
+			}
+		}
+		return false;
 	}
 	
-	public void selectPuzzle( ) {
-		
+	public int getSelectedOrder () {
+		return this.selectedOrder;
 	}
 	
-	public void placeShape( ) {
-		
+	
+	public PlacedShape getShape(int o) {
+		for(PlacedShape shape: this.shapes) {
+			if (shape.getOrder() == o) {
+				return shape;
+			}
+		}
+		return null;
 	}
 	
-	public void returnShape( ) {
-		
+	public ArrayList<PlacedShape> getShapes() {
+		return this.shapes;
 	}
 	
-	public void reset ( ) {
-		
-	}
-	
-	public void undo ( ) {
-		
-	}
-	
-	public void redo ( ) {
-		
+	public Point getShapePosition(int o) {
+		return this.shapePosition.get(o);
 	}
 	
 }

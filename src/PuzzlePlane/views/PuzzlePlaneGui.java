@@ -64,7 +64,7 @@ public class PuzzlePlaneGui extends JFrame {
         pane.add(p_5, "p5");
         
         //TODO Test code, please remove
-        AddShapeTest addShapeTest = new AddShapeTest(this, b.getPalette());
+        AddShapeTest addShapeTest = new AddShapeTest(this, b);
         testAddShape.addActionListener(addShapeTest);
         
         //These methods should be implemented in a controller

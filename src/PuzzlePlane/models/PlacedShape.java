@@ -36,7 +36,6 @@ public class PlacedShape extends Polygon{
 	
 	
 	public Point getPosition() {
-		//System.out.println(this.position.x);
 		return this.position;
 	}
 	
@@ -51,10 +50,6 @@ public class PlacedShape extends Polygon{
 	public Color getColor() {
 		return this.color;
 	}
-	
-/*	public boolean shapeContain(int x, int y) {
-		return this.shape.contains(x, y);
-	}*/
 	
 	public void leftRotateShape( ) {
 		

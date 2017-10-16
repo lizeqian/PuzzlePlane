@@ -10,12 +10,12 @@ import java.util.ArrayList;
 
 public class AddShapeTest implements ActionListener{
 	PuzzlePlaneGui puzzlePlaneGui;
-	Palette palette;
+	Board board;
 	ArrayList<Point> s = new ArrayList<Point>(), s1 = new ArrayList<Point>();
 	
-	public AddShapeTest(PuzzlePlaneGui p, Palette pl) {
+	public AddShapeTest(PuzzlePlaneGui p, Board b) {
 		this.puzzlePlaneGui = p;
-		this.palette = pl;
+		this.board = b;
 		Point x = new Point();
 		Point y = new Point();
 		Point z = new Point();
@@ -41,7 +41,7 @@ public class AddShapeTest implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		this.puzzlePlaneGui.jumpPage("p3");
-		this.palette.initialAddShape(this.s, Color.MAGENTA);
-		this.palette.initialAddShape(this.s1, Color.GREEN);
+		this.board.initialAddShape(this.s, new Color(255, 0, 0));	//Shapes should only be added the first time been triggered, color (int r, int g, int b)
+		this.board.initialAddShape(this.s1, new Color(0, 255, 0));
 	}
 }

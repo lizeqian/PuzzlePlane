@@ -41,7 +41,7 @@ public class PuzzleSolvingView extends JPanel {
 		this.addMouseMotionListener(moveShapePaletteSolution);
 		ExitPuzzleSolving exitPuzzleSolving = new ExitPuzzleSolving(p);
 		JButton button_next = new JButton("Exit Puzzle");
-		button_next.setBounds(183, 64, 89, 23);
+		button_next.setBounds(w-300, h-200, 200, 30);
 		button_next.addActionListener(exitPuzzleSolving);
 		this.add(button_next);
 	}
@@ -51,12 +51,10 @@ public class PuzzleSolvingView extends JPanel {
 		super.paintComponent(g);
 		g.drawLine(0, this.palette_h, this.palette_w, this.palette_h);
 		
-		Palette pl = this.board.getPalette();
-		ArrayList<PlacedShape> pl_shapes = pl.getShapes();
-		SolutionSpace ss = this.board.getSolutionSpace();
-		ArrayList<PlacedShape> ss_shapes = ss.getShapes();
+
+		ArrayList<PlacedShape> shapes = this.board.getShapes();
 		
-		for (PlacedShape s : pl_shapes) {
+		for (PlacedShape s : shapes) {
 			Polygon p = new Polygon();
 			p = s;
 			
@@ -65,16 +63,7 @@ public class PuzzleSolvingView extends JPanel {
 			
 		}
 		
-		
-		for (PlacedShape s : ss_shapes) {
-			Polygon p = new Polygon();
-			p = s;
-			
-			g.setColor(s.getColor());
-			g.fillPolygon(p);
-			
-			
-		}
+
 	}
 	
 	
