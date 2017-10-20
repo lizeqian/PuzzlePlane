@@ -23,6 +23,7 @@ public class PuzzleSolvingView extends JPanel {
 	int palette_w;
 	int solution_w;
 	int solution_h;
+	int buttonAreaHeight;
 	// Current mouse listener
 	MouseListener        activeListener;
 	MouseMotionListener  activeMotionListener;
@@ -31,6 +32,7 @@ public class PuzzleSolvingView extends JPanel {
 	public PuzzleSolvingView(Board b, PuzzlePlaneGui p, int w, int h) {
 		setLayout(null);		
 		
+		this.buttonAreaHeight = 50;
 		this.palette_w = w;
 		this.solution_w = w;
 		this.palette_h = (int)(h*0.3);
@@ -62,9 +64,11 @@ public class PuzzleSolvingView extends JPanel {
 			g.fillPolygon(p);
 			
 		}
-		
-
 	}
 	
+	@Override
+	public int getHeight() {
+		return super.getHeight() - this.buttonAreaHeight;
+	}
 	
 }

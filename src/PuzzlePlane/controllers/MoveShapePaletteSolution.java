@@ -50,6 +50,10 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 			int offset_y = this.y;
 			int x = me.getX() - this.origin.x + offset_x;
 			int y = me.getY() - this.origin.y + offset_y;
+			if (x < 0) x = 0;
+			if (x >= this.puzzleSolvingView.getWidth()) x = this.puzzleSolvingView.getWidth();
+			if (y < 0) y = 0;
+			if (y >= this.puzzleSolvingView.getHeight()) y = this.puzzleSolvingView.getHeight();
 			this.board.setPosition(x, y, this.selectedShapeOrder);
 			this.puzzleSolvingView.repaint();	
 		}
@@ -58,7 +62,15 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 	@Override
 	public void mouseReleased(MouseEvent me) {
 		if (this.shapeContain) {
-			if (me.getPoint().y < this.palette_h) { //this.palette_h + (maximum height of a shape)
+			int[] ypoints = this.board.getShape(this.selectedShapeOrder).ypoints;
+			int topY = 10000000;
+			for(int i = 0; i < ypoints.length; i++) {
+				if (ypoints[i] < topY) {
+					topY =  ypoints[i];
+				}
+			}
+			
+			if (topY < this.palette_h) { //this.palette_h + (maximum height of a shape)
 				Point initialPosition = this.board.getShapePosition(this.selectedShapeOrder);
 				this.board.setPosition(initialPosition.x, initialPosition.y, this.selectedShapeOrder);
 			}

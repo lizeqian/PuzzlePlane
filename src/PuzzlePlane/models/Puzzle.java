@@ -7,6 +7,11 @@ public class Puzzle{
 	boolean isSolved;
 	int order;
 	
+	public void init() {
+		//puzzleShape = new PlacedShape(new Point(), false, false);
+		
+	}
+	
 	public Puzzle() {
 		
 	}
