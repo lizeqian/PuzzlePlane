@@ -90,6 +90,7 @@ public class PuzzlePlaneGui extends JFrame {
 		
 		
 		setSize(this.width, this.height);
+		this.setResizable(false);
 		this.setVisible(true);
 	}
 	
