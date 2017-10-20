@@ -20,6 +20,7 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 	int palette_h;
 	int selectedShapeOrder;
 	boolean shapeContain;
+	int lx, rx, ty, by;
 	
 	
 	public MoveShapePaletteSolution (Board b, PuzzleSolvingView p, int w, int h) {
@@ -38,6 +39,11 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 			this.shapePos = this.board.getShape(this.selectedShapeOrder).getPosition();
 			this.x = this.shapePos.x;
 			this.y = this.shapePos.y;
+			
+			this.lx = this.board.getShape(this.selectedShapeOrder).getLeftX();
+			this.rx = this.board.getShape(this.selectedShapeOrder).getRightX();
+			this.ty = this.board.getShape(this.selectedShapeOrder).getTopY();
+			this.by = this.board.getShape(this.selectedShapeOrder).getBottomY();
 		}
 	}
 	
@@ -48,12 +54,19 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 		if (this.shapeContain) {
 			int offset_x = this.x;
 			int offset_y = this.y;
+			
 			int x = me.getX() - this.origin.x + offset_x;
 			int y = me.getY() - this.origin.y + offset_y;
-			if (x < 0) x = 0;
-			if (x >= this.puzzleSolvingView.getWidth()) x = this.puzzleSolvingView.getWidth();
-			if (y < 0) y = 0;
-			if (y >= this.puzzleSolvingView.getHeight()) y = this.puzzleSolvingView.getHeight();
+			//System.out.println(this.puzzleSolvingView.getWidth()+", "+this.puzzleSolvingView.getHeight());
+			
+			int fx = me.getX() - this.origin.x;
+			int fy = me.getY() - this.origin.y;
+			
+			if (fx + this.lx < 0) x = offset_x - this.lx;
+			if (fx + this.rx >= this.puzzleSolvingView.getWidth()) x = this.puzzleSolvingView.getWidth() - 1 - (this.rx - offset_x);
+			if (fy + this.ty < 0) y = offset_y - this.ty;
+			if (fy + this.by >= this.puzzleSolvingView.getHeight()) y = this.puzzleSolvingView.getHeight() - 1 - (this.by - offset_y);
+			
 			this.board.setPosition(x, y, this.selectedShapeOrder);
 			this.puzzleSolvingView.repaint();	
 		}

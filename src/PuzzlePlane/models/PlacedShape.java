@@ -11,7 +11,7 @@ public class PlacedShape extends Polygon{
 	boolean onPalette;
 	boolean selected;
 	Color color;
-	Polygon initial;
+	//Polygon initial;
 	
 	//Random 
 	
@@ -54,6 +54,46 @@ public class PlacedShape extends Polygon{
 	
 	public Color getColor() {
 		return this.color;
+	}
+	
+	public int getLeftX() {
+		int ret = 10000000;
+		for(int i=0;i<this.xpoints.length;i++) {
+			if ( ret > this.xpoints[i] ) {
+				ret = this.xpoints[i];
+			}
+		}
+		return ret;
+	}
+	
+	public int getRightX() {
+		int ret = -1;
+		for(int i=0;i<this.xpoints.length;i++) {
+			if ( ret < this.xpoints[i] ) {
+				ret = this.xpoints[i];
+			}
+		}
+		return ret;
+	}
+	
+	public int getTopY() {
+		int ret = 10000000;
+		for(int i=0;i<this.ypoints.length;i++) {
+			if ( ret > this.ypoints[i] ) {
+				ret = this.ypoints[i];
+			}
+		}
+		return ret;
+	}
+	
+	public int getBottomY() {
+		int ret = -1;
+		for(int i=0;i<this.ypoints.length;i++) {
+			if ( ret < this.ypoints[i] ) {
+				ret = this.ypoints[i];
+			}
+		}
+		return ret;
 	}
 	
 	public void leftRotateShape( ) {

@@ -32,7 +32,7 @@ public class PuzzleSolvingView extends JPanel {
 	public PuzzleSolvingView(Board b, PuzzlePlaneGui p, int w, int h) {
 		setLayout(null);		
 		
-		this.buttonAreaHeight = 50;
+		this.buttonAreaHeight = 20;
 		this.palette_w = w;
 		this.solution_w = w;
 		this.palette_h = (int)(h*0.3);
