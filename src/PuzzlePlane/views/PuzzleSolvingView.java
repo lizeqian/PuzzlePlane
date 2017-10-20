@@ -42,10 +42,26 @@ public class PuzzleSolvingView extends JPanel {
 		this.addMouseListener(moveShapePaletteSolution);
 		this.addMouseMotionListener(moveShapePaletteSolution);
 		ExitPuzzleSolving exitPuzzleSolving = new ExitPuzzleSolving(p);
-		JButton button_next = new JButton("Exit Puzzle");
-		button_next.setBounds(w-300, h-200, 200, 30);
+		JButton button_next = new JButton("Exit");
+		button_next.setBounds(w-100, h-150, 80, 30);
 		button_next.addActionListener(exitPuzzleSolving);
 		this.add(button_next);
+		
+		JButton buttonLeftRotation = new JButton("L Rotate");
+		buttonLeftRotation.setBounds(w-200, h-150, 90, 30);
+		this.add(buttonLeftRotation);
+		
+		JButton buttonRightRotation = new JButton("R Rotate");
+		buttonRightRotation.setBounds(w-300, h-150, 90, 30);
+		this.add(buttonRightRotation);
+		
+		JButton buttonHorizonFlipped = new JButton("H Flip");
+		buttonHorizonFlipped.setBounds(w-400, h-150, 90, 30);
+		this.add(buttonHorizonFlipped);
+		
+		JButton buttonVerticalFlipped = new JButton("V Flip");
+		buttonVerticalFlipped.setBounds(w-500, h-150, 90, 30);
+		this.add(buttonVerticalFlipped);
 	}
 	
 	@Override
