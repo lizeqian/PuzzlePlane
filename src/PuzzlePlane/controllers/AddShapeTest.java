@@ -12,6 +12,7 @@ public class AddShapeTest implements ActionListener{
 	PuzzlePlaneGui puzzlePlaneGui;
 	Board board;
 	ArrayList<Point> s = new ArrayList<Point>(), s1 = new ArrayList<Point>();
+	//ArrayList<Point> puzzleShape = new ArrayList<>();
 	
 	public AddShapeTest(PuzzlePlaneGui p, Board b) {
 		this.puzzlePlaneGui = p;
@@ -43,5 +44,6 @@ public class AddShapeTest implements ActionListener{
 		this.puzzlePlaneGui.jumpPage("p3");
 		this.board.initialAddShape(this.s, new Color(255, 0, 0));	//Shapes should only be added the first time been triggered, color (int r, int g, int b)
 		this.board.initialAddShape(this.s1, new Color(0, 255, 0));
+		
 	}
 }
