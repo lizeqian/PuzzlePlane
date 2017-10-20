@@ -28,7 +28,7 @@ public class Board {
 	}
 	
 	public void initialAddShape(ArrayList<Point> points, Color color) {
-		System.out.println("size:"+points.size()+",order:"+this.order);
+		//System.out.println("size:"+points.size()+",order:"+this.order);
 		this.orderOffset_x = this.shapePosition.get(this.order).x;
 		this.orderOffset_y = this.shapePosition.get(this.order).y;
 		PlacedShape placedShape = new PlacedShape(new Point(this.orderOffset_x, this.orderOffset_y), false, false, 0, this.order, true, false, color);
