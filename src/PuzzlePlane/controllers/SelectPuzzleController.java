@@ -31,6 +31,7 @@ public class SelectPuzzleController implements ActionListener{
 		
 		Puzzle puzzle = this.board.getPuzzle();
 		puzzle.setPuzzleShape(puzzleShape);
+		System.out.println(puzzle.getPuzzleShape().npoints);
 		
 		this.puzzlePlaneGui.jumpPage("p3");
 		
