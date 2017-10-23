@@ -42,8 +42,8 @@ public class AddShapeTest implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		this.puzzlePlaneGui.jumpPage("p3");
-		this.board.initialAddShape(this.s, new Color(255, 0, 0));	//Shapes should only be added the first time been triggered, color (int r, int g, int b)
-		this.board.initialAddShape(this.s1, new Color(0, 255, 0));
-		
+		//this.board.initialAddShape(this.s, new Color(255, 0, 0));	//Shapes should only be added the first time been triggered, color (int r, int g, int b)
+		//this.board.initialAddShape(this.s1, new Color(0, 255, 0));
+		//ArrayList<PlacedShape> ret = (new ShapesetLoader("puzzle.txt")).load();
 	}
 }

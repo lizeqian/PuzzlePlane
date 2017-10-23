@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Board {
 	
 	Puzzle puzzle;
+
 	ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
 	ArrayList<Point> shapePosition = new ArrayList<Point>(); //Fixed Positions
 	int order;
@@ -21,17 +22,38 @@ public class Board {
 	public void setSelectedShapeSet(int selectedShapeSet) {
 		this.selectedShapeSet = selectedShapeSet;
 	}
+	
+	public void setPuzzle(Puzzle puzzle) {
+		this.puzzle = puzzle;
+	}
 
 	public Board() {
 		//TODO: change puzzle to "public Board(Puzzle puzzle)"
-		puzzle = new Puzzle();
 		
 		Point firstPos = new Point();
 		firstPos.setLocation(20.0, 50.0);
 		Point sPos = new Point();
 		sPos.setLocation(120.0, 50.0);
+		Point sPos1 = new Point();
+		sPos1.setLocation(180.0, 50.0);
+		Point sPos2 = new Point();
+		sPos2.setLocation(240.0, 50.0);
+		Point sPos3 = new Point();
+		sPos3.setLocation(300.0, 50.0);
+		Point sPos4 = new Point();
+		sPos3.setLocation(330.0, 50.0);
+		Point sPos5 = new Point();
+		sPos3.setLocation(360.0, 50.0);
+		Point sPos6 = new Point();
+		sPos3.setLocation(380.0, 50.0);
 		this.shapePosition.add(firstPos);
 		this.shapePosition.add(sPos);
+		this.shapePosition.add(sPos1);
+		this.shapePosition.add(sPos2);
+		this.shapePosition.add(sPos3);
+		this.shapePosition.add(sPos4);
+		this.shapePosition.add(sPos5);
+		this.shapePosition.add(sPos6);
 		this.order = 0;
 	}
 	
@@ -73,6 +95,16 @@ public class Board {
 			}
 		}
 		return null;
+	}
+	
+	public void setShapes(ArrayList<PlacedShape> shapes) {
+		for(PlacedShape shape : shapes) {
+			ArrayList<Point> list = new ArrayList<>();
+			for(int i = 0; i < shape.xpoints.length; i++) {
+				list.add(new Point(shape.xpoints[i], shape.ypoints[i]));
+			}
+			this.initialAddShape(list, shape.color);
+		}
 	}
 	
 	public ArrayList<PlacedShape> getShapes() {

@@ -14,23 +14,19 @@ public class SelectPuzzleController implements ActionListener{
 	int buttonOrder;
 	String puzzlePath = "puzzle/";
 	
-	public SelectPuzzleController (Board b, PuzzlePlaneGui p, int i) {
+	public SelectPuzzleController (Board b, PuzzlePlaneGui p) {
 		this.board = b;
 		this.puzzlePlaneGui = p;
-		this.buttonOrder = i;
+		//this.buttonOrder = i;
 		
 
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		this.puzzlePath = this.puzzlePath+this.board.getSelectedShapeSet()+"/"+this.buttonOrder;
+		this.puzzlePath = "puzzleShape.txt";
 		//System.out.println(this.puzzlePath);
 		
-		PuzzleShapeLoader puzzleShapeLoader = new PuzzleShapeLoader(this.puzzlePath);
-		PlacedShape puzzleShape = puzzleShapeLoader.load();
-		
-		Puzzle puzzle = this.board.getPuzzle();
-		puzzle.setPuzzleShape(puzzleShape);
+		this.board.setPuzzle(new Puzzle(this.puzzlePath));
 		
 		this.puzzlePlaneGui.jumpPage("p3");
 		

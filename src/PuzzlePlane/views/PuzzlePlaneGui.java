@@ -50,7 +50,7 @@ public class PuzzlePlaneGui extends JFrame {
         p.add(button_2);
         p.add(first_b);
         p_1 = new FirstPPGui(b, this);
-        p_2 = new JPanel();//SecondPPGui();  //Please uncomment when this class is correctly implemented
+        p_2 = new SecondPPGui(b, this);  //Please uncomment when this class is correctly implemented
         p_3 = new PuzzleSolvingView(b, this, this.width, this.height);
         p_4 = new JPanel();
         p_5 = new JPanel();
@@ -71,7 +71,7 @@ public class PuzzlePlaneGui extends JFrame {
         
         //TODO Test code to add puzzle selection buttons
         puzzleS = new JButton("Puzzle");
-        SelectPuzzleController selectPuzzleController = new SelectPuzzleController(b, this, 0);
+        SelectPuzzleController selectPuzzleController = new SelectPuzzleController(b, this);
         puzzleS.addActionListener(selectPuzzleController);
         p_2.add(puzzleS);
         

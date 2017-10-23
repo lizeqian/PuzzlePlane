@@ -13,15 +13,11 @@ public class Puzzle{
 	int order;
 	
 	//TODO: change the file path of puzzleShape
-	static String puzzleShapePath = "puzzleShape.txt";
+	String puzzleShapePath;
 	
-	public void init() {
-		//TODO: change puzzleShape into "public Puzzle(PlacedShape puzzleShape)";
-		puzzleShape = (new PuzzleShapeLoader(Puzzle.puzzleShapePath)).load();
-	}
-	
-	public Puzzle() {
-		init();
+	public Puzzle(String path) {
+		puzzleShapePath = path;
+		puzzleShape = (new PuzzleShapeLoader(puzzleShapePath)).load();
 	}
 	
 	public PlacedShape getPuzzleShape() {
