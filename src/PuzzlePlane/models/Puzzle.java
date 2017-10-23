@@ -29,6 +29,7 @@ public class Puzzle{
 	}
 	
 	public void setPuzzleShape(PlacedShape puzzleShape) {
+		this.puzzleShape = puzzleShape;
 		//TODO: set puzzleShape, avoid shallow copy.
 	}
 }
