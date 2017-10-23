@@ -12,7 +12,7 @@ public class Board {
 	int order;
 	int selectedOrder;
 	int orderOffset_x = 0, orderOffset_y=0;
-	
+	int selectedShapeSet = 0;
 	
 	public Board() {
 		//TODO: change puzzle to "public Board(Puzzle puzzle)"
