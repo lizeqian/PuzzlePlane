@@ -57,7 +57,7 @@ public class FirstPPGui extends JPanel {
 		
 		JButton traditionalsetButton = new JButton("chooseShapeSetButton");
 		traditionalsetButton.setIcon(new ImageIcon(FirstPPGui.class.getResource("/PuzzlePlane/resources/Screen Shot 2017-09-22 at 4.00.14 PM.png")));
-		traditionalsetButton.setBounds(54, 157, 336, 340);
+		traditionalsetButton.setBounds(54, 157, 436, 440);
 		
 		SelectShapesetController selectShapesetController = new SelectShapesetController(p, b);
 		traditionalsetButton.addActionListener(selectShapesetController);
@@ -65,7 +65,7 @@ public class FirstPPGui extends JPanel {
 		
 		JButton nontraditionalsetButton = new JButton("chooseShapeSetButton");
 		nontraditionalsetButton.setIcon(new ImageIcon(FirstPPGui.class.getResource("/PuzzlePlane/resources/Screen Shot 2017-09-22 at 4.10.55 PM.png")));
-		nontraditionalsetButton.setBounds(519, 157, 347, 332);
+		nontraditionalsetButton.setBounds(519, 157, 447, 432);
 		add(nontraditionalsetButton);
 		
 		JLabel lblNewLabel = new JLabel("Choose a Shape Set");

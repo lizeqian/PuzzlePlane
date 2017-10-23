@@ -25,7 +25,7 @@ public class PuzzlePlaneGui extends JFrame {
     private JButton button_2 = null; // next Jpanel
     private JButton first_b = null; // first Jpanel
     private JPanel p_1 = null, p_2 = null, p_3 = null, p_4 = null, p_5 = null; // 3 JPanel
-    private int height = 600, width = 800;
+    private int height = 700, width = 1000;
     
     private JButton testAddShape = null;
 
