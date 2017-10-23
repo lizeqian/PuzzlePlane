@@ -13,7 +13,6 @@ public class PlacedShape extends Polygon{
 	Color color;
 	//Polygon initial;
 	
-	//Random 
 	
 	public PlacedShape(Point position, boolean verticalFlipped,boolean horizontalFlipped,int angle, int order, boolean onPalette, boolean selected, Color color) {
 		this.position = position;
@@ -24,10 +23,6 @@ public class PlacedShape extends Polygon{
 		this.onPalette = onPalette;
 		this.selected = selected;
 		this.color = color;
-	}
-	
-	public PlacedShape(int order) {
-	//	this(new Point(), false, false, 0, order, false, false, )
 	}
 	
 	public void setPosition(int x, int y) {

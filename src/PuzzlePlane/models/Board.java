@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Board {
 	
+	Puzzle puzzle;
 	ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
 	ArrayList<Point> shapePosition = new ArrayList<Point>(); //Fixed Positions
 	int order;
@@ -14,6 +15,9 @@ public class Board {
 	
 	
 	public Board() {
+		//TODO: change puzzle to "public Board(Puzzle puzzle)"
+		puzzle = new Puzzle();
+		
 		Point firstPos = new Point();
 		firstPos.setLocation(20.0, 50.0);
 		Point sPos = new Point();
@@ -69,6 +73,10 @@ public class Board {
 	
 	public Point getShapePosition(int o) {
 		return this.shapePosition.get(o);
+	}
+	
+	public Puzzle getPuzzle() {
+		return this.puzzle;
 	}
 	
 }

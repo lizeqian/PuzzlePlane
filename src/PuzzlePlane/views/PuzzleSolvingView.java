@@ -71,6 +71,9 @@ public class PuzzleSolvingView extends JPanel {
 		
 
 		ArrayList<PlacedShape> shapes = this.board.getShapes();
+		PlacedShape puzzleShape = this.board.getPuzzle().getPuzzleShape();
+		g.setColor(puzzleShape.getColor());
+		g.fillPolygon((Polygon)puzzleShape);
 		
 		for (PlacedShape s : shapes) {
 			Polygon p = new Polygon();
