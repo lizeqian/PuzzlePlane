@@ -29,6 +29,8 @@ public class PuzzlePlaneGui extends JFrame {
     
     private JButton testAddShape = null;
 
+    //TODO delete after test
+    private JButton puzzleS = null;
 	
 	public PuzzlePlaneGui(Board b) {
 		super ("Puzzle Plane");
@@ -66,6 +68,13 @@ public class PuzzlePlaneGui extends JFrame {
         //TODO Test code, please remove
         AddShapeTest addShapeTest = new AddShapeTest(this, b);
         testAddShape.addActionListener(addShapeTest);
+        
+        //TODO Test code to add puzzle selection buttons
+        puzzleS = new JButton("Puzzle");
+        SelectPuzzleController selectPuzzleController = new SelectPuzzleController(b, this, 0);
+        puzzleS.addActionListener(selectPuzzleController);
+        p_2.add(puzzleS);
+        
         
         //These methods should be implemented in a controller
         button_1.addActionListener(new ActionListener(){ 		//action when a button clicked

@@ -12,7 +12,7 @@ public class SelectPuzzleController implements ActionListener{
 	Board board;
 	PuzzlePlaneGui puzzlePlaneGui;
 	int buttonOrder;
-	String puzzlePath = "./puzzle/";
+	String puzzlePath = "puzzle/";
 	
 	public SelectPuzzleController (Board b, PuzzlePlaneGui p, int i) {
 		this.board = b;
@@ -24,10 +24,14 @@ public class SelectPuzzleController implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		this.puzzlePath = this.puzzlePath+this.board.getSelectedShapeSet()+"/"+this.buttonOrder;
+		//System.out.println(this.puzzlePath);
+		
 		PuzzleShapeLoader puzzleShapeLoader = new PuzzleShapeLoader(this.puzzlePath);
 		PlacedShape puzzleShape = puzzleShapeLoader.load();
+		
 		Puzzle puzzle = this.board.getPuzzle();
 		puzzle.setPuzzleShape(puzzleShape);
+		
 		this.puzzlePlaneGui.jumpPage("p3");
 		
 	}
