@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import PuzzlePlane.controllers.SelectShapesetController;
+import PuzzlePlane.models.Board;
+
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
@@ -39,7 +43,7 @@ public class FirstPPGui extends JPanel {
 	/**
 	 * Create the frame.
 	 */
-	public FirstPPGui() {
+	public FirstPPGui(Board b, PuzzlePlaneGui p) {
 		/*setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\tu\\Screen Shot 2017-09-22 at 4.00.14 PM.png"));
 		setTitle("Puzzle Plane");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,12 +57,15 @@ public class FirstPPGui extends JPanel {
 		
 		JButton traditionalsetButton = new JButton("chooseShapeSetButton");
 		traditionalsetButton.setIcon(new ImageIcon(FirstPPGui.class.getResource("/PuzzlePlane/resources/Screen Shot 2017-09-22 at 4.00.14 PM.png")));
-		traditionalsetButton.setBounds(54, 157, 436, 440);
+		traditionalsetButton.setBounds(54, 157, 336, 340);
+		
+		SelectShapesetController selectShapesetController = new SelectShapesetController(p, b);
+		traditionalsetButton.addActionListener(selectShapesetController);
 		add(traditionalsetButton);
 		
 		JButton nontraditionalsetButton = new JButton("chooseShapeSetButton");
 		nontraditionalsetButton.setIcon(new ImageIcon(FirstPPGui.class.getResource("/PuzzlePlane/resources/Screen Shot 2017-09-22 at 4.10.55 PM.png")));
-		nontraditionalsetButton.setBounds(519, 157, 447, 432);
+		nontraditionalsetButton.setBounds(519, 157, 347, 332);
 		add(nontraditionalsetButton);
 		
 		JLabel lblNewLabel = new JLabel("Choose a Shape Set");

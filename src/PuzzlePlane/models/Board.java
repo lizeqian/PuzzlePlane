@@ -14,6 +14,14 @@ public class Board {
 	int orderOffset_x = 0, orderOffset_y=0;
 	int selectedShapeSet = 0;
 	
+	public int getSelectedShapeSet() {
+		return selectedShapeSet;
+	}
+
+	public void setSelectedShapeSet(int selectedShapeSet) {
+		this.selectedShapeSet = selectedShapeSet;
+	}
+
 	public Board() {
 		//TODO: change puzzle to "public Board(Puzzle puzzle)"
 		puzzle = new Puzzle();

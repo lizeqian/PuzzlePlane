@@ -47,7 +47,7 @@ public class PuzzlePlaneGui extends JFrame {
         p.add(button_1);
         p.add(button_2);
         p.add(first_b);
-        p_1 = new FirstPPGui();
+        p_1 = new FirstPPGui(b, this);
         p_2 = new JPanel();//SecondPPGui();  //Please uncomment when this class is correctly implemented
         p_3 = new PuzzleSolvingView(b, this, this.width, this.height);
         p_4 = new JPanel();
