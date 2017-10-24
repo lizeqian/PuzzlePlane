@@ -66,6 +66,7 @@ public class Board {
 		this.orderOffset_x = this.shapePosition.get(this.order).x;
 		this.orderOffset_y = this.shapePosition.get(this.order).y;
 		PlacedShape placedShape = new PlacedShape(new Point(this.orderOffset_x, this.orderOffset_y), false, false, 0, this.order, true, false, color);
+		//System.out.println("points:"+points.size());
 		for (Point point:points) {
 			placedShape.addPoint(point.x, point.y);
 		}
@@ -99,9 +100,10 @@ public class Board {
 	}
 	
 	public void setShapes(ArrayList<PlacedShape> shapes) {
+		//System.out.println("shapes:"+shapes.size());
 		for(PlacedShape shape : shapes) {
 			ArrayList<Point> list = new ArrayList<>();
-			for(int i = 0; i < shape.xpoints.length; i++) {
+			for(int i = 0; i < shape.npoints; i++) {
 				list.add(new Point(shape.xpoints[i], shape.ypoints[i]));
 			}
 			this.initialAddShape(list, shape.color);

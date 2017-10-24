@@ -45,6 +45,7 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 			this.rx = this.board.getShape(this.selectedShapeOrder).getRightX();
 			this.ty = this.board.getShape(this.selectedShapeOrder).getTopY();
 			this.by = this.board.getShape(this.selectedShapeOrder).getBottomY();
+			//System.out.println("("+this.lx+","+this.ty+")");
 		}
 	}
 	
@@ -76,14 +77,7 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 	@Override
 	public void mouseReleased(MouseEvent me) {
 		if (this.shapeContain) {
-			int[] ypoints = this.board.getShape(this.selectedShapeOrder).ypoints;
-			int topY = 10000000;
-			for(int i = 0; i < ypoints.length; i++) {
-				if (ypoints[i] < topY) {
-					topY =  ypoints[i];
-				}
-			}
-			
+			int topY = this.board.getShape(this.selectedShapeOrder).getTopY();
 			if (topY < this.palette_h) { //this.palette_h + (maximum height of a shape)
 				Point initialPosition = this.board.getShapePosition(this.selectedShapeOrder);
 				this.board.setPosition(initialPosition.x, initialPosition.y, this.selectedShapeOrder);

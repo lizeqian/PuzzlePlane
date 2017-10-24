@@ -28,6 +28,7 @@ public class ShapesetLoader {
 		ArrayList<PlacedShape> ret = new ArrayList<>();
 		while(scan.hasNextLine()) {
 			String str = scan.nextLine();
+			//System.out.println(str);
 			//System.out.println("Shape: "+str);
 			if(str.length()<=1) break;
 			int r, g, b;
@@ -39,6 +40,7 @@ public class ShapesetLoader {
 			for(int i = 3; i < arr.length; i+=2) {
 				puzzleShape.addPoint(Integer.parseInt(arr[i]), Integer.parseInt(arr[i+1]));
 			}
+			//System.out.println("puzzleShape:"+puzzleShape.xpoints.length);
 			ret.add(puzzleShape);
 		}
 		scan.close();
