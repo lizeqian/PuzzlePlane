@@ -67,7 +67,7 @@ public class Board {
 		this.orderOffset_y = this.shapePosition.get(this.order).y;
 		PlacedShape placedShape = new PlacedShape(new Point(this.orderOffset_x, this.orderOffset_y), false, false, 0, this.order, true, false, color);
 		for (Point point:points) {
-			placedShape.addPoint(point.x+this.orderOffset_x, point.y+this.orderOffset_y);
+			placedShape.addPoint(point.x, point.y);
 		}
 		this.shapes.add(placedShape);
 		this.order += 1;
