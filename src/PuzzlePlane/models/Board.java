@@ -30,7 +30,7 @@ public class Board {
 	public Board() {
 		//TODO: change puzzle to "public Board(Puzzle puzzle)"
 		
-		Point firstPos = new Point();
+	/*	Point firstPos = new Point();
 		firstPos.setLocation(20.0, 50.0);
 		Point sPos = new Point();
 		sPos.setLocation(120.0, 50.0);
@@ -53,7 +53,7 @@ public class Board {
 		this.shapePosition.add(sPos3);
 		this.shapePosition.add(sPos4);
 		this.shapePosition.add(sPos5);
-		this.shapePosition.add(sPos6);
+		this.shapePosition.add(sPos6);*/
 		this.order = 0;
 	}
 	
@@ -62,6 +62,7 @@ public class Board {
 	}
 	
 	public void initialAddShape(ArrayList<Point> points, Color color) {
+		this.shapePosition.add(new Point(points.get(0)));
 		this.orderOffset_x = this.shapePosition.get(this.order).x;
 		this.orderOffset_y = this.shapePosition.get(this.order).y;
 		PlacedShape placedShape = new PlacedShape(new Point(this.orderOffset_x, this.orderOffset_y), false, false, 0, this.order, true, false, color);

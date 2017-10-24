@@ -36,6 +36,7 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 		this.shapeContain=this.board.selectShape(this.origin.x, this.origin.y);
 		if (this.shapeContain) {
 			this.selectedShapeOrder = this.board.getSelectedOrder();
+		//	System.out.println(this.selectedShapeOrder);
 			this.shapePos = this.board.getShape(this.selectedShapeOrder).getPosition();
 			this.x = this.shapePos.x;
 			this.y = this.shapePos.y;
