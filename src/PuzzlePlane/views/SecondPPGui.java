@@ -103,7 +103,7 @@ public class SecondPPGui extends JPanel {
 		
 		JButton btnBacktoShapeset = new JButton("Back to Shapeset");
 		btnBacktoShapeset.setBounds(544, 550, 187, 34);
-		//btnBacktoShapeset.addActionListener(new BacktoShapeset(b, p));
+		btnBacktoShapeset.addActionListener(new BacktoShapeset(p));
 		//btnBackToShapeset.addActionListener(new BacktoShapeset(b, p));
 		add(btnBacktoShapeset);
 	}
