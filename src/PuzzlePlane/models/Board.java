@@ -8,13 +8,18 @@ public class Board {
 	
 	Puzzle puzzle;
 
-	ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
-	ArrayList<Point> shapePosition = new ArrayList<Point>(); //Fixed Positions
+	ArrayList<PlacedShape> shapes;
+	ArrayList<Point> shapePosition;//Fixed Positions
 	int order;
 	int selectedOrder;
 	int orderOffset_x = 0, orderOffset_y=0;
 	int selectedShapeSet = 0;
 	
+	public void init() {
+		shapes = new ArrayList<PlacedShape>();
+		shapePosition = new ArrayList<Point>();
+		this.order = 0;
+	}
 	public int getSelectedShapeSet() {
 		return selectedShapeSet;
 	}
@@ -101,6 +106,7 @@ public class Board {
 	
 	public void setShapes(ArrayList<PlacedShape> shapes) {
 		//System.out.println("shapes:"+shapes.size());
+		this.init();
 		for(PlacedShape shape : shapes) {
 			ArrayList<Point> list = new ArrayList<>();
 			for(int i = 0; i < shape.npoints; i++) {
