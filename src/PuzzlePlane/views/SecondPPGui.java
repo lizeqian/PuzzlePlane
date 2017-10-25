@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import PuzzlePlane.controllers.SelectPuzzleController;
 import PuzzlePlane.controllers.SelectShapesetController;
+import PuzzlePlane.controllers.BacktoShapeset;
 import PuzzlePlane.models.Board;
 
 import javax.swing.JButton;
@@ -19,6 +20,7 @@ import java.awt.Toolkit;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import java.awt.Color;
 
 public class SecondPPGui extends JPanel {
 	Board board;
@@ -98,6 +100,11 @@ public class SecondPPGui extends JPanel {
 		chooseAPuzzleTitle.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		chooseAPuzzleTitle.setBounds(375, 90, 221, 25);
 		add(chooseAPuzzleTitle);
+		
+		JButton btnBacktoShapeset = new JButton("Back to Shapeset");
+		btnBacktoShapeset.setBounds(544, 550, 187, 34);
+		//btnBacktoShapeset.addActionListener(new BacktoShapeset(b, p));
+		//btnBackToShapeset.addActionListener(new BacktoShapeset(b, p));
+		add(btnBacktoShapeset);
 	}
-
 }
