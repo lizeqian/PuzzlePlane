@@ -67,7 +67,7 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 			if (fx + this.lx < 0) x = offset_x - this.lx;
 			if (fx + this.rx >= this.puzzleSolvingView.getWidth()) x = this.puzzleSolvingView.getWidth() - 1 - (this.rx - offset_x);
 			if (fy + this.ty < 0) y = offset_y - this.ty;
-			if (fy + this.by >= this.puzzleSolvingView.getHeight()) y = this.puzzleSolvingView.getHeight() - 1 - (this.by - offset_y);
+			if (fy + this.by >= this.puzzleSolvingView.getHeight() - 50) y = this.puzzleSolvingView.getHeight() - 50 - 1 - (this.by - offset_y);
 			
 			this.board.setPosition(x, y, this.selectedShapeOrder);
 			this.puzzleSolvingView.repaint();	
