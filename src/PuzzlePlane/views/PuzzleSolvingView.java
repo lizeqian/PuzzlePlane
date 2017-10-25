@@ -41,7 +41,7 @@ public class PuzzleSolvingView extends JPanel {
 		MoveShapePaletteSolution moveShapePaletteSolution = new MoveShapePaletteSolution(b, this, this.palette_w, this.palette_h);
 		this.addMouseListener(moveShapePaletteSolution);
 		this.addMouseMotionListener(moveShapePaletteSolution);
-		ExitPuzzleSolving exitPuzzleSolving = new ExitPuzzleSolving(p);
+		ExitPuzzleSolving exitPuzzleSolving = new ExitPuzzleSolving(b, p);
 		JButton button_next = new JButton("Exit");
 		button_next.setBounds(w-100, h-80, 80, 30);
 		button_next.addActionListener(exitPuzzleSolving);

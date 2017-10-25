@@ -62,6 +62,15 @@ public class Board {
 		this.order = 0;
 	}
 	
+	public void resetAllShapePosition() {
+		for(PlacedShape shape: this.shapes) {
+			int order = shape.getOrder();
+			int x = this.shapePosition.get(order).x;
+			int y = this.shapePosition.get(order).y;
+			this.setPosition(x, y, order);
+		}
+	}
+	
 	public void setPosition(int x, int y, int o) {
 		this.getShape(o).setPosition(x, y);
 	}
