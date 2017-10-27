@@ -10,14 +10,16 @@ public class Board {
 
 	ArrayList<PlacedShape> shapes;
 	ArrayList<Point> shapePosition;//Fixed Positions
+	ArrayList<Integer> displayOrder;
 	int order;
 	int selectedOrder;
 	int orderOffset_x = 0, orderOffset_y=0;
 	int selectedShapeSet = 0;
 	
 	public void init() {
-		shapes = new ArrayList<PlacedShape>();
-		shapePosition = new ArrayList<Point>();
+		this.shapes = new ArrayList<PlacedShape>();
+		this.shapePosition = new ArrayList<Point>();
+		this.displayOrder = new ArrayList<Integer>();
 		this.order = 0;
 	}
 	public int getSelectedShapeSet() {
@@ -85,6 +87,7 @@ public class Board {
 			placedShape.addPoint(point.x, point.y);
 		}
 		this.shapes.add(placedShape);
+		this.displayOrder.add(this.order);
 		this.order += 1;
 	}
 	
@@ -97,6 +100,15 @@ public class Board {
 			}
 		}
 		return false;
+	}
+	
+	public void reorder () {
+		this.displayOrder.remove(new Integer(this.selectedOrder));
+		this.displayOrder.add(this.selectedOrder);
+	}
+	
+	public ArrayList<Integer> getDisplayOrder(){
+		return this.displayOrder;
 	}
 	
 	public int getSelectedOrder () {

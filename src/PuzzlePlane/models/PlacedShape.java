@@ -92,6 +92,21 @@ public class PlacedShape extends Polygon{
 		return ret;
 	}
 	
+	public Point getCentroid() {
+		Point p= new Point();
+		double x = 0;
+		double y = 0;
+		int pointCount = this.npoints;
+		for (int i = 0; i < pointCount - 1; i++) {
+			x += this.xpoints[i];
+			y += this.ypoints[i];
+		}
+		x = x/pointCount;
+		y = y/pointCount;
+		p.setLocation((int)x, (int)y);
+		return p;
+	}
+	
 	public void leftRotateShape( ) {
 		
 	}

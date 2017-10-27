@@ -71,18 +71,49 @@ public class PuzzleSolvingView extends JPanel {
 		
 
 		ArrayList<PlacedShape> shapes = this.board.getShapes();
+		int selectedOrder = this.board.getSelectedOrder();
+		Polygon selectedShape = new Polygon();
+		Color selectedColor = Color.BLACK;
+		
+		ArrayList<Integer> displayOrder = this.board.getDisplayOrder();
 		PlacedShape puzzleShape = this.board.getPuzzle().getPuzzleShape();
 		g.setColor(puzzleShape.getColor());
 		g.fillPolygon((Polygon)puzzleShape);
 		
-		for (PlacedShape s : shapes) {
+		for (int i = 0; i <displayOrder.size(); i++) {
+			int currentOrder = displayOrder.get(i);
+			PlacedShape s = this.board.getShape(currentOrder);
 			Polygon p = new Polygon();
 			p = s;
-			
 			g.setColor(s.getColor());
 			g.fillPolygon(p);
 			
+			if (i==displayOrder.size()-1 && s.getTopY() > this.palette_h) {
+				g.setColor(Color.BLACK);
+				g.drawPolygon(p);
+			}
 		}
+		
+/*		for (PlacedShape s : shapes) {
+			if (s.getOrder() == selectedOrder) {
+				selectedShape = s;
+				selectedColor = s.getColor();
+			}
+			else {
+				Polygon p = new Polygon();
+				p = s;
+				
+				g.setColor(s.getColor());
+				g.fillPolygon(p);
+			}			
+			
+		}
+		Polygon p = new Polygon();
+		p = selectedShape;
+		g.setColor(selectedColor);
+		g.fillPolygon(p);
+		g.setColor(Color.BLACK);
+		g.drawPolygon(p);*/
 	}
 	
 }
