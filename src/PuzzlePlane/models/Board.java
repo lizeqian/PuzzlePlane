@@ -92,7 +92,9 @@ public class Board {
 	}
 	
 	public boolean selectShape(int x, int y) {
-		for (PlacedShape shape: this.shapes) {
+		for (int i = this.displayOrder.size()-1; i >= 0 ; i--) {
+			int currentOrder = this.displayOrder.get(i);
+			PlacedShape shape = this.getShape(currentOrder);
 			if (shape.contains(x, y)) {
 				this.selectedOrder = shape.getOrder();
 				shape.setSelected(true);

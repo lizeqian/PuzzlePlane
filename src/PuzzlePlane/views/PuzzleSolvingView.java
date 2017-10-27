@@ -69,12 +69,6 @@ public class PuzzleSolvingView extends JPanel {
 		super.paintComponent(g);
 		g.drawLine(0, this.palette_h, this.palette_w, this.palette_h);
 		
-
-		ArrayList<PlacedShape> shapes = this.board.getShapes();
-		int selectedOrder = this.board.getSelectedOrder();
-		Polygon selectedShape = new Polygon();
-		Color selectedColor = Color.BLACK;
-		
 		ArrayList<Integer> displayOrder = this.board.getDisplayOrder();
 		PlacedShape puzzleShape = this.board.getPuzzle().getPuzzleShape();
 		g.setColor(puzzleShape.getColor());
