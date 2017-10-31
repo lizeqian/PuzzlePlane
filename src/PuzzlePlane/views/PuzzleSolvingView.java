@@ -2,8 +2,10 @@ package PuzzlePlane.views;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Polygon;
+import java.awt.RenderingHints;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
@@ -41,50 +43,64 @@ public class PuzzleSolvingView extends JPanel {
 		MoveShapePaletteSolution moveShapePaletteSolution = new MoveShapePaletteSolution(b, this, this.palette_w, this.palette_h);
 		this.addMouseListener(moveShapePaletteSolution);
 		this.addMouseMotionListener(moveShapePaletteSolution);
+		
 		ExitPuzzleSolving exitPuzzleSolving = new ExitPuzzleSolving(b, p);
 		JButton button_next = new JButton("Exit");
 		button_next.setBounds(w-100, h-80, 80, 30);
 		button_next.addActionListener(exitPuzzleSolving);
 		this.add(button_next);
 		
+		ShapeOperation leftRotateControl = new ShapeOperation(b, this, 1);
 		JButton buttonLeftRotation = new JButton("L Rotate");
 		buttonLeftRotation.setBounds(w-200, h-80, 90, 30);
+		buttonLeftRotation.addActionListener(leftRotateControl);
 		this.add(buttonLeftRotation);
 		
+		ShapeOperation rightRotateControl = new ShapeOperation(b, this, 2);
 		JButton buttonRightRotation = new JButton("R Rotate");
 		buttonRightRotation.setBounds(w-300, h-80, 90, 30);
+		buttonRightRotation.addActionListener(rightRotateControl);
 		this.add(buttonRightRotation);
 		
+		ShapeOperation hFlipControl = new ShapeOperation(b, this, 4);
 		JButton buttonHorizonFlipped = new JButton("H Flip");
 		buttonHorizonFlipped.setBounds(w-400, h-80, 90, 30);
+		buttonHorizonFlipped.addActionListener(hFlipControl);
 		this.add(buttonHorizonFlipped);
 		
+		ShapeOperation vFlipControl = new ShapeOperation(b, this, 3);
 		JButton buttonVerticalFlipped = new JButton("V Flip");
 		buttonVerticalFlipped.setBounds(w-500, h-80, 90, 30);
+		buttonVerticalFlipped.addActionListener(vFlipControl);
 		this.add(buttonVerticalFlipped);
 	}
 	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawLine(0, this.palette_h, this.palette_w, this.palette_h);
+		Graphics2D g2 = (Graphics2D)g;
+	    RenderingHints rh = new RenderingHints(
+	             RenderingHints.KEY_ANTIALIASING,
+	             RenderingHints.VALUE_ANTIALIAS_ON);
+	    g2.setRenderingHints(rh);
+		g2.drawLine(0, this.palette_h, this.palette_w, this.palette_h);
 		
 		ArrayList<Integer> displayOrder = this.board.getDisplayOrder();
 		PlacedShape puzzleShape = this.board.getPuzzle().getPuzzleShape();
-		g.setColor(puzzleShape.getColor());
-		g.fillPolygon((Polygon)puzzleShape);
+		g2.setColor(puzzleShape.getColor());
+		g2.fillPolygon((Polygon)puzzleShape);
 		
 		for (int i = 0; i <displayOrder.size(); i++) {
 			int currentOrder = displayOrder.get(i);
 			PlacedShape s = this.board.getShape(currentOrder);
 			Polygon p = new Polygon();
 			p = s;
-			g.setColor(s.getColor());
-			g.fillPolygon(p);
+			g2.setColor(s.getColor());
+			g2.fillPolygon(p);
 			
 			if (i==displayOrder.size()-1 && s.getTopY() > this.palette_h) {
-				g.setColor(Color.BLACK);
-				g.drawPolygon(p);
+				g2.setColor(Color.BLACK);
+				g2.drawPolygon(p);
 			}
 		}
 		

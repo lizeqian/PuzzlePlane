@@ -66,15 +66,24 @@ public class Board {
 	
 	public void resetAllShapePosition() {
 		for(PlacedShape shape: this.shapes) {
-			int order = shape.getOrder();
-			int x = this.shapePosition.get(order).x;
-			int y = this.shapePosition.get(order).y;
-			this.setPosition(x, y, order);
+			shape.resetPos();
 		}
 	}
 	
 	public void setPosition(int x, int y, int o) {
 		this.getShape(o).setPosition(x, y);
+	}
+	
+	public void rotate(int angle) {
+		this.getShape(this.selectedOrder).rotate(angle);
+	}
+	
+	public void vFlip() {
+		this.getShape(this.selectedOrder).vFlip();
+	}
+	
+	public void hFlip() {
+		this.getShape(this.selectedOrder).hFlip();
 	}
 	
 	public void initialAddShape(ArrayList<Point> points, Color color) {
@@ -86,6 +95,7 @@ public class Board {
 		for (Point point:points) {
 			placedShape.addPoint(point.x, point.y);
 		}
+		placedShape.setOriginalPos();
 		this.shapes.add(placedShape);
 		this.displayOrder.add(this.order);
 		this.order += 1;
