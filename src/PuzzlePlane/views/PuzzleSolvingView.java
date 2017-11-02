@@ -88,13 +88,12 @@ public class PuzzleSolvingView extends JPanel {
 		ArrayList<Integer> displayOrder = this.board.getDisplayOrder();
 		PlacedShape puzzleShape = this.board.getPuzzle().getPuzzleShape();
 		g2.setColor(puzzleShape.getColor());
-		g2.fillPolygon((Polygon)puzzleShape);
+		g2.fillPolygon(puzzleShape.getChangedPolygon());
 		
 		for (int i = 0; i <displayOrder.size(); i++) {
 			int currentOrder = displayOrder.get(i);
 			PlacedShape s = this.board.getShape(currentOrder);
-			Polygon p = new Polygon();
-			p = s;
+			Polygon p = s.getChangedPolygon();
 			g2.setColor(s.getColor());
 			g2.fillPolygon(p);
 			

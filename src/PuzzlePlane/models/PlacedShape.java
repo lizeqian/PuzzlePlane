@@ -3,8 +3,10 @@ package PuzzlePlane.models;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class PlacedShape extends Polygon{
+public class PlacedShape{
 	Point position;
+	Polygon originalPolygon;
+	Polygon changedPolygon;
 	boolean verticalFlipped;
 	boolean horizontalFlipped;
 	int angle;
@@ -12,64 +14,41 @@ public class PlacedShape extends Polygon{
 	boolean onPalette;
 	boolean selected;
 	Color color;
-	Polygon rotateOffset = new Polygon();
-	Polygon originalPos = new Polygon();
-	//Polygon initial;
 	
-	public PlacedShape(Point position, boolean verticalFlipped,boolean horizontalFlipped,int angle, int order, boolean onPalette, boolean selected, Color color) {
-		super();
-		this.position = position;
-		this.verticalFlipped = verticalFlipped;
-		this.horizontalFlipped = horizontalFlipped;
-		this.angle = angle;
+	public void init() {
+		this.position = new Point(0, 0);
+		this.verticalFlipped = false;
+		this.horizontalFlipped = false;
+		this.angle = 0;
+		this.onPalette = true;
+		this.selected = false;
+	}
+	
+	public PlacedShape(int order, Color color) {
+		this.init();
+		this.originalPolygon = new Polygon();
+		this.setChangedPolygon(new Polygon());
 		this.order = order;
-		this.onPalette = onPalette;
-		this.selected = selected;
 		this.color = color;
 	}
 	
 	public void resetPos(){
-		this.reset();
-		int numPoints = this.originalPos.npoints;
+		int numPoints = this.originalPolygon.npoints;
+		this.changedPolygon.reset();
 		for (int i = 0; i < numPoints; i++) {
-			int x = this.originalPos.xpoints[i];
-			int y = this.originalPos.ypoints[i];
-			this.addPoint(x, y);
+			this.changedPolygon.addPoint(this.originalPolygon.xpoints[i], this.originalPolygon.ypoints[i]);
 		}
-		this.angle = 0;
-		this.horizontalFlipped = false;
-		this.verticalFlipped = false;
+		this.init();
 	}
 	
-	public void setPosition(int x, int y) {
-		//System.out.println("set position");
-		this.translate(x-this.position.x, y-this.position.y);
-		this.position.setLocation(x, y);
-		//System.out.println(this.xpoints[0]);
-		this.storeRotateOffset();
+	public void addPoint(int x, int y) {
+		this.originalPolygon.addPoint(x, y);
+		this.update();
 	}
 	
-	public void storeRotateOffset() {
-		this.rotateOffset.reset();
-		for (int i =0; i< this.npoints;i++) {
-			int xp = this.xpoints[i];
-			int yp = this.ypoints[i];
-			this.rotateOffset.addPoint(xp, yp);
-		}
-		this.angle = 0;
+	public void selectShape() {
+		this.selected = !this.selected;
 	}
-	public void setOriginalPos() {
-		for (int i =0; i< this.npoints;i++) {
-			int xp = this.xpoints[i];
-			int yp = this.ypoints[i];
-			this.originalPos.addPoint(xp, yp);
-		}
-	}
-	
-	public void setSelected(boolean b) {
-		this.selected = b;
-	}
-	
 	
 	public Point getPosition() {
 		return this.position;
@@ -89,10 +68,10 @@ public class PlacedShape extends Polygon{
 	
 	public int getLeftX() {
 		int ret = 10000000;
-		//System.out.println("npoints:"+this.npoints);
-		for(int i=0;i<this.npoints;i++) {
-			if ( ret > this.xpoints[i] ) {
-				ret = this.xpoints[i];
+		int numPoints = this.getChangedPolygon().npoints;
+		for(int i=0;i < numPoints;i++) {
+			if ( ret > this.getChangedPolygon().xpoints[i]) {
+				ret = this.getChangedPolygon().xpoints[i];
 			}
 		}
 		return ret;
@@ -100,9 +79,10 @@ public class PlacedShape extends Polygon{
 	
 	public int getRightX() {
 		int ret = -1;
-		for(int i=0;i<this.npoints;i++) {
-			if ( ret < this.xpoints[i] ) {
-				ret = this.xpoints[i];
+		int numPoints = this.getChangedPolygon().npoints;
+		for(int i = 0; i < numPoints; i++) {
+			if ( ret < this.getChangedPolygon().xpoints[i] ) {
+				ret = this.getChangedPolygon().xpoints[i];
 			}
 		}
 		return ret;
@@ -110,9 +90,10 @@ public class PlacedShape extends Polygon{
 	
 	public int getTopY() {
 		int ret = 10000000;
-		for(int i=0;i<this.npoints;i++) {
-			if ( ret > this.ypoints[i] ) {
-				ret = this.ypoints[i];
+		int numPoints = this.getChangedPolygon().npoints;
+		for(int i = 0; i < numPoints; i++) {
+			if ( ret > this.getChangedPolygon().ypoints[i] ) {
+				ret = this.getChangedPolygon().ypoints[i];
 			}
 		}
 		return ret;
@@ -120,116 +101,85 @@ public class PlacedShape extends Polygon{
 	
 	public int getBottomY() {
 		int ret = -1;
-		for(int i=0;i<this.npoints;i++) {
-			if ( ret < this.ypoints[i] ) {
-				ret = this.ypoints[i];
+		int numPoints = this.getChangedPolygon().npoints;
+		for(int i = 0 ;i < numPoints; i++) {
+			if ( ret < this.getChangedPolygon().ypoints[i] ) {
+				ret = this.getChangedPolygon().ypoints[i];
 			}
 		}
 		return ret;
 	}
 	
-	public Point getCentroid() {
-		Point p= new Point();
-		double x = 0;
-		double y = 0;
-		int pointCount = this.rotateOffset.npoints;
-		//System.out.println(pointCount);
-		for (int i = 0; i < pointCount - 1; i++) {
-			x += this.rotateOffset.xpoints[i];
-			y += this.rotateOffset.ypoints[i];
+	public Point getCenterPosition() {
+		int numPoints = this.originalPolygon.npoints;
+		Point ret = new Point(0, 0);
+		for(int i = 0; i < numPoints; i++) {
+			ret.x += this.originalPolygon.xpoints[i];
+			ret.y += this.originalPolygon.ypoints[i];
 		}
-		x = x/(pointCount-1);
-		y = y/(pointCount-1);
-		p.setLocation((int)x, (int)y);
-		return p;
+		ret.x /= numPoints;
+		ret.y /= numPoints;
+		return ret;
 	}
 	
-	public Point getThisCentroid() {
-		Point p= new Point();
-		double x = 0;
-		double y = 0;
-		int pointCount = this.npoints;
-		//System.out.println(pointCount);
-		for (int i = 0; i < pointCount - 1; i++) {
-			x += this.xpoints[i];
-			y += this.ypoints[i];
-		}
-		x = x/(pointCount-1);
-		y = y/(pointCount-1);
-		p.setLocation((int)x, (int)y);
-		return p;
+	public void setPosition(int x, int y) {
+		this.position.setLocation(x, y);
+		this.update();
 	}
 	
 	public void rotate(int angle) {
-		//System.out.println(angle);
-		//System.out.println(this.rotateOffset.xpoints[0]);
-
-		this.angle+=angle;
-		
-		
-		double delta_x = 0, delta_y = 0;
-		if (this.angle>=360) {
-			this.angle -= 360;
-		}
-		ArrayList<Point> rotatePoint = new ArrayList<Point>();		
-		
-		double x_c = this.getCentroid().x;
-		double y_c = this.getCentroid().y;
-		double angleInRadian = Math.toRadians(this.angle);
-		for (int i = 0; i < this.npoints; i++) {
-			delta_x = this.rotateOffset.xpoints[i]-x_c;
-			delta_y = this.rotateOffset.ypoints[i]-y_c;
-			double x = Math.cos(angleInRadian)*(delta_x)-Math.sin(angleInRadian)*(delta_y)+x_c;
-			double y = Math.sin(angleInRadian)*(delta_x)+Math.cos(angleInRadian)*(delta_y)+y_c;
-			Point e = new Point((int)x, (int)y);
-			rotatePoint.add(e);
-		}
-		this.reset();
-		for (Point point:rotatePoint) {
-			this.addPoint(point.x, point.y);
-		}
-
+		this.angle += angle;
+		this.update();
 	}
 	
 	public void vFlip() {
-
 		this.verticalFlipped = !this.verticalFlipped;
-		double y_c = this.getThisCentroid().getY();
-		double delta_y = 0;
-		ArrayList<Point> flipPoint = new ArrayList<Point>();
-		for (int i = 0; i < this.npoints; i++) {
-			delta_y = this.ypoints[i]-y_c;
-			double y = y_c - delta_y;
-			double x = this.xpoints[i];
-			Point e = new Point((int)x, (int)y);
-			flipPoint.add(e);
-		}
-		this.reset();
-		for (Point point:flipPoint) {
-			this.addPoint(point.x, point.y);
-		}
-		this.storeRotateOffset();
+		this.update();
 	}
 	
 	public void hFlip() {
 		this.horizontalFlipped = !this.horizontalFlipped;
-		double x_c = this.getThisCentroid().getX();
-		double delta_x = 0;
-		ArrayList<Point> flipPoint = new ArrayList<Point>();
-		for (int i = 0; i < this.npoints; i++) {
-			delta_x = this.xpoints[i]-x_c;
-			double x = x_c - delta_x;
-			double y = this.ypoints[i];
-			Point e = new Point((int)x, (int)y);
-			flipPoint.add(e);
-		}
-		
-
-		this.reset();
-		for (Point point:flipPoint) {
-			this.addPoint(point.x, point.y);
-		}
-		this.storeRotateOffset();
+		this.update();
 	}
 	
+	public void update() {
+		this.changedPolygon.reset();
+		for(int i = 0; i < this.originalPolygon.npoints; i++) {
+			int x = this.originalPolygon.xpoints[i];
+			int y = this.originalPolygon.ypoints[i];
+			Point center = this.getCenterPosition();
+			
+			//Move
+			x += this.position.x;
+			y += this.position.y;
+			center.x += this.position.x;
+			center.y += this.position.y;
+			
+			//Rotate
+			double angle = (this.angle*1.0/180.0)*Math.PI;
+			double cosAngle = Math.cos(angle);
+			double sinAngle = Math.sin(angle);
+			double dx = x - center.x;
+			double dy = y - center.y;
+			
+			x = center.x + (int)(dx * cosAngle - dy * sinAngle);
+			y = center.y + (int)(dx * sinAngle + dy * cosAngle);
+			
+			//vFlip
+			if(this.verticalFlipped) x = center.x - (x - center.x);
+			
+			//hFlip
+			if(this.horizontalFlipped) y = center.y - (y - center.y);
+			
+			this.changedPolygon.addPoint(x, y);
+		}
+	}
+
+	public Polygon getChangedPolygon() {
+		return changedPolygon;
+	}
+
+	public void setChangedPolygon(Polygon changedPolygon) {
+		this.changedPolygon = changedPolygon;
+	}
 }

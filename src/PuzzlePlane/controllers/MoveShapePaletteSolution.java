@@ -82,7 +82,7 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 			int topY = this.board.getShape(this.selectedShapeOrder).getTopY();
 			if (topY < this.palette_h) { //this.palette_h + (maximum height of a shape)
 				Point initialPosition = this.board.getShapePosition(this.selectedShapeOrder);
-				this.board.setPosition(initialPosition.x, initialPosition.y, this.selectedShapeOrder);
+				this.board.getShape(this.selectedShapeOrder).resetPos();
 			}
 		}
 		

@@ -2,6 +2,7 @@ package PuzzlePlane.models;
 
 import java.awt.Color;
 import java.awt.Point;
+import java.awt.Polygon;
 import java.util.ArrayList;
 
 public class Board {
@@ -90,24 +91,24 @@ public class Board {
 		this.shapePosition.add(new Point(points.get(0)));
 		this.orderOffset_x = this.shapePosition.get(this.order).x;
 		this.orderOffset_y = this.shapePosition.get(this.order).y;
-		PlacedShape placedShape = new PlacedShape(new Point(this.orderOffset_x, this.orderOffset_y), false, false, 0, this.order, true, false, color);
+		PlacedShape placedShape = new PlacedShape(this.order, color);
 		//System.out.println("points:"+points.size());
 		for (Point point:points) {
 			placedShape.addPoint(point.x, point.y);
 		}
-		placedShape.setOriginalPos();
 		this.shapes.add(placedShape);
 		this.displayOrder.add(this.order);
 		this.order += 1;
 	}
 	
 	public boolean selectShape(int x, int y) {
-		for (int i = this.displayOrder.size()-1; i >= 0 ; i--) {
+		for (int i = this.displayOrder.size() - 1; i >= 0 ; i--) {
 			int currentOrder = this.displayOrder.get(i);
 			PlacedShape shape = this.getShape(currentOrder);
-			if (shape.contains(x, y)) {
+			Polygon currentPolygon = shape.getChangedPolygon();
+			if (currentPolygon.contains(x, y)) {
 				this.selectedOrder = shape.getOrder();
-				shape.setSelected(true);
+				shape.selectShape();
 				return true;
 			}
 		}
@@ -142,8 +143,9 @@ public class Board {
 		this.init();
 		for(PlacedShape shape : shapes) {
 			ArrayList<Point> list = new ArrayList<>();
-			for(int i = 0; i < shape.npoints; i++) {
-				list.add(new Point(shape.xpoints[i], shape.ypoints[i]));
+			Polygon originalPolygon = shape.originalPolygon;
+			for(int i = 0; i < originalPolygon.npoints; i++) {
+				list.add(new Point(originalPolygon.xpoints[i], originalPolygon.ypoints[i]));
 			}
 			this.initialAddShape(list, shape.color);
 		}
