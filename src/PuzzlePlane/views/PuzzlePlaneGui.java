@@ -14,6 +14,9 @@ public class PuzzlePlaneGui extends JFrame {
 	private static final long serialVersionUID = 4590308406322961931L;
 	
 	Board board;
+	
+	public String puzzleFolerName;
+
 	private JPanel pane = null; //Main panel be set to cardlayout
 	private CardLayout card = null; // CardLayout manager
     private JPanel p_1 = null, p_2 = null, p_3 = null, p_4 = null, p_5 = null; // 3 JPanel
@@ -23,7 +26,6 @@ public class PuzzlePlaneGui extends JFrame {
 		super ("Puzzle Plane");
 		
 		this.board = new Board();
-		
 		
 		card = new CardLayout(5, 5);//Creates a new card layout with the specified horizontal and vertical gaps.
 		pane = new JPanel(card); 	//Set pane layout to cardlayout
@@ -50,6 +52,14 @@ public class PuzzlePlaneGui extends JFrame {
 	
 	public void jumpPage(String page) {
 		card.show(pane, page);
+	}
+	
+	public String getPuzzleFolderName() {
+		return puzzleFolerName;
+	}
+
+	public void setPuzzleFolderName(String puzzleFolderName) {
+		this.puzzleFolerName = puzzleFolderName;
 	}
 	
 }

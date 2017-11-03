@@ -17,8 +17,7 @@ public class FirstPPGui extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 5177975869801488954L;
-	private static final String traditionalShapesetPath = "shapeset.txt";
-	private static final String nonTraditionalShapesetPath = "shapeset.txt";
+
 	/**
 	 * Create the frame.
 	 */
@@ -30,7 +29,7 @@ public class FirstPPGui extends JPanel {
 		traditionalsetButton.setBounds(54, 157, 436, 440);
 		
 		SelectShapesetController selectShapesetController = new SelectShapesetController(p, b);
-		selectShapesetController.setFilePath(FirstPPGui.traditionalShapesetPath);
+		selectShapesetController.setFilePath("traditional");
 		traditionalsetButton.addActionListener(selectShapesetController);
 		add(traditionalsetButton);
 		
@@ -39,7 +38,7 @@ public class FirstPPGui extends JPanel {
 		nontraditionalsetButton.setBounds(519, 157, 447, 432);
 		
 		selectShapesetController = new SelectShapesetController(p, b);
-		selectShapesetController.setFilePath(FirstPPGui.nonTraditionalShapesetPath);
+		selectShapesetController.setFilePath("nontraditional");
 		nontraditionalsetButton.addActionListener(selectShapesetController);
 		
 		add(nontraditionalsetButton);
