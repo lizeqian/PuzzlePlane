@@ -9,6 +9,9 @@ public class ShapeOperation implements ActionListener{
 	Board board;
 	int operation;
 	
+	public final static int LEFT_ROTATE = 345;
+	public final static int RIGHT_ROTATE = 15;
+	
 	public ShapeOperation (Board b, PuzzleSolvingView p, int op) {
 		this.puzzleSolvingView = p;
 		this.board = b;
@@ -20,10 +23,10 @@ public class ShapeOperation implements ActionListener{
 		case Operation.NO_ACTION:
 			break;
 		case Operation.LEFT_ROTATE:
-			this.board.rotate(345);
+			this.board.rotate(LEFT_ROTATE);
 			break;
 		case Operation.RIGHT_ROTATE:
-			this.board.rotate(15);
+			this.board.rotate(RIGHT_ROTATE);
 			break;
 		case Operation.VFLIP:
 			this.board.vFlip();
