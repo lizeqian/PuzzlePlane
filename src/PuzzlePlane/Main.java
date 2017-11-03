@@ -3,7 +3,6 @@ package PuzzlePlane;
 import java.awt.event.*;
 
 import javax.swing.*;
-import PuzzlePlane.models.*;
 import PuzzlePlane.views.*;
 import PuzzlePlane.controllers.*;
 

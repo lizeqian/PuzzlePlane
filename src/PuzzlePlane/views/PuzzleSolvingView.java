@@ -52,25 +52,25 @@ public class PuzzleSolvingView extends JPanel {
 		button_next.addActionListener(exitPuzzleSolving);
 		this.add(button_next);
 		
-		ShapeOperation leftRotateControl = new ShapeOperation(b, this, 1);
+		ShapeOperation leftRotateControl = new ShapeLeftRotateController(b, this);
 		JButton buttonLeftRotation = new JButton("L Rotate");
 		buttonLeftRotation.setBounds(w-200, h-80, 90, 30);
 		buttonLeftRotation.addActionListener(leftRotateControl);
 		this.add(buttonLeftRotation);
 		
-		ShapeOperation rightRotateControl = new ShapeOperation(b, this, 2);
+		ShapeOperation rightRotateControl = new ShapeRightRotateController(b, this);
 		JButton buttonRightRotation = new JButton("R Rotate");
 		buttonRightRotation.setBounds(w-300, h-80, 90, 30);
 		buttonRightRotation.addActionListener(rightRotateControl);
 		this.add(buttonRightRotation);
 		
-		ShapeOperation hFlipControl = new ShapeOperation(b, this, 4);
+		ShapeOperation hFlipControl = new ShapeHorizontalFlipController(b, this);
 		JButton buttonHorizonFlipped = new JButton("H Flip");
 		buttonHorizonFlipped.setBounds(w-400, h-80, 90, 30);
 		buttonHorizonFlipped.addActionListener(hFlipControl);
 		this.add(buttonHorizonFlipped);
 		
-		ShapeOperation vFlipControl = new ShapeOperation(b, this, 3);
+		ShapeOperation vFlipControl = new ShapeVerticalFlipController(b, this);
 		JButton buttonVerticalFlipped = new JButton("V Flip");
 		buttonVerticalFlipped.setBounds(w-500, h-80, 90, 30);
 		buttonVerticalFlipped.addActionListener(vFlipControl);
