@@ -1,4 +1,4 @@
-package PuzzlePlane.controllers.dataLoader;
+package PuzzlePlane.controllers;
 
 import java.awt.Color;
 import java.io.*;
@@ -8,15 +8,12 @@ import java.util.Scanner;
 
 import PuzzlePlane.models.PlacedShape;
 
-public class ShapesetLoader {
-	
+public class ShapeLoader{
 	File file;
 	Scanner scan;
 	
-	public ShapesetLoader(String path) {
-		// TODO Auto-generated constructor stub
+	public ShapeLoader(String path) {
 		file = new File(path);
-		scan = null;
 		try {
 			scan = new Scanner(file);
 		} catch(Exception e) {

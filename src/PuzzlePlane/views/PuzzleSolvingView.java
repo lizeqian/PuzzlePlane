@@ -93,10 +93,10 @@ public class PuzzleSolvingView extends JPanel {
 	    g2.setRenderingHints(rh);
 		g2.drawLine(0, this.palette_h, this.palette_w, this.palette_h);
 		
-		List<Polygon> puzzleShape = this.board.getPuzzle().getPuzzleShape();
+		List<PlacedShape> puzzleShape = this.board.getPuzzle().getPuzzleShape();
 		g2.setColor(Color.GRAY);
-		for (Polygon shape : puzzleShape) {
-			g2.fillPolygon(shape);
+		for (PlacedShape shape : puzzleShape) {
+			g2.fillPolygon(shape.getOriginalPolygon());
 		}
 		
 		for (PlacedShape shape : this.board.getShapes()) {

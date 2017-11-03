@@ -3,7 +3,6 @@ package PuzzlePlane.controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import PuzzlePlane.controllers.dataLoader.ShapesetLoader;
 import PuzzlePlane.models.Board;
 import PuzzlePlane.views.PuzzlePlaneGui;
 
@@ -42,7 +41,7 @@ public class SelectShapesetController implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		this.plane.jumpPage("p2");
-		this.board.setShapes((new ShapesetLoader(filePath)).load());
+		this.board.setShapes((new ShapeLoader(filePath)).load());
 	}
 
 }
