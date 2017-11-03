@@ -4,11 +4,11 @@ import PuzzlePlane.models.*;
 import PuzzlePlane.views.*;
 import java.awt.event.*;
 
-public class ExitPuzzleSolving implements ActionListener{
+public class ExitPuzzleSolvingController implements ActionListener{
 	PuzzlePlaneGui puzzlePlaneGui;
 	Board board;
 	
-	public ExitPuzzleSolving(Board b, PuzzlePlaneGui p) {
+	public ExitPuzzleSolvingController(Board b, PuzzlePlaneGui p) {
 		this.puzzlePlaneGui = p;
 		this.board = b;
 		

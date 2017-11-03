@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import PuzzlePlane.models.Board;
 import PuzzlePlane.views.PuzzleSolvingView;
 
-public class ShapeLeftRotateController extends ShapeOperation{
+public class ShapeLeftRotateController extends ShapeOperationController{
 
 	public ShapeLeftRotateController(Board b, PuzzleSolvingView p) {
 		// TODO Auto-generated constructor stub

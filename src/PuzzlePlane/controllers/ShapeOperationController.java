@@ -4,14 +4,14 @@ import PuzzlePlane.models.*;
 import PuzzlePlane.views.*;
 import java.awt.event.*;
 
-public abstract class ShapeOperation implements ActionListener{
+public abstract class ShapeOperationController implements ActionListener{
 	PuzzleSolvingView puzzleSolvingView;
 	Board board;
 	
 	public final static int LEFT_ROTATE = 345;
 	public final static int RIGHT_ROTATE = 15;
 	
-	public ShapeOperation (Board b, PuzzleSolvingView p) {
+	public ShapeOperationController (Board b, PuzzleSolvingView p) {
 		this.puzzleSolvingView = p;
 		this.board = b;
 	}

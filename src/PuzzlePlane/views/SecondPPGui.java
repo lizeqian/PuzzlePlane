@@ -4,7 +4,7 @@ package PuzzlePlane.views;
 import javax.swing.JPanel;
 
 import PuzzlePlane.controllers.SelectPuzzleController;
-import PuzzlePlane.controllers.BacktoShapeset;
+import PuzzlePlane.controllers.BacktoShapesetController;
 import PuzzlePlane.models.Board;
 
 import javax.swing.JButton;
@@ -102,7 +102,7 @@ public class SecondPPGui extends JPanel {
 		
 		JButton btnBacktoShapeset = new JButton("Back to Shapeset");
 		btnBacktoShapeset.setBounds(544, 550, 187, 34);
-		btnBacktoShapeset.addActionListener(new BacktoShapeset(p));
+		btnBacktoShapeset.addActionListener(new BacktoShapesetController(p));
 		add(btnBacktoShapeset);
 	}
 }

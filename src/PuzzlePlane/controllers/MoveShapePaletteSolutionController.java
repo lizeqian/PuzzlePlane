@@ -7,7 +7,7 @@ import PuzzlePlane.models.*;
 import PuzzlePlane.views.*;
 import java.awt.*;
 
-public class MoveShapePaletteSolution extends MouseAdapter{
+public class MoveShapePaletteSolutionController extends MouseAdapter{
 	Board board;
 	PuzzleSolvingView puzzleSolvingView;
 	Point origin, shapePos;
@@ -19,7 +19,7 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 	int lx, rx, ty, by;
 	
 	
-	public MoveShapePaletteSolution (Board b, PuzzleSolvingView p, int w, int h) {
+	public MoveShapePaletteSolutionController (Board b, PuzzleSolvingView p, int w, int h) {
 		this.board = b;
 		this.puzzleSolvingView = p;
 		this.palette_w = w;

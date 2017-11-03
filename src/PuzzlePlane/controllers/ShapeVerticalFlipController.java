@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import PuzzlePlane.models.Board;
 import PuzzlePlane.views.PuzzleSolvingView;
 
-public class ShapeVerticalFlipController extends ShapeOperation{
+public class ShapeVerticalFlipController extends ShapeOperationController{
 
 	public ShapeVerticalFlipController(Board b, PuzzleSolvingView p) {
 		// TODO Auto-generated constructor stub

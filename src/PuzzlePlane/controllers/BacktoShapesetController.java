@@ -1,20 +1,17 @@
 package PuzzlePlane.controllers;
 
-import PuzzlePlane.models.*;
 import PuzzlePlane.views.*;
 import java.awt.event.*;
 
-public class EnterPuzzleSolving implements ActionListener{
+public class BacktoShapesetController implements ActionListener{
 	PuzzlePlaneGui puzzlePlaneGui;
-	Board board;
 	
-	public EnterPuzzleSolving(PuzzlePlaneGui p, Board b) {
+	public BacktoShapesetController(PuzzlePlaneGui p) {
 		this.puzzlePlaneGui = p;
-		this.board = b;
 		
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		
+		this.puzzlePlaneGui.jumpPage("p1");
 	}
 }
