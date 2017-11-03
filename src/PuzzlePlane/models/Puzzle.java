@@ -28,4 +28,12 @@ public class Puzzle{
 		this.puzzleShape = puzzleShape;
 		//TODO: set puzzleShape, avoid shallow copy.
 	}
+
+	public String getPath() {
+		return this.puzzleShapePath;
+	}
+	
+	public void setPath(String puzzlePath) {
+		this.puzzleShapePath = puzzlePath;
+	}
 }
