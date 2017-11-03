@@ -61,43 +61,43 @@ public class SecondPPGui extends JPanel {
 		JButton traditionalPuzzle4Button = new JButton("cristal");
 		traditionalPuzzle4Button.setBounds(656, 155, 95, 101);
 		traditionalPuzzle4Button.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/3cristal.jpeg")));
-		//traditionalPuzzle4Button.addActionListener(new SelectPuzzleController(b, p, s));
+		traditionalPuzzle4Button.addActionListener(new SelectPuzzleController(b, p, "puzzle/puzzleShapes/3.txt"));
 		add(traditionalPuzzle4Button);
 		
 		JButton traditionalPuzzle5Button = new JButton("fish");
 		traditionalPuzzle5Button.setBounds(199, 317, 95, 101);
 		traditionalPuzzle5Button.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/4fish.jpeg")));
-		//traditionalPuzzle5Button.addActionListener(new SelectPuzzleController(b, p, s));
+		traditionalPuzzle5Button.addActionListener(new SelectPuzzleController(b, p, "puzzle/puzzleShapes/4.txt"));
 		add(traditionalPuzzle5Button);
 		
 		JButton traditionalPuzzle6Button = new JButton("duck");
 		traditionalPuzzle6Button.setBounds(349, 317, 95, 101);
 		traditionalPuzzle6Button.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/5duck.jpeg")));
-		//traditionalPuzzle6Button.addActionListener(new SelectPuzzleController(b, p, s));
+		traditionalPuzzle6Button.addActionListener(new SelectPuzzleController(b, p, "puzzle/puzzleShapes/5.txt"));
 		add(traditionalPuzzle6Button);
 		
 		JButton traditionalPuzzle7Button = new JButton("dontknow");
 		traditionalPuzzle7Button.setBounds(501, 317, 95, 101);
 		traditionalPuzzle7Button.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/6dontknow.jpeg")));
-		//traditionalPuzzle7Button.addActionListener(new SelectPuzzleController(b, p, s));
+		traditionalPuzzle7Button.addActionListener(new SelectPuzzleController(b, p, "puzzle/puzzleShapes/6.txt"));
 		add(traditionalPuzzle7Button);
 		
 		JButton traditionalPuzzle8Button = new JButton("turtle");
 		traditionalPuzzle8Button.setBounds(656, 317, 95, 101);
 		traditionalPuzzle8Button.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/7turtle.jpeg")));
-		//traditionalPuzzle8Button.addActionListener(new SelectPuzzleController(b, p, s));
+		traditionalPuzzle8Button.addActionListener(new SelectPuzzleController(b, p, "puzzle/puzzleShapes/7.txt"));
 		add(traditionalPuzzle8Button);
 		
 		JButton traditionalPuzzle9Button = new JButton("house");
 		traditionalPuzzle9Button.setBounds(199, 483, 95, 101);
 		traditionalPuzzle9Button.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/8house100.jpg")));
-		//traditionalPuzzle9Button.addActionListener(new SelectPuzzleController(b, p, s));
+		traditionalPuzzle9Button.addActionListener(new SelectPuzzleController(b, p, "puzzle/puzzleShapes/8.txt"));
 		add(traditionalPuzzle9Button);
 		
 		JButton traditionalPuzzle10Button = new JButton("dog");
 		traditionalPuzzle10Button.setBounds(349, 483, 95, 101);
 		traditionalPuzzle10Button.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/10dog100.jpeg")));
-		//traditionalPuzzle10Button.addActionListener(new SelectPuzzleController(b, p, s));
+		traditionalPuzzle10Button.addActionListener(new SelectPuzzleController(b, p, "puzzle/puzzleShapes/9.txt"));
 		add(traditionalPuzzle10Button);
 		
 		/*JButton returnShapeSetButton = new JButton("Return");
