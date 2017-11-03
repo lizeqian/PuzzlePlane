@@ -2,14 +2,12 @@ package PuzzlePlane.controllers;
 
 import PuzzlePlane.models.*;
 import PuzzlePlane.views.*;
-
-import java.awt.*;
 import java.awt.event.*;
 
 public class ShapeOperation implements ActionListener{
 	PuzzleSolvingView puzzleSolvingView;
 	Board board;
-	int operation; // 0 :no action, 1: left rotate, 2: right rotate, 3: v flip, 4: h flip
+	int operation;
 	
 	public ShapeOperation (Board b, PuzzleSolvingView p, int op) {
 		this.puzzleSolvingView = p;
@@ -19,18 +17,18 @@ public class ShapeOperation implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		switch(this.operation) {
-		case 0:
+		case Operation.NO_ACTION:
 			break;
-		case 1:
+		case Operation.LEFT_ROTATE:
 			this.board.rotate(345);
 			break;
-		case 2:
+		case Operation.RIGHT_ROTATE:
 			this.board.rotate(15);
 			break;
-		case 3:
+		case Operation.VFLIP:
 			this.board.vFlip();
 			break;
-		case 4:
+		case Operation.HFLIP:
 			this.board.hFlip();
 			break;
 		default:

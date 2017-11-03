@@ -3,12 +3,9 @@ package PuzzlePlane.controllers;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import PuzzlePlane.models.*;
 import PuzzlePlane.views.*;
-
 import java.awt.*;
-import java.awt.event.*;
 
 public class MoveShapePaletteSolution extends MouseAdapter{
 	Board board;

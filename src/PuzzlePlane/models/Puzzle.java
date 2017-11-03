@@ -1,8 +1,5 @@
 package PuzzlePlane.models;
 
-import java.awt.Color;
-import java.awt.Point;
-
 import PuzzlePlane.controllers.PuzzleShapeLoader;
 
 public class Puzzle{

@@ -1,7 +1,6 @@
 package PuzzlePlane.controllers;
 
 import java.awt.Color;
-import java.awt.Point;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
