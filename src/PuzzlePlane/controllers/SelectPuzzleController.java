@@ -18,21 +18,10 @@ public class SelectPuzzleController implements ActionListener{
 		this.board = b;
 		this.puzzlePlaneGui = p;
 		this.puzzleShapePath = s;
-		//this.buttonOrder = i;
-		
-
 	}
 	
-	public void actionPerformed(ActionEvent e) {
-		//System.out.println(this.puzzleShapePath);
-		//PuzzleShapeLoader puzzleShapeLoader = new PuzzleShapeLoader(this.puzzlePath);
-		//PlacedShape puzzleShape = puzzleShapeLoader.load();
-		
-		//Puzzle puzzle = this.board.getPuzzle();
+	public void actionPerformed(ActionEvent e) {	
 		this.board.setPuzzle(new Puzzle(puzzleShapePath));
-		//System.out.println(puzzle.getPuzzleShape().npoints);
-		
 		this.puzzlePlaneGui.jumpPage("p3");
-		
 	}
 }

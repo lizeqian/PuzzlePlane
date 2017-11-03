@@ -4,25 +4,30 @@ import java.awt.Color;
 import java.awt.Point;
 import java.awt.Polygon;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 public class Board {
 	
 	Puzzle puzzle;
 
-	ArrayList<PlacedShape> shapes;
-	ArrayList<Point> shapePosition;//Fixed Positions
-	ArrayList<Integer> displayOrder;
-	int order;
-	int selectedOrder;
-	int orderOffset_x = 0, orderOffset_y=0;
-	int selectedShapeSet = 0;
+	List<PlacedShape> shapes;
+	PlacedShape selectedShape;
+	int selectedShapeSet;
 	
 	public void init() {
-		this.shapes = new ArrayList<PlacedShape>();
-		this.shapePosition = new ArrayList<Point>();
-		this.displayOrder = new ArrayList<Integer>();
-		this.order = 0;
+		this.shapes = new LinkedList<PlacedShape>();
 	}
+	
+	public PlacedShape getSelectedShape() {
+		return selectedShape;
+	}
+
+	public void setSelectedShape(PlacedShape selectedShape) {
+		this.selectedShape = selectedShape;
+	}
+	
 	public int getSelectedShapeSet() {
 		return selectedShapeSet;
 	}
@@ -37,32 +42,6 @@ public class Board {
 
 	public Board() {
 		//TODO: change puzzle to "public Board(Puzzle puzzle)"
-		
-	/*	Point firstPos = new Point();
-		firstPos.setLocation(20.0, 50.0);
-		Point sPos = new Point();
-		sPos.setLocation(120.0, 50.0);
-		Point sPos1 = new Point();
-		sPos1.setLocation(180.0, 50.0);
-		Point sPos2 = new Point();
-		sPos2.setLocation(240.0, 50.0);
-		Point sPos3 = new Point();
-		sPos3.setLocation(300.0, 50.0);
-		Point sPos4 = new Point();
-		sPos3.setLocation(330.0, 50.0);
-		Point sPos5 = new Point();
-		sPos3.setLocation(360.0, 50.0);
-		Point sPos6 = new Point();
-		sPos3.setLocation(380.0, 50.0);
-		this.shapePosition.add(firstPos);
-		this.shapePosition.add(sPos);
-		this.shapePosition.add(sPos1);
-		this.shapePosition.add(sPos2);
-		this.shapePosition.add(sPos3);
-		this.shapePosition.add(sPos4);
-		this.shapePosition.add(sPos5);
-		this.shapePosition.add(sPos6);*/
-		this.order = 0;
 	}
 	
 	public void resetAllShapePosition() {
@@ -71,44 +50,29 @@ public class Board {
 		}
 	}
 	
-	public void setPosition(int x, int y, int o) {
-		this.getShape(o).setPosition(x, y);
+	public void setPosition(int x, int y) {
+		this.selectedShape.setPosition(x, y);
 	}
 	
 	public void rotate(int angle) {
-		this.getShape(this.selectedOrder).rotate(angle);
+		this.selectedShape.rotate(angle);
 	}
 	
 	public void vFlip() {
-		this.getShape(this.selectedOrder).vFlip();
+		this.selectedShape.vFlip();
 	}
 	
 	public void hFlip() {
-		this.getShape(this.selectedOrder).hFlip();
-	}
-	
-	public void initialAddShape(ArrayList<Point> points, Color color) {
-		this.shapePosition.add(new Point(points.get(0)));
-		this.orderOffset_x = this.shapePosition.get(this.order).x;
-		this.orderOffset_y = this.shapePosition.get(this.order).y;
-		PlacedShape placedShape = new PlacedShape(this.order, color);
-		//System.out.println("points:"+points.size());
-		for (Point point:points) {
-			placedShape.addPoint(point.x, point.y);
-		}
-		this.shapes.add(placedShape);
-		this.displayOrder.add(this.order);
-		this.order += 1;
+		this.selectedShape.hFlip();
 	}
 	
 	public boolean selectShape(int x, int y) {
-		for (int i = this.displayOrder.size() - 1; i >= 0 ; i--) {
-			int currentOrder = this.displayOrder.get(i);
-			PlacedShape shape = this.getShape(currentOrder);
-			Polygon currentPolygon = shape.getChangedPolygon();
-			if (currentPolygon.contains(x, y)) {
-				this.selectedOrder = shape.getOrder();
+		for(PlacedShape shape : shapes) {
+			Polygon polygon = shape.getChangedPolygon();
+			if(polygon.contains(x, y)) {
 				shape.selectShape();
+				this.selectedShape = shape;
+				this.reorder();
 				return true;
 			}
 		}
@@ -116,47 +80,20 @@ public class Board {
 	}
 	
 	public void reorder () {
-		this.displayOrder.remove(new Integer(this.selectedOrder));
-		this.displayOrder.add(this.selectedOrder);
+		this.shapes.remove(this.selectedShape);
+		((LinkedList<PlacedShape>) this.shapes).addFirst(this.selectedShape);
 	}
 	
-	public ArrayList<Integer> getDisplayOrder(){
-		return this.displayOrder;
-	}
-	
-	public int getSelectedOrder () {
-		return this.selectedOrder;
-	}
-	
-	
-	public PlacedShape getShape(int o) {
-		for(PlacedShape shape: this.shapes) {
-			if (shape.getOrder() == o) {
-				return shape;
-			}
-		}
-		return null;
-	}
-	
-	public void setShapes(ArrayList<PlacedShape> shapes) {
-		//System.out.println("shapes:"+shapes.size());
+	public void setShapes(List<PlacedShape> shapes) {
 		this.init();
 		for(PlacedShape shape : shapes) {
-			ArrayList<Point> list = new ArrayList<>();
-			Polygon originalPolygon = shape.originalPolygon;
-			for(int i = 0; i < originalPolygon.npoints; i++) {
-				list.add(new Point(originalPolygon.xpoints[i], originalPolygon.ypoints[i]));
-			}
-			this.initialAddShape(list, shape.color);
+			PlacedShape newShape = new PlacedShape(shape);
+			this.shapes.add(newShape);
 		}
 	}
 	
-	public ArrayList<PlacedShape> getShapes() {
+	public List<PlacedShape> getShapes() {
 		return this.shapes;
-	}
-	
-	public Point getShapePosition(int o) {
-		return this.shapePosition.get(o);
 	}
 	
 	public Puzzle getPuzzle() {

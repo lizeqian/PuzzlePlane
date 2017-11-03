@@ -28,7 +28,7 @@ public class PuzzleShapeLoader {
 		r = scan.nextInt();
 		g = scan.nextInt();
 		b = scan.nextInt();
-		PlacedShape puzzleShape = new PlacedShape(-1, new Color(r, g, b));
+		PlacedShape puzzleShape = new PlacedShape(new Color(r, g, b));
 		while(scan.hasNext()) {
 			puzzleShape.addPoint(scan.nextInt(), scan.nextInt());
 		}

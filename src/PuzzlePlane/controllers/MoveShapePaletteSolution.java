@@ -18,7 +18,7 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 	int y = 0;
 	int palette_w;
 	int palette_h;
-	int selectedShapeOrder;
+	PlacedShape selectedShape;	//reference to selectedShape
 	boolean shapeContain;
 	int lx, rx, ty, by;
 	
@@ -35,19 +35,17 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 		this.origin = me.getPoint();
 		this.shapeContain=this.board.selectShape(this.origin.x, this.origin.y);
 		if (this.shapeContain) {
-			this.selectedShapeOrder = this.board.getSelectedOrder();
-		//	System.out.println(this.selectedShapeOrder);
-			this.shapePos = this.board.getShape(this.selectedShapeOrder).getPosition();
-			this.x = this.shapePos.x;
-			this.y = this.shapePos.y;
+			this.selectedShape = this.board.getSelectedShape();
+			this.shapePos = this.selectedShape.getPosition();
+			this.x = (int)this.shapePos.getX();
+			this.y = (int)this.shapePos.getY();
 			
-			this.lx = this.board.getShape(this.selectedShapeOrder).getLeftX();
-			this.rx = this.board.getShape(this.selectedShapeOrder).getRightX();
-			this.ty = this.board.getShape(this.selectedShapeOrder).getTopY();
-			this.by = this.board.getShape(this.selectedShapeOrder).getBottomY();
+			this.lx = this.selectedShape.getLeftX();
+			this.rx = this.selectedShape.getRightX();
+			this.ty = this.selectedShape.getTopY();
+			this.by = this.selectedShape.getBottomY();
 			
 			this.board.reorder();
-			//System.out.println("("+this.lx+","+this.ty+")");
 		}
 	}
 	
@@ -71,7 +69,7 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 			if (fy + this.ty < 0) y = offset_y - this.ty;
 			if (fy + this.by >= this.puzzleSolvingView.getHeight() - 50) y = this.puzzleSolvingView.getHeight() - 50 - 1 - (this.by - offset_y);
 			
-			this.board.setPosition(x, y, this.selectedShapeOrder);
+			this.board.setPosition(x, y);
 			this.puzzleSolvingView.repaint();	
 		}
 	}
@@ -79,9 +77,9 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 	@Override
 	public void mouseReleased(MouseEvent me) {
 		if (this.shapeContain) {
-			int topY = this.board.getShape(this.selectedShapeOrder).getTopY();
+			int topY = this.selectedShape.getTopY();
 			if (topY < this.palette_h) { //this.palette_h + (maximum height of a shape)
-				this.board.getShape(this.selectedShapeOrder).resetPos();
+				this.selectedShape.resetPos();
 			}
 		}
 		

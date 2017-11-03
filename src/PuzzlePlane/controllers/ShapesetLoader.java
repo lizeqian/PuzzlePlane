@@ -28,19 +28,16 @@ public class ShapesetLoader {
 		ArrayList<PlacedShape> ret = new ArrayList<>();
 		while(scan.hasNextLine()) {
 			String str = scan.nextLine();
-			//System.out.println(str);
-			//System.out.println("Shape: "+str);
 			if(str.length()<=1) break;
 			int r, g, b;
 			String[] arr = str.split(" ");
 			r = Integer.parseInt(arr[0]);
 			g = Integer.parseInt(arr[1]);
 			b = Integer.parseInt(arr[2]);
-			PlacedShape puzzleShape = new PlacedShape(-1, new Color(r, g, b));
+			PlacedShape puzzleShape = new PlacedShape(new Color(r, g, b));
 			for(int i = 3; i < arr.length; i+=2) {
 				puzzleShape.addPoint(Integer.parseInt(arr[i]), Integer.parseInt(arr[i+1]));
 			}
-			//System.out.println("puzzleShape:"+puzzleShape.xpoints.length);
 			ret.add(puzzleShape);
 		}
 		scan.close();

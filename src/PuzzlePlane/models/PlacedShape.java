@@ -4,32 +4,38 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class PlacedShape{
-	Point position;
 	Polygon originalPolygon;
 	Polygon changedPolygon;
-	boolean verticalFlipped;
-	boolean horizontalFlipped;
-	int angle;
-	int order;
-	boolean onPalette;
-	boolean selected;
-	Color color;
+	ShapeStatus status;
 	
-	public void init() {
-		this.position = new Point(0, 0);
-		this.verticalFlipped = false;
-		this.horizontalFlipped = false;
-		this.angle = 0;
-		this.onPalette = true;
-		this.selected = false;
+	public ShapeStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(ShapeStatus status) {
+		this.status = status;
+	}
+
+	public Polygon getOriginalPolygon() {
+		return originalPolygon;
+	}
+
+	public void setOriginalPolygon(Polygon originalPolygon) {
+		this.originalPolygon = originalPolygon;
 	}
 	
-	public PlacedShape(int order, Color color) {
-		this.init();
+	public PlacedShape(Color color) {
+		this.status = new ShapeStatus(color);
 		this.originalPolygon = new Polygon();
 		this.setChangedPolygon(new Polygon());
-		this.order = order;
-		this.color = color;
+	}
+	
+	public PlacedShape(PlacedShape shape) {
+		Polygon originalPolygon = shape.getOriginalPolygon();
+		this.originalPolygon = new Polygon(originalPolygon.xpoints, originalPolygon.ypoints, originalPolygon.npoints);
+		Polygon changedPolygon = shape.getChangedPolygon();
+		this.changedPolygon = new Polygon(changedPolygon.xpoints, changedPolygon.ypoints, changedPolygon.npoints);
+		this.status = new ShapeStatus(shape.getStatus());
 	}
 	
 	public void resetPos(){
@@ -38,7 +44,7 @@ public class PlacedShape{
 		for (int i = 0; i < numPoints; i++) {
 			this.changedPolygon.addPoint(this.originalPolygon.xpoints[i], this.originalPolygon.ypoints[i]);
 		}
-		this.init();
+		this.status.reset();
 	}
 	
 	public void addPoint(int x, int y) {
@@ -47,23 +53,19 @@ public class PlacedShape{
 	}
 	
 	public void selectShape() {
-		this.selected = !this.selected;
+		this.status.select();
 	}
 	
 	public Point getPosition() {
-		return this.position;
+		return this.status.getPosition();
 	}
 	
-	public int getOrder() {
-		return this.order;
-	}
-	
-	public boolean getSelected() {
-		return this.selected;
+	public boolean isSelected() {
+		return this.status.isSelected();
 	}
 	
 	public Color getColor() {
-		return this.color;
+		return this.status.getColor();
 	}
 	
 	public int getLeftX() {
@@ -123,22 +125,22 @@ public class PlacedShape{
 	}
 	
 	public void setPosition(int x, int y) {
-		this.position.setLocation(x, y);
+		this.status.setPosition(x, y);
 		this.update();
 	}
 	
 	public void rotate(int angle) {
-		this.angle += angle;
+		this.status.rotate(angle);
 		this.update();
 	}
 	
 	public void vFlip() {
-		this.verticalFlipped = !this.verticalFlipped;
+		this.status.vFlip();
 		this.update();
 	}
 	
 	public void hFlip() {
-		this.horizontalFlipped = !this.horizontalFlipped;
+		this.status.hFlip();
 		this.update();
 	}
 	
@@ -150,13 +152,14 @@ public class PlacedShape{
 			Point center = this.getCenterPosition();
 			
 			//Move
-			x += this.position.x;
-			y += this.position.y;
-			center.x += this.position.x;
-			center.y += this.position.y;
+			ShapeStatus status = this.status;
+			x += (int)status.getPosition().getX();
+			y += (int)status.getPosition().getY();
+			center.x += (int)status.getPosition().getX();
+			center.y += (int)status.getPosition().getY();
 			
 			//Rotate
-			double angle = (this.angle*1.0/180.0)*Math.PI;
+			double angle = (status.getAngle()*1.0/180.0)*Math.PI;
 			double cosAngle = Math.cos(angle);
 			double sinAngle = Math.sin(angle);
 			double dx = x - center.x;
@@ -166,10 +169,10 @@ public class PlacedShape{
 			y = center.y + (int)(dx * sinAngle + dy * cosAngle);
 			
 			//vFlip
-			if(this.verticalFlipped) x = center.x - (x - center.x);
+			if(status.isVerticalFlipped()) x = center.x - (x - center.x);
 			
 			//hFlip
-			if(this.horizontalFlipped) y = center.y - (y - center.y);
+			if(status.isHorizontalFlipped()) y = center.y - (y - center.y);
 			
 			this.changedPolygon.addPoint(x, y);
 		}

@@ -60,6 +60,7 @@ public class FirstPPGui extends JPanel {
 		traditionalsetButton.setBounds(54, 157, 436, 440);
 		
 		SelectShapesetController selectShapesetController = new SelectShapesetController(p, b);
+		selectShapesetController.setFilePath("shapeset.txt");
 		traditionalsetButton.addActionListener(selectShapesetController);
 		add(traditionalsetButton);
 		

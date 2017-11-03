@@ -9,7 +9,16 @@ import PuzzlePlane.views.PuzzlePlaneGui;
 public class SelectShapesetController implements ActionListener{
 	Board board;
 	PuzzlePlaneGui plane;
+	String filePath;
 	
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+
 	public SelectShapesetController(PuzzlePlaneGui p, Board board) {
 		// TODO Auto-generated constructor stub
 		this.plane = p;
@@ -21,8 +30,7 @@ public class SelectShapesetController implements ActionListener{
 		// TODO Auto-generated method stub
 		this.plane.jumpPage("p2");
 		this.board.setSelectedShapeSet(0);
-		this.board.setShapes((new ShapesetLoader("shapeset.txt")).load());
-		//System.out.println("performed!");
+		this.board.setShapes((new ShapesetLoader(filePath)).load());
 	}
 
 }
