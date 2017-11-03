@@ -33,8 +33,10 @@ public class PlacedShape{
 	public PlacedShape(PlacedShape shape) {
 		Polygon originalPolygon = shape.getOriginalPolygon();
 		this.originalPolygon = new Polygon(originalPolygon.xpoints, originalPolygon.ypoints, originalPolygon.npoints);
+		
 		Polygon changedPolygon = shape.getChangedPolygon();
 		this.changedPolygon = new Polygon(changedPolygon.xpoints, changedPolygon.ypoints, changedPolygon.npoints);
+		
 		this.status = new ShapeStatus(shape.getStatus());
 	}
 	
@@ -49,7 +51,7 @@ public class PlacedShape{
 	
 	public void addPoint(int x, int y) {
 		this.originalPolygon.addPoint(x, y);
-		this.update();
+		this.changedPolygon.addPoint(x, y);
 	}
 	
 	public void selectShape() {
@@ -90,57 +92,24 @@ public class PlacedShape{
 	}
 	
 	public void setPosition(int x, int y) {
+		Point p = this.getPosition();
+		this.changedPolygon.translate(x - p.x, y - p.y);
 		this.status.setPosition(x, y);
-		this.update();
 	}
 	
 	public void rotate(int angle) {
 		this.status.rotate(angle);
-		this.update();
+		PolygonUtils.rotate(this.changedPolygon, angle);
 	}
 	
 	public void vFlip() {
 		this.status.vFlip();
-		this.update();
+		PolygonUtils.vFlip(this.changedPolygon);
 	}
 	
 	public void hFlip() {
 		this.status.hFlip();
-		this.update();
-	}
-	
-	public void update() {
-		this.changedPolygon.reset();
-		for(int i = 0; i < this.originalPolygon.npoints; i++) {
-			int x = this.originalPolygon.xpoints[i];
-			int y = this.originalPolygon.ypoints[i];
-			Point center = this.getCenterPosition();
-			
-			//Move
-			ShapeStatus status = this.status;
-			x += (int)status.getPosition().getX();
-			y += (int)status.getPosition().getY();
-			center.x += (int)status.getPosition().getX();
-			center.y += (int)status.getPosition().getY();
-			
-			//vFlip
-			if(status.isVerticalFlipped()) x = center.x - (x - center.x);
-			
-			//hFlip
-			if(status.isHorizontalFlipped()) y = center.y - (y - center.y);
-			
-			//Rotate
-			double angle = (status.getAngle()*1.0/180.0)*Math.PI;
-			double cosAngle = Math.cos(angle);
-			double sinAngle = Math.sin(angle);
-			double dx = x - center.x;
-			double dy = y - center.y;
-			
-			x = center.x + (int)(dx * cosAngle - dy * sinAngle);
-			y = center.y + (int)(dx * sinAngle + dy * cosAngle);
-			
-			this.changedPolygon.addPoint(x, y);
-		}
+		PolygonUtils.hFlip(this.changedPolygon);
 	}
 
 	public Polygon getChangedPolygon() {
