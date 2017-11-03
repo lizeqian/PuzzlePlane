@@ -4,8 +4,10 @@ import java.awt.Color;
 import java.awt.Point;
 import java.awt.Polygon;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Queue;
 
 public class Board {
@@ -67,7 +69,9 @@ public class Board {
 	}
 	
 	public boolean selectShape(int x, int y) {
-		for(PlacedShape shape : shapes) {
+		ListIterator<PlacedShape> iterator = shapes.listIterator(shapes.size());
+		while(iterator.hasPrevious()){
+			PlacedShape shape = iterator.previous();
 			Polygon polygon = shape.getChangedPolygon();
 			if(polygon.contains(x, y)) {
 				shape.selectShape();
@@ -81,7 +85,7 @@ public class Board {
 	
 	public void reorder() {
 		this.shapes.remove(this.selectedShape);
-		((LinkedList<PlacedShape>) this.shapes).addFirst(this.selectedShape);
+		this.shapes.add(this.selectedShape);
 	}
 	
 	public void setShapes(List<PlacedShape> shapes) {
