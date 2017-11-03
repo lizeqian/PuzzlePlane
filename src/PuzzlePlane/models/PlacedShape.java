@@ -33,8 +33,10 @@ public class PlacedShape{
 	public PlacedShape(PlacedShape shape) {
 		Polygon originalPolygon = shape.getOriginalPolygon();
 		this.originalPolygon = new Polygon(originalPolygon.xpoints, originalPolygon.ypoints, originalPolygon.npoints);
+		
 		Polygon changedPolygon = shape.getChangedPolygon();
 		this.changedPolygon = new Polygon(changedPolygon.xpoints, changedPolygon.ypoints, changedPolygon.npoints);
+		
 		this.status = new ShapeStatus(shape.getStatus());
 	}
 	
@@ -90,23 +92,23 @@ public class PlacedShape{
 	}
 	
 	public void setPosition(int x, int y) {
+		Point p = this.getPosition();
+		this.changedPolygon.translate(x - p.x, y - p.y);
 		this.status.setPosition(x, y);
-		this.update();
 	}
 	
 	public void rotate(int angle) {
 		this.status.rotate(angle);
-		this.update();
 	}
 	
 	public void vFlip() {
 		this.status.vFlip();
-		this.update();
+		//this.update();
 	}
 	
 	public void hFlip() {
 		this.status.hFlip();
-		this.update();
+		//this.update();
 	}
 	
 	public void update() {
