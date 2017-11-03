@@ -2,6 +2,7 @@ package PuzzlePlane.models;
 
 import java.awt.*;
 import java.util.ArrayList;
+import PuzzlePlane.utils.*;
 
 public class PlacedShape{
 	Polygon originalPolygon;
@@ -69,59 +70,24 @@ public class PlacedShape{
 	}
 	
 	public int getLeftX() {
-		int ret = 10000000;
-		int numPoints = this.getChangedPolygon().npoints;
-		for(int i=0;i < numPoints;i++) {
-			if ( ret > this.getChangedPolygon().xpoints[i]) {
-				ret = this.getChangedPolygon().xpoints[i];
-			}
-		}
-		return ret;
+		return ArrayUtils.min(this.changedPolygon.xpoints, this.changedPolygon.npoints);
 	}
 	
 	public int getRightX() {
-		int ret = -1;
-		int numPoints = this.getChangedPolygon().npoints;
-		for(int i = 0; i < numPoints; i++) {
-			if ( ret < this.getChangedPolygon().xpoints[i] ) {
-				ret = this.getChangedPolygon().xpoints[i];
-			}
-		}
-		return ret;
+		return ArrayUtils.max(this.changedPolygon.xpoints, this.changedPolygon.npoints);
 	}
 	
 	public int getTopY() {
-		int ret = 10000000;
-		int numPoints = this.getChangedPolygon().npoints;
-		for(int i = 0; i < numPoints; i++) {
-			if ( ret > this.getChangedPolygon().ypoints[i] ) {
-				ret = this.getChangedPolygon().ypoints[i];
-			}
-		}
-		return ret;
+		return ArrayUtils.min(this.changedPolygon.ypoints, this.changedPolygon.npoints);
 	}
 	
 	public int getBottomY() {
-		int ret = -1;
-		int numPoints = this.getChangedPolygon().npoints;
-		for(int i = 0 ;i < numPoints; i++) {
-			if ( ret < this.getChangedPolygon().ypoints[i] ) {
-				ret = this.getChangedPolygon().ypoints[i];
-			}
-		}
-		return ret;
+		return ArrayUtils.max(this.changedPolygon.ypoints, this.changedPolygon.npoints);
 	}
 	
 	public Point getCenterPosition() {
-		int numPoints = this.originalPolygon.npoints;
-		Point ret = new Point(0, 0);
-		for(int i = 0; i < numPoints; i++) {
-			ret.x += this.originalPolygon.xpoints[i];
-			ret.y += this.originalPolygon.ypoints[i];
-		}
-		ret.x /= numPoints;
-		ret.y /= numPoints;
-		return ret;
+		return new Point(ArrayUtils.avg(this.originalPolygon.xpoints, this.originalPolygon.npoints),
+				ArrayUtils.avg(this.originalPolygon.ypoints, this.originalPolygon.npoints));
 	}
 	
 	public void setPosition(int x, int y) {

@@ -79,7 +79,7 @@ public class Board {
 		return false;
 	}
 	
-	public void reorder () {
+	public void reorder() {
 		this.shapes.remove(this.selectedShape);
 		((LinkedList<PlacedShape>) this.shapes).addFirst(this.selectedShape);
 	}
