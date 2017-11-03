@@ -123,6 +123,12 @@ public class PlacedShape{
 			center.x += (int)status.getPosition().getX();
 			center.y += (int)status.getPosition().getY();
 			
+			//vFlip
+			if(status.isVerticalFlipped()) x = center.x - (x - center.x);
+			
+			//hFlip
+			if(status.isHorizontalFlipped()) y = center.y - (y - center.y);
+			
 			//Rotate
 			double angle = (status.getAngle()*1.0/180.0)*Math.PI;
 			double cosAngle = Math.cos(angle);
@@ -132,12 +138,6 @@ public class PlacedShape{
 			
 			x = center.x + (int)(dx * cosAngle - dy * sinAngle);
 			y = center.y + (int)(dx * sinAngle + dy * cosAngle);
-			
-			//vFlip
-			if(status.isVerticalFlipped()) x = center.x - (x - center.x);
-			
-			//hFlip
-			if(status.isHorizontalFlipped()) y = center.y - (y - center.y);
 			
 			this.changedPolygon.addPoint(x, y);
 		}
