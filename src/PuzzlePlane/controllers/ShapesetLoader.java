@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Point;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import PuzzlePlane.models.PlacedShape;
@@ -24,7 +25,7 @@ public class ShapesetLoader {
 		}
 	}
 	
-	public ArrayList<PlacedShape> load() {
+	public List<PlacedShape> load() {
 		ArrayList<PlacedShape> ret = new ArrayList<>();
 		while(scan.hasNextLine()) {
 			String str = scan.nextLine();

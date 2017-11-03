@@ -1,11 +1,14 @@
 package PuzzlePlane.models;
 
+import java.util.List;
+import PuzzlePlane.controllers.*;
+
 public class ShapeSet{
-	Puzzle[] puzzles;
-	PlacedShape[] shapes;
+	List<Puzzle> puzzles;
+	List<PlacedShape> shapes;
 	
-	public ShapeSet() {
-		
+	public ShapeSet(String path) {
+		shapes = (new ShapesetLoader(path)).load();
 	}
 	
 	public void addShape() {
