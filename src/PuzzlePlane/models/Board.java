@@ -8,10 +8,8 @@ import java.util.ListIterator;
 public class Board {
 	
 	Puzzle puzzle;
-
 	List<PlacedShape> shapes;
 	PlacedShape selectedShape;
-	int selectedShapeSet;
 	
 	public void init() {
 		this.shapes = new LinkedList<PlacedShape>();
@@ -25,20 +23,11 @@ public class Board {
 		this.selectedShape = selectedShape;
 	}
 	
-	public int getSelectedShapeSet() {
-		return selectedShapeSet;
-	}
-
-	public void setSelectedShapeSet(int selectedShapeSet) {
-		this.selectedShapeSet = selectedShapeSet;
-	}
-	
 	public void setPuzzle(Puzzle puzzle) {
 		this.puzzle = puzzle;
 	}
 
 	public Board() {
-		//TODO: change puzzle to "public Board(Puzzle puzzle)"
 	}
 	
 	public void resetAllShapePosition() {

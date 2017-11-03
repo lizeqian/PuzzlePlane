@@ -17,6 +17,11 @@ import PuzzlePlane.controllers.*;
 
 public class PuzzleSolvingView extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5102883105475450390L;
+	
 	Board board;
 	int palette_h;
 	int palette_w;

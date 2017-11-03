@@ -19,17 +19,17 @@ public class PuzzlePlaneGui extends JFrame {
     private JPanel p_1 = null, p_2 = null, p_3 = null, p_4 = null, p_5 = null; // 3 JPanel
     private int height = 700, width = 1000;
 	
-	public PuzzlePlaneGui(Board b) {
+	public PuzzlePlaneGui() {
 		super ("Puzzle Plane");
 		
-		this.board = b;
+		this.board = new Board();
 		
 		
 		card = new CardLayout(5, 5);//Creates a new card layout with the specified horizontal and vertical gaps.
 		pane = new JPanel(card); 	//Set pane layout to cardlayout
-        p_1 = new FirstPPGui(b, this);
-        p_2 = new SecondPPGui(b, this);  //Please uncomment when this class is correctly implemented
-        p_3 = new PuzzleSolvingView(b, this, this.width, this.height);
+        p_1 = new FirstPPGui(this.board, this);
+        p_2 = new SecondPPGui(this.board, this); 
+        p_3 = new PuzzleSolvingView(this.board, this, this.width, this.height);
         p_4 = new JPanel();
         p_5 = new JPanel();
         pane.add(p_1, "p1");

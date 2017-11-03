@@ -29,7 +29,6 @@ public class SelectShapesetController implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		this.plane.jumpPage("p2");
-		this.board.setSelectedShapeSet(0);
 		this.board.setShapes((new ShapesetLoader(filePath)).load());
 	}
 

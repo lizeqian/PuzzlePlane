@@ -9,9 +9,7 @@ import PuzzlePlane.controllers.*;
 
 public class Main {
 	public static void main(String[] args) {
-		Board b = new Board();
-
-		PuzzlePlaneGui g = new PuzzlePlaneGui(b);
+		PuzzlePlaneGui g = new PuzzlePlaneGui();
 		g.addWindowListener (new WindowAdapter() {
 
 			public void windowClosing(WindowEvent e) {

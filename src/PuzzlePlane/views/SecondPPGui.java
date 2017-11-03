@@ -26,13 +26,7 @@ public class SecondPPGui extends JPanel {
 	 * Create the frame.
 	 */
 	public SecondPPGui(Board b, PuzzlePlaneGui p) {
-		/*
-		setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\tu\\Screen Shot 2017-09-22 at 4.00.14 PM.png"));
-		setTitle("Puzzle Plane");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 938, 806);
-		setBorder(new EmptyBorder(5, 5, 5, 5));
-		*/
+
 		setLayout(null);
 		
 		JButton traditionalPuzzle1Button = new JButton("fox");
