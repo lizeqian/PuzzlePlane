@@ -1,25 +1,36 @@
 package PuzzlePlane.models;
 
 import java.awt.Polygon;
+import java.util.ArrayList;
 import java.util.List;
 
 import PuzzlePlane.utils.ArrayUtils;
 
 public class Puzzle{
-	PlacedShape puzzleShape;
+	List<Polygon> puzzleShape;
+//	PlacedShape puzzleShape;
 	PlacedShape lastSolution;
 	boolean isSolved;
 	
-	public Puzzle(PlacedShape puzzleShape) {
-		this.puzzleShape = new PlacedShape(puzzleShape);
+	public Puzzle(List<Polygon> puzzleShape) {
+		this.puzzleShape = puzzleShape;
 	}
 	
-	public PlacedShape getPuzzleShape() {
+	public Puzzle() {
+	}
+	
+	public void setShape(List<Polygon> puzzleShape) {
+		this.puzzleShape = puzzleShape;
+	}
+	
+	public List<Polygon> getPuzzleShape() {
 		return this.puzzleShape;
 	}
 	
-	public void setPuzzleShape(PlacedShape puzzleShape) {
-		this.puzzleShape = new PlacedShape(puzzleShape);
+
+	
+/*	public void setPuzzleShape(PlacedShape puzzleShape) {
+		this.puzzleShape = new ArrayList<PlacedShape>();
 		//TODO: set puzzleShape, avoid shallow copy.
 	}
 	
@@ -46,5 +57,5 @@ public class Puzzle{
 		}
 		System.out.println(errorNum);
 		return errorNum < 1000;
-	}
+	}*/
 }
