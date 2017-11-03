@@ -1,6 +1,5 @@
 package PuzzlePlane.views;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -14,6 +13,10 @@ import javax.swing.JButton;
 
 public class FourthPPGui extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8871562550953938083L;
 	private JPanel contentPane;
 
 	/**

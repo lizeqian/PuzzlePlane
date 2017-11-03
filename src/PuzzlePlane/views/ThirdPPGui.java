@@ -1,20 +1,15 @@
 package PuzzlePlane.views;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
-import javax.swing.JTextField;
 import java.awt.Panel;
-import javax.swing.JLayeredPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.CardLayout;
-import java.awt.FlowLayout;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.JPopupMenu;
@@ -25,6 +20,10 @@ import javax.swing.JLabel;
 
 public class ThirdPPGui extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2395325166341747282L;
 	private JPanel contentPane;
 
 	/**

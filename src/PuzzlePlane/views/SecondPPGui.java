@@ -1,28 +1,24 @@
 package PuzzlePlane.views;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 
 import PuzzlePlane.controllers.SelectPuzzleController;
-import PuzzlePlane.controllers.SelectShapesetController;
 import PuzzlePlane.controllers.BacktoShapeset;
 import PuzzlePlane.models.Board;
 
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Toolkit;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
-import java.awt.Color;
 
 public class SecondPPGui extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5157226398944441626L;
+	
 	Board board;
 	PuzzlePlaneGui plane;
 	

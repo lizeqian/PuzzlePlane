@@ -1,7 +1,6 @@
 package PuzzlePlane.models;
 
 import java.awt.*;
-import java.util.ArrayList;
 import PuzzlePlane.utils.*;
 
 public class PlacedShape{

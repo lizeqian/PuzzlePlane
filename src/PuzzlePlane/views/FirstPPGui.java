@@ -1,28 +1,22 @@
 package PuzzlePlane.views;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 
 import PuzzlePlane.controllers.SelectShapesetController;
 import PuzzlePlane.models.Board;
 
 import javax.swing.JLabel;
-import javax.swing.JScrollPane;
 import javax.swing.JButton;
-import java.awt.Color;
-import java.awt.Toolkit;
 import javax.swing.ImageIcon;
-import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
 public class FirstPPGui extends JPanel {
 
-	private JPanel contentPane;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5177975869801488954L;
 
 	/**
 	 * Launch the application.

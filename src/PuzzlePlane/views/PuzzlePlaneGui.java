@@ -1,23 +1,18 @@
 package PuzzlePlane.views;
 import PuzzlePlane.models.*;
-import PuzzlePlane.controllers.*;
 
-import java.awt.BorderLayout;
 import java.awt.CardLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.UIManager;
  
 
 //This JFrame is the main Frame of application. Use JPanels as content, and switch JPanels for each different view
 public class PuzzlePlaneGui extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4590308406322961931L;
+	
 	Board board;
 	private JPanel pane = null; //Main panel be set to cardlayout
 	private CardLayout card = null; // CardLayout manager
