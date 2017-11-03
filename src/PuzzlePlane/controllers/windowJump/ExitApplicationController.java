@@ -1,4 +1,4 @@
-package PuzzlePlane.controllers;
+package PuzzlePlane.controllers.windowJump;
 
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;

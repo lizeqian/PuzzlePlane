@@ -1,4 +1,4 @@
-package PuzzlePlane.controllers;
+package PuzzlePlane.controllers.windowJump;
 
 import PuzzlePlane.models.*;
 import PuzzlePlane.views.*;

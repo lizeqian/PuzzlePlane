@@ -1,4 +1,4 @@
-package PuzzlePlane.controllers;
+package PuzzlePlane.controllers.dataLoader;
 
 import java.awt.Color;
 import java.io.*;

@@ -3,6 +3,7 @@ package PuzzlePlane.controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import PuzzlePlane.controllers.dataLoader.ShapesetLoader;
 import PuzzlePlane.models.Board;
 import PuzzlePlane.views.PuzzlePlaneGui;
 

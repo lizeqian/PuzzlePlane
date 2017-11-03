@@ -5,6 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import PuzzlePlane.views.*;
 import PuzzlePlane.controllers.*;
+import PuzzlePlane.controllers.windowJump.ExitApplicationController;
 
 public class Main {
 	public static void main(String[] args) {

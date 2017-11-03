@@ -14,6 +14,11 @@ import javax.swing.JPanel;
 import PuzzlePlane.models.*;
 
 import PuzzlePlane.controllers.*;
+import PuzzlePlane.controllers.shapeAction.ShapeHorizontalFlipController;
+import PuzzlePlane.controllers.shapeAction.ShapeLeftRotateController;
+import PuzzlePlane.controllers.shapeAction.ShapeRightRotateController;
+import PuzzlePlane.controllers.shapeAction.ShapeVerticalFlipController;
+import PuzzlePlane.controllers.windowJump.ExitPuzzleSolvingController;
 
 public class PuzzleSolvingView extends JPanel {
 

@@ -1,16 +1,17 @@
 /***********
  * @author cheng zhu
  */
-package PuzzlePlane.controllers;
+package PuzzlePlane.controllers.shapeAction;
 
 import java.awt.event.ActionEvent;
 
+import PuzzlePlane.controllers.ShapeOperationController;
 import PuzzlePlane.models.Board;
 import PuzzlePlane.views.PuzzleSolvingView;
 
-public class ShapeHorizontalFlipController extends ShapeOperationController{
+public class ShapeVerticalFlipController extends ShapeOperationController{
 
-	public ShapeHorizontalFlipController(Board b, PuzzleSolvingView p) {
+	public ShapeVerticalFlipController(Board b, PuzzleSolvingView p) {
 		// TODO Auto-generated constructor stub
 		super(b, p);
 	}
@@ -18,7 +19,8 @@ public class ShapeHorizontalFlipController extends ShapeOperationController{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		this.board.hFlip();
+		this.board.vFlip();
 		this.puzzleSolvingView.repaint();
 	}
+
 }

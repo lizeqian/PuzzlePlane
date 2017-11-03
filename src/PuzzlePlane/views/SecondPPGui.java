@@ -4,7 +4,7 @@ package PuzzlePlane.views;
 import javax.swing.JPanel;
 
 import PuzzlePlane.controllers.SelectPuzzleController;
-import PuzzlePlane.controllers.BacktoShapesetController;
+import PuzzlePlane.controllers.windowJump.BacktoShapesetController;
 import PuzzlePlane.models.Board;
 
 import javax.swing.JButton;
