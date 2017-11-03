@@ -19,7 +19,8 @@ public class SelectPuzzleController implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent e) {	
-		this.board.setPuzzle(new Puzzle(puzzleShapePath));
+		PlacedShape puzzleShape = (new PuzzleShapeLoader(puzzleShapePath)).load();
+		this.board.setPuzzle(new Puzzle(puzzleShape));
 		this.puzzlePlaneGui.jumpPage("p3");
 	}
 }

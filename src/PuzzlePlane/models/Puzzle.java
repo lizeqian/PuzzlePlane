@@ -1,20 +1,12 @@
 package PuzzlePlane.models;
 
-import PuzzlePlane.controllers.PuzzleShapeLoader;
-
 public class Puzzle{
 	PlacedShape puzzleShape;
-	PlacedShape solution;
 	PlacedShape lastSolution;
 	boolean isSolved;
-	int order;
 	
-	//TODO: change the file path of puzzleShape
-	String puzzleShapePath;
-	
-	public Puzzle(String path) {
-		puzzleShapePath = path;
-		puzzleShape = (new PuzzleShapeLoader(puzzleShapePath)).load();
+	public Puzzle(PlacedShape puzzleShape) {
+		this.puzzleShape = new PlacedShape(puzzleShape);
 	}
 	
 	public PlacedShape getPuzzleShape() {
@@ -22,15 +14,7 @@ public class Puzzle{
 	}
 	
 	public void setPuzzleShape(PlacedShape puzzleShape) {
-		this.puzzleShape = puzzleShape;
+		this.puzzleShape = new PlacedShape(puzzleShape);
 		//TODO: set puzzleShape, avoid shallow copy.
-	}
-
-	public String getPath() {
-		return this.puzzleShapePath;
-	}
-	
-	public void setPath(String puzzlePath) {
-		this.puzzleShapePath = puzzlePath;
 	}
 }
