@@ -45,6 +45,6 @@ public class Puzzle{
 			}
 		}
 		System.out.println(errorNum);
-		return errorNum < 1500;
+		return errorNum < 1000;
 	}
 }
