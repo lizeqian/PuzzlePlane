@@ -85,10 +85,7 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 			}
 		}
 		
-		if(this.board.getPuzzle().isSolved(this.board.getShapes())) {
-			System.out.println("solved");
-		}
-		
+	
 		this.shapeContain = false;
 		this.puzzleSolvingView.repaint();
 	}

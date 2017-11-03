@@ -2,8 +2,10 @@ package PuzzlePlane.controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Polygon;
+import java.util.ArrayList;
+import java.util.List;
 
-import PuzzlePlane.controllers.dataLoader.PuzzleShapeLoader;
 import PuzzlePlane.models.*;
 import PuzzlePlane.views.*;
 
@@ -19,9 +21,10 @@ public class SelectPuzzleController implements ActionListener{
 		this.puzzleShapePath = s;
 	}
 	
-	public void actionPerformed(ActionEvent e) {	
-		PlacedShape puzzleShape = (new PuzzleShapeLoader(puzzleShapePath)).load();
-		this.board.setPuzzle(new Puzzle(puzzleShape));
+	public void actionPerformed(ActionEvent e) {
+		List<PlacedShape> puzzleShapes = new ArrayList<PlacedShape>();
+		puzzleShapes = (new ShapeLoader(puzzleShapePath)).load();
+		this.board.setPuzzle(new Puzzle(puzzleShapes));
 		this.puzzlePlaneGui.jumpPage("p3");
 	}
 }

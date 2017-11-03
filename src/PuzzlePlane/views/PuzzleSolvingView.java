@@ -7,6 +7,7 @@ import java.awt.Polygon;
 import java.awt.RenderingHints;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -92,9 +93,11 @@ public class PuzzleSolvingView extends JPanel {
 	    g2.setRenderingHints(rh);
 		g2.drawLine(0, this.palette_h, this.palette_w, this.palette_h);
 		
-		PlacedShape puzzleShape = this.board.getPuzzle().getPuzzleShape();
-		g2.setColor(puzzleShape.getColor());
-		g2.fillPolygon(puzzleShape.getChangedPolygon());
+		List<PlacedShape> puzzleShape = this.board.getPuzzle().getPuzzleShape();
+		g2.setColor(Color.GRAY);
+		for (PlacedShape shape : puzzleShape) {
+			g2.fillPolygon(shape.getOriginalPolygon());
+		}
 		
 		for (PlacedShape shape : this.board.getShapes()) {
 			Polygon p = shape.getChangedPolygon();
