@@ -15,7 +15,6 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 	int y = 0;
 	int palette_w;
 	int palette_h;
-	PlacedShape selectedShape;	//reference to selectedShape
 	boolean shapeContain;
 	int lx, rx, ty, by;
 	
@@ -30,17 +29,17 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 	@Override
 	public void mousePressed(MouseEvent me) {
 		this.origin = me.getPoint();
-		this.shapeContain=this.board.selectShape(this.origin.x, this.origin.y);
+		this.shapeContain = this.board.selectShape(this.origin.x, this.origin.y);
 		if (this.shapeContain) {
-			this.selectedShape = this.board.getSelectedShape();
-			this.shapePos = this.selectedShape.getPosition();
+			PlacedShape selectedShape = this.board.getSelectedShape();
+			this.shapePos = selectedShape.getPosition();
 			this.x = (int)this.shapePos.getX();
 			this.y = (int)this.shapePos.getY();
 			
-			this.lx = this.selectedShape.getLeftX();
-			this.rx = this.selectedShape.getRightX();
-			this.ty = this.selectedShape.getTopY();
-			this.by = this.selectedShape.getBottomY();
+			this.lx = selectedShape.getLeftX();
+			this.rx = selectedShape.getRightX();
+			this.ty = selectedShape.getTopY();
+			this.by = selectedShape.getBottomY();
 			
 			this.board.reorder();
 		}
@@ -74,9 +73,15 @@ public class MoveShapePaletteSolution extends MouseAdapter{
 	@Override
 	public void mouseReleased(MouseEvent me) {
 		if (this.shapeContain) {
-			int topY = this.selectedShape.getTopY();
+			PlacedShape selectedShape = this.board.getSelectedShape();
+			int topY = selectedShape.getTopY();
 			if (topY < this.palette_h) { //this.palette_h + (maximum height of a shape)
-				this.selectedShape.resetPos();
+				selectedShape.selectShape();
+				selectedShape.resetPos();
+				selectedShape.getStatus().setOnPalette(true);
+				this.board.setSelectedShape(null);
+			} else {
+				selectedShape.getStatus().setOnPalette(false);
 			}
 		}
 		

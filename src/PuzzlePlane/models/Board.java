@@ -37,19 +37,23 @@ public class Board {
 	}
 	
 	public void setPosition(int x, int y) {
-		this.selectedShape.setPosition(x, y);
+		if(this.selectedShape != null)
+			this.selectedShape.setPosition(x, y);
 	}
 	
 	public void rotate(int angle) {
-		this.selectedShape.rotate(angle);
+		if(this.selectedShape != null)
+			this.selectedShape.rotate(angle);
 	}
 	
 	public void vFlip() {
-		this.selectedShape.vFlip();
+		if(this.selectedShape != null)
+			this.selectedShape.vFlip();
 	}
 	
 	public void hFlip() {
-		this.selectedShape.hFlip();
+		if(this.selectedShape != null)
+			this.selectedShape.hFlip();
 	}
 	
 	public boolean selectShape(int x, int y) {
@@ -58,6 +62,9 @@ public class Board {
 			PlacedShape shape = iterator.previous();
 			Polygon polygon = shape.getChangedPolygon();
 			if(polygon.contains(x, y)) {
+				if(this.selectedShape != null) {
+					this.selectedShape.selectShape();
+				}
 				shape.selectShape();
 				this.selectedShape = shape;
 				this.reorder();
