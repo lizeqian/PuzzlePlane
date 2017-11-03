@@ -35,7 +35,7 @@ public class SecondPPGui extends JPanel {
 		JButton traditionalPuzzle1Button = new JButton("fox");
 		traditionalPuzzle1Button.setIcon(new ImageIcon(SecondPPGui.class.getResource("/PuzzlePlane/resources/9fox100.jpeg")));
 		traditionalPuzzle1Button.setBounds(199, 155, 95, 101);
-		traditionalPuzzle1Button.addActionListener(new SelectPuzzleController(b, p, "puzzle/" + puzzleFolderName + "/0.txt"));
+		traditionalPuzzle1Button.addActionListener(new SelectPuzzleController(b, p, "/PuzzlePlane/puzzle/traditional/0.txt"));
 		add(traditionalPuzzle1Button);
 
 		

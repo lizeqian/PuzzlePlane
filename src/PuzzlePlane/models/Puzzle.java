@@ -7,23 +7,31 @@ import java.util.List;
 import PuzzlePlane.utils.ArrayUtils;
 
 public class Puzzle{
+<<<<<<< HEAD
+	List<PlacedShape> puzzleShape;
+//	PlacedShape puzzleShape;
+=======
 	List<Polygon> puzzleShape;
+>>>>>>> branch 'master' of https://github.com/lizeqian/PuzzlePlane.git
 	PlacedShape lastSolution;
 	boolean isSolved;
 	
-	public Puzzle(List<Polygon> puzzleShape) {
+	public Puzzle(List<PlacedShape> puzzleShape) {
 		this.puzzleShape = puzzleShape;
 	}
 	
 	public Puzzle() {
 	}
 	
-	public void setShape(List<Polygon> puzzleShape) {
+	public void setShape(List<PlacedShape> puzzleShape) {
 		this.puzzleShape = puzzleShape;
 	}
 	
-	public List<Polygon> getPuzzleShape() {
+	public List<PlacedShape> getPuzzleShape() {
 		return this.puzzleShape;
 	}
+<<<<<<< HEAD
+=======
 	
+>>>>>>> branch 'master' of https://github.com/lizeqian/PuzzlePlane.git
 }
