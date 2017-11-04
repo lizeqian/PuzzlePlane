@@ -81,6 +81,12 @@ public class PuzzleSolvingView extends JPanel {
 		buttonVerticalFlipped.setBounds(w-500, h-80, 90, 30);
 		buttonVerticalFlipped.addActionListener(vFlipControl);
 		this.add(buttonVerticalFlipped);
+		
+		UndoController undoControl = new UndoController(b, this);
+		JButton buttonUndo= new JButton("undo");
+		buttonUndo.setBounds(w-600, h-80, 90, 30);
+		buttonUndo.addActionListener(undoControl);
+		this.add(buttonUndo);
 	}
 	
 	@Override

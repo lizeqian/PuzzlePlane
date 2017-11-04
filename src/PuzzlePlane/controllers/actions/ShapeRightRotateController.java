@@ -10,7 +10,7 @@ import PuzzlePlane.controllers.Move;
 import PuzzlePlane.models.Board;
 import PuzzlePlane.views.PuzzleSolvingView;
 
-public class ShapeRightRotateController extends AbstractAction implements Move{
+public class ShapeRightRotateController extends AbstractAction{
 
 	public ShapeRightRotateController(Board b, PuzzleSolvingView p) {
 		// TODO Auto-generated constructor stub
@@ -20,17 +20,5 @@ public class ShapeRightRotateController extends AbstractAction implements Move{
 	public void actionPerformed(ActionEvent e) {
 		this.board.rotate(RIGHT_ROTATE);
 		this.puzzleSolvingView.repaint();
-	}
-
-	@Override
-	public void undo() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void redo() {
-		// TODO Auto-generated method stub
-		
 	}
 }

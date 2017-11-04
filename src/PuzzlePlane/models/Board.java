@@ -4,12 +4,30 @@ import java.awt.Polygon;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Stack;
+
+import PuzzlePlane.controllers.Move;
+import PuzzlePlane.controllers.moves.RotateMove;
 
 public class Board {
 	
 	Puzzle puzzle;
 	List<PlacedShape> shapes;
 	PlacedShape selectedShape;
+	
+	Stack<Move> moves = new Stack<Move>();
+	Stack<Move> redoStack = new Stack<Move>();
+	
+	public void undo() {
+		if(!moves.isEmpty()) {
+			Move m = moves.pop();
+			m.undo();
+		}
+	}
+	
+	public void redo() {
+		
+	}
 	
 	public void init() {
 		this.shapes = new LinkedList<PlacedShape>();
@@ -42,8 +60,10 @@ public class Board {
 	}
 	
 	public void rotate(int angle) {
-		if(this.selectedShape != null)
+		if(this.selectedShape != null) {
+			this.moves.push(new RotateMove(this.selectedShape, angle));
 			this.selectedShape.rotate(angle);
+		}
 	}
 	
 	public void vFlip() {
