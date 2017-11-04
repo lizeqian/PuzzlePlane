@@ -1,15 +1,16 @@
 /***********
  * @author cheng zhu
  */
-package PuzzlePlane.controllers.shapeAction;
+package PuzzlePlane.controllers.actions;
 
 import java.awt.event.ActionEvent;
 
-import PuzzlePlane.controllers.ShapeOperationController;
+import PuzzlePlane.controllers.AbstractAction;
+import PuzzlePlane.controllers.Move;
 import PuzzlePlane.models.Board;
 import PuzzlePlane.views.PuzzleSolvingView;
 
-public class ShapeLeftRotateController extends ShapeOperationController{
+public class ShapeLeftRotateController extends AbstractAction implements Move{
 
 	public ShapeLeftRotateController(Board b, PuzzleSolvingView p) {
 		// TODO Auto-generated constructor stub
@@ -20,5 +21,17 @@ public class ShapeLeftRotateController extends ShapeOperationController{
 	public void actionPerformed(ActionEvent e) {
 		this.board.rotate(LEFT_ROTATE);
 		this.puzzleSolvingView.repaint();
+	}
+
+	@Override
+	public void undo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void redo() {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -7,7 +7,7 @@ import PuzzlePlane.models.*;
 import PuzzlePlane.views.*;
 import java.awt.*;
 
-public class MoveShapePaletteSolutionController extends MouseAdapter{
+public class MoveShapePaletteSolutionController extends MouseAdapter implements Move{
 	Board board;
 	PuzzleSolvingView puzzleSolvingView;
 	Point origin, shapePos;
@@ -88,6 +88,18 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 	
 		this.shapeContain = false;
 		this.puzzleSolvingView.repaint();
+	}
+
+	@Override
+	public void undo() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void redo() {
+		// TODO Auto-generated method stub
+		
 	}
 }
 	

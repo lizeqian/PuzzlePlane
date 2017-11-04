@@ -1,9 +1,8 @@
 package PuzzlePlane.controllers;
 
-public class Move {
-
-	public Move() {
-		// TODO Auto-generated constructor stub
-	}
-
+public interface Move {
+	
+	public abstract void undo();
+	
+	public abstract void redo();
 }

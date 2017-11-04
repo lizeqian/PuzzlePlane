@@ -1,7 +1,6 @@
 package PuzzlePlane.models;
 
 import java.util.Stack;
-
 import PuzzlePlane.controllers.Move;
 
 public class Model {
@@ -26,13 +25,13 @@ public class Model {
 		this.board = board;
 	}
 	
-	public void recordMove(Move move) {
-		moves.add(move);
+	public void recordMove(Move m) {
+		moves.add(m);
 		redoStack.clear();
 	}
 	
-	public void recordRedoableMove(Move move) {
-		redoStack.push(move);
+	public void recordRedoableMove(Move m) {
+		redoStack.push(m);
 	}
 	
 	public Move removeRedoMove() {
@@ -44,7 +43,7 @@ public class Model {
 		moves.push(m);
 	}
 	
-	public Move removeLastMove() {
+	public Move reAbstractActionLastAbstractAction() {
 		if(moves.isEmpty()) return null;
 		return moves.pop();
 	}
