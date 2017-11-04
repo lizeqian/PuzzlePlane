@@ -26,11 +26,16 @@ public class Board {
 		if(!moves.isEmpty()) {
 			Move m = moves.pop();
 			m.undo();
+			redoStack.push(m);
 		}
 	}
 	
 	public void redo() {
-		
+		if(!moves.isEmpty()) {
+			Move m = redoStack.pop();
+			m.redo();
+			moves.push(m);
+		}
 	}
 	
 	public void init() {

@@ -87,6 +87,12 @@ public class PuzzleSolvingView extends JPanel {
 		buttonUndo.setBounds(w-600, h-80, 90, 30);
 		buttonUndo.addActionListener(undoControl);
 		this.add(buttonUndo);
+		
+		RedoController redoControl = new RedoController(b, this);
+		JButton buttonRedo= new JButton("redo");
+		buttonRedo.setBounds(w-700, h-80, 90, 30);
+		buttonRedo.addActionListener(redoControl);
+		this.add(buttonRedo);
 	}
 	
 	@Override

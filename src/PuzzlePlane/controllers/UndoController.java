@@ -8,8 +8,8 @@ import PuzzlePlane.views.PuzzlePlaneGui;
 import PuzzlePlane.views.PuzzleSolvingView;
 
 public class UndoController implements ActionListener{
-	Board board;
-	PuzzleSolvingView plane;
+	public Board board;
+	public PuzzleSolvingView plane;
 	
 	public UndoController(Board b, PuzzleSolvingView puzzleSolvingView) {
 		// TODO Auto-generated constructor stub
