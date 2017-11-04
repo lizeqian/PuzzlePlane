@@ -45,6 +45,7 @@ public class Model {
 	}
 	
 	public Move removeLastMove() {
-		return null;
+		if(moves.isEmpty()) return null;
+		return moves.pop();
 	}
 }
