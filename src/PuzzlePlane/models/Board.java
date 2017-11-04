@@ -8,10 +8,6 @@ import java.util.ListIterator;
 import java.util.Stack;
 
 import PuzzlePlane.controllers.Move;
-import PuzzlePlane.controllers.moves.HorizontalFlipMove;
-import PuzzlePlane.controllers.moves.PositionMove;
-import PuzzlePlane.controllers.moves.RotateMove;
-import PuzzlePlane.controllers.moves.VerticalFlipMove;
 
 public class Board {
 	
@@ -31,7 +27,7 @@ public class Board {
 	}
 	
 	public void redo() {
-		if(!moves.isEmpty()) {
+		if(!redoStack.isEmpty()) {
 			Move m = redoStack.pop();
 			m.redo();
 			moves.push(m);
@@ -71,31 +67,37 @@ public class Board {
 		}
 	}
 	
-	public void pushDrag(Point before) {
+	public void pushDrag(PlacedShape before) {
 		if(this.selectedShape != null) {
-			Point after = this.selectedShape.getPosition();
-			this.moves.push(new PositionMove(this.selectedShape, before, after));
+			this.redoStack.clear();
+			this.moves.push(new Move(this.selectedShape, before));
 		}
 	}
 	
 	public void rotate(int angle) {
 		if(this.selectedShape != null) {
-			this.moves.push(new RotateMove(this.selectedShape, angle));
+			this.redoStack.clear();
+			PlacedShape before = new PlacedShape(this.selectedShape);
 			this.selectedShape.rotate(angle);
+			this.moves.push(new Move(this.selectedShape, before));
 		}
 	}
 	
 	public void vFlip() {
 		if(this.selectedShape != null) {
-			this.moves.push(new VerticalFlipMove(this.selectedShape));
+			this.redoStack.clear();
+			PlacedShape before = new PlacedShape(this.selectedShape);
 			this.selectedShape.vFlip();
+			this.moves.push(new Move(this.selectedShape, before));
 		}
 	}
 	
 	public void hFlip() {
 		if(this.selectedShape != null) {
-			this.moves.push(new HorizontalFlipMove(this.selectedShape));
+			this.redoStack.clear();
+			PlacedShape before = new PlacedShape(this.selectedShape);
 			this.selectedShape.hFlip();
+			this.moves.push(new Move(this.selectedShape, before));
 		}
 	}
 	

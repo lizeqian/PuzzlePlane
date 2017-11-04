@@ -11,6 +11,7 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 	Board board;
 	PuzzleSolvingView puzzleSolvingView;
 	Point origin, shapePos;
+	PlacedShape beforeShape;
 	int x = 0;
 	int y = 0;
 	int palette_w;
@@ -31,6 +32,7 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 		this.shapeContain = this.board.selectShape(this.origin.x, this.origin.y);
 		if (this.shapeContain) {
 			PlacedShape selectedShape = this.board.getSelectedShape();
+			this.beforeShape = new PlacedShape(selectedShape);
 			this.shapePos = selectedShape.getPosition();
 			this.x = (int)this.shapePos.getX();
 			this.y = (int)this.shapePos.getY();
@@ -73,7 +75,6 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 	public void mouseReleased(MouseEvent me) {
 		if (this.shapeContain) {
 			PlacedShape selectedShape = this.board.getSelectedShape();
-			this.board.pushDrag(new Point(this.x, this.y));
 			int topY = selectedShape.getTopY();
 			if (topY < this.palette_h) { //this.palette_h + (maximum height of a shape)
 				selectedShape.selectShape();
@@ -83,8 +84,8 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 			} else {
 				selectedShape.getStatus().setOnPalette(false);
 			}
+			this.board.pushDrag(beforeShape);
 		}
-		
 	
 		this.shapeContain = false;
 		this.puzzleSolvingView.repaint();
