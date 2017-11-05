@@ -5,6 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import PuzzlePlane.controllers.windowJump.*;
+import PuzzlePlane.models.Board;
+
 import java.awt.Toolkit;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -21,8 +25,10 @@ public class PuzzleSolvedView extends JPanel {
 	/**
 	 * Create the frame.
 	 */
-	public PuzzleSolvedView() {
+	public PuzzleSolvedView(Board b, PuzzlePlaneGui p) {
+		ExitInfoBoardController exitInfoBoardController = new ExitInfoBoardController(b, p);
 		JButton buttonContinue = new JButton("Continue");
+		buttonContinue.addActionListener(exitInfoBoardController);
 		this.add(buttonContinue);
 	}
 

@@ -4,7 +4,7 @@ import java.awt.Point;
 import java.awt.Polygon;
 
 
-class CompareShapeShape {
+public class CompareShapeShape {
 	Polygon shapeA;
 	Polygon shapeB;
 	
