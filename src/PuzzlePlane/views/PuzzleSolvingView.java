@@ -95,7 +95,7 @@ public class PuzzleSolvingView extends JPanel {
 		buttonRedo.addActionListener(redoControl);
 		this.add(buttonRedo);
 		
-		ViewShapesetController viewShapesetControl = new ViewShapesetController("/PuzzlePlane/resources/Screen Shot 2017-09-22 at 4.00.14 PM.png");
+		ViewShapesetController viewShapesetControl = new ViewShapesetController(p);
 		JButton buttonViewShapeset = new JButton("view shapeset");
 		buttonViewShapeset.setBounds(w-820, h-80, 120, 30);;
 		buttonViewShapeset.addActionListener(viewShapesetControl);

@@ -16,7 +16,7 @@ public class PuzzlePlaneGui extends JFrame {
 	Board board;
 	
 	public String puzzleFolderPath;
-	public String shapesetPath;
+	public String shapesetImgPath;
 	
 	public JPanel pane = null; //Main panel be set to cardlayout
 	public CardLayout card = null; // CardLayout manager
@@ -34,7 +34,7 @@ public class PuzzlePlaneGui extends JFrame {
         p_2 = new SecondPPGui(this.board, this); 
         p_3 = new PuzzleSolvingView(this.board, this, this.width, this.height);
         p_4 = new PuzzleSolvedView(this.board, this);
-        p_5 = new JPanel();
+        p_5 = new ViewShapesetPPGui(this);
         pane.add(p_1, "p1");
         pane.add(p_2, "p2");
         pane.add(p_3, "p3");
@@ -64,12 +64,12 @@ public class PuzzlePlaneGui extends JFrame {
 		((SecondPPGui)p_2).reset();
 	}
 	
-	public String getShapesetPath() {
-		return puzzleFolderPath;
+	public String getShapesetImgPath() {
+		return this.shapesetImgPath;
 	}
 
-	public void setShapesetPath(String shapesetPath) {
-		this.shapesetPath = shapesetPath;
-		//((PuzzleSolvingView)p_5).set
+	public void setShapesetImgPath(String shapesetImgPath) {
+		this.shapesetImgPath = shapesetImgPath;
+		((ViewShapesetPPGui)p_5).reset();
 	}
 }

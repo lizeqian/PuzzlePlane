@@ -12,7 +12,16 @@ public class SelectShapesetController implements ActionListener{
 	public PuzzlePlaneGui plane;
 	public String shapesetPath;
 	public String puzzleFolderPath;
+	public String shapesetImgPath;
 	
+	public String getShapesetImgPath() {
+		return shapesetImgPath;
+	}
+
+	public void setShapesetImgPath(String shapesetImgPath) {
+		this.shapesetImgPath = shapesetImgPath;
+	}
+
 	public String getShapesetPath() {
 		return shapesetPath;
 	}
@@ -27,12 +36,14 @@ public class SelectShapesetController implements ActionListener{
 		this.board = board;
 		this.shapesetPath = path.get("shapeset");
 		this.puzzleFolderPath = path.get("puzzleFolder");
+		this.shapesetImgPath = path.get("shapesetImg");
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		this.plane.setPuzzleFolderPath(this.puzzleFolderPath);
+		this.plane.setShapesetImgPath(this.shapesetImgPath);
 		this.plane.jumpPage("p2");
 		this.board.setShapes((new ShapeLoader(shapesetPath)).load());
 	}

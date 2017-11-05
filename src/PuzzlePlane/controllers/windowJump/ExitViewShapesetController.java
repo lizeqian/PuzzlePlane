@@ -4,20 +4,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import PuzzlePlane.views.PuzzlePlaneGui;
 
 public class ExitViewShapesetController implements ActionListener{
 	
-	JFrame viewShapesetFrame;
+	PuzzlePlaneGui plane;
 	
-	public ExitViewShapesetController(JFrame frame) {
+	public ExitViewShapesetController(PuzzlePlaneGui plane) {
 		// TODO Auto-generated constructor stub
-		this.viewShapesetFrame = frame;
+		this.plane= plane;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		this.viewShapesetFrame.setVisible(false);
+		this.plane.jumpPage("p3");
 	}
 
 }
