@@ -48,7 +48,7 @@ public class PuzzleSolvingView extends JPanel {
 		this.palette_h = (int)(h*0.3);
 		this.solution_h = h - palette_h;
 		this.board = b;
-		MoveShapePaletteSolutionController moveShapePaletteSolution = new MoveShapePaletteSolutionController(b, this, this.palette_w, this.palette_h);
+		MoveShapePaletteSolutionController moveShapePaletteSolution = new MoveShapePaletteSolutionController(b, p, this, this.palette_w, this.palette_h);
 		this.addMouseListener(moveShapePaletteSolution);
 		this.addMouseMotionListener(moveShapePaletteSolution);
 		

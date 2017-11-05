@@ -10,6 +10,7 @@ import java.awt.*;
 public class MoveShapePaletteSolutionController extends MouseAdapter{
 	Board board;
 	PuzzleSolvingView puzzleSolvingView;
+	PuzzlePlaneGui puzzlePlaneGui;
 	Point origin, shapePos;
 	PlacedShape beforeShape;
 	int x = 0;
@@ -19,8 +20,9 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 	boolean shapeContain;
 	int lx, rx, ty, by;
 	
-	public MoveShapePaletteSolutionController (Board b, PuzzleSolvingView p, int w, int h) {
+	public MoveShapePaletteSolutionController (Board b, PuzzlePlaneGui pg, PuzzleSolvingView p,int w, int h) {
 		this.board = b;
+		this.puzzlePlaneGui = pg;
 		this.puzzleSolvingView = p;
 		this.palette_w = w;
 		this.palette_h = h;
@@ -89,7 +91,7 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 	
 		this.shapeContain = false;
 		this.puzzleSolvingView.repaint();
-		new SolutionCheckController(this.board).SolutionCheck();
+		new SolutionCheckController(this.board, this.puzzlePlaneGui).SolutionCheck();
 	}
 }
 	

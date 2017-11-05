@@ -6,10 +6,12 @@ import PuzzlePlane.views.*;
 public class SolutionCheckController{
 	
 	Board board;
+	PuzzlePlaneGui puzzlePlaneGui;
 	
 	
-	public SolutionCheckController(Board b) {
+	public SolutionCheckController(Board b, PuzzlePlaneGui p) {
 		this.board = b;
+		this.puzzlePlaneGui = p;
 	}
 	
 	public boolean SolutionCheck() {
@@ -22,7 +24,10 @@ public class SolutionCheckController{
 				}
 			}
 		}
-
+		
+		if (isCo) {
+			this.puzzlePlaneGui.jumpPage("p4");
+		}
 		//System.out.println(isCo);
 		return isCo;
 	}
