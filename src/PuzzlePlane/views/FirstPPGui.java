@@ -45,13 +45,11 @@ public class FirstPPGui extends JPanel {
 		nontraditionalsetButton.setBounds(519, 157, 447, 432);
 		
 		Map<String, String> nontraditionalPath = new HashMap<>();
-		traditionalPath.put("shapeset", FilePathConfig.nontraditionalShapesetPath);
-		traditionalPath.put("puzzleFolder", FilePathConfig.nontraditionalPuzzleFolder);
+		nontraditionalPath.put("shapeset", FilePathConfig.nontraditionalShapesetPath);
+		nontraditionalPath.put("puzzleFolder", FilePathConfig.nontraditionalPuzzleFolder);
 		
 		selectShapesetController = new SelectShapesetController(p, b, nontraditionalPath);
-		selectShapesetController.setFilePath("nontraditional");
 		nontraditionalsetButton.addActionListener(selectShapesetController);
-		
 		add(nontraditionalsetButton);
 		
 		JLabel lblNewLabel = new JLabel("Choose a Shape Set");
