@@ -18,7 +18,9 @@ public class ComparePointShape {
 		boolean isCo = true;
 		for (int i=0; i < numPoints; i++) {
 			Point p0 = new Point(this.shape.xpoints[i], this.shape.ypoints[i]);
-			isCo = new ComparePoints(5, p0, this.point).isCoincided();
+			if (new ComparePoints(5, p0, this.point).isCoincided() == false) {
+				isCo = false;
+			}
 		}
 		return isCo;
 	}
