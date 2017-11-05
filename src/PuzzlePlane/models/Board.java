@@ -1,9 +1,13 @@
 package PuzzlePlane.models;
 
+import java.awt.Point;
 import java.awt.Polygon;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Stack;
+
+import PuzzlePlane.controllers.Move;
 
 public class Board {
 	
@@ -11,8 +15,29 @@ public class Board {
 	List<PlacedShape> shapes;
 	PlacedShape selectedShape;
 	
+	Stack<Move> moves;
+	Stack<Move> redoStack;
+	
+	public void undo() {
+		if(!moves.isEmpty()) {
+			Move m = moves.pop();
+			m.undo();
+			redoStack.push(m);
+		}
+	}
+	
+	public void redo() {
+		if(!redoStack.isEmpty()) {
+			Move m = redoStack.pop();
+			m.redo();
+			moves.push(m);
+		}
+	}
+	
 	public void init() {
 		this.shapes = new LinkedList<PlacedShape>();
+		this.moves = new Stack<Move>();
+		this.redoStack = new Stack<Move>();
 	}
 	
 	public PlacedShape getSelectedShape() {
@@ -37,23 +62,43 @@ public class Board {
 	}
 	
 	public void setPosition(int x, int y) {
-		if(this.selectedShape != null)
+		if(this.selectedShape != null) {
 			this.selectedShape.setPosition(x, y);
+		}
+	}
+	
+	public void pushDrag(PlacedShape before) {
+		if(this.selectedShape != null) {
+			this.redoStack.clear();
+			this.moves.push(new Move(this.selectedShape, before));
+		}
 	}
 	
 	public void rotate(int angle) {
-		if(this.selectedShape != null)
+		if(this.selectedShape != null) {
+			this.redoStack.clear();
+			PlacedShape before = new PlacedShape(this.selectedShape);
 			this.selectedShape.rotate(angle);
+			this.moves.push(new Move(this.selectedShape, before));
+		}
 	}
 	
 	public void vFlip() {
-		if(this.selectedShape != null)
+		if(this.selectedShape != null) {
+			this.redoStack.clear();
+			PlacedShape before = new PlacedShape(this.selectedShape);
 			this.selectedShape.vFlip();
+			this.moves.push(new Move(this.selectedShape, before));
+		}
 	}
 	
 	public void hFlip() {
-		if(this.selectedShape != null)
+		if(this.selectedShape != null) {
+			this.redoStack.clear();
+			PlacedShape before = new PlacedShape(this.selectedShape);
 			this.selectedShape.hFlip();
+			this.moves.push(new Move(this.selectedShape, before));
+		}
 	}
 	
 	public boolean selectShape(int x, int y) {

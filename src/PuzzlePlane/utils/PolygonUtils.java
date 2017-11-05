@@ -35,14 +35,14 @@ public class PolygonUtils {
 	public static void vFlip(Polygon polygon) {
 		Point center = PolygonUtils.getCenter(polygon);
 		for(int i = 0; i < polygon.npoints; i++) {
-			polygon.xpoints[i] = 2 * center.x - polygon.xpoints[i];
+			polygon.ypoints[i] = 2 * center.y - polygon.ypoints[i];
 		}
 	}
 	
 	public static void hFlip(Polygon polygon) {
 		Point center = PolygonUtils.getCenter(polygon);
 		for(int i = 0; i < polygon.npoints; i++) {
-			polygon.ypoints[i] = 2 * center.y - polygon.ypoints[i];
+			polygon.xpoints[i] = 2 * center.x - polygon.xpoints[i];
 		}
 	}
 }

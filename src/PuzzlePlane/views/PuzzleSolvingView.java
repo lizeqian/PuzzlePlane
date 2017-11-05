@@ -15,10 +15,10 @@ import javax.swing.JPanel;
 import PuzzlePlane.models.*;
 
 import PuzzlePlane.controllers.*;
-import PuzzlePlane.controllers.shapeAction.ShapeHorizontalFlipController;
-import PuzzlePlane.controllers.shapeAction.ShapeLeftRotateController;
-import PuzzlePlane.controllers.shapeAction.ShapeRightRotateController;
-import PuzzlePlane.controllers.shapeAction.ShapeVerticalFlipController;
+import PuzzlePlane.controllers.actions.ShapeHorizontalFlipController;
+import PuzzlePlane.controllers.actions.ShapeLeftRotateController;
+import PuzzlePlane.controllers.actions.ShapeRightRotateController;
+import PuzzlePlane.controllers.actions.ShapeVerticalFlipController;
 import PuzzlePlane.controllers.windowJump.ExitPuzzleSolvingController;
 
 public class PuzzleSolvingView extends JPanel {
@@ -58,29 +58,41 @@ public class PuzzleSolvingView extends JPanel {
 		button_next.addActionListener(exitPuzzleSolving);
 		this.add(button_next);
 		
-		ShapeOperationController leftRotateControl = new ShapeLeftRotateController(b, this);
+		AbstractAction leftRotateControl = new ShapeLeftRotateController(b, this);
 		JButton buttonLeftRotation = new JButton("L Rotate");
 		buttonLeftRotation.setBounds(w-200, h-80, 90, 30);
 		buttonLeftRotation.addActionListener(leftRotateControl);
 		this.add(buttonLeftRotation);
 		
-		ShapeOperationController rightRotateControl = new ShapeRightRotateController(b, this);
+		AbstractAction rightRotateControl = new ShapeRightRotateController(b, this);
 		JButton buttonRightRotation = new JButton("R Rotate");
 		buttonRightRotation.setBounds(w-300, h-80, 90, 30);
 		buttonRightRotation.addActionListener(rightRotateControl);
 		this.add(buttonRightRotation);
 		
-		ShapeOperationController hFlipControl = new ShapeHorizontalFlipController(b, this);
+		AbstractAction hFlipControl = new ShapeHorizontalFlipController(b, this);
 		JButton buttonHorizonFlipped = new JButton("H Flip");
 		buttonHorizonFlipped.setBounds(w-400, h-80, 90, 30);
 		buttonHorizonFlipped.addActionListener(hFlipControl);
 		this.add(buttonHorizonFlipped);
 		
-		ShapeOperationController vFlipControl = new ShapeVerticalFlipController(b, this);
+		AbstractAction vFlipControl = new ShapeVerticalFlipController(b, this);
 		JButton buttonVerticalFlipped = new JButton("V Flip");
 		buttonVerticalFlipped.setBounds(w-500, h-80, 90, 30);
 		buttonVerticalFlipped.addActionListener(vFlipControl);
 		this.add(buttonVerticalFlipped);
+		
+		UndoController undoControl = new UndoController(b, this);
+		JButton buttonUndo= new JButton("undo");
+		buttonUndo.setBounds(w-600, h-80, 90, 30);
+		buttonUndo.addActionListener(undoControl);
+		this.add(buttonUndo);
+		
+		RedoController redoControl = new RedoController(b, this);
+		JButton buttonRedo= new JButton("redo");
+		buttonRedo.setBounds(w-700, h-80, 90, 30);
+		buttonRedo.addActionListener(redoControl);
+		this.add(buttonRedo);
 	}
 	
 	@Override

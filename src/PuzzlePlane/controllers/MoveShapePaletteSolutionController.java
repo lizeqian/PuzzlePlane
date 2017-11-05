@@ -11,13 +11,13 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 	Board board;
 	PuzzleSolvingView puzzleSolvingView;
 	Point origin, shapePos;
+	PlacedShape beforeShape;
 	int x = 0;
 	int y = 0;
 	int palette_w;
 	int palette_h;
 	boolean shapeContain;
 	int lx, rx, ty, by;
-	
 	
 	public MoveShapePaletteSolutionController (Board b, PuzzleSolvingView p, int w, int h) {
 		this.board = b;
@@ -32,6 +32,7 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 		this.shapeContain = this.board.selectShape(this.origin.x, this.origin.y);
 		if (this.shapeContain) {
 			PlacedShape selectedShape = this.board.getSelectedShape();
+			this.beforeShape = new PlacedShape(selectedShape);
 			this.shapePos = selectedShape.getPosition();
 			this.x = (int)this.shapePos.getX();
 			this.y = (int)this.shapePos.getY();
@@ -83,8 +84,8 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 			} else {
 				selectedShape.getStatus().setOnPalette(false);
 			}
+			this.board.pushDrag(beforeShape);
 		}
-		
 	
 		this.shapeContain = false;
 		this.puzzleSolvingView.repaint();
