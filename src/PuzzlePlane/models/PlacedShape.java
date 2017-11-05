@@ -32,7 +32,7 @@ public class PlacedShape{
 	
 	public PlacedShape(PlacedShape shape) {
 		this.originalPolygon = PolygonUtils.copy(shape.getOriginalPolygon());
-		this.changedPolygon = PolygonUtils.copy(shape.getOriginalPolygon());
+		this.changedPolygon = PolygonUtils.copy(shape.getChangedPolygon());
 		this.status = shape.getStatus().copy();
 	}
 	
