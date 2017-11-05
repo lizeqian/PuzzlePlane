@@ -2,6 +2,7 @@ package PuzzlePlane.views;
 
 import javax.swing.JPanel;
 
+import PuzzlePlane.config.FilePathConfig;
 import PuzzlePlane.controllers.SelectShapesetController;
 import PuzzlePlane.models.Board;
 
@@ -25,7 +26,7 @@ public class FirstPPGui extends JPanel {
 		setLayout(null);
 		
 		JButton traditionalsetButton = new JButton("chooseShapeSetButton");
-		traditionalsetButton.setIcon(new ImageIcon(FirstPPGui.class.getResource("/PuzzlePlane/resources/Screen Shot 2017-09-22 at 4.00.14 PM.png")));
+		traditionalsetButton.setIcon(new ImageIcon(FirstPPGui.class.getResource(FilePathConfig.traditionalShapesetPath)));
 		traditionalsetButton.setBounds(54, 157, 436, 440);
 		
 		SelectShapesetController selectShapesetController = new SelectShapesetController(p, b);
@@ -34,7 +35,7 @@ public class FirstPPGui extends JPanel {
 		add(traditionalsetButton);
 		
 		JButton nontraditionalsetButton = new JButton("chooseShapeSetButton");
-		nontraditionalsetButton.setIcon(new ImageIcon(FirstPPGui.class.getResource("/PuzzlePlane/resources/Screen Shot 2017-09-22 at 4.10.55 PM.png")));
+		nontraditionalsetButton.setIcon(new ImageIcon(FirstPPGui.class.getResource(FilePathConfig.nontraditionalShapesetPath)));
 		nontraditionalsetButton.setBounds(519, 157, 447, 432);
 		
 		selectShapesetController = new SelectShapesetController(p, b);
