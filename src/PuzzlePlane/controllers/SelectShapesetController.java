@@ -7,15 +7,15 @@ import PuzzlePlane.models.Board;
 import PuzzlePlane.views.PuzzlePlaneGui;
 
 public class SelectShapesetController implements ActionListener{
-	Board board;
-	PuzzlePlaneGui plane;
-	String filePath;
+	public Board board;
+	public PuzzlePlaneGui plane;
+	public String filePath;
 	
-	private static final String traditionalShapesetPath = "shapeset.txt";
-	private static final String nontraditionalShapesetPath = "shapeset.txt";
+	public static final String traditionalShapesetPath = "shapeset.txt";
+	public static final String nontraditionalShapesetPath = "shapeset.txt";
 	
-	private static final String traditionalPuzzleName = "traditional";
-	private static final String nontraditionalPuzzleName = "nontraditional";
+	public static final String traditionalPuzzleName = "traditional";
+	public static final String nontraditionalPuzzleName = "nontraditional";
 	
 	public String getFilePath() {
 		return filePath;

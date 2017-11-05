@@ -20,6 +20,7 @@ import PuzzlePlane.controllers.actions.ShapeLeftRotateController;
 import PuzzlePlane.controllers.actions.ShapeRightRotateController;
 import PuzzlePlane.controllers.actions.ShapeVerticalFlipController;
 import PuzzlePlane.controllers.windowJump.ExitPuzzleSolvingController;
+import PuzzlePlane.controllers.windowJump.ViewShapesetController;
 
 public class PuzzleSolvingView extends JPanel {
 
@@ -93,6 +94,12 @@ public class PuzzleSolvingView extends JPanel {
 		buttonRedo.setBounds(w-700, h-80, 90, 30);
 		buttonRedo.addActionListener(redoControl);
 		this.add(buttonRedo);
+		
+		ViewShapesetController viewShapesetControl = new ViewShapesetController("/PuzzlePlane/resources/Screen Shot 2017-09-22 at 4.00.14 PM.png");
+		JButton buttonViewShapeset = new JButton("view shapeset");
+		buttonViewShapeset.setBounds(w-820, h-80, 120, 30);;
+		buttonViewShapeset.addActionListener(viewShapesetControl);
+		this.add(buttonViewShapeset);
 	}
 	
 	@Override
