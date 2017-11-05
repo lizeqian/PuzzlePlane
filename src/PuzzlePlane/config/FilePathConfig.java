@@ -4,10 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FilePathConfig {
-	public final static String traditionalShapesetPath = "/PuzzlePlane/resources/Screen Shot 2017-09-22 at 4.00.14 PM.png";
-	public final static String nontraditionalShapesetPath = "/PuzzlePlane/resources/Screen Shot 2017-09-22 at 4.10.55 PM.png";
+	public final static String traditionalImgPath = "/PuzzlePlane/resources/Screen Shot 2017-09-22 at 4.00.14 PM.png";
+	public final static String nontraditionalImgPath = "/PuzzlePlane/resources/Screen Shot 2017-09-22 at 4.10.55 PM.png";
 	
-	public final static String traditionalPuzzleFolder = "puzzle/traditonal";
+	public final static String traditionalShapesetPath = "shapeset.txt";
+	public final static String nontraditionalShapesetPath = "shapeset.txt";
+	
+	public final static String traditionalPuzzleFolder = "puzzle/traditional";
 	public final static String nontraditionalPuzzleFolder = "puzzle/nontraditional";
 	
 	public final static Map<String, String> puzzleName;
