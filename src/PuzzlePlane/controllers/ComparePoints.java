@@ -1,4 +1,4 @@
-package PuzzlePlane.models;
+package PuzzlePlane.controllers;
 
 import java.awt.Point;
 import java.lang.*;
@@ -8,8 +8,13 @@ public class ComparePoints {
 	Point pointB;
 	int threshold;
 	
-	public void ComparePoints(){
-		this.threshold = 5;
+	public ComparePoints(int t){
+		this.threshold = t;
+	}
+	public ComparePoints(int t, Point p0, Point p1){
+		this.threshold = t;
+		this.pointA = p0;
+		this.pointB = p1;
 	}
 	
 	public void setPoints(Point a, Point b) {
