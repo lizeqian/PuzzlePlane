@@ -3,6 +3,8 @@ package PuzzlePlane.models;
 import java.awt.Color;
 import java.awt.Point;
 
+import PuzzlePlane.utils.ColorUtils;
+
 public class ShapeStatus {
 
 	int angle;
@@ -24,7 +26,7 @@ public class ShapeStatus {
 	
 	public void init(Color color) {
 		this.reset();
-		this.color = new Color(color.getRed(), color.getGreen(), color.getBlue());
+		this.color = ColorUtils.copy(color);
 	}
 	
 	public ShapeStatus(Color color) {
@@ -36,10 +38,14 @@ public class ShapeStatus {
 		this.angle = status.getAngle();
 		this.onPalette = status.isOnPalette();
 		this.selected = status.isSelected();
-		this.color = new Color(status.getColor().getRed(), status.getColor().getGreen(), status.getColor().getBlue());
+		this.color = ColorUtils.copy(status.getColor());
 		this.verticalFlipped = status.isVerticalFlipped();
 		this.horizontalFlipped = status.isHorizontalFlipped();
 		this.position = new Point(status.getPosition());
+	}
+	
+	public ShapeStatus copy() {
+		return new ShapeStatus(this);
 	}
 	
 	public int getAngle() {

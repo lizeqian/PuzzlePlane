@@ -27,17 +27,17 @@ public class PlacedShape{
 	public PlacedShape(Color color) {
 		this.status = new ShapeStatus(color);
 		this.originalPolygon = new Polygon();
-		this.setChangedPolygon(new Polygon());
+		this.changedPolygon = new Polygon();
 	}
 	
 	public PlacedShape(PlacedShape shape) {
-		Polygon originalPolygon = shape.getOriginalPolygon();
-		this.originalPolygon = new Polygon(originalPolygon.xpoints, originalPolygon.ypoints, originalPolygon.npoints);
-		
-		Polygon changedPolygon = shape.getChangedPolygon();
-		this.changedPolygon = new Polygon(changedPolygon.xpoints, changedPolygon.ypoints, changedPolygon.npoints);
-		
-		this.status = new ShapeStatus(shape.getStatus());
+		this.originalPolygon = PolygonUtils.copy(shape.getOriginalPolygon());
+		this.changedPolygon = PolygonUtils.copy(shape.getOriginalPolygon());
+		this.status = shape.getStatus().copy();
+	}
+	
+	public PlacedShape copy() {
+		return new PlacedShape(this);
 	}
 	
 	public void resetPos(){

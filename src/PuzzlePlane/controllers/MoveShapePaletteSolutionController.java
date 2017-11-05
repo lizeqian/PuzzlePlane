@@ -32,7 +32,7 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 		this.shapeContain = this.board.selectShape(this.origin.x, this.origin.y);
 		if (this.shapeContain) {
 			PlacedShape selectedShape = this.board.getSelectedShape();
-			this.beforeShape = new PlacedShape(selectedShape);
+			this.beforeShape = selectedShape.copy();
 			this.shapePos = selectedShape.getPosition();
 			this.x = (int)this.shapePos.getX();
 			this.y = (int)this.shapePos.getY();

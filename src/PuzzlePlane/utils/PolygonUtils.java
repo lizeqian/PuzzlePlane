@@ -4,7 +4,12 @@ import java.awt.Point;
 import java.awt.Polygon;
 
 public class PolygonUtils {
-
+	
+	public static Polygon copy(Polygon polygon) {
+		if(polygon == null) return null;
+		return new Polygon(polygon.xpoints, polygon.ypoints, polygon.npoints);
+	}
+	
 	public static Point getCenter(Polygon polygon) {
 		if(polygon.npoints == 0) return new Point(0, 0);
 		int x = 0, y = 0;

@@ -77,7 +77,7 @@ public class Board {
 	public void rotate(int angle) {
 		if(this.selectedShape != null) {
 			this.redoStack.clear();
-			PlacedShape before = new PlacedShape(this.selectedShape);
+			PlacedShape before = this.selectedShape.copy();
 			this.selectedShape.rotate(angle);
 			this.moves.push(new Move(this.selectedShape, before));
 		}
@@ -86,7 +86,7 @@ public class Board {
 	public void vFlip() {
 		if(this.selectedShape != null) {
 			this.redoStack.clear();
-			PlacedShape before = new PlacedShape(this.selectedShape);
+			PlacedShape before = this.selectedShape.copy();
 			this.selectedShape.vFlip();
 			this.moves.push(new Move(this.selectedShape, before));
 		}
@@ -95,7 +95,7 @@ public class Board {
 	public void hFlip() {
 		if(this.selectedShape != null) {
 			this.redoStack.clear();
-			PlacedShape before = new PlacedShape(this.selectedShape);
+			PlacedShape before = this.selectedShape.copy();
 			this.selectedShape.hFlip();
 			this.moves.push(new Move(this.selectedShape, before));
 		}
@@ -127,7 +127,7 @@ public class Board {
 	public void setShapes(List<PlacedShape> shapes) {
 		this.init();
 		for(PlacedShape shape : shapes) {
-			PlacedShape newShape = new PlacedShape(shape);
+			PlacedShape newShape = shape.copy();
 			this.shapes.add(newShape);
 		}
 	}

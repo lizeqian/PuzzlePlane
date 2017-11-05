@@ -19,9 +19,7 @@ public class ShapeLeftRotateController extends AbstractAction{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		super.actionPerformed(e);
 		this.board.rotate(LEFT_ROTATE);
-		this.afterStatus.rotate(LEFT_ROTATE);
 		this.puzzleSolvingView.repaint();
 	}
 }
