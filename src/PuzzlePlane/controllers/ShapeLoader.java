@@ -14,6 +14,7 @@ public class ShapeLoader{
 	
 	public ShapeLoader(String path) {
 		file = new File(path);
+		System.out.println(path);
 		try {
 			scan = new Scanner(file);
 		} catch(Exception e) {
