@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.Font;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.swing.SwingConstants;
 
 public class FirstPPGui extends JPanel {
@@ -26,19 +29,26 @@ public class FirstPPGui extends JPanel {
 		setLayout(null);
 		
 		JButton traditionalsetButton = new JButton("chooseShapeSetButton");
-		traditionalsetButton.setIcon(new ImageIcon(FirstPPGui.class.getResource(FilePathConfig.traditionalShapesetPath)));
+		traditionalsetButton.setIcon(new ImageIcon(FirstPPGui.class.getResource(FilePathConfig.traditionalImgPath)));
 		traditionalsetButton.setBounds(54, 157, 436, 440);
 		
-		SelectShapesetController selectShapesetController = new SelectShapesetController(p, b);
-		selectShapesetController.setFilePath("traditional");
+		Map<String, String> traditionalPath = new HashMap<>();
+		traditionalPath.put("shapeset", FilePathConfig.traditionalShapesetPath);
+		traditionalPath.put("puzzleFolder", FilePathConfig.traditionalPuzzleFolder);
+		
+		SelectShapesetController selectShapesetController = new SelectShapesetController(p, b, traditionalPath);
 		traditionalsetButton.addActionListener(selectShapesetController);
 		add(traditionalsetButton);
 		
 		JButton nontraditionalsetButton = new JButton("chooseShapeSetButton");
-		nontraditionalsetButton.setIcon(new ImageIcon(FirstPPGui.class.getResource(FilePathConfig.nontraditionalShapesetPath)));
+		nontraditionalsetButton.setIcon(new ImageIcon(FirstPPGui.class.getResource(FilePathConfig.nontraditionalImgPath)));
 		nontraditionalsetButton.setBounds(519, 157, 447, 432);
 		
-		selectShapesetController = new SelectShapesetController(p, b);
+		Map<String, String> nontraditionalPath = new HashMap<>();
+		traditionalPath.put("shapeset", FilePathConfig.nontraditionalShapesetPath);
+		traditionalPath.put("puzzleFolder", FilePathConfig.nontraditionalPuzzleFolder);
+		
+		selectShapesetController = new SelectShapesetController(p, b, nontraditionalPath);
 		selectShapesetController.setFilePath("nontraditional");
 		nontraditionalsetButton.addActionListener(selectShapesetController);
 		

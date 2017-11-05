@@ -15,7 +15,7 @@ public class PuzzlePlaneGui extends JFrame {
 	
 	Board board;
 	
-	public String puzzleFolerName;
+	public String puzzleFolderPath;
 
 	private JPanel pane = null; //Main panel be set to cardlayout
 	private CardLayout card = null; // CardLayout manager
@@ -30,12 +30,12 @@ public class PuzzlePlaneGui extends JFrame {
 		card = new CardLayout(5, 5);//Creates a new card layout with the specified horizontal and vertical gaps.
 		pane = new JPanel(card); 	//Set pane layout to cardlayout
         p_1 = new FirstPPGui(this.board, this);
-        p_2 = new SecondPPGui(this.board, this); 
+     //   p_2 = new SecondPPGui(this.board, this); 
         p_3 = new PuzzleSolvingView(this.board, this, this.width, this.height);
         p_4 = new PuzzleSolvedView(this.board, this);
         p_5 = new JPanel();
         pane.add(p_1, "p1");
-        pane.add(p_2, "p2");
+     //   pane.add(p_2, "p2");
         pane.add(p_3, "p3");
         pane.add(p_4, "p4");
         pane.add(p_5, "p5");
@@ -54,12 +54,13 @@ public class PuzzlePlaneGui extends JFrame {
 		card.show(pane, page);
 	}
 	
-	public String getPuzzleFolderName() {
-		return puzzleFolerName;
+	public String getPuzzleFolderPath() {
+		return puzzleFolderPath;
 	}
 
-	public void setPuzzleFolderName(String puzzleFolderName) {
-		this.puzzleFolerName = puzzleFolderName;
+	public void setPuzzleFolderPath(String puzzleFolderPath) {
+		this.puzzleFolderPath = puzzleFolderPath;
+		p_2 = new SecondPPGui(this.board, this); 
+		pane.add(p_2, "p2");
 	}
-	
 }
