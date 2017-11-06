@@ -1,18 +1,14 @@
 package PuzzlePlane.views;
 
-import java.awt.EventQueue;
+import java.awt.Font;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 
 import PuzzlePlane.controllers.windowJump.*;
 import PuzzlePlane.models.Board;
 
-import java.awt.Toolkit;
 import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import java.awt.Color;
+
 import javax.swing.JButton;
 
 public class PuzzleSolvedView extends JPanel {
@@ -26,10 +22,19 @@ public class PuzzleSolvedView extends JPanel {
 	 * Create the frame.
 	 */
 	public PuzzleSolvedView(Board b, PuzzlePlaneGui p) {
+		setLayout(null);
+		
+		
 		ExitInfoBoardController exitInfoBoardController = new ExitInfoBoardController(b, p);
 		JButton buttonContinue = new JButton("Continue");
 		buttonContinue.addActionListener(exitInfoBoardController);
+		buttonContinue.setBounds(450, 600, 100, 30);
 		this.add(buttonContinue);
+		
+		JLabel jlabel = new JLabel("Congratulations! Puzzle Completed!");
+	    jlabel.setFont(new Font("Verdana",1,20));
+	    jlabel.setBounds(300, 200, 400, 30);
+	    this.add(jlabel);
 	}
 
 }
