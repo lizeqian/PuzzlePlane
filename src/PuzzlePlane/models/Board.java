@@ -14,9 +14,39 @@ public class Board {
 	Puzzle puzzle;
 	List<PlacedShape> shapes;
 	PlacedShape selectedShape;
+	List<Boolean> isSolved;
+	int currentShapeSet;
+	int currentPuzzle;
 	
 	Stack<Move> moves;
 	Stack<Move> redoStack;
+
+	public Board() {
+	}
+	
+	public void setCurrentShapeSet(int o) {
+		this.currentShapeSet = o;
+	}
+	
+	public void setCurrentPuzzle(int o) {
+		this.currentPuzzle = o;
+	}
+	
+	public int getCurrentShapeSet() {
+		return this.currentShapeSet;
+	}
+	
+	public int getCurrentPuzzle() {
+		return this.currentPuzzle;
+	}
+	
+	public void setIsSolved(List<Boolean> is) {
+		this.isSolved = is;
+	}
+	
+	public void setPuzzleSolved(int o) {
+		this.isSolved.set(o, true);
+	}
 	
 	public BoardMemento createMemento() {
 		return new BoardMemento(this);
@@ -54,9 +84,6 @@ public class Board {
 	
 	public void setPuzzle(Puzzle puzzle) {
 		this.puzzle = puzzle;
-	}
-
-	public Board() {
 	}
 	
 	public void resetAllShapePosition() {

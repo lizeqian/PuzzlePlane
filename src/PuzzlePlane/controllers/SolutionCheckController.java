@@ -33,7 +33,7 @@ public class SolutionCheckController{
 		
 		if (isCo) {
 			//TODO store current solution
-			(new SaveSolutionController(this.puzzlePlaneGui, this.board.createMemento())).save();
+			this.board.createMemento();
 			this.puzzlePlaneGui.jumpPage("p4");
 		}
 		return isCo;
