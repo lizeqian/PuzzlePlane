@@ -26,7 +26,7 @@ public class SolutionCheckController{
 		}
 		boolean isCo = true;
 		for(PlacedShape shapeA: this.board.getShapes()) {
-			if (Compare.compareShapeInList(puzzleShapes, shapeA.getChangedPolygon())==false) {
+			if (!Compare.contains(puzzleShapes, shapeA.getChangedPolygon())) {
 				isCo = false;
 			}
 		}
