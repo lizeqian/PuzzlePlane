@@ -4,9 +4,9 @@ import PuzzlePlane.views.*;
 import java.awt.event.*;
 
 public class BacktoShapesetController implements ActionListener{
-	PuzzlePlaneGui puzzlePlaneGui;
+	Applicatoin puzzlePlaneGui;
 	
-	public BacktoShapesetController(PuzzlePlaneGui p) {
+	public BacktoShapesetController(Applicatoin p) {
 		this.puzzlePlaneGui = p;
 		
 	}

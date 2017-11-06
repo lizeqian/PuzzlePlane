@@ -10,7 +10,7 @@ import java.awt.*;
 public class MoveShapePaletteSolutionController extends MouseAdapter{
 	Board board;
 	PuzzleSolvingView puzzleSolvingView;
-	PuzzlePlaneGui puzzlePlaneGui;
+	Applicatoin puzzlePlaneGui;
 	Point origin, shapePos;
 	PlacedShape beforeShape;
 	int x = 0;
@@ -21,7 +21,7 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 	int lx, rx, ty, by;
 	SolutionCheckController solutionCheckController;
 	
-	public MoveShapePaletteSolutionController (Board b, PuzzlePlaneGui pg, PuzzleSolvingView p,int w, int h, SolutionCheckController s) {
+	public MoveShapePaletteSolutionController (Board b, Applicatoin pg, PuzzleSolvingView p,int w, int h, SolutionCheckController s) {
 		this.board = b;
 		this.puzzlePlaneGui = pg;
 		this.puzzleSolvingView = p;

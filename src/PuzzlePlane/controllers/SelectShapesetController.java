@@ -5,11 +5,11 @@ import java.awt.event.ActionListener;
 import java.util.Map;
 
 import PuzzlePlane.models.Board;
-import PuzzlePlane.views.PuzzlePlaneGui;
+import PuzzlePlane.views.Applicatoin;
 
 public class SelectShapesetController implements ActionListener{
 	public Board board;
-	public PuzzlePlaneGui plane;
+	public Applicatoin plane;
 	public String shapesetPath;
 	public String puzzleFolderPath;
 	public String shapesetImgPath;
@@ -31,7 +31,7 @@ public class SelectShapesetController implements ActionListener{
 		this.shapesetPath = shapesetPath;
 	}
 	
-	public SelectShapesetController(PuzzlePlaneGui p, Board board, Map<String, String> path) {
+	public SelectShapesetController(Applicatoin p, Board board, Map<String, String> path) {
 		// TODO Auto-generated constructor stub
 		this.plane = p;
 		this.board = board;

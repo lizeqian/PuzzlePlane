@@ -8,7 +8,7 @@ import javax.swing.JPanel;
  
 
 //This JFrame is the main Frame of application. Use JPanels as content, and switch JPanels for each different view
-public class PuzzlePlaneGui extends JFrame {
+public class Applicatoin extends JFrame {
 	/**
 	 * 
 	 */
@@ -26,7 +26,7 @@ public class PuzzlePlaneGui extends JFrame {
     public JPanel p_1 = null, p_2 = null, p_3 = null, p_4 = null, p_5 = null; // 3 JPanel
     public int height = 700, width = 1000;
 	
-	public PuzzlePlaneGui() {
+	public Applicatoin() {
 		super ("Puzzle Plane");
 		
 		this.board = new Board();

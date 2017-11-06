@@ -9,10 +9,10 @@ import java.io.PrintWriter;
 
 import PuzzlePlane.models.BoardMemento;
 import PuzzlePlane.models.PlacedShape;
-import PuzzlePlane.views.PuzzlePlaneGui;
+import PuzzlePlane.views.Applicatoin;
 
 public class SaveSolutionController {
-	public PuzzlePlaneGui plane;
+	public Applicatoin plane;
 	public BoardMemento memento;
 	
 	public BoardMemento getMemento() {
@@ -23,7 +23,7 @@ public class SaveSolutionController {
 		this.memento = memento;
 	}
 
-	public SaveSolutionController(PuzzlePlaneGui plane, BoardMemento memento) {
+	public SaveSolutionController(Applicatoin plane, BoardMemento memento) {
 		// TODO Auto-generated constructor stub
 		this.plane =  plane;
 		this.memento = memento;

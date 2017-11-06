@@ -6,13 +6,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import PuzzlePlane.views.PuzzlePlaneGui;
+import PuzzlePlane.views.Applicatoin;
 
 public class ExitViewShapesetController implements ActionListener{
 	
-	PuzzlePlaneGui plane;
+	Applicatoin plane;
 	
-	public ExitViewShapesetController(PuzzlePlaneGui plane) {
+	public ExitViewShapesetController(Applicatoin plane) {
 		// TODO Auto-generated constructor stub
 		this.plane= plane;
 	}
