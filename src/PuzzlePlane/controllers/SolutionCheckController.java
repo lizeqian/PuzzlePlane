@@ -1,5 +1,7 @@
 package PuzzlePlane.controllers;
 
+import java.util.ArrayList;
+
 import PuzzlePlane.models.*;
 import PuzzlePlane.views.*;
 
@@ -16,11 +18,19 @@ public class SolutionCheckController{
 	
 	public boolean SolutionCheck() {
 		Puzzle puzzle = this.board.getPuzzle();
+		ArrayList<PlacedShape> puzzleShapes = new ArrayList<PlacedShape>();
+		for (PlacedShape shape: puzzle.getPuzzleShape()) {
+			puzzleShapes.add(shape);
+		}
 		boolean isCo = true;
 		for(PlacedShape shapeA: this.board.getShapes()) {
-			for(PlacedShape shapeB :puzzle.getPuzzleShape()) {
+			for(PlacedShape shapeB :puzzleShapes) {
 				if (new CompareShapeShape(shapeA.getChangedPolygon(), shapeB.getOriginalPolygon()).compare()==false) {
 					isCo = false;
+				}
+				else {
+					System.out.println(puzzleShapes.size());
+					puzzleShapes.remove(shapeB);
 				}
 			}
 		}
