@@ -13,6 +13,9 @@ public class FilePathConfig {
 	public final static String traditionalPuzzleFolder = "puzzle/traditional";
 	public final static String nontraditionalPuzzleFolder = "puzzle/nontraditional";
 	
+	public final static String traditionalSolutionFolder = "solution/traditional";
+	public final static String nontraditionalSolutionFolder = "solution/nontraditional";
+	
 	public final static Map<String, String> puzzleName;
 	static {
 		puzzleName = new HashMap<>();

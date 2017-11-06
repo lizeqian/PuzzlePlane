@@ -18,6 +18,10 @@ public class Board {
 	Stack<Move> moves;
 	Stack<Move> redoStack;
 	
+	public BoardMemento createMemento() {
+		return new BoardMemento(this);
+	}
+	
 	public void undo() {
 		if(!moves.isEmpty()) {
 			Move m = moves.pop();

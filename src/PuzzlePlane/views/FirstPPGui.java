@@ -36,6 +36,7 @@ public class FirstPPGui extends JPanel {
 		traditionalPath.put("shapeset", FilePathConfig.traditionalShapesetPath);
 		traditionalPath.put("puzzleFolder", FilePathConfig.traditionalPuzzleFolder);
 		traditionalPath.put("shapesetImg", FilePathConfig.traditionalImgPath);
+		traditionalPath.put("solutionFolder", FilePathConfig.traditionalSolutionFolder);
 		
 		SelectShapesetController selectShapesetController = new SelectShapesetController(p, b, traditionalPath);
 		traditionalsetButton.addActionListener(selectShapesetController);
@@ -49,7 +50,8 @@ public class FirstPPGui extends JPanel {
 		nontraditionalPath.put("shapeset", FilePathConfig.nontraditionalShapesetPath);
 		nontraditionalPath.put("puzzleFolder", FilePathConfig.nontraditionalPuzzleFolder);
 		nontraditionalPath.put("shapesetImg", FilePathConfig.nontraditionalImgPath);
-		
+		nontraditionalPath.put("solutionFolder", FilePathConfig.nontraditionalPuzzleFolder);
+
 		selectShapesetController = new SelectShapesetController(p, b, nontraditionalPath);
 		nontraditionalsetButton.addActionListener(selectShapesetController);
 		add(nontraditionalsetButton);

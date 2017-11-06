@@ -2,7 +2,7 @@ package PuzzlePlane.models;
 
 import java.util.List;
 
-public class BoardMomento {
+public class BoardMemento {
 	
 	public List<PlacedShape> shapes;
 	
@@ -14,7 +14,7 @@ public class BoardMomento {
 		this.shapes = shapes;
 	}
 
-	public BoardMomento(Board b) {
+	public BoardMemento(Board b) {
 		// TODO Auto-generated constructor stub
 		this.shapes = b.getShapes();
 	}
