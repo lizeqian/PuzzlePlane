@@ -2,6 +2,7 @@ package PuzzlePlane.controllers;
 
 import java.awt.Polygon;
 import java.util.ArrayList;
+import java.util.List;
 
 import PuzzlePlane.models.*;
 import PuzzlePlane.views.*;
@@ -18,9 +19,9 @@ public class SolutionCheckController{
 		this.puzzlePlaneGui = p;
 	}
 	
-	public boolean SolutionCheck() {
+	public boolean check() {
 		Puzzle puzzle = this.board.getPuzzle();
-		ArrayList<Polygon> puzzleShapes = new ArrayList<Polygon>();
+		List<Polygon> puzzleShapes = new ArrayList<Polygon>();
 		for (PlacedShape shape: puzzle.getPuzzleShape()) {
 			puzzleShapes.add(shape.getOriginalPolygon());
 		}

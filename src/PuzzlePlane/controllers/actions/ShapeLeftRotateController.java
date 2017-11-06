@@ -22,6 +22,6 @@ public class ShapeLeftRotateController extends AbstractAction{
 	public void actionPerformed(ActionEvent e) {
 		this.board.rotate(LEFT_ROTATE);
 		this.puzzleSolvingView.repaint();
-		this.solutionCheckController.SolutionCheck();
+		this.solutionCheckController.check();
 	}
 }
