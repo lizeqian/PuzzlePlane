@@ -60,7 +60,6 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 			
 			int x = me.getX() - this.origin.x + offset_x;
 			int y = me.getY() - this.origin.y + offset_y;
-			//System.out.println(this.puzzleSolvingView.getWidth()+", "+this.puzzleSolvingView.getHeight());
 			
 			int fx = me.getX() - this.origin.x;
 			int fy = me.getY() - this.origin.y;
