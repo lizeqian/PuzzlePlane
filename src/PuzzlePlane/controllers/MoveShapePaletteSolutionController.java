@@ -92,7 +92,7 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 	
 		this.shapeContain = false;
 		this.puzzleSolvingView.repaint();
-		this.solutionCheckController.SolutionCheck();
+		this.solutionCheckController.check();
 	}
 }
 	

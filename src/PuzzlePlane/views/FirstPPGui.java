@@ -9,6 +9,8 @@ import PuzzlePlane.models.Board;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+
+import java.awt.Color;
 import java.awt.Font;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +32,7 @@ public class FirstPPGui extends JPanel {
 		
 		JButton traditionalsetButton = new JButton("chooseShapeSetButton");
 		traditionalsetButton.setIcon(new ImageIcon(FirstPPGui.class.getResource(FilePathConfig.traditionalImgPath)));
-		traditionalsetButton.setBounds(54, 157, 436, 440);
+		traditionalsetButton.setBounds(54, 157, 446, 440);
 		
 		Map<String, String> traditionalPath = new HashMap<>();
 		traditionalPath.put("shapeset", FilePathConfig.traditionalShapesetPath);
