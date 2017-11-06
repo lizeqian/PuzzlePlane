@@ -2,6 +2,7 @@ package PuzzlePlane.utils;
 
 import java.awt.Point;
 import java.awt.Polygon;
+import java.util.List;
 
 public class PolygonUtils {
 	
@@ -49,5 +50,45 @@ public class PolygonUtils {
 		for(int i = 0; i < polygon.npoints; i++) {
 			polygon.xpoints[i] = 2 * center.x - polygon.xpoints[i];
 		}
+	}
+	
+	public static boolean contains(Polygon shape, Point point){
+		int numPoints = shape.npoints;
+		boolean isCo = false;
+		for (int i=0; i < numPoints; i++) {
+			Point p0 = new Point(shape.xpoints[i], shape.ypoints[i]);
+			if (PointUtils.equals(p0, point)) {
+			isCo = true;
+			break;
+			}
+		}
+		return isCo;
+	}
+	
+	public static boolean contains(List<Polygon> shapes, Polygon shape) {
+		boolean isIn = false;
+		Polygon hitShape = new Polygon();
+		for (Polygon s : shapes) {
+			if(equals(shape, s)) {
+				isIn = true;
+				hitShape = s;
+				break;
+			}
+		}
+		shapes.remove(hitShape);
+		return isIn;
+		
+	}
+	
+	public static boolean equals(Polygon shapeA, Polygon shapeB) {
+		boolean isCo = true;
+		int numPointA = shapeA.npoints;
+		for(int i=0;i<numPointA;i++) {
+			Point p = new Point(shapeA.xpoints[i], shapeA.ypoints[i]);
+			if (!contains(shapeB, p)) {
+				isCo = false;
+			}
+		}		
+		return isCo;
 	}
 }
