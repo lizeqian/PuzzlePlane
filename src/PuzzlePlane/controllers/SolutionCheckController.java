@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import PuzzlePlane.models.*;
 import PuzzlePlane.views.*;
+import PuzzlePlane.utils.Compare;
 
 public class SolutionCheckController{
 	
@@ -25,7 +26,7 @@ public class SolutionCheckController{
 		}
 		boolean isCo = true;
 		for(PlacedShape shapeA: this.board.getShapes()) {
-			if (new CompareShapeInList(puzzleShapes, shapeA.getChangedPolygon()).compare()==false) {
+			if (Compare.compareShapeInList(puzzleShapes, shapeA.getChangedPolygon())==false) {
 				isCo = false;
 			}
 		}
