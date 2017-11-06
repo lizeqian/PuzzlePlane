@@ -49,7 +49,8 @@ public class PuzzleSolvingView extends JPanel {
 		this.palette_h = (int)(h*0.3);
 		this.solution_h = h - palette_h;
 		this.board = b;
-		MoveShapePaletteSolutionController moveShapePaletteSolution = new MoveShapePaletteSolutionController(b, p, this, this.palette_w, this.palette_h);
+		SolutionCheckController solutionCheckController = new SolutionCheckController(b, p);
+		MoveShapePaletteSolutionController moveShapePaletteSolution = new MoveShapePaletteSolutionController(b, p, this, this.palette_w, this.palette_h, solutionCheckController);
 		this.addMouseListener(moveShapePaletteSolution);
 		this.addMouseMotionListener(moveShapePaletteSolution);
 		
@@ -59,25 +60,25 @@ public class PuzzleSolvingView extends JPanel {
 		button_next.addActionListener(exitPuzzleSolving);
 		this.add(button_next);
 		
-		AbstractAction leftRotateControl = new ShapeLeftRotateController(b, this);
+		AbstractAction leftRotateControl = new ShapeLeftRotateController(b, this, solutionCheckController);
 		JButton buttonLeftRotation = new JButton("L Rotate");
 		buttonLeftRotation.setBounds(w-200, h-80, 90, 30);
 		buttonLeftRotation.addActionListener(leftRotateControl);
 		this.add(buttonLeftRotation);
 		
-		AbstractAction rightRotateControl = new ShapeRightRotateController(b, this);
+		AbstractAction rightRotateControl = new ShapeRightRotateController(b, this, solutionCheckController);
 		JButton buttonRightRotation = new JButton("R Rotate");
 		buttonRightRotation.setBounds(w-300, h-80, 90, 30);
 		buttonRightRotation.addActionListener(rightRotateControl);
 		this.add(buttonRightRotation);
 		
-		AbstractAction hFlipControl = new ShapeHorizontalFlipController(b, this);
+		AbstractAction hFlipControl = new ShapeHorizontalFlipController(b, this, solutionCheckController);
 		JButton buttonHorizonFlipped = new JButton("H Flip");
 		buttonHorizonFlipped.setBounds(w-400, h-80, 90, 30);
 		buttonHorizonFlipped.addActionListener(hFlipControl);
 		this.add(buttonHorizonFlipped);
 		
-		AbstractAction vFlipControl = new ShapeVerticalFlipController(b, this);
+		AbstractAction vFlipControl = new ShapeVerticalFlipController(b, this, solutionCheckController);
 		JButton buttonVerticalFlipped = new JButton("V Flip");
 		buttonVerticalFlipped.setBounds(w-500, h-80, 90, 30);
 		buttonVerticalFlipped.addActionListener(vFlipControl);

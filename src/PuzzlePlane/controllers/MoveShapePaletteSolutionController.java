@@ -19,13 +19,15 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 	int palette_h;
 	boolean shapeContain;
 	int lx, rx, ty, by;
+	SolutionCheckController solutionCheckController;
 	
-	public MoveShapePaletteSolutionController (Board b, PuzzlePlaneGui pg, PuzzleSolvingView p,int w, int h) {
+	public MoveShapePaletteSolutionController (Board b, PuzzlePlaneGui pg, PuzzleSolvingView p,int w, int h, SolutionCheckController s) {
 		this.board = b;
 		this.puzzlePlaneGui = pg;
 		this.puzzleSolvingView = p;
 		this.palette_w = w;
 		this.palette_h = h;
+		this.solutionCheckController = s;
 	}
 	
 	@Override
@@ -91,7 +93,7 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 	
 		this.shapeContain = false;
 		this.puzzleSolvingView.repaint();
-		new SolutionCheckController(this.board, this.puzzlePlaneGui).SolutionCheck();
+		this.solutionCheckController.SolutionCheck();
 	}
 }
 	
