@@ -23,7 +23,7 @@ public class ShapeVerticalFlipController extends AbstractAction{
 		// TODO Auto-generated method stub
 		this.board.vFlip();
 		this.puzzleSolvingView.repaint();
-		this.solutionCheckController.SolutionCheck();
+		this.solutionCheckController.check();
 	}
 
 }

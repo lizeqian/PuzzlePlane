@@ -19,7 +19,7 @@ public class PuzzlePlaneGui extends JFrame {
 	public String shapesetImgPath;
 	public String solutionFolderPath;
 	public String solutionPath;
-
+	
 	public JPanel pane = null; //Main panel be set to cardlayout
 	public CardLayout card = null; // CardLayout manager
     public JPanel p_1 = null, p_2 = null, p_3 = null, p_4 = null, p_5 = null; // 3 JPanel
