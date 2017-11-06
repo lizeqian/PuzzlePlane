@@ -1,7 +1,6 @@
 package PuzzlePlane.controllers;
 
 import java.awt.Point;
-import java.lang.*;
 
 public class ComparePoints {
 	Point pointA;
