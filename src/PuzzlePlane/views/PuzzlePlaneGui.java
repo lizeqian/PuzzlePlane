@@ -1,4 +1,5 @@
 package PuzzlePlane.views;
+import PuzzlePlane.controllers.StatusFileOperator;
 import PuzzlePlane.models.*;
 
 import java.awt.CardLayout;
@@ -29,13 +30,14 @@ public class PuzzlePlaneGui extends JFrame {
 		super ("Puzzle Plane");
 		
 		this.board = new Board();
+		StatusFileOperator statusFileOperator = new StatusFileOperator ();
 		
 		card = new CardLayout(5, 5);//Creates a new card layout with the specified horizontal and vertical gaps.
 		pane = new JPanel(card); 	//Set pane layout to cardlayout
         p_1 = new FirstPPGui(this.board, this);
         p_2 = new SecondPPGui(this.board, this); 
         p_3 = new PuzzleSolvingView(this.board, this, this.width, this.height);
-        p_4 = new PuzzleSolvedView(this.board, this);
+        p_4 = new PuzzleSolvedView(this.board, this, statusFileOperator);
         p_5 = new ViewShapesetPPGui(this);
         pane.add(p_1, "p1");
         pane.add(p_2, "p2");

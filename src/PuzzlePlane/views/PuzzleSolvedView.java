@@ -4,6 +4,7 @@ import java.awt.Font;
 
 import javax.swing.JPanel;
 
+import PuzzlePlane.controllers.StatusFileOperator;
 import PuzzlePlane.controllers.windowJump.*;
 import PuzzlePlane.models.Board;
 
@@ -21,11 +22,11 @@ public class PuzzleSolvedView extends JPanel {
 	/**
 	 * Create the frame.
 	 */
-	public PuzzleSolvedView(Board b, PuzzlePlaneGui p) {
+	public PuzzleSolvedView(Board b, PuzzlePlaneGui p ,StatusFileOperator s) {
 		setLayout(null);
 		
 		
-		ExitInfoBoardController exitInfoBoardController = new ExitInfoBoardController(b, p);
+		ExitInfoBoardController exitInfoBoardController = new ExitInfoBoardController(b, p, s);
 		JButton buttonContinue = new JButton("Continue");
 		buttonContinue.addActionListener(exitInfoBoardController);
 		buttonContinue.setBounds(450, 600, 100, 30);

@@ -2,6 +2,7 @@ package PuzzlePlane.models;
 
 import java.awt.Point;
 import java.awt.Polygon;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
@@ -41,11 +42,18 @@ public class Board {
 	}
 	
 	public void setIsSolved(List<Boolean> is) {
-		this.isSolved = is;
+		this.isSolved = new ArrayList<Boolean>();
+		for(boolean status:is) {
+			this.isSolved.add(status);
+		}
 	}
 	
-	public void setPuzzleSolved(int o) {
-		this.isSolved.set(o, true);
+	public void setPuzzleSolved() {
+		this.isSolved.set(this.currentPuzzle, true);
+	}
+	
+	public List<Boolean> getIsSolved(){
+		return this.isSolved;
 	}
 	
 	public BoardMemento createMemento() {
