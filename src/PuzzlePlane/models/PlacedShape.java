@@ -8,6 +8,16 @@ public class PlacedShape{
 	Polygon changedPolygon;
 	ShapeStatus status;
 	
+	public String toString() {
+		String ret = "";
+		Color color = this.status.getColor();
+		ret += color.getRed() + " " + color.getBlue() + " " + color.getRed();
+		for(int i = 0; i < this.changedPolygon.npoints; i++) {
+			ret += " " + this.changedPolygon.xpoints[i] + " " + this.changedPolygon.ypoints[i];
+		}
+		return ret;
+	}
+	
 	public ShapeStatus getStatus() {
 		return status;
 	}

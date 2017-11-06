@@ -18,6 +18,7 @@ public class PuzzlePlaneGui extends JFrame {
 	public String puzzleFolderPath;
 	public String shapesetImgPath;
 	public String solutionFolderPath;
+	public String solutionPath;
 
 	public JPanel pane = null; //Main panel be set to cardlayout
 	public CardLayout card = null; // CardLayout manager
@@ -80,5 +81,13 @@ public class PuzzlePlaneGui extends JFrame {
 
 	public void setSolutionFolderPath(String solutionFolderPath) {
 		this.solutionFolderPath = solutionFolderPath;
+	}
+	
+	public String getSolutionPath() {
+		return solutionPath;
+	}
+
+	public void setSolutionPath(String solutionPath) {
+		this.solutionPath = solutionPath;
 	}
 }

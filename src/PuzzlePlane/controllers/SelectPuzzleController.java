@@ -14,14 +14,17 @@ public class SelectPuzzleController implements ActionListener{
 	PuzzlePlaneGui puzzlePlaneGui;
 	int buttonOrder;
 	String puzzleShapePath;
+	String puzzleName;
 	
-	public SelectPuzzleController (Board b, PuzzlePlaneGui p, String s) {
+	public SelectPuzzleController (Board b, PuzzlePlaneGui p, String name) {
 		this.board = b;
 		this.puzzlePlaneGui = p;
-		this.puzzleShapePath = s;
+		this.puzzleShapePath = p.getPuzzleFolderPath() + name;
+		this.puzzleName = name;
 	}
 	
 	public void actionPerformed(ActionEvent e) {
+		this.puzzlePlaneGui.setSolutionPath(this.puzzlePlaneGui.getSolutionFolderPath() + this.puzzleName);
 		List<PlacedShape> puzzleShapes = new ArrayList<PlacedShape>();
 		puzzleShapes = (new ShapeLoader(puzzleShapePath)).load();
 		this.board.setPuzzle(new Puzzle(puzzleShapes));
