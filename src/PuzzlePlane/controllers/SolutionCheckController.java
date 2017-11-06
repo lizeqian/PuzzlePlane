@@ -34,7 +34,6 @@ public class SolutionCheckController{
 			//TODO store current solution
 			this.puzzlePlaneGui.jumpPage("p4");
 		}
-		//System.out.println(isCo);
 		return isCo;
 	}
 	
