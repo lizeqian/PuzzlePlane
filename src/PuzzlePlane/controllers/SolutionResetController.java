@@ -3,6 +3,7 @@ package PuzzlePlane.controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.Set;
 
 import PuzzlePlane.config.FilePathConfig;
 import PuzzlePlane.models.Board;
@@ -31,7 +32,10 @@ public class SolutionResetController implements ActionListener{
 		ShapeLoader loader = new ShapeLoader(FilePathConfig.getShapesetPath(shapesetName));
 		this.board.setShapes(loader.load());
 		this.puzzleSolvingView.repaint();
-		this.plane.getSolvedPuzzleNames().remove(puzzleName);
+		
+		Set<String> solvedPuzzleNames = this.plane.getSolvedPuzzleNames();
+		solvedPuzzleNames.remove(puzzleName);
+		this.plane.setSolvedPuzzleNames(solvedPuzzleNames);
 		
 		File file = new File(FilePathConfig.getPuzzleSolutionPath(shapesetName, puzzleName));
 		if(file.exists()) file.delete();

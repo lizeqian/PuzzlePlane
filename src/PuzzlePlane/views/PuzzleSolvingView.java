@@ -96,9 +96,15 @@ public class PuzzleSolvingView extends JPanel {
 		buttonRedo.addActionListener(redoControl);
 		this.add(buttonRedo);
 		
+		SolutionResetController resetControl = new SolutionResetController(b, p, this);
+		JButton buttonReset= new JButton("reset");
+		buttonReset.setBounds(w-800, h-80, 90, 30);
+		buttonReset.addActionListener(resetControl);
+		this.add(buttonReset);
+		
 		ViewShapesetController viewShapesetControl = new ViewShapesetController(p);
 		JButton buttonViewShapeset = new JButton("view shapeset");
-		buttonViewShapeset.setBounds(w-820, h-80, 120, 30);;
+		buttonViewShapeset.setBounds(w-920, h-80, 120, 30);;
 		buttonViewShapeset.addActionListener(viewShapesetControl);
 		this.add(buttonViewShapeset);
 	}
