@@ -28,10 +28,10 @@ public class Application extends JFrame {
 
 	public int height = 700, width = 1000;
 	
-	public Application() {
+	public Application(Board b) {
 		super ("Puzzle Plane");
 		
-		this.board = new Board();
+		this.board = b;
 		//StatusFileOperator statusFileOperator = new StatusFileOperator ();
 		
 		card = new CardLayout(5, 5);//Creates a new card layout with the specified horizontal and vertical gaps.
