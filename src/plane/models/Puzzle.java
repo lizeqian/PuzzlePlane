@@ -1,17 +1,19 @@
 package plane.models;
 
-import java.awt.Polygon;
-import java.util.ArrayList;
 import java.util.List;
-
-import plane.utils.ArrayUtils;
 
 public class Puzzle{
 
 	List<PlacedShape> puzzleShape;
-//	PlacedShape puzzleShape;
-	
-	PlacedShape lastSolution;
+	List<PlacedShape> lastSolution;
+	public List<PlacedShape> getLastSolution() {
+		return lastSolution;
+	}
+
+	public void setLastSolution(List<PlacedShape> lastSolution) {
+		this.lastSolution = lastSolution;
+	}
+
 	boolean isSolved;
 	
 	public Puzzle(List<PlacedShape> puzzleShape) {
