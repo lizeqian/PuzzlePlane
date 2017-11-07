@@ -10,6 +10,8 @@ import plane.controllers.Move;
 
 public class Board {
 	Puzzle puzzle;
+	ShapeSet shapeset;
+	
 	List<PlacedShape> shapes;
 	PlacedShape selectedShape;
 	

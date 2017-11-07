@@ -3,9 +3,13 @@ package plane.models;
 import java.util.List;
 
 public class Puzzle{
-
-	List<PlacedShape> puzzleShape;
-	List<PlacedShape> lastSolution;
+	
+	public String name;
+	public ShapeSet shapeset;
+	public List<PlacedShape> puzzleShape;
+	public List<PlacedShape> lastSolution;
+	public boolean isSolved;
+	
 	public List<PlacedShape> getLastSolution() {
 		return lastSolution;
 	}
@@ -13,8 +17,6 @@ public class Puzzle{
 	public void setLastSolution(List<PlacedShape> lastSolution) {
 		this.lastSolution = lastSolution;
 	}
-
-	boolean isSolved;
 	
 	public Puzzle(List<PlacedShape> puzzleShape) {
 		this.puzzleShape = puzzleShape;
