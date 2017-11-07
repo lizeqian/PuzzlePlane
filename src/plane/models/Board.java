@@ -9,7 +9,6 @@ import java.util.Stack;
 import plane.controllers.Move;
 
 public class Board {
-	
 	Puzzle puzzle;
 	List<PlacedShape> shapes;
 	PlacedShape selectedShape;
