@@ -45,4 +45,19 @@ public class FilePathConfig {
 		puzzleImgPath.put("house", "/PuzzlePlane/resources/8house100.jpg");
 		puzzleImgPath.put("dog", "/PuzzlePlane/resources/10dog100.jpeg");
 	}
+	
+	public final static Map<String, String> puzzleSolutionPath;
+	static {
+		puzzleSolutionPath = new HashMap<>();
+		puzzleSolutionPath.put("fox", "/PuzzlePlane/resources/9fox100.jpeg");
+		puzzleSolutionPath.put("bird", "/PuzzlePlane/resources/1bird100.jpg");
+		puzzleSolutionPath.put("rabbit", "/PuzzlePlane/resources/2rabbit.jpeg");
+		puzzleSolutionPath.put("cristal", "/PuzzlePlane/resources/3cristal.jpeg");
+		puzzleSolutionPath.put("fish", "/PuzzlePlane/resources/4fish.jpeg");
+		puzzleSolutionPath.put("duck", "/PuzzlePlane/resources/5duck.jpeg");
+		puzzleSolutionPath.put("dontknow", "/PuzzlePlane/resources/6dontknow.jpeg");
+		puzzleSolutionPath.put("turtle", "/PuzzlePlane/resources/7turtle.jpeg");
+		puzzleSolutionPath.put("house", "/PuzzlePlane/resources/8house100.jpg");
+		puzzleSolutionPath.put("dog", "/PuzzlePlane/resources/10dog100.jpeg");
+	}
 }

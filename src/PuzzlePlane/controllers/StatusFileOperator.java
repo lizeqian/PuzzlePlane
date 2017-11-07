@@ -1,5 +1,7 @@
 package PuzzlePlane.controllers;
 
+import java.util.List;
+
 public class StatusFileOperator {
 	
 	public StatusFileOperator(){
@@ -11,7 +13,7 @@ public class StatusFileOperator {
 	}
 	
 	public List<Boolean> loadFile(){
-
+		return null;
 	}
 
 }

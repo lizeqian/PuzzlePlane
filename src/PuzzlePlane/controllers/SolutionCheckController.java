@@ -26,8 +26,8 @@ public class SolutionCheckController{
 			puzzleShapes.add(shape.getOriginalPolygon());
 		}
 		boolean isCo = true;
-		for(PlacedShape shapeA: this.board.getShapes()) {
-			if (!PolygonUtils.contains(puzzleShapes, shapeA.getChangedPolygon())) {
+		for(PlacedShape shape : this.board.getShapes()) {
+			if (!PolygonUtils.contains(puzzleShapes, shape.getChangedPolygon())) {
 				isCo = false;
 			}
 		}
@@ -39,6 +39,4 @@ public class SolutionCheckController{
 		}
 		return isCo;
 	}
-	
-	
 }

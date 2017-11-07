@@ -49,6 +49,7 @@ public class SelectShapesetController implements ActionListener{
 		this.plane.setSolutionFolderPath(this.solutionFolderPath);
 		this.plane.jumpPage("p2");
 		this.board.setShapes((new ShapeLoader(shapesetPath)).load());
+		this.board.setIsSolved((new StatusFileOperator()).loadFile());
 	}
 
 }

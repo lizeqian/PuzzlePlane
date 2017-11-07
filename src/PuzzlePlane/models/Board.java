@@ -40,8 +40,12 @@ public class Board {
 		return this.currentPuzzle;
 	}
 	
-	public void setIsSolved(List<Boolean> is) {
-		this.isSolved = is;
+	public void setIsSolved(List<Boolean> solved) {
+		this.isSolved = solved;
+	}
+	
+	public List<Boolean> getIsSolved() {
+		return this.isSolved;
 	}
 	
 	public void setPuzzleSolved(int o) {
