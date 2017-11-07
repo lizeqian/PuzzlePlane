@@ -9,7 +9,7 @@ import PuzzlePlane.controllers.windowJump.ExitApplicationController;
 
 public class Main {
 	public static void main(String[] args) {
-		Applicatoin g = new Applicatoin();
+		Application g = new Application();
 		g.addWindowListener (new WindowAdapter() {
 
 			public void windowClosing(WindowEvent e) {

@@ -21,7 +21,7 @@ public class ViewShapesetPPGui extends JPanel{
 	 */
 	private static final long serialVersionUID = -4858060950773618051L;
 	
-	public Applicatoin plane;
+	public Application plane;
 	public JLabel label;
 
 	public void reset() {
@@ -31,7 +31,7 @@ public class ViewShapesetPPGui extends JPanel{
 		}
 	}
 
-	public ViewShapesetPPGui(Applicatoin plane) {
+	public ViewShapesetPPGui(Application plane) {
 		// TODO Auto-generated constructor stub
 		this.plane = plane;
 		setLayout(null);

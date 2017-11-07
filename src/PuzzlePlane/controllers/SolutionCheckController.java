@@ -11,10 +11,10 @@ import PuzzlePlane.utils.PolygonUtils;
 public class SolutionCheckController{
 	
 	Board board;
-	Applicatoin puzzlePlaneGui;
+	Application puzzlePlaneGui;
 	
 	
-	public SolutionCheckController(Board b, Applicatoin p) {
+	public SolutionCheckController(Board b, Application p) {
 		this.board = b;
 		this.puzzlePlaneGui = p;
 	}

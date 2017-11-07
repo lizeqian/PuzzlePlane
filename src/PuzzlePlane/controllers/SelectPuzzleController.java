@@ -6,28 +6,26 @@ import java.awt.Polygon;
 import java.util.ArrayList;
 import java.util.List;
 
+import PuzzlePlane.config.FilePathConfig;
 import PuzzlePlane.models.*;
 import PuzzlePlane.views.*;
 
 public class SelectPuzzleController implements ActionListener{
 	Board board;
-	Applicatoin puzzlePlaneGui;
-	int buttonOrder;
-	String puzzleShapePath;
+	Application plane;
 	String puzzleName;
 	
-	public SelectPuzzleController (Board b, Applicatoin p, String name) {
+	public SelectPuzzleController (Board b, Application p, String puzzleName) {
 		this.board = b;
-		this.puzzlePlaneGui = p;
-		this.puzzleShapePath = p.getPuzzleFolderPath() + name;
-		this.puzzleName = name;
+		this.plane = p;
+		this.puzzleName = puzzleName;
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		this.puzzlePlaneGui.setSolutionPath(this.puzzlePlaneGui.getSolutionFolderPath() + this.puzzleName);
+		this.plane.setPuzzleName(this.puzzleName);
 		List<PlacedShape> puzzleShapes = new ArrayList<PlacedShape>();
-		puzzleShapes = (new ShapeLoader(puzzleShapePath)).load();
+		puzzleShapes = (new ShapeLoader(FilePathConfig.getPuzzlePath(this.plane.getShapesetName(), this.puzzleName))).load();
 		this.board.setPuzzle(new Puzzle(puzzleShapes));
-		this.puzzlePlaneGui.jumpPage("p3");
+		this.plane.jumpPage("p3");
 	}
 }

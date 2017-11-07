@@ -7,12 +7,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import PuzzlePlane.config.FilePathConfig;
 import PuzzlePlane.models.BoardMemento;
 import PuzzlePlane.models.PlacedShape;
-import PuzzlePlane.views.Applicatoin;
+import PuzzlePlane.views.Application;
 
 public class SaveSolutionController {
-	public Applicatoin plane;
+	public Application plane;
 	public BoardMemento memento;
 	
 	public BoardMemento getMemento() {
@@ -23,7 +24,7 @@ public class SaveSolutionController {
 		this.memento = memento;
 	}
 
-	public SaveSolutionController(Applicatoin plane, BoardMemento memento) {
+	public SaveSolutionController(Application plane, BoardMemento memento) {
 		// TODO Auto-generated constructor stub
 		this.plane =  plane;
 		this.memento = memento;
@@ -31,7 +32,7 @@ public class SaveSolutionController {
 	
 	public void save() {
 		if(plane == null || memento == null) return;
-		String path = this.plane.getSolutionPath();
+		String path = FilePathConfig.getPuzzleSolutionPath(this.plane.getShapesetName(), this.plane.getPuzzleName());
 		if(path == null) return;
 		try {
 			File file = new File(path);

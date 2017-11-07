@@ -8,7 +8,7 @@ import javax.swing.JPanel;
  
 
 //This JFrame is the main Frame of application. Use JPanels as content, and switch JPanels for each different view
-public class Applicatoin extends JFrame {
+public class Application extends JFrame {
 	/**
 	 * 
 	 */
@@ -16,17 +16,15 @@ public class Applicatoin extends JFrame {
 	
 	Board board;
 	
-	public String puzzleFolderPath;
-	public String shapesetImgPath;
-	public String solutionFolderPath;
-	public String solutionPath;
-	
+	public String shapesetName;
+	public String puzzleName;
+
 	public JPanel pane = null; //Main panel be set to cardlayout
 	public CardLayout card = null; // CardLayout manager
     public JPanel p_1 = null, p_2 = null, p_3 = null, p_4 = null, p_5 = null; // 3 JPanel
     public int height = 700, width = 1000;
 	
-	public Applicatoin() {
+	public Application() {
 		super ("Puzzle Plane");
 		
 		this.board = new Board();
@@ -59,37 +57,21 @@ public class Applicatoin extends JFrame {
 		card.show(pane, page);
 	}
 	
-	public String getPuzzleFolderPath() {
-		return puzzleFolderPath;
+	public String getPuzzleName() {
+		return puzzleName;
 	}
 
-	public void setPuzzleFolderPath(String puzzleFolderPath) {
-		this.puzzleFolderPath = puzzleFolderPath;
+	public void setPuzzleName(String puzzleName) {
+		this.puzzleName = puzzleName;
+	}
+	
+	public String getShapesetName() {
+		return shapesetName;
+	}
+
+	public void setShapesetName(String shapesetName) {
+		this.shapesetName = shapesetName;
 		((SecondPPGui)p_2).reset();
-	}
-	
-	public String getShapesetImgPath() {
-		return this.shapesetImgPath;
-	}
-
-	public void setShapesetImgPath(String shapesetImgPath) {
-		this.shapesetImgPath = shapesetImgPath;
 		((ViewShapesetPPGui)p_5).reset();
-	}
-	
-	public String getSolutionFolderPath() {
-		return solutionFolderPath;
-	}
-
-	public void setSolutionFolderPath(String solutionFolderPath) {
-		this.solutionFolderPath = solutionFolderPath;
-	}
-	
-	public String getSolutionPath() {
-		return solutionPath;
-	}
-
-	public void setSolutionPath(String solutionPath) {
-		this.solutionPath = solutionPath;
 	}
 }

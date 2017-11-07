@@ -4,7 +4,28 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FilePathConfig {
-	public final static String traditionalImgPath = "/PuzzlePlane/resources/Screen Shot 2017-09-22 at 4.00.14 PM.png";
+	
+	public static String getShapesetPath(String shapesetName) {
+		return shapesetName + "/shapeset.txt";
+	}
+	
+	public static String getShapesetIconPath(String shapesetName) {
+		return shapesetName + "/icon.png";
+	}
+	
+	public static String getPuzzlePath(String shapesetName, String puzzleName) {
+		return shapesetName + "/" + puzzleName + "/puzzle.txt";
+	}
+	
+	public static String getPuzzleIconPath(String shapesetName, String puzzleName) {
+		return shapesetName + "/" + puzzleName + "/icon.jpeg";
+	}
+	
+	public static String getPuzzleSolutionPath(String shapesetName, String puzzleName) {
+		return shapesetName + "/" + puzzleName + "/solution.txt";
+	}
+	
+	/*public final static String traditionalImgPath = "/PuzzlePlane/resources/Screen Shot 2017-09-22 at 4.00.14 PM.png";
 	public final static String nontraditionalImgPath = "/PuzzlePlane/resources/Screen Shot 2017-09-22 at 4.10.55 PM.png";
 	
 	public final static String traditionalShapesetPath = "shapeset.txt";
@@ -59,5 +80,5 @@ public class FilePathConfig {
 		puzzleSolutionPath.put("turtle", "/PuzzlePlane/resources/7turtle.jpeg");
 		puzzleSolutionPath.put("house", "/PuzzlePlane/resources/8house100.jpg");
 		puzzleSolutionPath.put("dog", "/PuzzlePlane/resources/10dog100.jpeg");
-	}
+	}*/
 }

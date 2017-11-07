@@ -6,11 +6,11 @@ import PuzzlePlane.views.*;
 import java.awt.event.*;
 
 public class ExitInfoBoardController implements ActionListener {
-	Applicatoin puzzlePlaneGui;
+	Application puzzlePlaneGui;
 	Board board;
 	StatusFileOperator statusFileOperator;
 	
-	public ExitInfoBoardController(Board b, Applicatoin p, StatusFileOperator s) {
+	public ExitInfoBoardController(Board b, Application p, StatusFileOperator s) {
 		this.puzzlePlaneGui = p;
 		this.board = b;
 		this.statusFileOperator = s;

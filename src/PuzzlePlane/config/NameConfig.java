@@ -17,4 +17,8 @@ public class NameConfig {
 		puzzleNames.put("traditional", Arrays.asList("fox", "bird", "rabbit", "cristal", "fish", "duck", "dontknow", "turtle","house", "dog"));
 		puzzleNames.put("nontraditional", Arrays.asList("fox", "bird", "rabbit", "cristal", "fish", "duck", "dontknow", "turtle","house", "dog"));	
 	}
+	
+	public static List<String> getPuzzles(String shapesetName) {
+		return puzzleNames.get(shapesetName);
+	}
 }

@@ -40,7 +40,7 @@ public class PuzzleSolvingView extends JPanel {
 	MouseMotionListener  activeMotionListener;
 	
 	
-	public PuzzleSolvingView(Board b, Applicatoin p, int w, int h) {
+	public PuzzleSolvingView(Board b, Application p, int w, int h) {
 		setLayout(null);		
 		
 		this.buttonAreaHeight = 300;

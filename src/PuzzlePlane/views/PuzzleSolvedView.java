@@ -22,7 +22,7 @@ public class PuzzleSolvedView extends JPanel {
 	/**
 	 * Create the frame.
 	 */
-	public PuzzleSolvedView(Board b, Applicatoin p ,StatusFileOperator s) {
+	public PuzzleSolvedView(Board b, Application p ,StatusFileOperator s) {
 		setLayout(null);
 		
 		
