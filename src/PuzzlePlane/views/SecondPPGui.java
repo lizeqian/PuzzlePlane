@@ -73,7 +73,7 @@ public class SecondPPGui extends JPanel {
 			Rectangle rect = SecondPPGui.bounds.get(i);
 			
 			JButton button = new JButton(puzzleName);
-			button.setIcon(new ImageIcon(SecondPPGui.class.getResource(FilePathConfig.getPuzzleIconPath(shapesetName, puzzleName))));
+			button.setIcon(new ImageIcon(FilePathConfig.getPuzzleIconPath(shapesetName, puzzleName)));
 			button.setBounds(rect);
 			button.addActionListener(new SelectPuzzleController(board, plane, puzzleName));
 			

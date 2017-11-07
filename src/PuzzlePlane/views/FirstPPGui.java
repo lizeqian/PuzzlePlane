@@ -31,7 +31,7 @@ public class FirstPPGui extends JPanel {
 		setLayout(null);
 		
 		JButton traditionalsetButton = new JButton("chooseShapeSetButton");
-		traditionalsetButton.setIcon(new ImageIcon(FirstPPGui.class.getResource(FilePathConfig.getShapesetIconPath("traditional"))));
+		traditionalsetButton.setIcon(new ImageIcon(FilePathConfig.getShapesetIconPath("traditional")));
 		traditionalsetButton.setBounds(54, 157, 446, 440);
 		
 		SelectShapesetController selectShapesetController = new SelectShapesetController(p, b, "traditional");
@@ -39,11 +39,10 @@ public class FirstPPGui extends JPanel {
 		add(traditionalsetButton);
 		
 		JButton nontraditionalsetButton = new JButton("chooseShapeSetButton");
-		nontraditionalsetButton.setIcon(new ImageIcon(FirstPPGui.class.getResource("nontraditional")));
+		nontraditionalsetButton.setIcon(new ImageIcon(FilePathConfig.getShapesetIconPath("nontraditional")));
 		nontraditionalsetButton.setBounds(519, 157, 447, 432);
-		
 
-		selectShapesetController = new SelectShapesetController(p, b, FilePathConfig.getShapesetIconPath("nontraditional"));
+		selectShapesetController = new SelectShapesetController(p, b, "nontraditional");
 		nontraditionalsetButton.addActionListener(selectShapesetController);
 		add(nontraditionalsetButton);
 		

@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import PuzzlePlane.config.FilePathConfig;
 import PuzzlePlane.controllers.windowJump.ExitViewShapesetController;
 
 public class ViewShapesetPPGui extends JPanel{
@@ -26,9 +27,7 @@ public class ViewShapesetPPGui extends JPanel{
 
 	public void reset() {
 		if(label != null) this.remove(label);
-		if(this.plane.getShapesetImgPath() != null) {
-			this.draw();
-		}
+		this.draw();
 	}
 
 	public ViewShapesetPPGui(Application plane) {
@@ -40,10 +39,11 @@ public class ViewShapesetPPGui extends JPanel{
 	}
 	
 	public void drawLabel() {
-		String path = this.plane.getShapesetImgPath();
+		String shapesetName = this.plane.getShapesetName();
+		if(shapesetName == null) return;
+		String path = FilePathConfig.getShapesetIconPath(shapesetName);
 		if(path != null) {
-			URL shapesetURL = this.getClass().getResource(path);
-			this.label = new JLabel(new ImageIcon(shapesetURL));
+			this.label = new JLabel(new ImageIcon(path));
 			label.setBounds(30, 10, 436, 440);
 			add(label);
 		}
