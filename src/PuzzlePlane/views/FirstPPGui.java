@@ -27,7 +27,7 @@ public class FirstPPGui extends JPanel {
 	/**
 	 * Create the frame.
 	 */
-	public FirstPPGui(Board b, PuzzlePlaneGui p) {
+	public FirstPPGui(Board b, Applicatoin p) {
 		setLayout(null);
 		
 		JButton traditionalsetButton = new JButton("chooseShapeSetButton");

@@ -1,4 +1,5 @@
 package PuzzlePlane.views;
+import PuzzlePlane.controllers.StatusFileOperator;
 import PuzzlePlane.models.*;
 
 import java.awt.CardLayout;
@@ -7,7 +8,7 @@ import javax.swing.JPanel;
  
 
 //This JFrame is the main Frame of application. Use JPanels as content, and switch JPanels for each different view
-public class PuzzlePlaneGui extends JFrame {
+public class Applicatoin extends JFrame {
 	/**
 	 * 
 	 */
@@ -25,17 +26,18 @@ public class PuzzlePlaneGui extends JFrame {
     public JPanel p_1 = null, p_2 = null, p_3 = null, p_4 = null, p_5 = null; // 3 JPanel
     public int height = 700, width = 1000;
 	
-	public PuzzlePlaneGui() {
+	public Applicatoin() {
 		super ("Puzzle Plane");
 		
 		this.board = new Board();
+		StatusFileOperator statusFileOperator = new StatusFileOperator ();
 		
 		card = new CardLayout(5, 5);//Creates a new card layout with the specified horizontal and vertical gaps.
 		pane = new JPanel(card); 	//Set pane layout to cardlayout
         p_1 = new FirstPPGui(this.board, this);
         p_2 = new SecondPPGui(this.board, this); 
         p_3 = new PuzzleSolvingView(this.board, this, this.width, this.height);
-        p_4 = new PuzzleSolvedView(this.board, this);
+        p_4 = new PuzzleSolvedView(this.board, this, statusFileOperator);
         p_5 = new ViewShapesetPPGui(this);
         pane.add(p_1, "p1");
         pane.add(p_2, "p2");

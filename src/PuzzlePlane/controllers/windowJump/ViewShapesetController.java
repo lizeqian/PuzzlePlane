@@ -3,13 +3,13 @@ package PuzzlePlane.controllers.windowJump;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import PuzzlePlane.views.PuzzlePlaneGui;
+import PuzzlePlane.views.Applicatoin;
 
 public class ViewShapesetController implements ActionListener{
 
-	public PuzzlePlaneGui plane;
+	public Applicatoin plane;
 	
-	public ViewShapesetController(PuzzlePlaneGui plane) {
+	public ViewShapesetController(Applicatoin plane) {
 		// TODO Auto-generated constructor stub
 		this.plane = plane;
 	}

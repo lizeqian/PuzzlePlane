@@ -24,13 +24,13 @@ public class SecondPPGui extends JPanel {
 	private static final long serialVersionUID = 5157226398944441626L;
 	
 	Board board;
-	PuzzlePlaneGui plane;
+	Applicatoin plane;
 	List<JButton> buttons;
 	
 	/**
 	 * Create the frame.
 	 */
-	public SecondPPGui(Board b, PuzzlePlaneGui p) {
+	public SecondPPGui(Board b, Applicatoin p) {
 		setLayout(null);
 		this.board = b;
 		this.plane = p;

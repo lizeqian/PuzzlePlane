@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import PuzzlePlane.models.Board;
-import PuzzlePlane.views.PuzzlePlaneGui;
+import PuzzlePlane.views.Applicatoin;
 import PuzzlePlane.views.PuzzleSolvingView;
 
 public class UndoController implements ActionListener{

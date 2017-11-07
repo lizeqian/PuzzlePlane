@@ -11,12 +11,12 @@ import PuzzlePlane.views.*;
 
 public class SelectPuzzleController implements ActionListener{
 	Board board;
-	PuzzlePlaneGui puzzlePlaneGui;
+	Applicatoin puzzlePlaneGui;
 	int buttonOrder;
 	String puzzleShapePath;
 	String puzzleName;
 	
-	public SelectPuzzleController (Board b, PuzzlePlaneGui p, String name) {
+	public SelectPuzzleController (Board b, Applicatoin p, String name) {
 		this.board = b;
 		this.puzzlePlaneGui = p;
 		this.puzzleShapePath = p.getPuzzleFolderPath() + name;
