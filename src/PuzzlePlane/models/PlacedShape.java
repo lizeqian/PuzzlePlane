@@ -11,8 +11,8 @@ public class PlacedShape{
 	public String toString() {
 		String ret = "";
 		Color color = this.status.getColor();
-		System.out.println(color.getRed() + " " + color.getGreen() + " " + color.getBlue());
-		ret += color.getRed() + " " + color.getBlue() + " " + color.getRed();
+		//System.out.println(color.getRed() + " " + color.getGreen() + " " + color.getBlue());
+		ret += color.getRed() + " " + color.getGreen() + " " + color.getBlue();
 		for(int i = 0; i < this.changedPolygon.npoints; i++) {
 			ret += " " + this.changedPolygon.xpoints[i] + " " + this.changedPolygon.ypoints[i];
 		}

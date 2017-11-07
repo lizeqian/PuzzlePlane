@@ -1,8 +1,6 @@
 package PuzzlePlane.models;
 
-import java.awt.Point;
 import java.awt.Polygon;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
@@ -15,42 +13,11 @@ public class Board {
 	Puzzle puzzle;
 	List<PlacedShape> shapes;
 	PlacedShape selectedShape;
-	List<Boolean> isSolved;
-	int currentShapeSet;
-	int currentPuzzle;
 	
 	Stack<Move> moves;
 	Stack<Move> redoStack;
 
 	public Board() {
-	}
-	
-	public void setCurrentShapeSet(int o) {
-		this.currentShapeSet = o;
-	}
-	
-	public void setCurrentPuzzle(int o) {
-		this.currentPuzzle = o;
-	}
-	
-	public int getCurrentShapeSet() {
-		return this.currentShapeSet;
-	}
-	
-	public int getCurrentPuzzle() {
-		return this.currentPuzzle;
-	}
-	
-	public void setIsSolved(List<Boolean> solved) {
-		this.isSolved = solved;
-	}
-	
-	public List<Boolean> getIsSolved() {
-		return this.isSolved;
-	}
-	
-	public void setPuzzleSolved(int o) {
-		this.isSolved.set(o, true);
 	}
 	
 	public BoardMemento createMemento() {
