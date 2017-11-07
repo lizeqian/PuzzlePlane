@@ -2,6 +2,10 @@ package PuzzlePlane.config;
 
 public class FilePathConfig {
 	
+	public static String getSolvedPuzzleIconPath(String shapesetName, String puzzleName) {
+		return shapesetName + "/" + puzzleName + "/solvedPuzzleIcon.jpg";
+	}
+	
 	public static String getShapesetPath(String shapesetName) {
 		return  shapesetName + "/shapeset.txt";
 	}

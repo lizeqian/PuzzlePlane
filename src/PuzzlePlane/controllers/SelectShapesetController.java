@@ -34,8 +34,7 @@ public class SelectShapesetController implements ActionListener{
 		// TODO Auto-generated method stub
 		this.plane.setShapesetName(this.shapesetName);
 		this.plane.jumpPage("p2");
-		this.board.setShapes((new ShapeLoader(FilePathConfig.getShapesetPath(this.shapesetName))).load());
-		this.board.setIsSolved((new StatusFileOperator()).loadFile());
+		//this.board.setShapes((new ShapeLoader(FilePathConfig.getShapesetPath(this.shapesetName))).load());
 	}
 
 }

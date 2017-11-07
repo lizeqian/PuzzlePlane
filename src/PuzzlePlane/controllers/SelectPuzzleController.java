@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.Polygon;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import PuzzlePlane.config.FilePathConfig;
 import PuzzlePlane.models.*;
@@ -23,8 +24,20 @@ public class SelectPuzzleController implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		this.plane.setPuzzleName(this.puzzleName);
-		List<PlacedShape> puzzleShapes = new ArrayList<PlacedShape>();
+		List<PlacedShape> puzzleShapes;
 		puzzleShapes = (new ShapeLoader(FilePathConfig.getPuzzlePath(this.plane.getShapesetName(), this.puzzleName))).load();
+		
+		
+		String shapesetName = this.plane.getShapesetName();
+		Set<String> solvedPuzzleNames = this.plane.getSolvedPuzzleNames();
+		if(solvedPuzzleNames != null && solvedPuzzleNames.contains(this.puzzleName)) {
+			ShapeLoader loader = new ShapeLoader(FilePathConfig.getPuzzleSolutionPath(shapesetName, this.puzzleName));
+			this.board.setShapes(loader.load());
+		} else {
+			ShapeLoader loader = new ShapeLoader(FilePathConfig.getShapesetPath(shapesetName));
+			this.board.setShapes(loader.load());
+		}
+		
 		this.board.setPuzzle(new Puzzle(puzzleShapes));
 		this.plane.jumpPage("p3");
 	}

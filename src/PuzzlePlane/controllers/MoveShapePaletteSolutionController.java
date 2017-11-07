@@ -92,7 +92,10 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 	
 		this.shapeContain = false;
 		this.puzzleSolvingView.repaint();
-		this.solutionCheckController.check();
+		if (this.solutionCheckController.check()) {
+			(new SaveSolutionController(this.puzzlePlaneGui, this.board.createMemento())).save();
+			this.puzzlePlaneGui.jumpPage("p4");
+		}
 	}
 }
 	

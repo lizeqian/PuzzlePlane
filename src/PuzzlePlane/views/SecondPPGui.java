@@ -16,6 +16,7 @@ import java.awt.Font;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.swing.SwingConstants;
 
@@ -67,13 +68,18 @@ public class SecondPPGui extends JPanel {
 		String shapesetName = this.plane.getShapesetName();
 		if (shapesetName == null) return;
 		List<String> puzzleNames = NameConfig.getPuzzles(shapesetName);
+		Set<String> solvedPuzzleNames = this.plane.getSolvedPuzzleNames();
 		
 		for(int i = 0; i < puzzleNames.size(); i++) {
 			String puzzleName = puzzleNames.get(i);
 			Rectangle rect = SecondPPGui.bounds.get(i);
 			
 			JButton button = new JButton(puzzleName);
-			button.setIcon(new ImageIcon(FilePathConfig.getPuzzleIconPath(shapesetName, puzzleName)));
+			if (solvedPuzzleNames == null || !solvedPuzzleNames.contains(puzzleName)) {
+				button.setIcon(new ImageIcon(FilePathConfig.getPuzzleIconPath(shapesetName, puzzleName)));
+			} else {
+				button.setIcon(new ImageIcon(FilePathConfig.getSolvedPuzzleIconPath(shapesetName, puzzleName)));
+			}
 			button.setBounds(rect);
 			button.addActionListener(new SelectPuzzleController(board, plane, puzzleName));
 			
