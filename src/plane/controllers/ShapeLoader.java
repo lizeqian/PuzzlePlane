@@ -31,11 +31,11 @@ public class ShapeLoader{
 			r = Integer.parseInt(arr[0]);
 			g = Integer.parseInt(arr[1]);
 			b = Integer.parseInt(arr[2]);
-			PlacedShape puzzleShape = new PlacedShape(new Color(r, g, b));
+			PlacedShape shape = new PlacedShape(new Color(r, g, b));
 			for(int i = 3; i < arr.length; i += 2) {
-				puzzleShape.addPoint(Integer.parseInt(arr[i]), Integer.parseInt(arr[i+1]));
+				shape.addPoint(Integer.parseInt(arr[i]), Integer.parseInt(arr[i+1]));
 			}
-			ret.add(puzzleShape);
+			ret.add(shape);
 		}
 		scan.close();
 		return ret;
