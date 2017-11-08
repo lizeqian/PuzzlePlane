@@ -15,6 +15,18 @@ public class ShapeStatus {
 	boolean horizontalFlipped;
 	Point position;
 	
+	public String toString() {
+		String ret = "";
+		ret += "angle: " + angle + "\n";
+		ret += "onPalette: " + onPalette + "\n";
+		ret += "selected: " + selected + "\n";
+		ret += color.toString() + "\n";
+		ret += "verticalFlipped: " + verticalFlipped + "\n";
+		ret += "horizontalFlipped: " + horizontalFlipped + "\n";
+		ret += position.toString();
+		return ret;
+	}
+	
 	public void reset() {
 		this.position = new Point(0, 0);
 		this.verticalFlipped = false;

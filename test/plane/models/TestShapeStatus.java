@@ -10,6 +10,12 @@ public class TestShapeStatus extends TestCase {
 			Color color = null;
 			ShapeStatus shapeStatus = new ShapeStatus(color);
 			fail("Should not construct with a null Color");
+			
+			color = new Color(255, 0, 0);
+			shapeStatus = new ShapeStatus(color);
+			
+			System.out.println(shapeStatus.toString());
+			
 		} catch (RuntimeException e) {
 			
 		}
@@ -23,4 +29,8 @@ public class TestShapeStatus extends TestCase {
 			
 		}
 	}
+	
+	public void testReset() {
+	}
+	
 }
