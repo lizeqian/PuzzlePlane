@@ -4,11 +4,6 @@ import java.util.List;
 
 public class ShapeSet{
 	public String name;
-	public List<Puzzle> puzzles;
-	
-	public List<Puzzle> getPuzzles() {
-		return puzzles;
-	}
 
 	public ShapeSet(String name) {
 		this.name = name;
