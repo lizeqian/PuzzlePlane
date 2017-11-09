@@ -7,6 +7,21 @@ import java.util.ArrayList;
 import junit.framework.TestCase;
 
 public class TestPuzzle extends TestCase {
+	public void testConstructor() {
+		ArrayList<PlacedShape> shapesBefore = new ArrayList<PlacedShape>();
+		Polygon polygon0 = new Polygon();
+		polygon0.addPoint(1, 1);
+		polygon0.addPoint(2, 2);
+		polygon0.addPoint(3, 3);
+		polygon0.addPoint(1, 1);
+		PlacedShape shape0 = new PlacedShape(Color.BLACK);
+		shape0.setOriginalPolygon(polygon0);
+		shapesBefore.add(shape0);
+		Puzzle p = new Puzzle(shapesBefore);
+		assertEquals(shapesBefore, p.getPuzzleShape());
+		
+	}
+	
 	public void testGetLastSolution() {
 		Puzzle p = new Puzzle();
 		ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
