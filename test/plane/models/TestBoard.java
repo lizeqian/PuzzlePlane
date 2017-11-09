@@ -177,4 +177,67 @@ public class TestBoard extends TestCase {
 		assertEquals(bm.shapes.get(0).toString(), shapes.get(0).toString());
 	}
 	
+	public void testUndo() {
+		Board b = new Board();
+		Polygon polygon = new Polygon();
+		polygon.addPoint(0, 0);
+		polygon.addPoint(10, 0);
+		polygon.addPoint(5, 9);
+		polygon.addPoint(0, 0);
+		PlacedShape ps1 = this.createPlacedShape(polygon, polygon);
+		ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
+		shapes.add(ps1);
+		b.setShapes(shapes);
+		b.selectShape(5, 2);
+		b.rotate(90);
+		b.undo();
+		
+		assertEquals(b.getSelectedShape().toString(), ps1.toString());
+	}
+	
+	public void testRedo() {
+		Board b = new Board();
+		Polygon polygon = new Polygon();
+		polygon.addPoint(0, 0);
+		polygon.addPoint(10, 0);
+		polygon.addPoint(5, 9);
+		polygon.addPoint(0, 0);
+		PlacedShape ps1 = this.createPlacedShape(polygon, polygon);
+		ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
+		shapes.add(ps1);
+		b.setShapes(shapes);
+		b.selectShape(5, 2);
+		b.rotate(90);
+		b.undo();
+		b.redo();
+		
+		Polygon rp = new Polygon();
+		rp.addPoint(5, -1);
+		rp.addPoint(5, 9);
+		rp.addPoint(-4, 4);
+		rp.addPoint(5, -1);
+		PlacedShape ps2 = this.createPlacedShape(rp, rp);
+		assertEquals(b.getSelectedShape().toString(), ps2.toString());
+	}
+	
+	public void testPushDrag() {
+		Board b = new Board();
+		Polygon polygon = new Polygon();
+		polygon.addPoint(0, 0);
+		polygon.addPoint(10, 0);
+		polygon.addPoint(5, 9);
+		polygon.addPoint(0, 0);
+		PlacedShape ps1 = this.createPlacedShape(polygon, polygon);
+		ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
+		shapes.add(ps1);
+		b.setShapes(shapes);
+		b.selectShape(5, 2);
+		b.rotate(90);
+		b.undo();
+		b.redo();
+		b.pushDrag(ps1);
+		assertTrue(b.redoStack.isEmpty());
+		assertEquals(b.moves.pop().beforeShape.toString(), ps1.toString());
+		
+	}
 }
