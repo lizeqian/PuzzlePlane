@@ -1,9 +1,7 @@
-package plane.controllers;
+package plane.models;
 
 import java.awt.Polygon;
 
-import plane.models.PlacedShape;
-import plane.models.ShapeStatus;
 import plane.utils.PolygonUtils;
 
 public class Move {

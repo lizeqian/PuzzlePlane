@@ -6,9 +6,9 @@ package plane.controllers.actions;
 import java.awt.event.ActionEvent;
 
 import plane.controllers.AbstractAction;
-import plane.controllers.Move;
 import plane.controllers.SolutionCheckController;
 import plane.models.Board;
+import plane.models.Move;
 import plane.views.PuzzleSolvingView;
 
 public class ShapeHorizontalFlipController extends AbstractAction{

@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Stack;
 
-import plane.controllers.Move;
-
 public class Board {
 	Puzzle puzzle;
 	ShapeSet shapeset;
