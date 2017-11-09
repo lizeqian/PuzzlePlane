@@ -99,5 +99,82 @@ public class TestBoard extends TestCase {
 		}
 	}
 	
+	public void testRotate() {
+		Board b = new Board();
+		Polygon polygon = new Polygon();
+		polygon.addPoint(0, 0);
+		polygon.addPoint(10, 0);
+		polygon.addPoint(5, 9);
+		polygon.addPoint(0, 0);
+		PlacedShape ps1 = this.createPlacedShape(polygon, polygon);
+		ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
+		shapes.add(ps1);
+		b.setShapes(shapes);
+		b.selectShape(5, 2);
+		b.rotate(90);
+		
+		Polygon rp = new Polygon();
+		rp.addPoint(5, -1);
+		rp.addPoint(5, 9);
+		rp.addPoint(-4, 4);
+		rp.addPoint(5, -1);
+		PlacedShape ps2 = this.createPlacedShape(rp, rp);
+		assertEquals(b.getSelectedShape().toString(), ps2.toString());
+	}
+	
+	public void testVFlip() {
+		Board b = new Board();
+		Polygon polygon = new Polygon();
+		polygon.addPoint(0, 0);
+		polygon.addPoint(10, 0);
+		polygon.addPoint(5, 9);
+		polygon.addPoint(0, 0);
+		PlacedShape ps1 = this.createPlacedShape(polygon, polygon);
+		ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
+		shapes.add(ps1);
+		b.setShapes(shapes);
+		b.selectShape(5, 2);
+		b.vFlip();
+		
+		Polygon rp = new Polygon();
+		rp.addPoint(0, 4);
+		rp.addPoint(10, 4);
+		rp.addPoint(5, -5);
+		rp.addPoint(0, 4);
+		PlacedShape ps2 = this.createPlacedShape(rp, rp);
+		assertEquals(b.getSelectedShape().toString(), ps2.toString());
+	}
+	
+	public void testHFlip() {
+		Board b = new Board();
+		Polygon polygon = new Polygon();
+		polygon.addPoint(0, 0);
+		polygon.addPoint(10, 0);
+		polygon.addPoint(5, 9);
+		polygon.addPoint(0, 0);
+		PlacedShape ps1 = this.createPlacedShape(polygon, polygon);
+		ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
+		shapes.add(ps1);
+		b.setShapes(shapes);
+		b.selectShape(5, 2);
+		b.hFlip();
+		
+		Polygon rp = new Polygon();
+		rp.addPoint(6, 0);
+		rp.addPoint(-4, 0);
+		rp.addPoint(1, 9);
+		rp.addPoint(6, 0);
+		PlacedShape ps2 = this.createPlacedShape(rp, rp);
+		assertEquals(b.getSelectedShape().toString(), ps2.toString());
+	}
+	
+	public void testCreateMemento() {
+		Board b = new Board();
+		ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
+		shapes.add(this.createPlacedShape(this.createPolygon(1, 1), this.createPolygon(1, 1)));
+		b.setShapes(shapes);
+		BoardMemento bm = b.createMemento();
+		assertEquals(bm.shapes.get(0).toString(), shapes.get(0).toString());
+	}
 	
 }
