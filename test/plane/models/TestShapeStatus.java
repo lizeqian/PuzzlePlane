@@ -11,7 +11,7 @@ public class TestShapeStatus extends TestCase {
 			Color color = new Color(255, 0, 0);
 			ShapeStatus shapeStatus = new ShapeStatus(color);
 			assertEquals(shapeStatus.toString(), "angle: 0\n" 
-												+ "onPalette: false\n" 
+												+ "onPalette: true\n" 
 												+ "selected: false\n"
 												+ "red: 255\n"
 												+ "green: 0\n"

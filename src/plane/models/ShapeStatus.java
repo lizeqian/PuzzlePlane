@@ -23,7 +23,7 @@ public class ShapeStatus {
 		ret += "red: " + color.getRed() + "\ngreen:" + color.getGreen() + "\nblue: " + color.getBlue() + "\n";
 		ret += "verticalFlipped: " + verticalFlipped + "\n";
 		ret += "horizontalFlipped: " + horizontalFlipped + "\n";
-		ret += "x: " + (int)position.getX() + "\ny: " + (int)position.getY();
+		ret += "x: " + (int)position.getX() + "\ny: " + (int)position.getY() + "\n";
 		return ret;
 	}
 	
