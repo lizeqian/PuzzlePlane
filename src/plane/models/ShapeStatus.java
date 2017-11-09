@@ -20,10 +20,10 @@ public class ShapeStatus {
 		ret += "angle: " + angle + "\n";
 		ret += "onPalette: " + onPalette + "\n";
 		ret += "selected: " + selected + "\n";
-		ret += color	.getRed() + "\n";
+		ret += "red: " + color.getRed() + "\ngreen:" + color.getGreen() + "\nblue: " + color.getBlue() + "\n";
 		ret += "verticalFlipped: " + verticalFlipped + "\n";
 		ret += "horizontalFlipped: " + horizontalFlipped + "\n";
-		ret += position.toString();
+		ret += "x: " + (int)position.getX() + "\ny: " + (int)position.getY();
 		return ret;
 	}
 	
