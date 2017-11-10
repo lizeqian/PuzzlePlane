@@ -1,10 +1,6 @@
 package plane.utils;
 
 public class ArrayUtils {
-
-	public ArrayUtils() {
-		// TODO Auto-generated constructor stub
-	}
 	
 	public static int min(int[] arr, int len) {
 		if(len == 0) return 0;
