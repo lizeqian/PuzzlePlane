@@ -98,10 +98,6 @@ public class PlacedShape{
 		return ArrayUtils.max(this.changedPolygon.ypoints, this.changedPolygon.npoints);
 	}
 	
-	public Point getCenterPosition() {
-		return new Point(ArrayUtils.avg(this.originalPolygon.xpoints, this.originalPolygon.npoints),
-				ArrayUtils.avg(this.originalPolygon.ypoints, this.originalPolygon.npoints));
-	}
 	
 	public void setPosition(int x, int y) {
 		Point p = this.getPosition();
