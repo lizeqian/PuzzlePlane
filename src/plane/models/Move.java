@@ -10,6 +10,17 @@ public class Move {
 	public PlacedShape beforeShape;
 	public PlacedShape afterShape;
 	
+	public String toString() {
+		String ret = "";
+		ret += "selectedShape:\n";
+		ret += selectedShape.toString();
+		ret += "beforeShape:\n";
+		ret += beforeShape.toString();
+		ret += "afterShape:\n";
+		ret += afterShape.toString();
+		return ret;
+	}
+	
 	public Move(PlacedShape shape, PlacedShape beforeShape) {
 		this.selectedShape = shape;
 		this.beforeShape = beforeShape.copy();
