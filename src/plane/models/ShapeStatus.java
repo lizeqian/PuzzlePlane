@@ -20,7 +20,7 @@ public class ShapeStatus {
 		ret += "angle: " + angle + "\n";
 		ret += "onPalette: " + onPalette + "\n";
 		ret += "selected: " + selected + "\n";
-		ret += "red: " + color.getRed() + "\ngreen:" + color.getGreen() + "\nblue: " + color.getBlue() + "\n";
+		ret += "red: " + color.getRed() + "\ngreen: " + color.getGreen() + "\nblue: " + color.getBlue() + "\n";
 		ret += "verticalFlipped: " + verticalFlipped + "\n";
 		ret += "horizontalFlipped: " + horizontalFlipped + "\n";
 		ret += "x: " + (int)position.getX() + "\ny: " + (int)position.getY() + "\n";
@@ -86,10 +86,6 @@ public class ShapeStatus {
 
 	public Color getColor() {
 		return color;
-	}
-
-	public void setColor(Color color) {
-		this.color = color;
 	}
 
 	public boolean isVerticalFlipped() {
