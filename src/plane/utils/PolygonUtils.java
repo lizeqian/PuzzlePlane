@@ -14,12 +14,12 @@ public class PolygonUtils {
 	public static Point getCenter(Polygon polygon) {
 		if(polygon.npoints == 0) return new Point(0, 0);
 		int x = 0, y = 0;
-		for(int i = 0; i < polygon.npoints; i++) {
+		for(int i = 0; i < polygon.npoints-1; i++) {
 			x += polygon.xpoints[i];
 			y += polygon.ypoints[i];
 		}
-		x /= polygon.npoints;
-		y /= polygon.npoints;
+		x /= polygon.npoints-1;
+		y /= polygon.npoints-1;
 		return new Point(x, y);
 	}
 	
