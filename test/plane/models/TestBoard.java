@@ -5,6 +5,7 @@ import java.awt.Polygon;
 import java.util.ArrayList;
 
 import junit.framework.TestCase;
+import plane.utils.PolygonUtils;
 
 public class TestBoard extends TestCase {
 	
@@ -79,7 +80,9 @@ public class TestBoard extends TestCase {
 		b.setShapes(shapes);
 		b.selectShape(5, 2);
 		b.setPosition(1, 1);
-		assertEquals(b.getSelectedShape().toString(), this.createPlacedShape(p1, this.createPolygon(2, 2)).toString());
+		
+		Polygon expected = this.createPolygon(2, 2);
+		assertEquals(PolygonUtils.toString(b.getSelectedShape().getChangedPolygon()), PolygonUtils.toString(expected));
 	}
 	
 	public void testResetPosition() {
@@ -115,11 +118,11 @@ public class TestBoard extends TestCase {
 		b.rotate(90);
 		
 		Polygon rp = new Polygon();
-		rp.addPoint(8, -2);
-		rp.addPoint(8, 8);
-		rp.addPoint(-1, 3);
-		rp.addPoint(8, -2);
-		PlacedShape ps2 = this.createPlacedShape(rp, rp);
+		rp.addPoint(0, 0);
+		rp.addPoint(10, 0);
+		rp.addPoint(5, 9);
+		rp.addPoint(0, 0);
+		PlacedShape ps2 = this.createPlacedShape(PolygonUtils.copy(rp), PolygonUtils.copy(rp));
 		ps2.selectShape();
 		ps2.rotate(90);
 		assertEquals(b.getSelectedShape().toString(), ps2.toString());
@@ -140,11 +143,11 @@ public class TestBoard extends TestCase {
 		b.vFlip();
 		
 		Polygon rp = new Polygon();
-		rp.addPoint(0, 6);
-		rp.addPoint(10, 6);
-		rp.addPoint(5, -3);
-		rp.addPoint(0, 6);
-		PlacedShape ps2 = this.createPlacedShape(rp, rp);
+		rp.addPoint(0, 0);
+		rp.addPoint(10, 0);
+		rp.addPoint(5, 9);
+		rp.addPoint(0, 0);
+		PlacedShape ps2 = this.createPlacedShape(PolygonUtils.copy(rp), PolygonUtils.copy(rp));
 		ps2.selectShape();
 		ps2.vFlip();
 		assertEquals(b.getSelectedShape().toString(), ps2.toString());
@@ -165,11 +168,11 @@ public class TestBoard extends TestCase {
 		b.hFlip();
 		
 		Polygon rp = new Polygon();
-		rp.addPoint(10, 0);
 		rp.addPoint(0, 0);
-		rp.addPoint(5, 9);
 		rp.addPoint(10, 0);
-		PlacedShape ps2 = this.createPlacedShape(rp, rp);
+		rp.addPoint(5, 9);
+		rp.addPoint(0, 0);
+		PlacedShape ps2 = this.createPlacedShape(PolygonUtils.copy(rp), PolygonUtils.copy(rp));
 		ps2.selectShape();
 		ps2.hFlip();
 		assertEquals(b.getSelectedShape().toString(), ps2.toString());
@@ -219,11 +222,11 @@ public class TestBoard extends TestCase {
 		b.redo();
 		
 		Polygon rp = new Polygon();
-		rp.addPoint(8, -2);
-		rp.addPoint(8, 8);
-		rp.addPoint(-1, 3);
-		rp.addPoint(8, -2);
-		PlacedShape ps2 = this.createPlacedShape(rp, rp);
+		rp.addPoint(0, 0);
+		rp.addPoint(10, 0);
+		rp.addPoint(5, 9);
+		rp.addPoint(0, 0);
+		PlacedShape ps2 = this.createPlacedShape(PolygonUtils.copy(rp), PolygonUtils.copy(rp));
 		ps2.selectShape();
 		ps2.rotate(90);
 		assertEquals(b.getSelectedShape().toString(), ps2.toString());
