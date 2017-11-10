@@ -3,7 +3,10 @@ package plane.models;
 import java.awt.Color;
 import java.awt.color.*;
 
+import javax.management.RuntimeErrorException;
+
 import junit.framework.TestCase;
+import plane.utils.PolygonUtils;
 
 public class TestMove extends TestCase {
 	public PlacedShape before;
@@ -33,5 +36,20 @@ public class TestMove extends TestCase {
 										+ this.before.toString()
 										+ "afterShape:\n"
 										+ this.after.toString());
+	}
+	
+	public void testUndo() {
+		this.select = this.after.copy();
+		Move move = new Move(this.select, this.before);
+		move.undo();
+		assertEquals(this.select.toString(), this.before.toString());
+	}
+	
+	public void testRedo() {
+		this.select = this.after.copy();
+		Move move = new Move(this.select, this.before);
+		move.undo();
+		move.redo();
+		assertEquals(this.select.toString(), this.after.toString());
 	}
 }
