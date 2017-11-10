@@ -6,6 +6,15 @@ import java.util.List;
 
 public class PolygonUtils {
 	
+	public static String toString(Polygon polygon) {
+		String ret = "";
+		ret += "npoints: " + polygon.npoints + "\n";
+		for(int i = 0; i < polygon.npoints; i++) {
+			ret += "x: " + polygon.xpoints[i] + ", y: " + polygon.ypoints[i] + "\n";
+		}
+		return ret;
+	}
+	
 	public static Polygon copy(Polygon polygon) {
 		if(polygon == null) return null;
 		return new Polygon(polygon.xpoints, polygon.ypoints, polygon.npoints);

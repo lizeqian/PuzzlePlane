@@ -63,6 +63,7 @@ public class TestBoard extends TestCase {
 		b.selectShape(100, 100);
 		b.selectShape(25, 22);
 		b.selectShape(5, 2);
+		ps1.selectShape();
 		assertEquals(ps1.toString(), b.getSelectedShape().toString());
 	}
 	
@@ -119,6 +120,8 @@ public class TestBoard extends TestCase {
 		rp.addPoint(-1, 3);
 		rp.addPoint(8, -2);
 		PlacedShape ps2 = this.createPlacedShape(rp, rp);
+		ps2.selectShape();
+		ps2.rotate(90);
 		assertEquals(b.getSelectedShape().toString(), ps2.toString());
 	}
 	
@@ -142,6 +145,8 @@ public class TestBoard extends TestCase {
 		rp.addPoint(5, -3);
 		rp.addPoint(0, 6);
 		PlacedShape ps2 = this.createPlacedShape(rp, rp);
+		ps2.selectShape();
+		ps2.vFlip();
 		assertEquals(b.getSelectedShape().toString(), ps2.toString());
 	}
 	
@@ -165,6 +170,8 @@ public class TestBoard extends TestCase {
 		rp.addPoint(5, 9);
 		rp.addPoint(10, 0);
 		PlacedShape ps2 = this.createPlacedShape(rp, rp);
+		ps2.selectShape();
+		ps2.hFlip();
 		assertEquals(b.getSelectedShape().toString(), ps2.toString());
 	}
 	
@@ -191,7 +198,7 @@ public class TestBoard extends TestCase {
 		b.selectShape(5, 2);
 		b.rotate(90);
 		b.undo();
-		
+		ps1.selectShape();
 		assertEquals(b.getSelectedShape().toString(), ps1.toString());
 	}
 	
@@ -217,6 +224,8 @@ public class TestBoard extends TestCase {
 		rp.addPoint(-1, 3);
 		rp.addPoint(8, -2);
 		PlacedShape ps2 = this.createPlacedShape(rp, rp);
+		ps2.selectShape();
+		ps2.rotate(90);
 		assertEquals(b.getSelectedShape().toString(), ps2.toString());
 	}
 	
