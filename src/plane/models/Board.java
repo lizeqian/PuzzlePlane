@@ -8,7 +8,6 @@ import java.util.Stack;
 
 public class Board {
 	Puzzle puzzle;
-	ShapeSet shapeset;
 	
 	List<PlacedShape> shapes;
 	PlacedShape selectedShape;

@@ -33,8 +33,6 @@ public class TestPuzzle extends TestCase {
 		PlacedShape shape = new PlacedShape(Color.BLACK);
 		shape.setOriginalPolygon(polygon);
 		shapes.add(shape);
-		p.setLastSolution(shapes);
-		assertEquals(shapes, p.getLastSolution());
 		
 	}
 	
