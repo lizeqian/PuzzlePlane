@@ -17,39 +17,32 @@ public class TestMoveShapePaletteSolutionController extends generic.MouseEventTe
 	Application ap;
 	PuzzleSolvingView psv;
 	
-	public Polygon createPolygon(int x, int y) {
-		Polygon polygon = new Polygon();
-		polygon.addPoint(x, y);
-		polygon.addPoint(x+10, y);
-		polygon.addPoint(x+5, y+10);
-		polygon.addPoint(x, y);
-		return polygon;
-	}
-	
 	protected void setUp() {
 		this.board = new Board();
 		this.ap = new Application(this.board);
 		PlacedShape ps = new PlacedShape(Color.BLACK);
-		Polygon p = this.createPolygon(20, 20);
-		ps.setOriginalPolygon(p);
-		ps.setChangedPolygon(p);
-		ShapeStatus ss = new ShapeStatus(Color.BLACK);
-		ps.setStatus(ss);
+		ps.setPosition(20, 20);
+		ps.addPoint(20, 20);
+		ps.addPoint(30, 20);
+		ps.addPoint(25, 30);
+		ps.addPoint(20, 20);
 		ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
 		shapes.add(ps);
 		this.board.setShapes(shapes);
 		
 		PlacedShape ps2 = new PlacedShape(Color.BLACK);
-		Polygon p2 = this.createPolygon(100, 100);
-		ps.setOriginalPolygon(p2);
-		ps.setChangedPolygon(p2);
+		ps2.addPoint(200, 200);
+		ps2.addPoint(250, 200);
+		ps2.addPoint(250, 300);
+		ps2.addPoint(200, 300);
+		ps2.addPoint(200, 200);
 		ArrayList<PlacedShape> shapes2 = new ArrayList<PlacedShape>();
 		shapes2.add(ps2);
 		
 		Puzzle puzzle = new Puzzle();
 		puzzle.setShape(shapes2);
 		this.board.setPuzzle(puzzle);
-		this.psv = new PuzzleSolvingView(this.board, this.ap, 700, 1000);
+		this.psv = new PuzzleSolvingView(this.board, this.ap, 1000, 700);
 		this.ap.setVisible(true);
 		this.ap.jumpPage("p3");	
 	}
@@ -62,6 +55,8 @@ public class TestMoveShapePaletteSolutionController extends generic.MouseEventTe
 		SolutionCheckController sccontroller = new SolutionCheckController(this.board, this.ap);
 		MoveShapePaletteSolutionController controller = new MoveShapePaletteSolutionController(this.board, this.ap, this.psv, 700, 1000, sccontroller);
 		controller.mousePressed(this.createPressed(this.psv, 25, 25));
-		assertTrue(this.board.getShapes().get(0).isSelected());
+		assertTrue(this.board.getShapes().get(0).isSelected());		
+		controller.mouseReleased(this.createReleased(this.psv, 25, 25));
+		assertFalse(this.board.getShapes().get(0).isSelected());
 	}
 }
