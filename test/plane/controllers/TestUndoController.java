@@ -12,23 +12,18 @@ import plane.models.PlacedShape;
 import plane.views.Application;
 import plane.views.PuzzleSolvingView;
 
-public class TestUndoController extends TestCase{
+public class TestUndoController extends TestController{
 	
-	public Board board;
-	public Application app;
-	public PuzzleSolvingView plane;
 	public ActionEvent event;
 	public UndoController controller;
 	public Move move;
 	
-	public void setUp() {
-		board = new Board();
-		board.init();
+	public void setUp() throws Exception {
+		super.setUp();
+		
 		move = new Move(new PlacedShape(Color.BLUE), new PlacedShape(Color.CYAN));
 		board.moves.push(move);
 		
-		app = new Application(board);
-		plane = new PuzzleSolvingView(board, app, 500, 500);
 		event = null;
 		controller = new UndoController(board, plane);
 	}
