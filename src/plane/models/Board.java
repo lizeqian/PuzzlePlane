@@ -7,13 +7,13 @@ import java.util.ListIterator;
 import java.util.Stack;
 
 public class Board {
-	Puzzle puzzle;
+	public Puzzle puzzle;
 	
-	List<PlacedShape> shapes;
-	PlacedShape selectedShape;
+	public List<PlacedShape> shapes;
+	public PlacedShape selectedShape;
 	
-	Stack<Move> moves;
-	Stack<Move> redoStack;
+	public Stack<Move> moves;
+	public Stack<Move> redoStack;
 
 	public Board() {
 	}
