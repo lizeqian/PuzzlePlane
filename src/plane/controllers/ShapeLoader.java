@@ -12,12 +12,15 @@ public class ShapeLoader{
 	File file;
 	Scanner scan;
 	
+	public File getFile() {
+		return file;
+	}
+	
 	public ShapeLoader(String path) {
 		file = new File(path);
 		try {
 			scan = new Scanner(file);
 		} catch(Exception e) {
-			e.printStackTrace();
 		}
 	}
 	
