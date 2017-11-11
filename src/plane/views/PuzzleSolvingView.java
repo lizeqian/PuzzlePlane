@@ -112,10 +112,6 @@ public class PuzzleSolvingView extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D)g;
-	    /*RenderingHints rh = new RenderingHints(
-	             RenderingHints.KEY_ANTIALIASING,
-	             RenderingHints.VALUE_ANTIALIAS_ON);
-	    g2.setRenderingHints(rh);*/
 		g2.drawLine(0, this.palette_h, this.palette_w, this.palette_h);
 		
 		List<PlacedShape> puzzleShape = this.board.getPuzzle().getPuzzleShape();
