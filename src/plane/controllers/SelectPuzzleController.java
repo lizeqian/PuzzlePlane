@@ -41,4 +41,16 @@ public class SelectPuzzleController implements ActionListener{
 		this.board.setPuzzle(new Puzzle(puzzleShapes));
 		this.plane.jumpPage("p3");
 	}
+
+	public Board getBoard() {
+		return board;
+	}
+
+	public Application getPlane() {
+		return plane;
+	}
+
+	public String getPuzzleName() {
+		return puzzleName;
+	}
 }
