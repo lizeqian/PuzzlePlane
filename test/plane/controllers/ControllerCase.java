@@ -22,7 +22,7 @@ public class ControllerCase extends TestCase {
 		board.init();
 		
 		app = new Application(board);
-		plane = new PuzzleSolvingView(board, app, 500, 500);
+		plane = new PuzzleSolvingView(board, app, 700, 1000);
 	}
 	
 	public void testNothing() { 
