@@ -24,6 +24,17 @@ public class TestPlacedShape extends TestCase {
 		assertEquals(ps2.toString(), ps.toString());
 	}
 	
+	public void testToSolutionString() {
+		Polygon polygon = new Polygon();
+		polygon.addPoint(10, 10);
+		polygon.addPoint(10, 20);
+		polygon.addPoint(20, 10);
+		polygon.addPoint(10, 10);
+		PlacedShape ps = new PlacedShape(Color.RED);
+		ps.setChangedPolygon(polygon);
+		assertEquals(ps.toSolutionString(), "255 0 0 10 10 10 20 20 10 10 10");
+	}
+	
 	public void testGetStatus() {
 		PlacedShape ps = new PlacedShape(Color.BLACK);
 		ShapeStatus ss = new ShapeStatus(Color.BLACK);
