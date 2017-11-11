@@ -16,17 +16,9 @@ public class SolutionCheckController{
 	public Board getBoard() {
 		return board;
 	}
-
-	public void setBoard(Board board) {
-		this.board = board;
-	}
 	
 	public Application getPuzzlePlaneGui() {
 		return puzzlePlaneGui;
-	}
-
-	public void setPuzzlePlaneGui(Application puzzlePlaneGui) {
-		this.puzzlePlaneGui = puzzlePlaneGui;
 	}
 
 	public SolutionCheckController(Board b, Application p) {
