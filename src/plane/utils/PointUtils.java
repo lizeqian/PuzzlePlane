@@ -9,4 +9,7 @@ public class PointUtils {
 		return (Math.abs(pointA.x-pointB.x)<=THRESHOLD) && (Math.abs(pointA.y-pointB.y)<=THRESHOLD);
 	}
 	
+	public static String toString(Point p) {
+		return "x: " + (int)p.getX() + ", y: " + (int)p.getY();
+	}
 }
