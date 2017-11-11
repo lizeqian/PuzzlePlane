@@ -12,7 +12,7 @@ import plane.models.PlacedShape;
 import plane.views.Application;
 import plane.views.PuzzleSolvingView;
 
-public class TestUndoController extends TestController{
+public class TestUndoController extends ControllerCase{
 	
 	public ActionEvent event;
 	public UndoController controller;

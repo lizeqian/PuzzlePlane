@@ -9,11 +9,11 @@ import plane.models.PlacedShape;
 import plane.views.Application;
 import plane.views.PuzzleSolvingView;
 
-public class TestController extends TestCase {
+public class ControllerCase extends TestCase {
 	
-	Application app;
-	Board board;
-	PuzzleSolvingView plane;
+	public Application app;
+	public Board board;
+	public PuzzleSolvingView plane;
 	
 	
 	protected void setUp() throws Exception {
@@ -24,5 +24,8 @@ public class TestController extends TestCase {
 		app = new Application(board);
 		plane = new PuzzleSolvingView(board, app, 500, 500);
 	}
-
+	
+	public void testNothing() { 
+		
+	}
 }
