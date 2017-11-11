@@ -10,9 +10,18 @@ import plane.views.Application;
 
 public class SelectShapesetController implements ActionListener{
 	public Board board;
+
 	public Application plane;
 	
 	public String shapesetName;
+	
+	public Board getBoard() {
+		return board;
+	}
+
+	public Application getPlane() {
+		return plane;
+	}
 	
 	public String getShapesetName() {
 		return shapesetName;
@@ -34,7 +43,6 @@ public class SelectShapesetController implements ActionListener{
 		// TODO Auto-generated method stub
 		this.plane.setShapesetName(this.shapesetName);
 		this.plane.jumpPage("p2");
-		//this.board.setShapes((new ShapeLoader(FilePathConfig.getShapesetPath(this.shapesetName))).load());
 	}
 
 }

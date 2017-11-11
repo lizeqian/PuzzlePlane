@@ -22,20 +22,23 @@ public class Application extends JFrame {
 	public String puzzleName;
 	public Set<String> solvedPuzzleNames;
 
-	public JPanel pane = null; //Main panel be set to cardlayout
-	public CardLayout card = null; // CardLayout manager
-    public JPanel p_1 = null, p_2 = null, p_3 = null, p_4 = null, p_5 = null; // 3 JPanel
+	public JPanel pane;
+	public CardLayout card;
+    public JPanel p_1, p_2, p_3, p_4, p_5;
 
 	public int height = 700, width = 1000;
+	
+	public JPanel getPane() {
+		return pane;
+	}
 	
 	public Application(Board b) {
 		super ("Puzzle Plane");
 		
 		this.board = b;
-		//StatusFileOperator statusFileOperator = new StatusFileOperator ();
 		
-		card = new CardLayout(5, 5);//Creates a new card layout with the specified horizontal and vertical gaps.
-		pane = new JPanel(card); 	//Set pane layout to cardlayout
+		card = new CardLayout(5, 5);
+		pane = new JPanel(card); 	
         p_1 = new FirstPPGui(this.board, this);
         p_2 = new SecondPPGui(this.board, this); 
         p_3 = new PuzzleSolvingView(this.board, this, this.width, this.height);
@@ -48,7 +51,7 @@ public class Application extends JFrame {
         pane.add(p_5, "p5");
             
 
-        this.getContentPane().add(pane);	//add pane to this frame
+        this.getContentPane().add(pane);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		
