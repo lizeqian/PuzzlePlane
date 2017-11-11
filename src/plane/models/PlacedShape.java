@@ -19,6 +19,18 @@ public class PlacedShape{
 		return ret;
 	}
 	
+	public String toSolutionString() {
+		String ret = "";
+		ret += status.getColor().getRed();
+		ret += " " + status.getColor().getGreen();
+		ret += " " + status.getColor().getBlue();
+		for(int i = 0; i < changedPolygon.npoints; i++) {
+			ret += " " + changedPolygon.xpoints[i];
+			ret += " " + changedPolygon.ypoints[i];
+		}
+		return ret;
+	}
+	
 	public ShapeStatus getStatus() {
 		return status;
 	}

@@ -39,7 +39,7 @@ public class SaveSolutionController {
 			FileWriter writer = new FileWriter(file);
 			BufferedWriter bw = new BufferedWriter(writer);
 			for(PlacedShape shape : this.memento.getShapes()) {
-				bw.write(shape.toString() + "\n");
+				bw.write(shape.toSolutionString() + "\n");
 			}
 			bw.close();
 			writer.close();

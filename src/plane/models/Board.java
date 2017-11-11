@@ -14,6 +14,22 @@ public class Board {
 	
 	public Stack<Move> moves;
 	public Stack<Move> redoStack;
+	
+	public Stack<Move> getMoves() {
+		return moves;
+	}
+
+	public void setMoves(Stack<Move> moves) {
+		this.moves = moves;
+	}
+
+	public Stack<Move> getRedoStack() {
+		return redoStack;
+	}
+
+	public void setRedoStack(Stack<Move> redoStack) {
+		this.redoStack = redoStack;
+	}
 
 	public Board() {
 	}

@@ -11,6 +11,22 @@ public class UndoController implements ActionListener{
 	public Board board;
 	public PuzzleSolvingView plane;
 	
+	public Board getBoard() {
+		return board;
+	}
+
+	public void setBoard(Board board) {
+		this.board = board;
+	}
+	
+	public PuzzleSolvingView getPlane() {
+		return plane;
+	}
+
+	public void setPlane(PuzzleSolvingView plane) {
+		this.plane = plane;
+	}
+
 	public UndoController(Board b, PuzzleSolvingView puzzleSolvingView) {
 		// TODO Auto-generated constructor stub
 		this.board = b;

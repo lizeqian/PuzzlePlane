@@ -22,7 +22,7 @@ public class TestUndoController extends ControllerCase{
 		super.setUp();
 		
 		move = new Move(new PlacedShape(Color.BLUE), new PlacedShape(Color.CYAN));
-		board.moves.push(move);
+		board.getMoves().push(move);
 		
 		event = null;
 		controller = new UndoController(board, plane);
@@ -33,15 +33,15 @@ public class TestUndoController extends ControllerCase{
 	}
 	
 	public void testContructor() {
-		assertEquals(controller.board, board);
-		assertEquals(controller.plane, plane);
+		assertEquals(controller.getBoard(), board);
+		assertEquals(controller.getPlane(), plane);
 	}
 	
 	public void testActionPerformed() {
 		controller.actionPerformed(null);
-		assert(controller.board.moves.isEmpty());
-		assert(controller.board.redoStack.size() == 1);
-		assertEquals(controller.board.redoStack.peek(), move);
+		assert(controller.getBoard().getMoves().isEmpty());
+		assert(controller.getBoard().getRedoStack().size() == 1);
+		assertEquals(controller.getBoard().getRedoStack().peek(), move);
 	}
 
 }
