@@ -38,16 +38,16 @@ public class TestSelectPuzzleController extends ControllerCase {
 		assertEquals(shapeset.size(), board.getShapes().size());
 		
 		
-		//NOTE: Please ensure the solution for 'traditional/fox' exists to pass the following test codes.
+		//NOTE: Please ensure the solution for 'traditional/test' exists to pass the following test codes.
 		Set<String> solved = new HashSet<>();
-		solved.add("fox");
+		solved.add("test");
 		solved.add("drib");
 		
 		app.setSolvedPuzzleNames(solved);
-		controller = new SelectPuzzleController(board, app, "fox");
+		controller = new SelectPuzzleController(board, app, "test");
 		controller.actionPerformed(null);
 		try {
-			shapeset = new ShapeLoader(FilePathConfig.getPuzzleSolutionPath("traditional", "fox")).load();
+			shapeset = new ShapeLoader(FilePathConfig.getPuzzleSolutionPath("traditional", "test")).load();
 			assertEquals(shapeset.size(), this.board.getShapes().size());
 		} catch (Exception e) {
 			

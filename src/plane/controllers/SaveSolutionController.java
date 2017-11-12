@@ -16,12 +16,12 @@ public class SaveSolutionController {
 	public Application plane;
 	public BoardMemento memento;
 	
+	public Application getPlane() {
+		return plane;
+	}
+	
 	public BoardMemento getMemento() {
 		return memento;
-	}
-
-	public void setMemento(BoardMemento memento) {
-		this.memento = memento;
 	}
 
 	public SaveSolutionController(Application plane, BoardMemento memento) {
