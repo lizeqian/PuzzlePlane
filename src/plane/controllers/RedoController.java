@@ -22,4 +22,12 @@ public class RedoController implements ActionListener{
 		this.board.redo();
 		this.plane.repaint();
 	}
+
+	public Board getBoard() {
+		return board;
+	}
+
+	public PuzzleSolvingView getPlane() {
+		return plane;
+	}
 }
