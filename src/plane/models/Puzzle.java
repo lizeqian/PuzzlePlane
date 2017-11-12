@@ -6,6 +6,13 @@ public class Puzzle{
 
 	public List<PlacedShape> puzzleShape;
 
+	public String toString() {
+		String ret = "";
+		for(PlacedShape shape : puzzleShape) {
+			ret += shape.toString() + "\n";
+		}
+		return ret;
+	}
 	
 	public Puzzle(List<PlacedShape> puzzleShape) {
 		this.puzzleShape = puzzleShape;
