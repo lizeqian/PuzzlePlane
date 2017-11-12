@@ -44,8 +44,6 @@ public class SaveSolutionController {
 			bw.close();
 			writer.close();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 

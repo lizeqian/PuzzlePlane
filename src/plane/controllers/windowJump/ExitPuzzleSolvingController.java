@@ -19,4 +19,12 @@ public class ExitPuzzleSolvingController implements ActionListener{
 		this.board.resetAllShapePosition();
 		this.puzzlePlaneGui.jumpPage("p2");
 	}
+
+	public Application getPuzzlePlaneGui() {
+		return puzzlePlaneGui;
+	}
+
+	public Board getBoard() {
+		return board;
+	}
 }
