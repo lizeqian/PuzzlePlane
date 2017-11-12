@@ -21,6 +21,13 @@ public class ExitInfoBoardController implements ActionListener {
 		this.board.resetAllShapePosition();
 		this.puzzlePlaneGui.setSolvedPuzzleNames((new PuzzleStatusChecker(this.board, this.puzzlePlaneGui)).getSolvedPuzzleNames());
 		this.puzzlePlaneGui.jumpPage("p2");
-		//this.statusFileOperator.writeFile(this.board.getIsSolved());
+	}
+
+	public Application getPuzzlePlaneGui() {
+		return puzzlePlaneGui;
+	}
+
+	public Board getBoard() {
+		return board;
 	}
 }
