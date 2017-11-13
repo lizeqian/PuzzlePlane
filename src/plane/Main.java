@@ -10,6 +10,9 @@ import plane.models.Board;
 import plane.views.*;
 
 public class Main {
+	/**
+	 * Launch the application.
+	 */
 	public static void main(String[] args) {
 		Board board = new Board();
 		Application g = new Application(board);

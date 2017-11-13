@@ -10,19 +10,23 @@ import plane.views.*;
 import java.awt.*;
 
 public class MoveShapePaletteSolutionController extends MouseAdapter{
+	/** Needed for controller behavior. */
 	Board board;
 	PuzzleSolvingView puzzleSolvingView;
 	Application puzzlePlaneGui;
 	Point origin, shapePos;
 	PlacedShape beforeShape;
+	/** Original x,y where shape was before move. */
 	int x = 0;
 	int y = 0;
+	/** confirm point where first grabbed and color from that location. */
 	int palette_w;
 	int palette_h;
 	boolean shapeContain;
+	/** Button that started off. */
 	int lx, rx, ty, by;
 	SolutionCheckController solutionCheckController;
-	
+	/** Constructor holds onto key manager objects. */
 	public MoveShapePaletteSolutionController (Board b, Application pg, PuzzleSolvingView p,int w, int h, SolutionCheckController s) {
 		this.board = b;
 		this.puzzlePlaneGui = pg;
@@ -31,7 +35,14 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 		this.palette_h = h;
 		this.solutionCheckController = s;
 	}
+
 	
+	
+	/** Set up press events but no motion events. */
+	/**
+	 * Whenever mouse is pressed (left button), attempt to select object.
+	 * This is a GUI controller.
+	 */
 	@Override
 	public void mousePressed(MouseEvent me) {
 		this.origin = me.getPoint();
@@ -54,6 +65,11 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 	
 	
 	
+	
+	/**
+	 * Whenever mouse is dragged, attempt to start object.
+	 * This is a GUI controller.
+	 */
 	@Override
 	public void mouseDragged(MouseEvent me) {
 		if (this.shapeContain) {
@@ -76,6 +92,11 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 		}
 	}
 	
+	
+	/**
+	 * Whenever mouse is released, complete the move. 
+	 * This is a GUI controller.
+	 */
 	@Override
 	public void mouseReleased(MouseEvent me) {
 		if (this.shapeContain) {

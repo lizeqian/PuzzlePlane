@@ -1,4 +1,7 @@
 package plane.controllers;
+/** 
+ * when puzzle being complete, save the solution as a new file
+ */
 
 import java.io.File;
 import java.util.HashSet;
