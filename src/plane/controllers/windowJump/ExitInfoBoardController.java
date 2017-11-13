@@ -1,6 +1,5 @@
 package plane.controllers.windowJump;
 
-import plane.controllers.PuzzleStatusChecker;
 import plane.models.*;
 import plane.views.*;
 
@@ -17,8 +16,7 @@ public class ExitInfoBoardController implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		this.board.resetAllShapePosition();
-		this.puzzlePlaneGui.setSolvedPuzzleNames((new PuzzleStatusChecker(this.board, this.puzzlePlaneGui)).getSolvedPuzzleNames());
+		((SecondPPGui)this.puzzlePlaneGui.p_2).reset();
 		this.puzzlePlaneGui.jumpPage("p2");
 	}
 

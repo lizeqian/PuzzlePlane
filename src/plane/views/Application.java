@@ -1,5 +1,5 @@
 package plane.views;
-import plane.controllers.PuzzleStatusChecker;
+
 import plane.models.*;
 
 import java.awt.CardLayout;
@@ -18,9 +18,9 @@ public class Application extends JFrame {
 	
 	Board board;
 	
-	public String shapesetName;
-	public String puzzleName;
-	public Set<String> solvedPuzzleNames;
+	//public String shapesetName;
+	//public String puzzleName;
+	//public Set<String> solvedPuzzleNames;
 
 	public JPanel pane;
 	public CardLayout card;
@@ -43,7 +43,7 @@ public class Application extends JFrame {
         p_2 = new SecondPPGui(this.board, this); 
         p_3 = new PuzzleSolvingView(this.board, this, this.width, this.height);
         p_4 = new PuzzleSolvedView(this.board, this);
-        p_5 = new ViewShapesetPPGui(this);
+        p_5 = new ViewShapesetPPGui(this.board, this);
         pane.add(p_1, "p1");
         pane.add(p_2, "p2");
         pane.add(p_3, "p3");
@@ -64,7 +64,7 @@ public class Application extends JFrame {
 		card.show(pane, page);
 	}
 	
-	public String getPuzzleName() {
+	/*public String getPuzzleName() {
 		return puzzleName;
 	}
 
@@ -90,5 +90,5 @@ public class Application extends JFrame {
 	public void setSolvedPuzzleNames(Set<String> solvedPuzzleNames) {
 		this.solvedPuzzleNames = solvedPuzzleNames;
 		((SecondPPGui)p_2).reset();
-	}
+	}*/
 }

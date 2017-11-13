@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import plane.config.FilePathConfig;
+import plane.models.Board;
 import plane.models.BoardMemento;
 import plane.models.PlacedShape;
 import plane.views.Application;
@@ -32,7 +33,7 @@ public class SaveSolutionController {
 	
 	public void save() {
 		if(plane == null || memento == null) return;
-		String path = FilePathConfig.getPuzzleSolutionPath(this.plane.getShapesetName(), this.plane.getPuzzleName());
+		String path = FilePathConfig.getPuzzleSolutionPath(this.memento.getShapesetName(), this.memento.getPuzzleName());
 		if(path == null) return;
 		try {
 			File file = new File(path);

@@ -5,9 +5,11 @@ import javax.swing.JPanel;
 
 import plane.config.FilePathConfig;
 import plane.config.NameConfig;
+import plane.controllers.PuzzleChecker;
 import plane.controllers.SelectPuzzleController;
 import plane.controllers.windowJump.BacktoShapesetController;
 import plane.models.Board;
+import plane.models.Puzzle;
 
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
@@ -54,34 +56,32 @@ public class SecondPPGui extends JPanel {
 		this.board = b;
 		this.plane = p;
 		buttons = new ArrayList<>();
-		draw();
 	}
 	
 	public void reset() {
 		for(JButton button : buttons) {
 			this.remove(button);
 		}
-		drawButtons();
+		draw();
 	}
 	
 	public void drawButtons() {
-		String shapesetName = this.plane.getShapesetName();
+		String shapesetName = this.board.getShapeset().getName();
 		if (shapesetName == null) return;
-		List<String> puzzleNames = NameConfig.getPuzzles(shapesetName);
-		Set<String> solvedPuzzleNames = this.plane.getSolvedPuzzleNames();
+		List<Puzzle> puzzles = this.board.getShapeset().getPuzzles();
 		
-		for(int i = 0; i < puzzleNames.size(); i++) {
-			String puzzleName = puzzleNames.get(i);
+		for(int i = 0; i < puzzles.size(); i++) {
+			Puzzle puzzle = puzzles.get(i);
 			Rectangle rect = SecondPPGui.bounds.get(i);
 			
-			JButton button = new JButton(puzzleName);
-			if (solvedPuzzleNames == null || !solvedPuzzleNames.contains(puzzleName)) {
-				button.setIcon(new ImageIcon(FilePathConfig.getPuzzleIconPath(shapesetName, puzzleName)));
+			JButton button = new JButton(puzzle.getName());
+			if (!PuzzleChecker.check(shapesetName, puzzle.getName())) {
+				button.setIcon(new ImageIcon(FilePathConfig.getPuzzleIconPath(shapesetName, puzzle.getName())));
 			} else {
-				button.setIcon(new ImageIcon(FilePathConfig.getSolvedPuzzleIconPath(shapesetName, puzzleName)));
+				button.setIcon(new ImageIcon(FilePathConfig.getSolvedPuzzleIconPath(shapesetName, puzzle.getName())));
 			}
 			button.setBounds(rect);
-			button.addActionListener(new SelectPuzzleController(board, plane, puzzleName));
+			button.addActionListener(new SelectPuzzleController(board, plane, puzzle.getName()));
 			
 			add(button);
 			this.buttons.add(button);

@@ -6,7 +6,10 @@ import java.util.Map;
 
 import plane.config.FilePathConfig;
 import plane.models.Board;
+import plane.models.Shapeset;
 import plane.views.Application;
+import plane.views.SecondPPGui;
+import plane.views.ViewShapesetPPGui;
 
 public class SelectShapesetController implements ActionListener{
 	public Board board;
@@ -41,7 +44,9 @@ public class SelectShapesetController implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		this.plane.setShapesetName(this.shapesetName);
+		this.board.setShapeset(new Shapeset(this.shapesetName));
+		((SecondPPGui)(this.plane.p_2)).reset();
+		((ViewShapesetPPGui)(this.plane.p_5)).reset();
 		this.plane.jumpPage("p2");
 	}
 

@@ -9,6 +9,7 @@ import plane.config.FilePathConfig;
 import plane.models.Board;
 import plane.views.Application;
 import plane.views.PuzzleSolvingView;
+import plane.views.SecondPPGui;
 
 public class SolutionResetController implements ActionListener{
 	
@@ -26,18 +27,16 @@ public class SolutionResetController implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		String puzzleName = plane.getPuzzleName();
-		String shapesetName = plane.getShapesetName();
+		String puzzleName = board.getPuzzle().getName();
+		String shapesetName = board.getShapeset().getName();
 		
 		ShapeLoader loader = new ShapeLoader(FilePathConfig.getShapesetPath(shapesetName));
 		this.board.setShapes(loader.load());
 		this.puzzleSolvingView.repaint();
 		
-		Set<String> solvedPuzzleNames = this.plane.getSolvedPuzzleNames();
-		solvedPuzzleNames.remove(puzzleName);
-		this.plane.setSolvedPuzzleNames(solvedPuzzleNames);
-		
 		File file = new File(FilePathConfig.getPuzzleSolutionPath(shapesetName, puzzleName));
 		if(file.exists()) file.delete();
+		
+		((SecondPPGui)this.plane.p_2).reset();
 	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 public class Puzzle{
 
 	public List<PlacedShape> puzzleShape;
+	public String name;
 
 	public String toString() {
 		String ret = "";
@@ -14,11 +15,16 @@ public class Puzzle{
 		return ret;
 	}
 	
-	public Puzzle(List<PlacedShape> puzzleShape) {
-		this.puzzleShape = puzzleShape;
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
-	public Puzzle() {
+	public Puzzle(String name) {
+		this.name = name;
 	}
 	
 	public void setShape(List<PlacedShape> puzzleShape) {

@@ -8,12 +8,21 @@ import java.util.Stack;
 
 public class Board {
 	public Puzzle puzzle;
-	
+	public Shapeset shapeset;
+
 	public List<PlacedShape> shapes;
 	public PlacedShape selectedShape;
 	
 	public Stack<Move> moves;
 	public Stack<Move> redoStack;
+	
+	public Shapeset getShapeset() {
+		return shapeset;
+	}
+
+	public void setShapeset(Shapeset shapeset) {
+		this.shapeset = shapeset;
+	}
 	
 	public Stack<Move> getMoves() {
 		return moves;

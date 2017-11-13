@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 
 import plane.config.FilePathConfig;
 import plane.controllers.windowJump.ExitViewShapesetController;
+import plane.models.Board;
 
 public class ViewShapesetPPGui extends JPanel{
 
@@ -24,22 +25,24 @@ public class ViewShapesetPPGui extends JPanel{
 	
 	public Application plane;
 	public JLabel label;
-
+	public Board board;
+	
 	public void reset() {
 		if(label != null) this.remove(label);
 		this.draw();
 	}
 
-	public ViewShapesetPPGui(Application plane) {
+	public ViewShapesetPPGui(Board b, Application plane) {
 		// TODO Auto-generated constructor stub
 		this.plane = plane;
+		this.board = b;
 		setLayout(null);
 		this.setSize(500, 500);
-		draw();
+		//draw();
 	}
 	
 	public void drawLabel() {
-		String shapesetName = this.plane.getShapesetName();
+		String shapesetName = this.board.getShapeset().getName();
 		if(shapesetName == null) return;
 		String path = FilePathConfig.getShapesetIconPath(shapesetName);
 		if(path != null) {
