@@ -155,6 +155,9 @@ public class TestBoard extends TestCase {
 	
 	public void testHFlip() {
 		Board b = new Board();
+		b.setPuzzle(new Puzzle("test"));
+		b.setShapeset(new Shapeset("traditional"));
+		
 		Polygon polygon = new Polygon();
 		polygon.addPoint(0, 0);
 		polygon.addPoint(10, 0);
@@ -183,6 +186,8 @@ public class TestBoard extends TestCase {
 		ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
 		shapes.add(this.createPlacedShape(this.createPolygon(1, 1), this.createPolygon(1, 1)));
 		b.setShapes(shapes);
+		b.setPuzzle(new Puzzle("test"));
+		b.setShapeset(new Shapeset("traditional"));
 		BoardMemento bm = b.createMemento();
 		assertEquals(bm.shapes.get(0).toString(), shapes.get(0).toString());
 	}

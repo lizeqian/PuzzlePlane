@@ -23,7 +23,7 @@ public class TestSelectShapeSetController extends ControllerCase {
 	
 	public void testActionPerformed() {
 		controller.actionPerformed(null);
-		assertEquals(app.getShapesetName(), "nontraditional");
+		assertEquals(this.board.getShapeset().getName(), "nontraditional");
 	}
 
 }

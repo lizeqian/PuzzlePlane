@@ -1,6 +1,5 @@
 package plane.models;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +11,14 @@ import plane.controllers.ShapeLoader;
 public class Shapeset {
 	
 	public String name;
-
 	public List<Puzzle> puzzles;
+	
+	public String toString() {
+		String ret = "";
+		ret += "name: " + name + "\n";
+		ret += "puzzles: " + puzzles.size() + "\n";
+		return ret;
+	}
 	
 	public List<Puzzle> getPuzzles() {
 		return puzzles;
@@ -26,6 +31,10 @@ public class Shapeset {
 	public Shapeset(String name) {
 		// TODO Auto-generated constructor stub
 		this.name = name;
+		this.loadPuzzles();
+	}
+	
+	public void loadPuzzles() {
 		puzzles = new ArrayList<>();
 		for(String puzzleName : NameConfig.getPuzzles(name)) {
 			if(PuzzleChecker.check(name, puzzleName)) {
@@ -42,10 +51,6 @@ public class Shapeset {
 	
 	public String getName() {
 		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 }

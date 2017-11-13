@@ -30,7 +30,7 @@ public class TestActions extends ControllerCase {
 		select.setChangedPolygon(PolygonUtils.copy(polygon));
 		select.setOriginalPolygon(PolygonUtils.copy(polygon));
 		
-		Puzzle puzzle = new Puzzle();
+		Puzzle puzzle = new Puzzle("test");
 		puzzle.setShape((new ShapeLoader(FilePathConfig.getPuzzlePath("traditional", "test"))).load());
 		board.setPuzzle(puzzle);
 		

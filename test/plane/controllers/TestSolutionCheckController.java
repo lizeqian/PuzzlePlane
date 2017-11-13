@@ -38,7 +38,7 @@ public class TestSolutionCheckController extends ControllerCase {
 		for(PlacedShape shape : shapes) {
 			shapesCopy.add(shape.copy());
 		}
-		Puzzle p = new Puzzle();
+		Puzzle p = new Puzzle("test");
 		p.setShape(shapesCopy);
 		board.setPuzzle(p);
 		

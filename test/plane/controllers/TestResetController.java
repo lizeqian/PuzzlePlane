@@ -10,6 +10,8 @@ import java.util.Set;
 
 import plane.config.FilePathConfig;
 import plane.models.PlacedShape;
+import plane.models.Puzzle;
+import plane.models.Shapeset;
 
 public class TestResetController extends ControllerCase {
 	
@@ -18,10 +20,15 @@ public class TestResetController extends ControllerCase {
 	
 	protected void setUp() throws Exception {
 		super.setUp();
-		app.setShapesetName("traditional");
-		app.setPuzzleName("bird");
 		
 		shapes = (new ShapeLoader(FilePathConfig.getShapesetPath("traditional"))).load();
+		Shapeset shapeset = new Shapeset("traditional");
+		this.board.setShapeset(shapeset);
+		this.board.setShapes(shapes);
+		
+		Puzzle p = new Puzzle("test");
+		p.setShape(((new ShapeLoader(FilePathConfig.getPuzzlePath("traditional", "test"))).load()));
+		this.board.setPuzzle(p);
 		
 		controller = new SolutionResetController(board, app, plane);
 	}
@@ -37,20 +44,15 @@ public class TestResetController extends ControllerCase {
 		initShapes.add(new PlacedShape(Color.BLACK));
 		board.setShapes(initShapes);
 		
-		File file = new File(FilePathConfig.getPuzzleSolutionPath("traditional", "bird"));
+		File file = new File(FilePathConfig.getPuzzleSolutionPath("traditional", "test"));
 		if(!file.exists()) file.createNewFile();
-		
-		Set<String> solutions = new HashSet<>();
-		solutions.add("bird");
-		app.setSolvedPuzzleNames(solutions);
 		
 		controller.actionPerformed(null);
 		
 		assertEquals(board.shapes.size(), shapes.size());
 		assertEquals(board.shapes.get(0).toString(), shapes.get(0).toString());
-		file = new File(FilePathConfig.getPuzzleSolutionPath("traditional", "bird"));
+		file = new File(FilePathConfig.getPuzzleSolutionPath("traditional", "test"));
 		assert(!file.exists());
-		assert(!app.getSolvedPuzzleNames().contains("bird"));
 	}
 
 }

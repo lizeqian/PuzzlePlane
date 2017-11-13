@@ -31,4 +31,12 @@ public class BoardMemento {
 		return shapesetName;
 	}
 
+	public void setPuzzleName(String puzzleName) {
+		this.puzzleName = puzzleName;
+	}
+
+	public void setShapesetName(String shapesetName) {
+		this.shapesetName = shapesetName;
+	}
+
 }

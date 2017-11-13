@@ -1,5 +1,6 @@
 package plane.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Puzzle{
@@ -27,6 +28,11 @@ public class Puzzle{
 		this.name = name;
 	}
 	
+	public Puzzle(List<PlacedShape> shapes) {
+		// TODO Auto-generated constructor stub
+		this.puzzleShape = shapes;
+	}
+
 	public void setShape(List<PlacedShape> puzzleShape) {
 		this.puzzleShape = puzzleShape;
 	}

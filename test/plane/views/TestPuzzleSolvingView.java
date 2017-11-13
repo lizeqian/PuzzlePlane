@@ -37,7 +37,7 @@ public class TestPuzzleSolvingView extends TestCase {
 		shapes.add(ps);
 		board.setShapes(shapes);
 		
-		Puzzle puzzle = new Puzzle();
+		Puzzle puzzle = new Puzzle("test");
 		puzzle.setShape(shapes);
 		board.setPuzzle(puzzle);
 		this.psv = new PuzzleSolvingView(board, this.ap, 700, 1000);

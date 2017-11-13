@@ -17,10 +17,6 @@ public class Application extends JFrame {
 	private static final long serialVersionUID = 4590308406322961931L;
 	
 	Board board;
-	
-	//public String shapesetName;
-	//public String puzzleName;
-	//public Set<String> solvedPuzzleNames;
 
 	public JPanel pane;
 	public CardLayout card;
@@ -63,32 +59,4 @@ public class Application extends JFrame {
 	public void jumpPage(String page) {
 		card.show(pane, page);
 	}
-	
-	/*public String getPuzzleName() {
-		return puzzleName;
-	}
-
-	public void setPuzzleName(String puzzleName) {
-		this.puzzleName = puzzleName;
-	}
-	
-	public String getShapesetName() {
-		return shapesetName;
-	}
-
-	public void setShapesetName(String shapesetName) {
-		this.shapesetName = shapesetName;
-		this.solvedPuzzleNames = (new PuzzleStatusChecker(this.board, this)).getSolvedPuzzleNames();
-		((SecondPPGui)p_2).reset();
-		((ViewShapesetPPGui)p_5).reset();
-	}
-	
-	public Set<String> getSolvedPuzzleNames() {
-		return solvedPuzzleNames;
-	}
-	
-	public void setSolvedPuzzleNames(Set<String> solvedPuzzleNames) {
-		this.solvedPuzzleNames = solvedPuzzleNames;
-		((SecondPPGui)p_2).reset();
-	}*/
 }

@@ -23,7 +23,7 @@ public class TestPuzzle extends TestCase {
 	}
 	
 	public void testGetLastSolution() {
-		Puzzle p = new Puzzle();
+		Puzzle p = new Puzzle("test");
 		ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
 		Polygon polygon = new Polygon();
 		polygon.addPoint(1, 1);

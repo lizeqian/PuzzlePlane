@@ -39,7 +39,7 @@ public class TestMoveShapePaletteSolutionController extends generic.MouseEventTe
 		ArrayList<PlacedShape> shapes2 = new ArrayList<PlacedShape>();
 		shapes2.add(ps2);
 		
-		Puzzle puzzle = new Puzzle();
+		Puzzle puzzle = new Puzzle("test");
 		puzzle.setShape(shapes2);
 		this.board.setPuzzle(puzzle);
 		this.psv = new PuzzleSolvingView(this.board, this.ap, 1000, 700);
