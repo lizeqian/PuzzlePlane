@@ -22,12 +22,17 @@ import java.util.Set;
 
 import javax.swing.SwingConstants;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SecondPPGui.
+ */
 public class SecondPPGui extends JPanel {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5157226398944441626L;
 	
+	/** The Constant bounds. */
 	public static final List<Rectangle> bounds;
 	
 	static {
@@ -44,8 +49,13 @@ public class SecondPPGui extends JPanel {
 		bounds.add(new Rectangle(349, 483, 95, 101));
 	}
 	
+	/** The board. */
 	Board board;
+	
+	/** The plane. */
 	Application plane;
+	
+	/** The buttons. */
 	List<JButton> buttons;
 	
 	/**
@@ -58,6 +68,9 @@ public class SecondPPGui extends JPanel {
 		buttons = new ArrayList<>();
 	}
 	
+	/**
+	 * Reset.
+	 */
 	public void reset() {
 		for(JButton button : buttons) {
 			this.remove(button);
@@ -65,6 +78,9 @@ public class SecondPPGui extends JPanel {
 		draw();
 	}
 	
+	/**
+	 * Draw buttons.
+	 */
 	public void drawButtons() {
 		String shapesetName = this.board.getShapeset().getName();
 		if (shapesetName == null) return;
@@ -88,6 +104,9 @@ public class SecondPPGui extends JPanel {
 		}
 	}
 	
+	/**
+	 * Draw.
+	 */
 	public void draw() {
 		this.drawButtons();
 		

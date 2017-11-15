@@ -15,6 +15,10 @@ import plane.config.FilePathConfig;
 import plane.controllers.windowJump.ExitViewShapesetController;
 import plane.models.Board;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ViewShapesetPPGui.
+ */
 public class ViewShapesetPPGui extends JPanel{
 
 
@@ -23,15 +27,29 @@ public class ViewShapesetPPGui extends JPanel{
 	 */
 	private static final long serialVersionUID = -4858060950773618051L;
 	
+	/** The plane. */
 	public Application plane;
+	
+	/** The label. */
 	public JLabel label;
+	
+	/** The board. */
 	public Board board;
 	
+	/**
+	 * Reset.
+	 */
 	public void reset() {
 		if(label != null) this.remove(label);
 		this.draw();
 	}
 
+	/**
+	 * Instantiates a new view shapeset PP gui.
+	 *
+	 * @param b the b
+	 * @param plane the plane
+	 */
 	public ViewShapesetPPGui(Board b, Application plane) {
 		// TODO Auto-generated constructor stub
 		this.plane = plane;
@@ -41,6 +59,9 @@ public class ViewShapesetPPGui extends JPanel{
 		//draw();
 	}
 	
+	/**
+	 * Draw label.
+	 */
 	public void drawLabel() {
 		String shapesetName = this.board.getShapeset().getName();
 		if(shapesetName == null) return;
@@ -52,6 +73,9 @@ public class ViewShapesetPPGui extends JPanel{
 		}
 	}
 	
+	/**
+	 * Draw.
+	 */
 	public void draw() {
 		this.drawLabel();
 		ExitViewShapesetController exitViewShapesetControl = new ExitViewShapesetController(plane);

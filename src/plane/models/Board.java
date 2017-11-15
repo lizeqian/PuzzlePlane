@@ -6,47 +6,102 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Stack;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Board.
+ */
 public class Board {
+	
+	/** The puzzle. */
 	public Puzzle puzzle;
+	
+	/** The shapeset. */
 	public Shapeset shapeset;
 
+	/** The shapes. */
 	public List<PlacedShape> shapes;
+	
+	/** The selected shape. */
 	public PlacedShape selectedShape;
 	
+	/** The moves. */
 	public Stack<Move> moves;
+	
+	/** The redo stack. */
 	public Stack<Move> redoStack;
 	
+	/**
+	 * Gets the shapeset.
+	 *
+	 * @return the shapeset
+	 */
 	public Shapeset getShapeset() {
 		return shapeset;
 	}
 
+	/**
+	 * Sets the shapeset.
+	 *
+	 * @param shapeset the new shapeset
+	 */
 	public void setShapeset(Shapeset shapeset) {
 		this.shapeset = shapeset;
 	}
 	
+	/**
+	 * Gets the moves.
+	 *
+	 * @return the moves
+	 */
 	public Stack<Move> getMoves() {
 		return moves;
 	}
 
+	/**
+	 * Sets the moves.
+	 *
+	 * @param moves the new moves
+	 */
 	public void setMoves(Stack<Move> moves) {
 		this.moves = moves;
 	}
 
+	/**
+	 * Gets the redo stack.
+	 *
+	 * @return the redo stack
+	 */
 	public Stack<Move> getRedoStack() {
 		return redoStack;
 	}
 
+	/**
+	 * Sets the redo stack.
+	 *
+	 * @param redoStack the new redo stack
+	 */
 	public void setRedoStack(Stack<Move> redoStack) {
 		this.redoStack = redoStack;
 	}
 
+	/**
+	 * Instantiates a new board.
+	 */
 	public Board() {
 	}
 	
+	/**
+	 * Creates the memento.
+	 *
+	 * @return the board memento
+	 */
 	public BoardMemento createMemento() {
 		return new BoardMemento(this);
 	}
 	
+	/**
+	 * Undo.
+	 */
 	public void undo() {
 		if(!moves.isEmpty()) {
 			Move m = moves.pop();
@@ -55,6 +110,9 @@ public class Board {
 		}
 	}
 	
+	/**
+	 * Redo.
+	 */
 	public void redo() {
 		if(!redoStack.isEmpty()) {
 			Move m = redoStack.pop();
@@ -63,36 +121,68 @@ public class Board {
 		}
 	}
 	
+	/**
+	 * Inits the.
+	 */
 	public void init() {
 		this.shapes = new LinkedList<PlacedShape>();
 		this.moves = new Stack<Move>();
 		this.redoStack = new Stack<Move>();
 	}
 	
+	/**
+	 * Gets the selected shape.
+	 *
+	 * @return the selected shape
+	 */
 	public PlacedShape getSelectedShape() {
 		return selectedShape;
 	}
 
+	/**
+	 * Sets the selected shape.
+	 *
+	 * @param selectedShape the new selected shape
+	 */
 	public void setSelectedShape(PlacedShape selectedShape) {
 		this.selectedShape = selectedShape;
 	}
 	
+	/**
+	 * Sets the puzzle.
+	 *
+	 * @param puzzle the new puzzle
+	 */
 	public void setPuzzle(Puzzle puzzle) {
 		this.puzzle = puzzle;
 	}
 	
+	/**
+	 * Reset all shape position.
+	 */
 	public void resetAllShapePosition() {
 		for(PlacedShape shape: this.shapes) {
 			shape.resetPos();
 		}
 	}
 	
+	/**
+	 * Sets the position.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 */
 	public void setPosition(int x, int y) {
 		if(this.selectedShape != null) {
 			this.selectedShape.setPosition(x, y);
 		}
 	}
 	
+	/**
+	 * Push drag.
+	 *
+	 * @param before the before
+	 */
 	public void pushDrag(PlacedShape before) {
 		if(this.selectedShape != null) {
 			this.redoStack.clear();
@@ -100,6 +190,11 @@ public class Board {
 		}
 	}
 	
+	/**
+	 * Rotate.
+	 *
+	 * @param angle the angle
+	 */
 	public void rotate(int angle) {
 		if(this.selectedShape != null) {
 			this.redoStack.clear();
@@ -109,6 +204,9 @@ public class Board {
 		}
 	}
 	
+	/**
+	 * V flip.
+	 */
 	public void vFlip() {
 		if(this.selectedShape != null) {
 			this.redoStack.clear();
@@ -118,6 +216,9 @@ public class Board {
 		}
 	}
 	
+	/**
+	 * H flip.
+	 */
 	public void hFlip() {
 		if(this.selectedShape != null) {
 			this.redoStack.clear();
@@ -127,6 +228,13 @@ public class Board {
 		}
 	}
 	
+	/**
+	 * Select shape.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @return true, if successful
+	 */
 	public boolean selectShape(int x, int y) {
 		ListIterator<PlacedShape> iterator = shapes.listIterator(shapes.size());
 		while(iterator.hasPrevious()){
@@ -145,11 +253,19 @@ public class Board {
 		return false;
 	}
 	
+	/**
+	 * Reorder.
+	 */
 	public void reorder() {
 		this.shapes.remove(this.selectedShape);
 		this.shapes.add(this.selectedShape);
 	}
 	
+	/**
+	 * Sets the shapes.
+	 *
+	 * @param shapes the new shapes
+	 */
 	public void setShapes(List<PlacedShape> shapes) {
 		this.init();
 		for(PlacedShape shape : shapes) {
@@ -158,10 +274,20 @@ public class Board {
 		}
 	}
 	
+	/**
+	 * Gets the shapes.
+	 *
+	 * @return the shapes
+	 */
 	public List<PlacedShape> getShapes() {
 		return this.shapes;
 	}
 	
+	/**
+	 * Gets the puzzle.
+	 *
+	 * @return the puzzle
+	 */
 	public Puzzle getPuzzle() {
 		return this.puzzle;
 	}

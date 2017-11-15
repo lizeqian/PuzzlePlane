@@ -11,9 +11,14 @@ import javax.swing.JLabel;
 
 import javax.swing.JButton;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PuzzleSolvedView.
+ */
 public class PuzzleSolvedView extends JPanel {
 
 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -8871562550953938083L;
 
 
