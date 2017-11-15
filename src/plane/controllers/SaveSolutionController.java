@@ -12,27 +12,51 @@ import plane.models.Board;
 import plane.models.BoardMemento;
 import plane.models.PlacedShape;
 import plane.views.Application;
+// TODO: Auto-generated Javadoc
 /**
  * The Class SaveSolutionController.
  */
 public class SaveSolutionController {
+	
+	/** The plane. */
 	public Application plane;
+	
+	/** The memento. */
 	public BoardMemento memento;
 	
+	/**
+	 * Gets the plane.
+	 *
+	 * @return the plane
+	 */
 	public Application getPlane() {
 		return plane;
 	}
 	
+	/**
+	 * Gets the memento.
+	 *
+	 * @return the memento
+	 */
 	public BoardMemento getMemento() {
 		return memento;
 	}
 
+	/**
+	 * Instantiates a new save solution controller.
+	 *
+	 * @param plane the plane
+	 * @param memento the memento
+	 */
 	public SaveSolutionController(Application plane, BoardMemento memento) {
 		// TODO Auto-generated constructor stub
 		this.plane =  plane;
 		this.memento = memento;
 	}
 	
+	/**
+	 * Save.
+	 */
 	public void save() {
 		if(plane == null || memento == null) return;
 		String path = FilePathConfig.getPuzzleSolutionPath(this.memento.getShapesetName(), this.memento.getPuzzleName());

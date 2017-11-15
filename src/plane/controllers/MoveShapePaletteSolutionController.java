@@ -9,22 +9,42 @@ import plane.views.*;
 
 import java.awt.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MoveShapePaletteSolutionController.
+ */
 public class MoveShapePaletteSolutionController extends MouseAdapter{
 	/** Needed for controller behavior. */
 	Board board;
+	
+	/** The puzzle solving view. */
 	PuzzleSolvingView puzzleSolvingView;
+	
+	/** The puzzle plane gui. */
 	Application puzzlePlaneGui;
+	
+	/** The shape pos. */
 	Point origin, shapePos;
+	
+	/** The before shape. */
 	PlacedShape beforeShape;
 	/** Original x,y where shape was before move. */
 	int x = 0;
+	
+	/** The y. */
 	int y = 0;
 	/** confirm point where first grabbed and color from that location. */
 	int palette_w;
+	
+	/** The palette h. */
 	int palette_h;
+	
+	/** The shape contain. */
 	boolean shapeContain;
 	/** Button that started off. */
 	int lx, rx, ty, by;
+	
+	/** The solution check controller. */
 	SolutionCheckController solutionCheckController;
 	/** Constructor holds onto key manager objects. */
 	public MoveShapePaletteSolutionController (Board b, Application pg, PuzzleSolvingView p,int w, int h, SolutionCheckController s) {

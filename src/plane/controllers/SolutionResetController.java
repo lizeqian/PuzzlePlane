@@ -11,12 +11,28 @@ import plane.views.Application;
 import plane.views.PuzzleSolvingView;
 import plane.views.SecondPPGui;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SolutionResetController.
+ */
 public class SolutionResetController implements ActionListener{
 	
+	/** The plane. */
 	Application plane;
+	
+	/** The board. */
 	Board board;
+	
+	/** The puzzle solving view. */
 	PuzzleSolvingView puzzleSolvingView;
 	
+	/**
+	 * Instantiates a new solution reset controller.
+	 *
+	 * @param b the b
+	 * @param p the p
+	 * @param puzzleSolvingView the puzzle solving view
+	 */
 	public SolutionResetController(Board b, Application p, PuzzleSolvingView puzzleSolvingView) {
 		// TODO Auto-generated constructor stub
 		this.board = b;
@@ -24,6 +40,9 @@ public class SolutionResetController implements ActionListener{
 		this.puzzleSolvingView = puzzleSolvingView;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub

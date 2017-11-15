@@ -2,6 +2,7 @@ package plane.config;
 
 import java.util.*;
 
+// TODO: Auto-generated Javadoc
 /**
  * The class NameConfig
  */
@@ -19,6 +20,7 @@ public class NameConfig {
 		shapesetNames.add("nontraditional");
 	}
 	
+	/** The Constant puzzleNames. */
 	public final static Map<String, List<String>> puzzleNames;
 	static {
 		puzzleNames = new HashMap<>();
@@ -26,6 +28,12 @@ public class NameConfig {
 		puzzleNames.put("nontraditional", Arrays.asList("house", "snake", "windmill", "human", "tree", "diamond", "fish1", "horse","table", "fish2"));	
 	}
 	
+	/**
+	 * Gets the puzzles.
+	 *
+	 * @param shapesetName the shapeset name
+	 * @return the puzzles
+	 */
 	public static List<String> getPuzzles(String shapesetName) {
 		return puzzleNames.get(shapesetName);
 	}

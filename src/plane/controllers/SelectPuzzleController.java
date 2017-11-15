@@ -11,6 +11,7 @@ import java.util.Set;
 import plane.config.FilePathConfig;
 import plane.models.*;
 import plane.views.*;
+// TODO: Auto-generated Javadoc
 /**
  * Respond to selection events in the Puzzle Plane, which has been configured to only 
  * allow individual rows to be selected.
@@ -58,14 +59,29 @@ public class SelectPuzzleController implements ActionListener{
 		this.plane.jumpPage("p3");
 	}
 
+	/**
+	 * Gets the board.
+	 *
+	 * @return the board
+	 */
 	public Board getBoard() {
 		return board;
 	}
 
+	/**
+	 * Gets the plane.
+	 *
+	 * @return the plane
+	 */
 	public Application getPlane() {
 		return plane;
 	}
 
+	/**
+	 * Gets the puzzle name.
+	 *
+	 * @return the puzzle name
+	 */
 	public String getPuzzleName() {
 		return puzzleName;
 	}

@@ -8,14 +8,32 @@ import java.util.Scanner;
 
 import plane.models.PlacedShape;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ShapeLoader.
+ */
 public class ShapeLoader{
+	
+	/** The file. */
 	File file;
+	
+	/** The scan. */
 	Scanner scan;
 	
+	/**
+	 * Gets the file.
+	 *
+	 * @return the file
+	 */
 	public File getFile() {
 		return file;
 	}
 	
+	/**
+	 * Instantiates a new shape loader.
+	 *
+	 * @param path the path
+	 */
 	public ShapeLoader(String path) {
 		file = new File(path);
 		try {
@@ -24,6 +42,11 @@ public class ShapeLoader{
 		}
 	}
 	
+	/**
+	 * Load.
+	 *
+	 * @return the list
+	 */
 	public List<PlacedShape> load() {
 		ArrayList<PlacedShape> ret = new ArrayList<>();
 		while(scan.hasNextLine()) {

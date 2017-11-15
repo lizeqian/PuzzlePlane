@@ -10,6 +10,7 @@ import plane.models.Shapeset;
 import plane.views.Application;
 import plane.views.SecondPPGui;
 import plane.views.ViewShapesetPPGui;
+// TODO: Auto-generated Javadoc
 /**
  * The class SelectShapesetController
  * Respond to selection events in the Puzzle Plane, which has been configured to only 
@@ -24,18 +25,38 @@ public class SelectShapesetController implements ActionListener{
 	/** Needs shapesetName*/
 	public String shapesetName;
 	
+	/**
+	 * Gets the board.
+	 *
+	 * @return the board
+	 */
 	public Board getBoard() {
 		return board;
 	}
 
+	/**
+	 * Gets the plane.
+	 *
+	 * @return the plane
+	 */
 	public Application getPlane() {
 		return plane;
 	}
 	
+	/**
+	 * Gets the shapeset name.
+	 *
+	 * @return the shapeset name
+	 */
 	public String getShapesetName() {
 		return shapesetName;
 	}
 
+	/**
+	 * Sets the shapeset name.
+	 *
+	 * @param shapesetName the new shapeset name
+	 */
 	public void setShapesetName(String shapesetName) {
 		this.shapesetName = shapesetName;
 	}
@@ -48,6 +69,9 @@ public class SelectShapesetController implements ActionListener{
 		this.shapesetName = shapesetName;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	/**
 	 * Selection event occurred; if activate is true, then selection starting, otherwise selection ending
