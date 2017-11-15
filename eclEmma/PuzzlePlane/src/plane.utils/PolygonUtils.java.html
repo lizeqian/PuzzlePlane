@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>PolygonUtils.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">PuzzlePlane (Nov 15, 2017 10:58:00 AM)</a> &gt; <a href="../../index.html" class="el_group">PuzzlePlane</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">plane.utils</a> &gt; <span class="el_source">PolygonUtils.java</span></div><h1>PolygonUtils.java</h1><pre class="source lang-java linenums">package plane.utils;
+
+import java.awt.Point;
+import java.awt.Polygon;
+import java.util.List;
+
+<span class="nc" id="L7">public class PolygonUtils {</span>
+	
+	public static String toString(Polygon polygon) {
+<span class="fc" id="L10">		String ret = &quot;&quot;;</span>
+<span class="fc" id="L11">		ret += &quot;npoints: &quot; + polygon.npoints + &quot;\n&quot;;</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">		for(int i = 0; i &lt; polygon.npoints; i++) {</span>
+<span class="fc" id="L13">			ret += &quot;x: &quot; + polygon.xpoints[i] + &quot;, y: &quot; + polygon.ypoints[i] + &quot;\n&quot;;</span>
+		}
+<span class="fc" id="L15">		return ret;</span>
+	}
+	
+	public static Polygon copy(Polygon polygon) {
+<span class="fc bfc" id="L19" title="All 2 branches covered.">		if(polygon == null) return null;</span>
+<span class="fc" id="L20">		return new Polygon(polygon.xpoints, polygon.ypoints, polygon.npoints);</span>
+	}
+	
+	public static Point getCenter(Polygon polygon) {
+<span class="fc bfc" id="L24" title="All 2 branches covered.">		if(polygon.npoints == 0) return new Point(0, 0);</span>
+<span class="fc" id="L25">		int x = 0, y = 0;</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">		for(int i = 0; i &lt; polygon.npoints-1; i++) {</span>
+<span class="fc" id="L27">			x += polygon.xpoints[i];</span>
+<span class="fc" id="L28">			y += polygon.ypoints[i];</span>
+		}
+<span class="fc" id="L30">		x /= polygon.npoints-1;</span>
+<span class="fc" id="L31">		y /= polygon.npoints-1;</span>
+<span class="fc" id="L32">		return new Point(x, y);</span>
+	}
+	
+	public static void rotate(Polygon polygon, int angle) {
+<span class="fc" id="L36">		Point center = PolygonUtils.getCenter(polygon);</span>
+<span class="fc" id="L37">		double ang = (angle * 1.0 / 180.0) * Math.PI;</span>
+<span class="fc" id="L38">		double cosAngle = Math.cos(ang);</span>
+<span class="fc" id="L39">		double sinAngle = Math.sin(ang);</span>
+		
+<span class="fc bfc" id="L41" title="All 2 branches covered.">		for(int i = 0; i &lt; polygon.npoints; i++) {</span>
+<span class="fc" id="L42">			double dx = polygon.xpoints[i] - center.x;</span>
+<span class="fc" id="L43">			double dy = polygon.ypoints[i] - center.y;</span>
+		
+<span class="fc" id="L45">			polygon.xpoints[i] = center.x + (int)Math.round(dx * cosAngle - dy * sinAngle);</span>
+<span class="fc" id="L46">			polygon.ypoints[i] = center.y + (int)Math.round(dx * sinAngle + dy * cosAngle);</span>
+		}
+<span class="fc" id="L48">	}</span>
+	
+	public static void vFlip(Polygon polygon) {
+<span class="fc" id="L51">		Point center = PolygonUtils.getCenter(polygon);</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">		for(int i = 0; i &lt; polygon.npoints; i++) {</span>
+<span class="fc" id="L53">			polygon.ypoints[i] = 2 * center.y - polygon.ypoints[i];</span>
+		}
+<span class="fc" id="L55">	}</span>
+	
+	public static void hFlip(Polygon polygon) {
+<span class="fc" id="L58">		Point center = PolygonUtils.getCenter(polygon);</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">		for(int i = 0; i &lt; polygon.npoints; i++) {</span>
+<span class="fc" id="L60">			polygon.xpoints[i] = 2 * center.x - polygon.xpoints[i];</span>
+		}
+<span class="fc" id="L62">	}</span>
+	
+	public static boolean contains(Polygon shape, Point point){
+<span class="fc" id="L65">		int numPoints = shape.npoints;</span>
+<span class="fc" id="L66">		boolean isCo = false;</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">		for (int i=0; i &lt; numPoints; i++) {</span>
+<span class="fc" id="L68">			Point p0 = new Point(shape.xpoints[i], shape.ypoints[i]);</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">			if (PointUtils.equals(p0, point)) {</span>
+<span class="fc" id="L70">			isCo = true;</span>
+<span class="fc" id="L71">			break;</span>
+			}
+		}
+<span class="fc" id="L74">		return isCo;</span>
+	}
+	
+	public static boolean contains(List&lt;Polygon&gt; shapes, Polygon shape) {
+<span class="fc" id="L78">		boolean isIn = false;</span>
+<span class="fc" id="L79">		Polygon hitShape = new Polygon();</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">		for (Polygon s : shapes) {</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">			if(equals(shape, s)) {</span>
+<span class="fc" id="L82">				isIn = true;</span>
+<span class="fc" id="L83">				hitShape = s;</span>
+<span class="fc" id="L84">				break;</span>
+			}
+		}
+<span class="fc" id="L87">		shapes.remove(hitShape);</span>
+<span class="fc" id="L88">		return isIn;</span>
+		
+	}
+	
+	public static boolean equals(Polygon shapeA, Polygon shapeB) {
+<span class="fc" id="L93">		boolean isCo = true;</span>
+<span class="fc" id="L94">		int numPointA = shapeA.npoints;</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">		for(int i=0;i&lt;numPointA;i++) {</span>
+<span class="fc" id="L96">			Point p = new Point(shapeA.xpoints[i], shapeA.ypoints[i]);</span>
+<span class="fc bfc" id="L97" title="All 2 branches covered.">			if (!contains(shapeB, p)) {</span>
+<span class="fc" id="L98">				isCo = false;</span>
+			}
+		}		
+<span class="fc" id="L101">		return isCo;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>PuzzlePlane (Nov 15, 2017 10:58:00 AM)</div></body></html>

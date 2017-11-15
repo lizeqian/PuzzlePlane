@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>TestPointUtils.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">PuzzlePlane (Nov 15, 2017 10:58:00 AM)</a> &gt; <a href="../../index.html" class="el_group">PuzzlePlane</a> &gt; <a href="../index.html" class="el_bundle">test</a> &gt; <a href="index.source.html" class="el_package">plane.utils</a> &gt; <span class="el_source">TestPointUtils.java</span></div><h1>TestPointUtils.java</h1><pre class="source lang-java linenums">package plane.utils;
+
+import java.awt.Point;
+
+import junit.framework.TestCase;
+
+<span class="fc" id="L7">public class TestPointUtils extends TestCase {</span>
+	
+	Point p1;
+	Point p2;
+	Point p3;
+	Point p4;
+	Point p5;
+	
+	protected void setUp() throws Exception {
+<span class="fc" id="L16">		super.setUp();</span>
+<span class="fc" id="L17">		p1 = new Point(30, 30);</span>
+<span class="fc" id="L18">		p2 = new Point(33, 27);</span>
+<span class="fc" id="L19">		p3 = new Point(1, 50);</span>
+<span class="fc" id="L20">		p4 = new Point(21, 50);</span>
+<span class="fc" id="L21">		p5 = new Point(50, 21);</span>
+<span class="fc" id="L22">	}</span>
+	
+	public void testEquals() {
+<span class="fc" id="L25">		assertTrue(PointUtils.equals(p1, p2));</span>
+<span class="fc" id="L26">		assertFalse(PointUtils.equals(p1, p3));</span>
+<span class="fc" id="L27">		assertFalse(PointUtils.equals(p1, p4));</span>
+<span class="fc" id="L28">		assertFalse(PointUtils.equals(p1, p5));</span>
+<span class="fc" id="L29">	}</span>
+	
+	public void testToString() {
+<span class="fc" id="L32">		assertEquals(PointUtils.toString(p1), &quot;x: 30, y: 30&quot;);</span>
+<span class="fc" id="L33">		assertEquals(PointUtils.toString(p4), &quot;x: 21, y: 50&quot;);</span>
+<span class="fc" id="L34">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>PuzzlePlane (Nov 15, 2017 10:58:00 AM)</div></body></html>

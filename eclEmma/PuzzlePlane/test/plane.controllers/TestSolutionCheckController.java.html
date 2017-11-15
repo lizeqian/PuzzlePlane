@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>TestSolutionCheckController.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">PuzzlePlane (Nov 15, 2017 10:58:00 AM)</a> &gt; <a href="../../index.html" class="el_group">PuzzlePlane</a> &gt; <a href="../index.html" class="el_bundle">test</a> &gt; <a href="index.source.html" class="el_package">plane.controllers</a> &gt; <span class="el_source">TestSolutionCheckController.java</span></div><h1>TestSolutionCheckController.java</h1><pre class="source lang-java linenums">package plane.controllers;
+
+import java.awt.Color;
+import java.awt.Polygon;
+import java.util.ArrayList;
+import java.util.List;
+
+import plane.models.PlacedShape;
+import plane.models.Puzzle;
+import plane.utils.PolygonUtils;
+
+<span class="fc" id="L12">public class TestSolutionCheckController extends ControllerCase {</span>
+	
+	SolutionCheckController controller;
+	List&lt;PlacedShape&gt; shapes;
+	List&lt;Polygon&gt; puzzleShapes;
+	
+	protected void setUp() throws Exception {
+<span class="fc" id="L19">		super.setUp();</span>
+<span class="fc" id="L20">		Polygon polygon = new Polygon();</span>
+<span class="fc" id="L21">		polygon.addPoint(10, 20);</span>
+<span class="fc" id="L22">		polygon.addPoint(10, 40);</span>
+<span class="fc" id="L23">		polygon.addPoint(20, 20);</span>
+<span class="fc" id="L24">		polygon.addPoint(10, 20);</span>
+		
+<span class="fc" id="L26">		PlacedShape placedShape = new PlacedShape(Color.RED);</span>
+<span class="fc" id="L27">		placedShape.setOriginalPolygon(PolygonUtils.copy(polygon));</span>
+<span class="fc" id="L28">		placedShape.setChangedPolygon(PolygonUtils.copy(polygon));</span>
+		
+<span class="fc" id="L30">		shapes = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L31">		shapes.add(placedShape.copy());</span>
+<span class="fc" id="L32">		shapes.add(placedShape.copy());</span>
+<span class="fc" id="L33">		shapes.add(placedShape.copy());</span>
+		
+<span class="fc" id="L35">		board.setShapes(shapes);</span>
+		
+<span class="fc" id="L37">		List&lt;PlacedShape&gt; shapesCopy = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">		for(PlacedShape shape : shapes) {</span>
+<span class="fc" id="L39">			shapesCopy.add(shape.copy());</span>
+		}
+<span class="fc" id="L41">		Puzzle p = new Puzzle(&quot;test&quot;);</span>
+<span class="fc" id="L42">		p.setShape(shapesCopy);</span>
+<span class="fc" id="L43">		board.setPuzzle(p);</span>
+		
+<span class="fc" id="L45">		controller = new SolutionCheckController(board, app);</span>
+<span class="fc" id="L46">	}</span>
+	
+	public void testConstructor() {
+<span class="fc" id="L49">		assertEquals(controller.getBoard(), board);</span>
+<span class="fc" id="L50">		assertEquals(controller.getPuzzlePlaneGui(), app);</span>
+<span class="fc" id="L51">	}</span>
+	
+	public void testCheck() {
+<span class="fc" id="L54">		assertTrue(controller.check());</span>
+<span class="fc" id="L55">		board.getPuzzle().getPuzzleShape().remove(0);</span>
+<span class="fc" id="L56">		assertFalse(controller.check());</span>
+<span class="fc" id="L57">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>PuzzlePlane (Nov 15, 2017 10:58:00 AM)</div></body></html>

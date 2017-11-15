@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>FirstPPGui.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">PuzzlePlane (Nov 15, 2017 10:58:00 AM)</a> &gt; <a href="../../index.html" class="el_group">PuzzlePlane</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">plane.views</a> &gt; <span class="el_source">FirstPPGui.java</span></div><h1>FirstPPGui.java</h1><pre class="source lang-java linenums">package plane.views;
+
+import javax.swing.JPanel;
+
+import plane.config.FilePathConfig;
+import plane.controllers.SelectShapesetController;
+import plane.models.Board;
+
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.SwingConstants;
+
+public class FirstPPGui extends JPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5177975869801488954L;
+	
+	/**
+	 * Create the frame.
+	 */
+<span class="fc" id="L30">	public FirstPPGui(Board b, Application p) {</span>
+<span class="fc" id="L31">		setLayout(null);</span>
+		
+<span class="fc" id="L33">		JButton traditionalsetButton = new JButton(&quot;chooseShapeSetButton&quot;);</span>
+<span class="fc" id="L34">		traditionalsetButton.setIcon(new ImageIcon(FilePathConfig.getShapesetIconPath(&quot;traditional&quot;)));</span>
+<span class="fc" id="L35">		traditionalsetButton.setBounds(54, 157, 446, 440);</span>
+		
+<span class="fc" id="L37">		SelectShapesetController selectShapesetController = new SelectShapesetController(p, b, &quot;traditional&quot;);</span>
+<span class="fc" id="L38">		traditionalsetButton.addActionListener(selectShapesetController);</span>
+<span class="fc" id="L39">		add(traditionalsetButton);</span>
+		
+<span class="fc" id="L41">		JButton nontraditionalsetButton = new JButton(&quot;chooseShapeSetButton&quot;);</span>
+<span class="fc" id="L42">		nontraditionalsetButton.setIcon(new ImageIcon(FilePathConfig.getShapesetIconPath(&quot;nontraditional&quot;)));</span>
+<span class="fc" id="L43">		nontraditionalsetButton.setBounds(519, 157, 447, 432);</span>
+
+<span class="fc" id="L45">		selectShapesetController = new SelectShapesetController(p, b, &quot;nontraditional&quot;);</span>
+<span class="fc" id="L46">		nontraditionalsetButton.addActionListener(selectShapesetController);</span>
+<span class="fc" id="L47">		add(nontraditionalsetButton);</span>
+		
+<span class="fc" id="L49">		JLabel lblNewLabel = new JLabel(&quot;Choose a Shape Set&quot;);</span>
+<span class="fc" id="L50">		lblNewLabel.setFont(new Font(&quot;Tahoma&quot;, Font.PLAIN, 24));</span>
+<span class="fc" id="L51">		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="fc" id="L52">		lblNewLabel.setBounds(350, 78, 307, 46);</span>
+<span class="fc" id="L53">		add(lblNewLabel);</span>
+<span class="fc" id="L54">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>PuzzlePlane (Nov 15, 2017 10:58:00 AM)</div></body></html>

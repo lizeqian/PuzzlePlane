@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>PuzzleSolvedView.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">PuzzlePlane (Nov 15, 2017 10:58:00 AM)</a> &gt; <a href="../../index.html" class="el_group">PuzzlePlane</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">plane.views</a> &gt; <span class="el_source">PuzzleSolvedView.java</span></div><h1>PuzzleSolvedView.java</h1><pre class="source lang-java linenums">package plane.views;
+
+import java.awt.Font;
+
+import javax.swing.JPanel;
+
+import plane.controllers.windowJump.*;
+import plane.models.Board;
+
+import javax.swing.JLabel;
+
+import javax.swing.JButton;
+
+public class PuzzleSolvedView extends JPanel {
+
+
+	private static final long serialVersionUID = -8871562550953938083L;
+
+
+
+	/**
+	 * Create the frame.
+	 */
+<span class="fc" id="L24">	public PuzzleSolvedView(Board b, Application p) {</span>
+<span class="fc" id="L25">		setLayout(null);</span>
+		
+		
+<span class="fc" id="L28">		ExitInfoBoardController exitInfoBoardController = new ExitInfoBoardController(b, p);</span>
+<span class="fc" id="L29">		JButton buttonContinue = new JButton(&quot;Continue&quot;);</span>
+<span class="fc" id="L30">		buttonContinue.addActionListener(exitInfoBoardController);</span>
+<span class="fc" id="L31">		buttonContinue.setBounds(450, 600, 100, 30);</span>
+<span class="fc" id="L32">		this.add(buttonContinue);</span>
+		
+<span class="fc" id="L34">		JLabel jlabel = new JLabel(&quot;Congratulations! Puzzle Completed!&quot;);</span>
+<span class="fc" id="L35">	    jlabel.setFont(new Font(&quot;Verdana&quot;,1,20));</span>
+<span class="fc" id="L36">	    jlabel.setBounds(300, 200, 400, 30);</span>
+<span class="fc" id="L37">	    this.add(jlabel);</span>
+<span class="fc" id="L38">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>PuzzlePlane (Nov 15, 2017 10:58:00 AM)</div></body></html>

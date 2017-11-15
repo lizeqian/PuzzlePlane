@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Puzzle.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">PuzzlePlane (Nov 15, 2017 10:58:00 AM)</a> &gt; <a href="../../index.html" class="el_group">PuzzlePlane</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">plane.models</a> &gt; <span class="el_source">Puzzle.java</span></div><h1>Puzzle.java</h1><pre class="source lang-java linenums">package plane.models;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Puzzle{
+
+	public List&lt;PlacedShape&gt; puzzleShape;
+	public String name;
+
+	public String toString() {
+<span class="nc" id="L12">		String ret = &quot;&quot;;</span>
+<span class="nc bnc" id="L13" title="All 2 branches missed.">		for(PlacedShape shape : puzzleShape) {</span>
+<span class="nc" id="L14">			ret += shape.toString() + &quot;\n&quot;;</span>
+		}
+<span class="nc" id="L16">		return ret;</span>
+	}
+	
+	public String getName() {
+<span class="fc" id="L20">		return name;</span>
+	}
+
+	public void setName(String name) {
+<span class="nc" id="L24">		this.name = name;</span>
+<span class="nc" id="L25">	}</span>
+	
+<span class="fc" id="L27">	public Puzzle(String name) {</span>
+<span class="fc" id="L28">		this.name = name;</span>
+<span class="fc" id="L29">	}</span>
+	
+<span class="fc" id="L31">	public Puzzle(List&lt;PlacedShape&gt; shapes) {</span>
+		// TODO Auto-generated constructor stub
+<span class="fc" id="L33">		this.puzzleShape = shapes;</span>
+<span class="fc" id="L34">	}</span>
+
+	public void setShape(List&lt;PlacedShape&gt; puzzleShape) {
+<span class="fc" id="L37">		this.puzzleShape = puzzleShape;</span>
+<span class="fc" id="L38">	}</span>
+	
+	public List&lt;PlacedShape&gt; getPuzzleShape() {
+<span class="fc" id="L41">		return this.puzzleShape;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>PuzzlePlane (Nov 15, 2017 10:58:00 AM)</div></body></html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>AbstractAction.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">PuzzlePlane (Nov 15, 2017 10:58:00 AM)</a> &gt; <a href="../../index.html" class="el_group">PuzzlePlane</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">plane.controllers</a> &gt; <span class="el_source">AbstractAction.java</span></div><h1>AbstractAction.java</h1><pre class="source lang-java linenums">package plane.controllers;
+
+import plane.models.*;
+import plane.views.*;
+
+import java.awt.event.*;
+
+public abstract class AbstractAction implements ActionListener{
+	public PuzzleSolvingView puzzleSolvingView;
+	public Board board;
+	public SolutionCheckController solutionCheckController;
+	
+	public final static int LEFT_ROTATE = 345;
+	public final static int RIGHT_ROTATE = 15;
+	
+	public PlacedShape selectedShape;
+		
+<span class="fc" id="L18">	public AbstractAction (Board b, PuzzleSolvingView p, SolutionCheckController s) {</span>
+<span class="fc" id="L19">		this.puzzleSolvingView = p;</span>
+<span class="fc" id="L20">		this.board = b;</span>
+<span class="fc" id="L21">		this.solutionCheckController = s;</span>
+<span class="fc" id="L22">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>PuzzlePlane (Nov 15, 2017 10:58:00 AM)</div></body></html>

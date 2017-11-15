@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>MoveShapePaletteSolutionController.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">PuzzlePlane (Nov 15, 2017 10:58:00 AM)</a> &gt; <a href="../../index.html" class="el_group">PuzzlePlane</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">plane.controllers</a> &gt; <span class="el_source">MoveShapePaletteSolutionController.java</span></div><h1>MoveShapePaletteSolutionController.java</h1><pre class="source lang-java linenums">package plane.controllers;
+
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import plane.models.*;
+import plane.views.*;
+
+import java.awt.*;
+
+public class MoveShapePaletteSolutionController extends MouseAdapter{
+	/** Needed for controller behavior. */
+	Board board;
+	PuzzleSolvingView puzzleSolvingView;
+	Application puzzlePlaneGui;
+	Point origin, shapePos;
+	PlacedShape beforeShape;
+	/** Original x,y where shape was before move. */
+<span class="fc" id="L20">	int x = 0;</span>
+<span class="fc" id="L21">	int y = 0;</span>
+	/** confirm point where first grabbed and color from that location. */
+	int palette_w;
+	int palette_h;
+	boolean shapeContain;
+	/** Button that started off. */
+	int lx, rx, ty, by;
+	SolutionCheckController solutionCheckController;
+	/** Constructor holds onto key manager objects. */
+<span class="fc" id="L30">	public MoveShapePaletteSolutionController (Board b, Application pg, PuzzleSolvingView p,int w, int h, SolutionCheckController s) {</span>
+<span class="fc" id="L31">		this.board = b;</span>
+<span class="fc" id="L32">		this.puzzlePlaneGui = pg;</span>
+<span class="fc" id="L33">		this.puzzleSolvingView = p;</span>
+<span class="fc" id="L34">		this.palette_w = w;</span>
+<span class="fc" id="L35">		this.palette_h = h;</span>
+<span class="fc" id="L36">		this.solutionCheckController = s;</span>
+<span class="fc" id="L37">	}</span>
+
+	
+	
+	/** Set up press events but no motion events. */
+	/**
+	 * Whenever mouse is pressed (left button), attempt to select object.
+	 * This is a GUI controller.
+	 */
+	@Override
+	public void mousePressed(MouseEvent me) {
+<span class="fc" id="L48">		this.origin = me.getPoint();</span>
+<span class="fc" id="L49">		this.shapeContain = this.board.selectShape(this.origin.x, this.origin.y);</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">		if (this.shapeContain) {</span>
+<span class="fc" id="L51">			PlacedShape selectedShape = this.board.getSelectedShape();</span>
+<span class="fc" id="L52">			this.beforeShape = selectedShape.copy();</span>
+<span class="fc" id="L53">			this.shapePos = selectedShape.getPosition();</span>
+<span class="fc" id="L54">			this.x = (int)this.shapePos.getX();</span>
+<span class="fc" id="L55">			this.y = (int)this.shapePos.getY();</span>
+			
+<span class="fc" id="L57">			this.lx = selectedShape.getLeftX();</span>
+<span class="fc" id="L58">			this.rx = selectedShape.getRightX();</span>
+<span class="fc" id="L59">			this.ty = selectedShape.getTopY();</span>
+<span class="fc" id="L60">			this.by = selectedShape.getBottomY();</span>
+			
+<span class="fc" id="L62">			this.board.reorder();</span>
+		}
+<span class="fc" id="L64">	}</span>
+	
+	
+	
+	
+	/**
+	 * Whenever mouse is dragged, attempt to start object.
+	 * This is a GUI controller.
+	 */
+	@Override
+	public void mouseDragged(MouseEvent me) {
+<span class="nc bnc" id="L75" title="All 2 branches missed.">		if (this.shapeContain) {</span>
+<span class="nc" id="L76">			int offset_x = this.x;</span>
+<span class="nc" id="L77">			int offset_y = this.y;</span>
+			
+<span class="nc" id="L79">			int x = me.getX() - this.origin.x + offset_x;</span>
+<span class="nc" id="L80">			int y = me.getY() - this.origin.y + offset_y;</span>
+			
+<span class="nc" id="L82">			int fx = me.getX() - this.origin.x;</span>
+<span class="nc" id="L83">			int fy = me.getY() - this.origin.y;</span>
+			
+<span class="nc bnc" id="L85" title="All 2 branches missed.">			if (fx + this.lx &lt; 0) x = offset_x - this.lx;</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">			if (fx + this.rx &gt;= this.puzzleSolvingView.getWidth()) x = this.puzzleSolvingView.getWidth() - 1 - (this.rx - offset_x);</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">			if (fy + this.ty &lt; 0) y = offset_y - this.ty;</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">			if (fy + this.by &gt;= this.puzzleSolvingView.getHeight() - 50) y = this.puzzleSolvingView.getHeight() - 50 - 1 - (this.by - offset_y);</span>
+			
+<span class="nc" id="L90">			this.board.setPosition(x, y);</span>
+<span class="nc" id="L91">			this.puzzleSolvingView.repaint();	</span>
+		}
+<span class="nc" id="L93">	}</span>
+	
+	
+	/**
+	 * Whenever mouse is released, complete the move. 
+	 * This is a GUI controller.
+	 */
+	@Override
+	public void mouseReleased(MouseEvent me) {
+<span class="pc bpc" id="L102" title="1 of 2 branches missed.">		if (this.shapeContain) {</span>
+<span class="fc" id="L103">			PlacedShape selectedShape = this.board.getSelectedShape();</span>
+<span class="fc" id="L104">			int topY = selectedShape.getTopY();</span>
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">			if (topY &lt; this.palette_h) { //this.palette_h + (maximum height of a shape)</span>
+<span class="fc" id="L106">				selectedShape.selectShape();</span>
+<span class="fc" id="L107">				selectedShape.resetPos();</span>
+<span class="fc" id="L108">				selectedShape.getStatus().setOnPalette(true);</span>
+<span class="fc" id="L109">				this.board.setSelectedShape(null);</span>
+<span class="fc" id="L110">			} else {</span>
+<span class="nc" id="L111">				selectedShape.getStatus().setOnPalette(false);</span>
+			}
+<span class="fc" id="L113">			this.board.pushDrag(beforeShape);</span>
+		}
+	
+<span class="fc" id="L116">		this.shapeContain = false;</span>
+<span class="fc" id="L117">		this.puzzleSolvingView.repaint();</span>
+<span class="pc bpc" id="L118" title="1 of 2 branches missed.">		if (this.solutionCheckController.check()) {</span>
+<span class="nc" id="L119">			(new SaveSolutionController(this.puzzlePlaneGui, this.board.createMemento())).save();</span>
+<span class="nc" id="L120">			this.puzzlePlaneGui.jumpPage(&quot;p4&quot;);</span>
+		}
+<span class="fc" id="L122">	}</span>
+}
+	
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>PuzzlePlane (Nov 15, 2017 10:58:00 AM)</div></body></html>

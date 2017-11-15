@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Shapeset.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">PuzzlePlane (Nov 15, 2017 10:58:00 AM)</a> &gt; <a href="../../index.html" class="el_group">PuzzlePlane</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">plane.models</a> &gt; <span class="el_source">Shapeset.java</span></div><h1>Shapeset.java</h1><pre class="source lang-java linenums">package plane.models;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import plane.config.FilePathConfig;
+import plane.config.NameConfig;
+import plane.controllers.PuzzleChecker;
+import plane.controllers.ShapeLoader;
+
+public class Shapeset {
+	
+	public String name;
+	public List&lt;Puzzle&gt; puzzles;
+	
+	public String toString() {
+<span class="fc" id="L17">		String ret = &quot;&quot;;</span>
+<span class="fc" id="L18">		ret += &quot;name: &quot; + name + &quot;\n&quot;;</span>
+<span class="fc" id="L19">		ret += &quot;puzzles: &quot; + puzzles.size() + &quot;\n&quot;;</span>
+<span class="fc" id="L20">		return ret;</span>
+	}
+	
+	public List&lt;Puzzle&gt; getPuzzles() {
+<span class="fc" id="L24">		return puzzles;</span>
+	}
+
+	public void setPuzzles(List&lt;Puzzle&gt; puzzles) {
+<span class="nc" id="L28">		this.puzzles = puzzles;</span>
+<span class="nc" id="L29">	}</span>
+
+<span class="fc" id="L31">	public Shapeset(String name) {</span>
+		// TODO Auto-generated constructor stub
+<span class="fc" id="L33">		this.name = name;</span>
+<span class="fc" id="L34">		this.loadPuzzles();</span>
+<span class="fc" id="L35">	}</span>
+	
+	public void loadPuzzles() {
+<span class="fc" id="L38">		puzzles = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">		for(String puzzleName : NameConfig.getPuzzles(name)) {</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">			if(PuzzleChecker.check(name, puzzleName)) {</span>
+<span class="fc" id="L41">				Puzzle p = new Puzzle(puzzleName);</span>
+<span class="fc" id="L42">				p.setShape(new ShapeLoader(FilePathConfig.getPuzzleSolutionPath(this.name, puzzleName)).load());</span>
+<span class="fc" id="L43">				puzzles.add(p);</span>
+<span class="fc" id="L44">			} else {</span>
+<span class="fc" id="L45">				Puzzle p = new Puzzle(puzzleName);</span>
+<span class="fc" id="L46">				p.setShape(new ShapeLoader(FilePathConfig.getPuzzlePath(this.name, puzzleName)).load());</span>
+<span class="fc" id="L47">				puzzles.add(p);</span>
+			}
+		}
+<span class="fc" id="L50">	}</span>
+	
+	public String getName() {
+<span class="fc" id="L53">		return name;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>PuzzlePlane (Nov 15, 2017 10:58:00 AM)</div></body></html>

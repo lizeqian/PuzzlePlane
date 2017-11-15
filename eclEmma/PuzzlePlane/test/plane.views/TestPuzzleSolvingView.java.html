@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>TestPuzzleSolvingView.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">PuzzlePlane (Nov 15, 2017 10:58:00 AM)</a> &gt; <a href="../../index.html" class="el_group">PuzzlePlane</a> &gt; <a href="../index.html" class="el_bundle">test</a> &gt; <a href="index.source.html" class="el_package">plane.views</a> &gt; <span class="el_source">TestPuzzleSolvingView.java</span></div><h1>TestPuzzleSolvingView.java</h1><pre class="source lang-java linenums">package plane.views;
+
+import java.awt.Color;
+import java.awt.Polygon;
+import java.util.ArrayList;
+
+import junit.framework.TestCase;
+import plane.models.Board;
+import plane.models.PlacedShape;
+import plane.models.Puzzle;
+import plane.models.ShapeStatus;
+
+<span class="fc" id="L13">public class TestPuzzleSolvingView extends TestCase {</span>
+	PuzzleSolvingView psv;
+	Application ap;
+	
+	public Polygon createPolygon(int x, int y) {
+<span class="fc" id="L18">		Polygon polygon = new Polygon();</span>
+<span class="fc" id="L19">		polygon.addPoint(x, y);</span>
+<span class="fc" id="L20">		polygon.addPoint(x+10, y);</span>
+<span class="fc" id="L21">		polygon.addPoint(x+5, y+10);</span>
+<span class="fc" id="L22">		polygon.addPoint(x, y);</span>
+<span class="fc" id="L23">		return polygon;</span>
+	}
+	
+	protected void setUp() {
+<span class="fc" id="L27">		Board board = new Board();</span>
+<span class="fc" id="L28">		this.ap = new Application(board);</span>
+<span class="fc" id="L29">		PlacedShape ps = new PlacedShape(Color.BLACK);</span>
+<span class="fc" id="L30">		Polygon p = this.createPolygon(0, 0);</span>
+<span class="fc" id="L31">		ps.setOriginalPolygon(p);</span>
+<span class="fc" id="L32">		ps.setChangedPolygon(p);</span>
+<span class="fc" id="L33">		ShapeStatus ss = new ShapeStatus(Color.BLACK);</span>
+<span class="fc" id="L34">		ss.select();</span>
+<span class="fc" id="L35">		ps.setStatus(ss);</span>
+<span class="fc" id="L36">		ArrayList&lt;PlacedShape&gt; shapes = new ArrayList&lt;PlacedShape&gt;();</span>
+<span class="fc" id="L37">		shapes.add(ps);</span>
+<span class="fc" id="L38">		board.setShapes(shapes);</span>
+		
+<span class="fc" id="L40">		Puzzle puzzle = new Puzzle(&quot;test&quot;);</span>
+<span class="fc" id="L41">		puzzle.setShape(shapes);</span>
+<span class="fc" id="L42">		board.setPuzzle(puzzle);</span>
+<span class="fc" id="L43">		this.psv = new PuzzleSolvingView(board, this.ap, 700, 1000);</span>
+<span class="fc" id="L44">		this.ap.setVisible(true);</span>
+<span class="fc" id="L45">		this.ap.jumpPage(&quot;p3&quot;);</span>
+<span class="fc" id="L46">	}</span>
+	
+	protected void tearDown() {
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">		if (this.ap != null) {</span>
+<span class="fc" id="L50">			this.ap.dispose();</span>
+		}
+<span class="fc" id="L52">	}</span>
+	
+	public void testApp() {
+<span class="fc" id="L55">		System.out.println(&quot;Sample Puzzle Solving View&quot;);</span>
+<span class="fc" id="L56">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>PuzzlePlane (Nov 15, 2017 10:58:00 AM)</div></body></html>

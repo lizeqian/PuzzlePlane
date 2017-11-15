@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>TestShapeLoader.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">PuzzlePlane (Nov 15, 2017 10:58:00 AM)</a> &gt; <a href="../../index.html" class="el_group">PuzzlePlane</a> &gt; <a href="../index.html" class="el_bundle">test</a> &gt; <a href="index.source.html" class="el_package">plane.controllers</a> &gt; <span class="el_source">TestShapeLoader.java</span></div><h1>TestShapeLoader.java</h1><pre class="source lang-java linenums">package plane.controllers;
+
+import java.awt.Color;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+
+import junit.framework.TestCase;
+import plane.config.FilePathConfig;
+import plane.models.PlacedShape;
+
+<span class="fc" id="L13">public class TestShapeLoader extends TestCase {</span>
+	ShapeLoader loader;
+	File file;
+	PlacedShape shape0, shape3, shape6; 
+	
+	protected void setUp() throws Exception {
+<span class="fc" id="L19">		super.setUp();</span>
+		
+<span class="fc" id="L21">		shape0 = new PlacedShape(new Color(0, 255, 0));</span>
+<span class="fc" id="L22">		shape0.addPoint(450, 200);</span>
+<span class="fc" id="L23">		shape0.addPoint(590, 200);</span>
+<span class="fc" id="L24">		shape0.addPoint(590, 60);</span>
+<span class="fc" id="L25">		shape0.addPoint(450, 200);</span>
+		
+<span class="fc" id="L27">		shape3 = new PlacedShape(new Color(200, 0, 0));</span>
+<span class="fc" id="L28">		shape3.addPoint(100, 190);</span>
+<span class="fc" id="L29">		shape3.addPoint(200, 190);</span>
+<span class="fc" id="L30">		shape3.addPoint(150, 140);</span>
+<span class="fc" id="L31">		shape3.addPoint(50, 140);</span>
+<span class="fc" id="L32">		shape3.addPoint(100, 190);</span>
+		
+<span class="fc" id="L34">		shape6 = new PlacedShape(new Color(0, 255, 0));</span>
+<span class="fc" id="L35">		shape6.addPoint(50, 50);</span>
+<span class="fc" id="L36">		shape6.addPoint(120, 50);</span>
+<span class="fc" id="L37">		shape6.addPoint(120, 120);</span>
+<span class="fc" id="L38">		shape6.addPoint(50, 120);</span>
+<span class="fc" id="L39">		shape6.addPoint(50, 50);</span>
+		
+<span class="fc" id="L41">		file = new File(&quot;traditional/shapeset.txt&quot;);</span>
+<span class="fc" id="L42">		loader = new ShapeLoader(FilePathConfig.getShapesetPath(&quot;traditional&quot;));</span>
+<span class="fc" id="L43">	}</span>
+	
+	public void testConstructor() {
+<span class="fc" id="L46">		assertEquals(file.getPath(), loader.getFile().getPath());</span>
+<span class="fc" id="L47">	}</span>
+	
+	public void testLoad() {
+<span class="fc" id="L50">		List&lt;PlacedShape&gt; list = loader.load();</span>
+<span class="fc" id="L51">		assertEquals(list.get(0).toString(), shape0.toString());</span>
+<span class="fc" id="L52">		assertEquals(list.get(3).toString(), shape3.toString());</span>
+<span class="fc" id="L53">		assertEquals(list.get(6).toString(), shape6.toString());</span>
+		
+<span class="fc" id="L55">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>PuzzlePlane (Nov 15, 2017 10:58:00 AM)</div></body></html>

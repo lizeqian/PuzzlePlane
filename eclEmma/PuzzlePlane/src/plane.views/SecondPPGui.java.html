@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>SecondPPGui.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">PuzzlePlane (Nov 15, 2017 10:58:00 AM)</a> &gt; <a href="../../index.html" class="el_group">PuzzlePlane</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">plane.views</a> &gt; <span class="el_source">SecondPPGui.java</span></div><h1>SecondPPGui.java</h1><pre class="source lang-java linenums">package plane.views;
+
+
+import javax.swing.JPanel;
+
+import plane.config.FilePathConfig;
+import plane.config.NameConfig;
+import plane.controllers.PuzzleChecker;
+import plane.controllers.SelectPuzzleController;
+import plane.controllers.windowJump.BacktoShapesetController;
+import plane.models.Board;
+import plane.models.Puzzle;
+
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.Rectangle;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import javax.swing.SwingConstants;
+
+public class SecondPPGui extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5157226398944441626L;
+	
+	public static final List&lt;Rectangle&gt; bounds;
+	
+	static {
+<span class="fc" id="L34">		bounds = new ArrayList&lt;Rectangle&gt;();</span>
+<span class="fc" id="L35">		bounds.add(new Rectangle(199, 155, 95, 101));</span>
+<span class="fc" id="L36">		bounds.add(new Rectangle(349, 155, 95, 101));</span>
+<span class="fc" id="L37">		bounds.add(new Rectangle(501, 155, 95, 101));</span>
+<span class="fc" id="L38">		bounds.add(new Rectangle(656, 155, 95, 101));</span>
+<span class="fc" id="L39">		bounds.add(new Rectangle(199, 317, 95, 101));</span>
+<span class="fc" id="L40">		bounds.add(new Rectangle(349, 317, 95, 101));</span>
+<span class="fc" id="L41">		bounds.add(new Rectangle(501, 317, 95, 101));</span>
+<span class="fc" id="L42">		bounds.add(new Rectangle(656, 317, 95, 101));</span>
+<span class="fc" id="L43">		bounds.add(new Rectangle(199, 483, 95, 101));</span>
+<span class="fc" id="L44">		bounds.add(new Rectangle(349, 483, 95, 101));</span>
+<span class="fc" id="L45">	}</span>
+	
+	Board board;
+	Application plane;
+	List&lt;JButton&gt; buttons;
+	
+	/**
+	 * Create the frame.
+	 */
+<span class="fc" id="L54">	public SecondPPGui(Board b, Application p) {</span>
+<span class="fc" id="L55">		setLayout(null);</span>
+<span class="fc" id="L56">		this.board = b;</span>
+<span class="fc" id="L57">		this.plane = p;</span>
+<span class="fc" id="L58">		buttons = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L59">	}</span>
+	
+	public void reset() {
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">		for(JButton button : buttons) {</span>
+<span class="nc" id="L63">			this.remove(button);</span>
+		}
+<span class="fc" id="L65">		draw();</span>
+<span class="fc" id="L66">	}</span>
+	
+	public void drawButtons() {
+<span class="fc" id="L69">		String shapesetName = this.board.getShapeset().getName();</span>
+<span class="pc bpc" id="L70" title="1 of 2 branches missed.">		if (shapesetName == null) return;</span>
+<span class="fc" id="L71">		List&lt;Puzzle&gt; puzzles = this.board.getShapeset().getPuzzles();</span>
+		
+<span class="fc bfc" id="L73" title="All 2 branches covered.">		for(int i = 0; i &lt; puzzles.size(); i++) {</span>
+<span class="fc" id="L74">			Puzzle puzzle = puzzles.get(i);</span>
+<span class="fc" id="L75">			Rectangle rect = SecondPPGui.bounds.get(i);</span>
+			
+<span class="fc" id="L77">			JButton button = new JButton(puzzle.getName());</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">			if (!PuzzleChecker.check(shapesetName, puzzle.getName())) {</span>
+<span class="fc" id="L79">				button.setIcon(new ImageIcon(FilePathConfig.getPuzzleIconPath(shapesetName, puzzle.getName())));</span>
+<span class="fc" id="L80">			} else {</span>
+<span class="fc" id="L81">				button.setIcon(new ImageIcon(FilePathConfig.getSolvedPuzzleIconPath(shapesetName, puzzle.getName())));</span>
+			}
+<span class="fc" id="L83">			button.setBounds(rect);</span>
+<span class="fc" id="L84">			button.addActionListener(new SelectPuzzleController(board, plane, puzzle.getName()));</span>
+			
+<span class="fc" id="L86">			add(button);</span>
+<span class="fc" id="L87">			this.buttons.add(button);</span>
+		}
+<span class="fc" id="L89">	}</span>
+	
+	public void draw() {
+<span class="fc" id="L92">		this.drawButtons();</span>
+		
+<span class="fc" id="L94">		JLabel chooseAPuzzleTitle = new JLabel(&quot;Choose a Puzzle&quot;);</span>
+<span class="fc" id="L95">		chooseAPuzzleTitle.setHorizontalAlignment(SwingConstants.CENTER);</span>
+<span class="fc" id="L96">		chooseAPuzzleTitle.setFont(new Font(&quot;Tahoma&quot;, Font.PLAIN, 24));</span>
+<span class="fc" id="L97">		chooseAPuzzleTitle.setBounds(375, 90, 221, 25);</span>
+<span class="fc" id="L98">		add(chooseAPuzzleTitle);</span>
+		
+<span class="fc" id="L100">		JButton btnBacktoShapeset = new JButton(&quot;Back to Shapeset&quot;);</span>
+<span class="fc" id="L101">		btnBacktoShapeset.setBounds(544, 550, 187, 34);</span>
+<span class="fc" id="L102">		btnBacktoShapeset.addActionListener(new BacktoShapesetController(plane));</span>
+<span class="fc" id="L103">		add(btnBacktoShapeset);</span>
+<span class="fc" id="L104">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>PuzzlePlane (Nov 15, 2017 10:58:00 AM)</div></body></html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>TestExitPuzzleSolvingController.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">PuzzlePlane (Nov 15, 2017 10:58:00 AM)</a> &gt; <a href="../../index.html" class="el_group">PuzzlePlane</a> &gt; <a href="../index.html" class="el_bundle">test</a> &gt; <a href="index.source.html" class="el_package">plane.controllers.windowJump</a> &gt; <span class="el_source">TestExitPuzzleSolvingController.java</span></div><h1>TestExitPuzzleSolvingController.java</h1><pre class="source lang-java linenums">package plane.controllers.windowJump;
+
+import java.awt.Color;
+import java.awt.Polygon;
+import plane.controllers.ControllerCase;
+import plane.models.PlacedShape;
+import plane.utils.PolygonUtils;
+import java.util.*;
+
+<span class="fc" id="L10">public class TestExitPuzzleSolvingController extends ControllerCase {</span>
+
+	ExitPuzzleSolvingController controller;
+	protected void setUp() throws Exception {
+<span class="fc" id="L14">		super.setUp();</span>
+<span class="fc" id="L15">		Polygon polygon = new Polygon();</span>
+<span class="fc" id="L16">		polygon.addPoint(0, 0);</span>
+<span class="fc" id="L17">		polygon.addPoint(10, 0);</span>
+<span class="fc" id="L18">		polygon.addPoint(10, 10);</span>
+<span class="fc" id="L19">		polygon.addPoint(0, 0);</span>
+<span class="fc" id="L20">		PlacedShape shape = new PlacedShape(Color.red);</span>
+<span class="fc" id="L21">		shape.setOriginalPolygon(PolygonUtils.copy(polygon));</span>
+<span class="fc" id="L22">		shape.setChangedPolygon(PolygonUtils.copy(polygon));</span>
+		
+<span class="fc" id="L24">		List&lt;PlacedShape&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L25">		list.add(shape);</span>
+<span class="fc" id="L26">		board.setShapes(list);</span>
+<span class="fc" id="L27">		board.setSelectedShape(shape);</span>
+<span class="fc" id="L28">		board.rotate(30);</span>
+		
+<span class="fc" id="L30">		controller = new ExitPuzzleSolvingController(board, app);</span>
+<span class="fc" id="L31">	}</span>
+	
+	public void testConstructor() {
+<span class="fc" id="L34">		assertEquals(board, controller.getBoard());</span>
+<span class="fc" id="L35">		assertEquals(app, controller.getPuzzlePlaneGui());</span>
+<span class="fc" id="L36">	}</span>
+	
+	public void testActionPerformed() {
+<span class="fc" id="L39">		controller.actionPerformed(null);</span>
+<span class="fc" id="L40">		PlacedShape shape = controller.getBoard().getShapes().get(0);</span>
+<span class="fc" id="L41">		assertEquals(PolygonUtils.toString(shape.getOriginalPolygon()), PolygonUtils.toString(shape.getChangedPolygon()));</span>
+<span class="fc" id="L42">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>PuzzlePlane (Nov 15, 2017 10:58:00 AM)</div></body></html>

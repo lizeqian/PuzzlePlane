@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>TestBoard.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">PuzzlePlane (Nov 15, 2017 10:58:00 AM)</a> &gt; <a href="../../index.html" class="el_group">PuzzlePlane</a> &gt; <a href="../index.html" class="el_bundle">test</a> &gt; <a href="index.source.html" class="el_package">plane.models</a> &gt; <span class="el_source">TestBoard.java</span></div><h1>TestBoard.java</h1><pre class="source lang-java linenums">package plane.models;
+
+import java.awt.Color;
+import java.awt.Polygon;
+import java.util.ArrayList;
+
+import junit.framework.TestCase;
+import plane.utils.PolygonUtils;
+
+<span class="fc" id="L10">public class TestBoard extends TestCase {</span>
+	
+	public Polygon createPolygon(int x, int y) {
+<span class="fc" id="L13">		Polygon polygon = new Polygon();</span>
+<span class="fc" id="L14">		polygon.addPoint(x, y);</span>
+<span class="fc" id="L15">		polygon.addPoint(x+10, y);</span>
+<span class="fc" id="L16">		polygon.addPoint(x+5, y+10);</span>
+<span class="fc" id="L17">		polygon.addPoint(x, y);</span>
+<span class="fc" id="L18">		return polygon;</span>
+	}
+	
+	public PlacedShape createPlacedShape(Polygon p1, Polygon p2) {
+<span class="fc" id="L22">		PlacedShape shape = new PlacedShape(Color.BLACK);</span>
+<span class="fc" id="L23">		shape.setOriginalPolygon(p1);</span>
+<span class="fc" id="L24">		shape.setChangedPolygon(p2);</span>
+<span class="fc" id="L25">		return shape;</span>
+	}
+	
+	public void testGetPuzzle() {
+<span class="fc" id="L29">		Board b = new Board();</span>
+<span class="fc" id="L30">		ArrayList&lt;PlacedShape&gt; shapes = new ArrayList&lt;PlacedShape&gt;();</span>
+<span class="fc" id="L31">		shapes.add(this.createPlacedShape(this.createPolygon(1, 1), this.createPolygon(1, 1)));</span>
+<span class="fc" id="L32">		Puzzle p = new Puzzle(shapes);</span>
+<span class="fc" id="L33">		b.setPuzzle(p);</span>
+<span class="fc" id="L34">		assertEquals(p, b.getPuzzle());</span>
+<span class="fc" id="L35">	}</span>
+	
+	public void testGetShapes() {
+<span class="fc" id="L38">		Board b = new Board();</span>
+<span class="fc" id="L39">		ArrayList&lt;PlacedShape&gt; shapes = new ArrayList&lt;PlacedShape&gt;();</span>
+<span class="fc" id="L40">		shapes.add(this.createPlacedShape(this.createPolygon(1, 1), this.createPolygon(1, 1)));</span>
+<span class="fc" id="L41">		b.setShapes(shapes);</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">		for (int i = 0; i &lt; shapes.size(); i++) {</span>
+<span class="fc" id="L43">			assertEquals(shapes.get(i).toString(), b.getShapes().get(i).toString());</span>
+		}
+<span class="fc" id="L45">	}</span>
+	
+	public void testGetSelectedShape() {
+<span class="fc" id="L48">		Board b = new Board();</span>
+<span class="fc" id="L49">		PlacedShape shape = this.createPlacedShape(this.createPolygon(1, 1), this.createPolygon(1, 1));</span>
+<span class="fc" id="L50">		b.setSelectedShape(shape);</span>
+<span class="fc" id="L51">		assertEquals(shape, b.getSelectedShape());</span>
+<span class="fc" id="L52">	}</span>
+	
+	public void testSelectShape() {
+<span class="fc" id="L55">		Board b = new Board();</span>
+<span class="fc" id="L56">		Polygon p1 = this.createPolygon(1, 1);</span>
+<span class="fc" id="L57">		Polygon p2 = this.createPolygon(20, 20);</span>
+<span class="fc" id="L58">		PlacedShape ps1 = this.createPlacedShape(p1, p1);</span>
+<span class="fc" id="L59">		PlacedShape ps2 = this.createPlacedShape(p1, p2);</span>
+<span class="fc" id="L60">		ArrayList&lt;PlacedShape&gt; shapes = new ArrayList&lt;PlacedShape&gt;();</span>
+<span class="fc" id="L61">		shapes.add(ps1);</span>
+<span class="fc" id="L62">		shapes.add(ps2);</span>
+<span class="fc" id="L63">		b.setShapes(shapes);</span>
+<span class="fc" id="L64">		b.selectShape(100, 100);</span>
+<span class="fc" id="L65">		b.selectShape(25, 22);</span>
+<span class="fc" id="L66">		b.selectShape(5, 2);</span>
+<span class="fc" id="L67">		ps1.selectShape();</span>
+<span class="fc" id="L68">		assertEquals(ps1.toString(), b.getSelectedShape().toString());</span>
+<span class="fc" id="L69">	}</span>
+	
+	public void testSetPosition() {
+<span class="fc" id="L72">		Board b = new Board();</span>
+<span class="fc" id="L73">		Polygon p1 = this.createPolygon(1, 1);</span>
+<span class="fc" id="L74">		Polygon p2 = this.createPolygon(20, 20);</span>
+<span class="fc" id="L75">		PlacedShape ps1 = this.createPlacedShape(p1, p1);</span>
+<span class="fc" id="L76">		PlacedShape ps2 = this.createPlacedShape(p1, p2);</span>
+<span class="fc" id="L77">		ArrayList&lt;PlacedShape&gt; shapes = new ArrayList&lt;PlacedShape&gt;();</span>
+<span class="fc" id="L78">		shapes.add(ps1);</span>
+<span class="fc" id="L79">		shapes.add(ps2);</span>
+<span class="fc" id="L80">		b.setShapes(shapes);</span>
+<span class="fc" id="L81">		b.selectShape(5, 2);</span>
+<span class="fc" id="L82">		b.setPosition(1, 1);</span>
+		
+<span class="fc" id="L84">		Polygon expected = this.createPolygon(2, 2);</span>
+<span class="fc" id="L85">		assertEquals(PolygonUtils.toString(b.getSelectedShape().getChangedPolygon()), PolygonUtils.toString(expected));</span>
+<span class="fc" id="L86">	}</span>
+	
+	public void testResetPosition() {
+<span class="fc" id="L89">		Board b = new Board();</span>
+<span class="fc" id="L90">		Polygon p1 = this.createPolygon(1, 1);</span>
+<span class="fc" id="L91">		Polygon p2 = this.createPolygon(20, 20);</span>
+<span class="fc" id="L92">		PlacedShape ps1 = this.createPlacedShape(p1, p1);</span>
+<span class="fc" id="L93">		PlacedShape ps2 = this.createPlacedShape(p2, p2);</span>
+<span class="fc" id="L94">		ArrayList&lt;PlacedShape&gt; shapes = new ArrayList&lt;PlacedShape&gt;();</span>
+<span class="fc" id="L95">		shapes.add(ps1);</span>
+<span class="fc" id="L96">		shapes.add(ps2);</span>
+<span class="fc" id="L97">		b.setShapes(shapes);</span>
+<span class="fc" id="L98">		b.selectShape(25, 22);</span>
+<span class="fc" id="L99">		b.setPosition(1, 1);</span>
+<span class="fc" id="L100">		b.resetAllShapePosition();</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">		for (int i=0; i &lt; shapes.size();i++) {</span>
+<span class="fc" id="L102">			assertEquals(b.getShapes().get(i).toString(), shapes.get(i).toString());</span>
+		}
+<span class="fc" id="L104">	}</span>
+	
+	public void testRotate() {
+<span class="fc" id="L107">		Board b = new Board();</span>
+<span class="fc" id="L108">		Polygon polygon = new Polygon();</span>
+<span class="fc" id="L109">		polygon.addPoint(0, 0);</span>
+<span class="fc" id="L110">		polygon.addPoint(10, 0);</span>
+<span class="fc" id="L111">		polygon.addPoint(5, 9);</span>
+<span class="fc" id="L112">		polygon.addPoint(0, 0);</span>
+<span class="fc" id="L113">		PlacedShape ps1 = this.createPlacedShape(polygon, polygon);</span>
+<span class="fc" id="L114">		ArrayList&lt;PlacedShape&gt; shapes = new ArrayList&lt;PlacedShape&gt;();</span>
+<span class="fc" id="L115">		shapes.add(ps1);</span>
+<span class="fc" id="L116">		b.setShapes(shapes);</span>
+<span class="fc" id="L117">		b.selectShape(5, 2);</span>
+<span class="fc" id="L118">		b.rotate(90);</span>
+		
+<span class="fc" id="L120">		Polygon rp = new Polygon();</span>
+<span class="fc" id="L121">		rp.addPoint(0, 0);</span>
+<span class="fc" id="L122">		rp.addPoint(10, 0);</span>
+<span class="fc" id="L123">		rp.addPoint(5, 9);</span>
+<span class="fc" id="L124">		rp.addPoint(0, 0);</span>
+<span class="fc" id="L125">		PlacedShape ps2 = this.createPlacedShape(PolygonUtils.copy(rp), PolygonUtils.copy(rp));</span>
+<span class="fc" id="L126">		ps2.selectShape();</span>
+<span class="fc" id="L127">		ps2.rotate(90);</span>
+<span class="fc" id="L128">		assertEquals(b.getSelectedShape().toString(), ps2.toString());</span>
+<span class="fc" id="L129">	}</span>
+	
+	public void testVFlip() {
+<span class="fc" id="L132">		Board b = new Board();</span>
+<span class="fc" id="L133">		Polygon polygon = new Polygon();</span>
+<span class="fc" id="L134">		polygon.addPoint(0, 0);</span>
+<span class="fc" id="L135">		polygon.addPoint(10, 0);</span>
+<span class="fc" id="L136">		polygon.addPoint(5, 9);</span>
+<span class="fc" id="L137">		polygon.addPoint(0, 0);</span>
+<span class="fc" id="L138">		PlacedShape ps1 = this.createPlacedShape(polygon, polygon);</span>
+<span class="fc" id="L139">		ArrayList&lt;PlacedShape&gt; shapes = new ArrayList&lt;PlacedShape&gt;();</span>
+<span class="fc" id="L140">		shapes.add(ps1);</span>
+<span class="fc" id="L141">		b.setShapes(shapes);</span>
+<span class="fc" id="L142">		b.selectShape(5, 2);</span>
+<span class="fc" id="L143">		b.vFlip();</span>
+		
+<span class="fc" id="L145">		Polygon rp = new Polygon();</span>
+<span class="fc" id="L146">		rp.addPoint(0, 0);</span>
+<span class="fc" id="L147">		rp.addPoint(10, 0);</span>
+<span class="fc" id="L148">		rp.addPoint(5, 9);</span>
+<span class="fc" id="L149">		rp.addPoint(0, 0);</span>
+<span class="fc" id="L150">		PlacedShape ps2 = this.createPlacedShape(PolygonUtils.copy(rp), PolygonUtils.copy(rp));</span>
+<span class="fc" id="L151">		ps2.selectShape();</span>
+<span class="fc" id="L152">		ps2.vFlip();</span>
+<span class="fc" id="L153">		assertEquals(b.getSelectedShape().toString(), ps2.toString());</span>
+<span class="fc" id="L154">	}</span>
+	
+	public void testHFlip() {
+<span class="fc" id="L157">		Board b = new Board();</span>
+<span class="fc" id="L158">		b.setPuzzle(new Puzzle(&quot;test&quot;));</span>
+<span class="fc" id="L159">		b.setShapeset(new Shapeset(&quot;traditional&quot;));</span>
+		
+<span class="fc" id="L161">		Polygon polygon = new Polygon();</span>
+<span class="fc" id="L162">		polygon.addPoint(0, 0);</span>
+<span class="fc" id="L163">		polygon.addPoint(10, 0);</span>
+<span class="fc" id="L164">		polygon.addPoint(5, 9);</span>
+<span class="fc" id="L165">		polygon.addPoint(0, 0);</span>
+<span class="fc" id="L166">		PlacedShape ps1 = this.createPlacedShape(polygon, polygon);</span>
+<span class="fc" id="L167">		ArrayList&lt;PlacedShape&gt; shapes = new ArrayList&lt;PlacedShape&gt;();</span>
+<span class="fc" id="L168">		shapes.add(ps1);</span>
+<span class="fc" id="L169">		b.setShapes(shapes);</span>
+<span class="fc" id="L170">		b.selectShape(5, 2);</span>
+<span class="fc" id="L171">		b.hFlip();</span>
+		
+<span class="fc" id="L173">		Polygon rp = new Polygon();</span>
+<span class="fc" id="L174">		rp.addPoint(0, 0);</span>
+<span class="fc" id="L175">		rp.addPoint(10, 0);</span>
+<span class="fc" id="L176">		rp.addPoint(5, 9);</span>
+<span class="fc" id="L177">		rp.addPoint(0, 0);</span>
+<span class="fc" id="L178">		PlacedShape ps2 = this.createPlacedShape(PolygonUtils.copy(rp), PolygonUtils.copy(rp));</span>
+<span class="fc" id="L179">		ps2.selectShape();</span>
+<span class="fc" id="L180">		ps2.hFlip();</span>
+<span class="fc" id="L181">		assertEquals(b.getSelectedShape().toString(), ps2.toString());</span>
+<span class="fc" id="L182">	}</span>
+	
+	public void testCreateMemento() {
+<span class="fc" id="L185">		Board b = new Board();</span>
+<span class="fc" id="L186">		ArrayList&lt;PlacedShape&gt; shapes = new ArrayList&lt;PlacedShape&gt;();</span>
+<span class="fc" id="L187">		shapes.add(this.createPlacedShape(this.createPolygon(1, 1), this.createPolygon(1, 1)));</span>
+<span class="fc" id="L188">		b.setShapes(shapes);</span>
+<span class="fc" id="L189">		b.setPuzzle(new Puzzle(&quot;test&quot;));</span>
+<span class="fc" id="L190">		b.setShapeset(new Shapeset(&quot;traditional&quot;));</span>
+<span class="fc" id="L191">		BoardMemento bm = b.createMemento();</span>
+<span class="fc" id="L192">		assertEquals(bm.shapes.get(0).toString(), shapes.get(0).toString());</span>
+<span class="fc" id="L193">	}</span>
+	
+	public void testUndo() {
+<span class="fc" id="L196">		Board b = new Board();</span>
+<span class="fc" id="L197">		Polygon polygon = new Polygon();</span>
+<span class="fc" id="L198">		polygon.addPoint(0, 0);</span>
+<span class="fc" id="L199">		polygon.addPoint(10, 0);</span>
+<span class="fc" id="L200">		polygon.addPoint(5, 9);</span>
+<span class="fc" id="L201">		polygon.addPoint(0, 0);</span>
+<span class="fc" id="L202">		PlacedShape ps1 = this.createPlacedShape(polygon, polygon);</span>
+<span class="fc" id="L203">		ArrayList&lt;PlacedShape&gt; shapes = new ArrayList&lt;PlacedShape&gt;();</span>
+<span class="fc" id="L204">		shapes.add(ps1);</span>
+<span class="fc" id="L205">		b.setShapes(shapes);</span>
+<span class="fc" id="L206">		b.selectShape(5, 2);</span>
+<span class="fc" id="L207">		b.rotate(90);</span>
+<span class="fc" id="L208">		b.undo();</span>
+<span class="fc" id="L209">		ps1.selectShape();</span>
+<span class="fc" id="L210">		assertEquals(b.getSelectedShape().toString(), ps1.toString());</span>
+<span class="fc" id="L211">	}</span>
+	
+	public void testRedo() {
+<span class="fc" id="L214">		Board b = new Board();</span>
+<span class="fc" id="L215">		Polygon polygon = new Polygon();</span>
+<span class="fc" id="L216">		polygon.addPoint(0, 0);</span>
+<span class="fc" id="L217">		polygon.addPoint(10, 0);</span>
+<span class="fc" id="L218">		polygon.addPoint(5, 9);</span>
+<span class="fc" id="L219">		polygon.addPoint(0, 0);</span>
+<span class="fc" id="L220">		PlacedShape ps1 = this.createPlacedShape(polygon, polygon);</span>
+<span class="fc" id="L221">		ArrayList&lt;PlacedShape&gt; shapes = new ArrayList&lt;PlacedShape&gt;();</span>
+<span class="fc" id="L222">		shapes.add(ps1);</span>
+<span class="fc" id="L223">		b.setShapes(shapes);</span>
+<span class="fc" id="L224">		b.selectShape(5, 2);</span>
+<span class="fc" id="L225">		b.rotate(90);</span>
+<span class="fc" id="L226">		b.undo();</span>
+<span class="fc" id="L227">		b.redo();</span>
+		
+<span class="fc" id="L229">		Polygon rp = new Polygon();</span>
+<span class="fc" id="L230">		rp.addPoint(0, 0);</span>
+<span class="fc" id="L231">		rp.addPoint(10, 0);</span>
+<span class="fc" id="L232">		rp.addPoint(5, 9);</span>
+<span class="fc" id="L233">		rp.addPoint(0, 0);</span>
+<span class="fc" id="L234">		PlacedShape ps2 = this.createPlacedShape(PolygonUtils.copy(rp), PolygonUtils.copy(rp));</span>
+<span class="fc" id="L235">		ps2.selectShape();</span>
+<span class="fc" id="L236">		ps2.rotate(90);</span>
+<span class="fc" id="L237">		assertEquals(b.getSelectedShape().toString(), ps2.toString());</span>
+<span class="fc" id="L238">	}</span>
+	
+	public void testPushDrag() {
+<span class="fc" id="L241">		Board b = new Board();</span>
+<span class="fc" id="L242">		Polygon polygon = new Polygon();</span>
+<span class="fc" id="L243">		polygon.addPoint(0, 0);</span>
+<span class="fc" id="L244">		polygon.addPoint(10, 0);</span>
+<span class="fc" id="L245">		polygon.addPoint(5, 9);</span>
+<span class="fc" id="L246">		polygon.addPoint(0, 0);</span>
+<span class="fc" id="L247">		PlacedShape ps1 = this.createPlacedShape(polygon, polygon);</span>
+<span class="fc" id="L248">		ArrayList&lt;PlacedShape&gt; shapes = new ArrayList&lt;PlacedShape&gt;();</span>
+<span class="fc" id="L249">		shapes.add(ps1);</span>
+<span class="fc" id="L250">		b.setShapes(shapes);</span>
+<span class="fc" id="L251">		b.selectShape(5, 2);</span>
+<span class="fc" id="L252">		b.rotate(90);</span>
+<span class="fc" id="L253">		b.undo();</span>
+<span class="fc" id="L254">		b.redo();</span>
+<span class="fc" id="L255">		b.pushDrag(ps1);</span>
+<span class="fc" id="L256">		assertTrue(b.redoStack.isEmpty());</span>
+<span class="fc" id="L257">		assertEquals(b.moves.pop().beforeShape.toString(), ps1.toString());</span>
+		
+<span class="fc" id="L259">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>PuzzlePlane (Nov 15, 2017 10:58:00 AM)</div></body></html>

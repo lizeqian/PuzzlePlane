@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>PuzzleSolvingView.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">PuzzlePlane (Nov 15, 2017 10:58:00 AM)</a> &gt; <a href="../../index.html" class="el_group">PuzzlePlane</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">plane.views</a> &gt; <span class="el_source">PuzzleSolvingView.java</span></div><h1>PuzzleSolvingView.java</h1><pre class="source lang-java linenums">package plane.views;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Polygon;
+import java.awt.RenderingHints;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.util.List;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+import plane.controllers.*;
+import plane.controllers.actions.ShapeHorizontalFlipController;
+import plane.controllers.actions.ShapeLeftRotateController;
+import plane.controllers.actions.ShapeRightRotateController;
+import plane.controllers.actions.ShapeVerticalFlipController;
+import plane.controllers.windowJump.ExitPuzzleSolvingController;
+import plane.controllers.windowJump.ViewShapesetController;
+import plane.models.*;
+
+public class PuzzleSolvingView extends JPanel {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5102883105475450390L;
+	
+	Board board;
+	int palette_h;
+	int palette_w;
+	int solution_w;
+	int solution_h;
+	int buttonAreaHeight;
+	// Current mouse listener
+	MouseListener        activeListener;
+	MouseMotionListener  activeMotionListener;
+	
+	
+<span class="fc" id="L42">	public PuzzleSolvingView(Board b, Application p, int w, int h) {</span>
+<span class="fc" id="L43">		setLayout(null);		</span>
+		
+<span class="fc" id="L45">		this.buttonAreaHeight = 300;</span>
+<span class="fc" id="L46">		this.palette_w = w;</span>
+<span class="fc" id="L47">		this.solution_w = w;</span>
+<span class="fc" id="L48">		this.palette_h = (int)(h*0.3);</span>
+<span class="fc" id="L49">		this.solution_h = h - palette_h;</span>
+<span class="fc" id="L50">		this.board = b;</span>
+<span class="fc" id="L51">		SolutionCheckController solutionCheckController = new SolutionCheckController(b, p);</span>
+<span class="fc" id="L52">		MoveShapePaletteSolutionController moveShapePaletteSolution = new MoveShapePaletteSolutionController(b, p, this, this.palette_w, this.palette_h, solutionCheckController);</span>
+<span class="fc" id="L53">		this.addMouseListener(moveShapePaletteSolution);</span>
+<span class="fc" id="L54">		this.addMouseMotionListener(moveShapePaletteSolution);</span>
+		
+<span class="fc" id="L56">		ExitPuzzleSolvingController exitPuzzleSolving = new ExitPuzzleSolvingController(b, p);</span>
+<span class="fc" id="L57">		JButton button_next = new JButton(&quot;Exit&quot;);</span>
+<span class="fc" id="L58">		button_next.setBounds(w-100, h-80, 80, 30);</span>
+<span class="fc" id="L59">		button_next.addActionListener(exitPuzzleSolving);</span>
+<span class="fc" id="L60">		this.add(button_next);</span>
+		
+<span class="fc" id="L62">		AbstractAction leftRotateControl = new ShapeLeftRotateController(b, this, solutionCheckController);</span>
+<span class="fc" id="L63">		JButton buttonLeftRotation = new JButton(&quot;L Rotate&quot;);</span>
+<span class="fc" id="L64">		buttonLeftRotation.setBounds(w-200, h-80, 90, 30);</span>
+<span class="fc" id="L65">		buttonLeftRotation.addActionListener(leftRotateControl);</span>
+<span class="fc" id="L66">		this.add(buttonLeftRotation);</span>
+		
+<span class="fc" id="L68">		AbstractAction rightRotateControl = new ShapeRightRotateController(b, this, solutionCheckController);</span>
+<span class="fc" id="L69">		JButton buttonRightRotation = new JButton(&quot;R Rotate&quot;);</span>
+<span class="fc" id="L70">		buttonRightRotation.setBounds(w-300, h-80, 90, 30);</span>
+<span class="fc" id="L71">		buttonRightRotation.addActionListener(rightRotateControl);</span>
+<span class="fc" id="L72">		this.add(buttonRightRotation);</span>
+		
+<span class="fc" id="L74">		AbstractAction hFlipControl = new ShapeHorizontalFlipController(b, this, solutionCheckController);</span>
+<span class="fc" id="L75">		JButton buttonHorizonFlipped = new JButton(&quot;H Flip&quot;);</span>
+<span class="fc" id="L76">		buttonHorizonFlipped.setBounds(w-400, h-80, 90, 30);</span>
+<span class="fc" id="L77">		buttonHorizonFlipped.addActionListener(hFlipControl);</span>
+<span class="fc" id="L78">		this.add(buttonHorizonFlipped);</span>
+		
+<span class="fc" id="L80">		AbstractAction vFlipControl = new ShapeVerticalFlipController(b, this, solutionCheckController);</span>
+<span class="fc" id="L81">		JButton buttonVerticalFlipped = new JButton(&quot;V Flip&quot;);</span>
+<span class="fc" id="L82">		buttonVerticalFlipped.setBounds(w-500, h-80, 90, 30);</span>
+<span class="fc" id="L83">		buttonVerticalFlipped.addActionListener(vFlipControl);</span>
+<span class="fc" id="L84">		this.add(buttonVerticalFlipped);</span>
+		
+<span class="fc" id="L86">		UndoController undoControl = new UndoController(b, this);</span>
+<span class="fc" id="L87">		JButton buttonUndo= new JButton(&quot;undo&quot;);</span>
+<span class="fc" id="L88">		buttonUndo.setBounds(w-600, h-80, 90, 30);</span>
+<span class="fc" id="L89">		buttonUndo.addActionListener(undoControl);</span>
+<span class="fc" id="L90">		this.add(buttonUndo);</span>
+		
+<span class="fc" id="L92">		RedoController redoControl = new RedoController(b, this);</span>
+<span class="fc" id="L93">		JButton buttonRedo= new JButton(&quot;redo&quot;);</span>
+<span class="fc" id="L94">		buttonRedo.setBounds(w-700, h-80, 90, 30);</span>
+<span class="fc" id="L95">		buttonRedo.addActionListener(redoControl);</span>
+<span class="fc" id="L96">		this.add(buttonRedo);</span>
+		
+<span class="fc" id="L98">		SolutionResetController resetControl = new SolutionResetController(b, p, this);</span>
+<span class="fc" id="L99">		JButton buttonReset= new JButton(&quot;reset&quot;);</span>
+<span class="fc" id="L100">		buttonReset.setBounds(w-800, h-80, 90, 30);</span>
+<span class="fc" id="L101">		buttonReset.addActionListener(resetControl);</span>
+<span class="fc" id="L102">		this.add(buttonReset);</span>
+		
+<span class="fc" id="L104">		ViewShapesetController viewShapesetControl = new ViewShapesetController(p);</span>
+<span class="fc" id="L105">		JButton buttonViewShapeset = new JButton(&quot;view shapeset&quot;);</span>
+<span class="fc" id="L106">		buttonViewShapeset.setBounds(w-920, h-80, 120, 30);;</span>
+<span class="fc" id="L107">		buttonViewShapeset.addActionListener(viewShapesetControl);</span>
+<span class="fc" id="L108">		this.add(buttonViewShapeset);</span>
+<span class="fc" id="L109">	}</span>
+	
+	@Override
+	public void paintComponent(Graphics g) {
+<span class="fc" id="L113">		super.paintComponent(g);</span>
+<span class="fc" id="L114">		Graphics2D g2 = (Graphics2D)g;</span>
+<span class="fc" id="L115">		g2.drawLine(0, this.palette_h, this.palette_w, this.palette_h);</span>
+		
+<span class="fc" id="L117">		List&lt;PlacedShape&gt; puzzleShape = this.board.getPuzzle().getPuzzleShape();</span>
+<span class="fc" id="L118">		g2.setColor(Color.GRAY);</span>
+<span class="fc bfc" id="L119" title="All 2 branches covered.">		for (PlacedShape shape : puzzleShape) {</span>
+<span class="fc" id="L120">			g2.fillPolygon(shape.getOriginalPolygon());</span>
+		}
+		
+<span class="fc bfc" id="L123" title="All 2 branches covered.">		for (PlacedShape shape : this.board.getShapes()) {</span>
+<span class="fc" id="L124">			Polygon p = shape.getChangedPolygon();</span>
+<span class="fc" id="L125">			g2.setColor(shape.getColor());</span>
+<span class="fc" id="L126">			g2.fillPolygon(p);</span>
+			
+<span class="fc bfc" id="L128" title="All 2 branches covered.">			if (shape.isSelected()) {</span>
+<span class="fc" id="L129">				g2.setColor(Color.BLACK);</span>
+<span class="fc" id="L130">				g2.drawPolygon(p);</span>
+			}
+		}
+<span class="fc" id="L133">	}</span>
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>PuzzlePlane (Nov 15, 2017 10:58:00 AM)</div></body></html>

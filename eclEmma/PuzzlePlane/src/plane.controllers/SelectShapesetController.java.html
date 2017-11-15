@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>SelectShapesetController.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">PuzzlePlane (Nov 15, 2017 10:58:00 AM)</a> &gt; <a href="../../index.html" class="el_group">PuzzlePlane</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">plane.controllers</a> &gt; <span class="el_source">SelectShapesetController.java</span></div><h1>SelectShapesetController.java</h1><pre class="source lang-java linenums">package plane.controllers;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Map;
+
+import plane.config.FilePathConfig;
+import plane.models.Board;
+import plane.models.Shapeset;
+import plane.views.Application;
+import plane.views.SecondPPGui;
+import plane.views.ViewShapesetPPGui;
+
+public class SelectShapesetController implements ActionListener{
+	public Board board;
+
+	public Application plane;
+	
+	public String shapesetName;
+	
+	public Board getBoard() {
+<span class="fc" id="L22">		return board;</span>
+	}
+
+	public Application getPlane() {
+<span class="fc" id="L26">		return plane;</span>
+	}
+	
+	public String getShapesetName() {
+<span class="fc" id="L30">		return shapesetName;</span>
+	}
+
+	public void setShapesetName(String shapesetName) {
+<span class="fc" id="L34">		this.shapesetName = shapesetName;</span>
+<span class="fc" id="L35">	}</span>
+	
+<span class="fc" id="L37">	public SelectShapesetController(Application p, Board board, String shapesetName) {</span>
+		// TODO Auto-generated constructor stub
+<span class="fc" id="L39">		this.plane = p;</span>
+<span class="fc" id="L40">		this.board = board;</span>
+<span class="fc" id="L41">		this.shapesetName = shapesetName;</span>
+<span class="fc" id="L42">	}</span>
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+<span class="fc" id="L47">		this.board.setShapeset(new Shapeset(this.shapesetName));</span>
+<span class="fc" id="L48">		((SecondPPGui)(this.plane.p_2)).reset();</span>
+<span class="fc" id="L49">		((ViewShapesetPPGui)(this.plane.p_5)).reset();</span>
+<span class="fc" id="L50">		this.plane.jumpPage(&quot;p2&quot;);</span>
+<span class="fc" id="L51">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>PuzzlePlane (Nov 15, 2017 10:58:00 AM)</div></body></html>

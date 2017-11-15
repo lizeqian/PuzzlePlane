@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>TestPlacedShape.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">PuzzlePlane (Nov 15, 2017 10:58:00 AM)</a> &gt; <a href="../../index.html" class="el_group">PuzzlePlane</a> &gt; <a href="../index.html" class="el_bundle">test</a> &gt; <a href="index.source.html" class="el_package">plane.models</a> &gt; <span class="el_source">TestPlacedShape.java</span></div><h1>TestPlacedShape.java</h1><pre class="source lang-java linenums">package plane.models;
+
+import java.awt.Color;
+import java.awt.Polygon;
+
+import junit.framework.TestCase;
+import plane.utils.PolygonUtils;
+
+<span class="fc" id="L9">public class TestPlacedShape extends TestCase {</span>
+	
+	public Polygon createPolygon(int x, int y) {
+<span class="fc" id="L12">		Polygon polygon = new Polygon();</span>
+<span class="fc" id="L13">		polygon.addPoint(x, y);</span>
+<span class="fc" id="L14">		polygon.addPoint(x+10, y);</span>
+<span class="fc" id="L15">		polygon.addPoint(x+5, y+10);</span>
+<span class="fc" id="L16">		polygon.addPoint(x, y);</span>
+<span class="fc" id="L17">		return polygon;</span>
+	}
+	
+	public void testConstructor() {
+<span class="fc" id="L21">		PlacedShape ps = new PlacedShape(Color.BLACK);</span>
+<span class="fc" id="L22">		assertEquals(ps.getColor(), Color.BLACK);</span>
+<span class="fc" id="L23">		PlacedShape ps2 = new PlacedShape(ps);</span>
+<span class="fc" id="L24">		assertEquals(ps2.toString(), ps.toString());</span>
+<span class="fc" id="L25">	}</span>
+	
+	public void testToSolutionString() {
+<span class="fc" id="L28">		Polygon polygon = new Polygon();</span>
+<span class="fc" id="L29">		polygon.addPoint(10, 10);</span>
+<span class="fc" id="L30">		polygon.addPoint(10, 20);</span>
+<span class="fc" id="L31">		polygon.addPoint(20, 10);</span>
+<span class="fc" id="L32">		polygon.addPoint(10, 10);</span>
+<span class="fc" id="L33">		PlacedShape ps = new PlacedShape(Color.RED);</span>
+<span class="fc" id="L34">		ps.setChangedPolygon(polygon);</span>
+<span class="fc" id="L35">		assertEquals(ps.toSolutionString(), &quot;255 0 0 10 10 10 20 20 10 10 10&quot;);</span>
+<span class="fc" id="L36">	}</span>
+	
+	public void testGetStatus() {
+<span class="fc" id="L39">		PlacedShape ps = new PlacedShape(Color.BLACK);</span>
+<span class="fc" id="L40">		ShapeStatus ss = new ShapeStatus(Color.BLACK);</span>
+		
+<span class="fc" id="L42">		ps.setStatus(ss);</span>
+<span class="fc" id="L43">		assertEquals(ss, ps.getStatus());</span>
+<span class="fc" id="L44">	}</span>
+	
+	public void testGetOriginalPolygon() {
+<span class="fc" id="L47">		PlacedShape ps = new PlacedShape(Color.BLACK);</span>
+<span class="fc" id="L48">		Polygon p = this.createPolygon(0, 0);</span>
+<span class="fc" id="L49">		ps.setOriginalPolygon(p);</span>
+		
+<span class="fc" id="L51">		assertEquals(ps.getOriginalPolygon(), p);</span>
+<span class="fc" id="L52">	}</span>
+	
+	public void testCopy() {
+<span class="fc" id="L55">		PlacedShape ps = new PlacedShape(Color.BLACK);</span>
+<span class="fc" id="L56">		assertEquals(ps.toString(), ps.copy().toString());</span>
+<span class="fc" id="L57">	}</span>
+	
+	public void testAddPoint() {
+<span class="fc" id="L60">		PlacedShape ps = new PlacedShape(Color.BLACK);</span>
+<span class="fc" id="L61">		Polygon p = this.createPolygon(0, 0);</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">		for (int i = 0; i &lt; p.npoints; i++) {</span>
+<span class="fc" id="L63">			ps.addPoint(p.xpoints[i], p.ypoints[i]);</span>
+		}
+		
+<span class="fc" id="L66">		Polygon p2 = ps.getOriginalPolygon();</span>
+<span class="fc" id="L67">		assertEquals(p.npoints, p2.npoints);</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">		for (int i = 0; i &lt; p.npoints; i++) {</span>
+<span class="fc" id="L69">			assertEquals(p2.xpoints[i], p.xpoints[i]);</span>
+<span class="fc" id="L70">			assertEquals(p2.ypoints[i], p.ypoints[i]);</span>
+		}
+<span class="fc" id="L72">	}</span>
+	
+	public void testIsSelected() {
+<span class="fc" id="L75">		PlacedShape p = new PlacedShape(Color.BLACK);</span>
+<span class="fc" id="L76">		p.selectShape();</span>
+<span class="fc" id="L77">		assertTrue(p.isSelected());</span>
+<span class="fc" id="L78">	}</span>
+	
+	public void testGetLeftX() {
+<span class="fc" id="L81">		PlacedShape p = new PlacedShape(Color.BLACK);</span>
+<span class="fc" id="L82">		p.addPoint(0, 0);</span>
+<span class="fc" id="L83">		p.addPoint(10, 10);</span>
+<span class="fc" id="L84">		p.addPoint(5, 20);</span>
+<span class="fc" id="L85">		p.addPoint(0, 0);</span>
+<span class="fc" id="L86">		assertEquals(0, p.getLeftX());</span>
+<span class="fc" id="L87">	}</span>
+	
+	public void testGetRightX() {
+<span class="fc" id="L90">		PlacedShape p = new PlacedShape(Color.BLACK);</span>
+<span class="fc" id="L91">		p.addPoint(0, 0);</span>
+<span class="fc" id="L92">		p.addPoint(10, 10);</span>
+<span class="fc" id="L93">		p.addPoint(5, 20);</span>
+<span class="fc" id="L94">		p.addPoint(0, 0);</span>
+<span class="fc" id="L95">		assertEquals(10, p.getRightX());</span>
+<span class="fc" id="L96">	}</span>
+	
+	public void testGetTopY() {
+<span class="fc" id="L99">		PlacedShape p = new PlacedShape(Color.BLACK);</span>
+<span class="fc" id="L100">		p.addPoint(0, 0);</span>
+<span class="fc" id="L101">		p.addPoint(10, 10);</span>
+<span class="fc" id="L102">		p.addPoint(5, 20);</span>
+<span class="fc" id="L103">		p.addPoint(0, 0);</span>
+<span class="fc" id="L104">		assertEquals(0, p.getTopY());</span>
+<span class="fc" id="L105">	}</span>
+	
+	public void testGetBottomY() {
+<span class="fc" id="L108">		PlacedShape p = new PlacedShape(Color.BLACK);</span>
+<span class="fc" id="L109">		p.addPoint(0, 0);</span>
+<span class="fc" id="L110">		p.addPoint(10, 10);</span>
+<span class="fc" id="L111">		p.addPoint(5, 20);</span>
+<span class="fc" id="L112">		p.addPoint(0, 0);</span>
+<span class="fc" id="L113">		assertEquals(20, p.getBottomY());</span>
+<span class="fc" id="L114">	}</span>
+	
+	public void testRotate() {
+<span class="fc" id="L117">		PlacedShape p = new PlacedShape(Color.BLACK);</span>
+<span class="fc" id="L118">		p.addPoint(0, 0);</span>
+<span class="fc" id="L119">		p.addPoint(10, 0);</span>
+<span class="fc" id="L120">		p.addPoint(5, 9);</span>
+<span class="fc" id="L121">		p.addPoint(0, 0);</span>
+<span class="fc" id="L122">		p.rotate(90);</span>
+		
+<span class="fc" id="L124">		Polygon p2 = new Polygon();</span>
+<span class="fc" id="L125">		p2.addPoint(8, -2);</span>
+<span class="fc" id="L126">		p2.addPoint(8, 8);</span>
+<span class="fc" id="L127">		p2.addPoint(-1, 3);</span>
+<span class="fc" id="L128">		p2.addPoint(8, -2);</span>
+<span class="fc" id="L129">		assertEquals(PolygonUtils.toString(p.getChangedPolygon()), PolygonUtils.toString(p2));</span>
+<span class="fc" id="L130">	}</span>
+	
+	public void testVFlip() {
+<span class="fc" id="L133">		PlacedShape p = new PlacedShape(Color.BLACK);</span>
+<span class="fc" id="L134">		p.addPoint(0, 0);</span>
+<span class="fc" id="L135">		p.addPoint(10, 0);</span>
+<span class="fc" id="L136">		p.addPoint(5, 9);</span>
+<span class="fc" id="L137">		p.addPoint(0, 0);</span>
+<span class="fc" id="L138">		p.vFlip();</span>
+		
+<span class="fc" id="L140">		Polygon p2 = new Polygon();</span>
+<span class="fc" id="L141">		p2.addPoint(0, 6);</span>
+<span class="fc" id="L142">		p2.addPoint(10, 6);</span>
+<span class="fc" id="L143">		p2.addPoint(5, -3);</span>
+<span class="fc" id="L144">		p2.addPoint(0, 6);</span>
+<span class="fc" id="L145">		assertEquals(PolygonUtils.toString(p.getChangedPolygon()), PolygonUtils.toString(p2));</span>
+<span class="fc" id="L146">	}</span>
+	
+	public void testHFlip() {
+<span class="fc" id="L149">		PlacedShape p = new PlacedShape(Color.BLACK);</span>
+<span class="fc" id="L150">		p.addPoint(0, 0);</span>
+<span class="fc" id="L151">		p.addPoint(10, 0);</span>
+<span class="fc" id="L152">		p.addPoint(5, 9);</span>
+<span class="fc" id="L153">		p.addPoint(0, 0);</span>
+<span class="fc" id="L154">		p.hFlip();</span>
+		
+<span class="fc" id="L156">		Polygon p2 = new Polygon();</span>
+<span class="fc" id="L157">		p2.addPoint(10, 0);</span>
+<span class="fc" id="L158">		p2.addPoint(0, 0);</span>
+<span class="fc" id="L159">		p2.addPoint(5, 9);</span>
+<span class="fc" id="L160">		p2.addPoint(10, 0);</span>
+<span class="fc" id="L161">		assertEquals(PolygonUtils.toString(p.getChangedPolygon()), PolygonUtils.toString(p2));</span>
+<span class="fc" id="L162">	}</span>
+	
+	public void testResetPos() {
+<span class="fc" id="L165">		PlacedShape p = new PlacedShape(Color.BLACK);</span>
+<span class="fc" id="L166">		p.addPoint(0, 0);</span>
+<span class="fc" id="L167">		p.addPoint(10, 0);</span>
+<span class="fc" id="L168">		p.addPoint(5, 9);</span>
+<span class="fc" id="L169">		p.addPoint(0, 0);</span>
+<span class="fc" id="L170">		p.hFlip();</span>
+<span class="fc" id="L171">		p.resetPos();</span>
+		
+<span class="fc" id="L173">		PlacedShape p2 = new PlacedShape(Color.BLACK);</span>
+<span class="fc" id="L174">		p2.addPoint(0, 0);</span>
+<span class="fc" id="L175">		p2.addPoint(10, 0);</span>
+<span class="fc" id="L176">		p2.addPoint(5, 9);</span>
+<span class="fc" id="L177">		p2.addPoint(0, 0);</span>
+<span class="fc" id="L178">		assertEquals(p.toString(), p2.toString());</span>
+<span class="fc" id="L179">	}</span>
+	
+	public void testSetChangedPolygon() {
+<span class="fc" id="L182">		PlacedShape ps = new PlacedShape(Color.BLACK);</span>
+<span class="fc" id="L183">		Polygon p = this.createPolygon(0, 0);</span>
+<span class="fc" id="L184">		ps.setChangedPolygon(p);</span>
+<span class="fc" id="L185">		assertEquals(p, ps.changedPolygon);</span>
+<span class="fc" id="L186">	}</span>
+	
+	public void testSetPosition() {
+<span class="fc" id="L189">		PlacedShape p = new PlacedShape(Color.BLACK);</span>
+<span class="fc" id="L190">		p.addPoint(0, 0);</span>
+<span class="fc" id="L191">		p.addPoint(10, 0);</span>
+<span class="fc" id="L192">		p.addPoint(5, 9);</span>
+<span class="fc" id="L193">		p.addPoint(0, 0);</span>
+<span class="fc" id="L194">		p.setPosition(1, 1);</span>
+		
+<span class="fc" id="L196">		Polygon p2 = new Polygon();</span>
+<span class="fc" id="L197">		p2.addPoint(1, 1);</span>
+<span class="fc" id="L198">		p2.addPoint(11, 1);</span>
+<span class="fc" id="L199">		p2.addPoint(6, 10);</span>
+<span class="fc" id="L200">		p2.addPoint(1, 1);</span>
+<span class="fc" id="L201">		assertEquals(PolygonUtils.toString(p.getChangedPolygon()), PolygonUtils.toString(p2));</span>
+<span class="fc" id="L202">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>PuzzlePlane (Nov 15, 2017 10:58:00 AM)</div></body></html>

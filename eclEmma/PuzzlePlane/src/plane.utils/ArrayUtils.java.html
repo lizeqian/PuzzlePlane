@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ArrayUtils.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">PuzzlePlane (Nov 15, 2017 10:58:00 AM)</a> &gt; <a href="../../index.html" class="el_group">PuzzlePlane</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">plane.utils</a> &gt; <span class="el_source">ArrayUtils.java</span></div><h1>ArrayUtils.java</h1><pre class="source lang-java linenums">package plane.utils;
+
+<span class="nc" id="L3">public class ArrayUtils {</span>
+	
+	public static int min(int[] arr, int len) {
+<span class="fc bfc" id="L6" title="All 2 branches covered.">		if(len == 0) return 0;</span>
+<span class="fc" id="L7">		int ret = arr[0];</span>
+<span class="fc bfc" id="L8" title="All 2 branches covered.">		for(int i = 1; i &lt; len; i++) {</span>
+<span class="fc bfc" id="L9" title="All 2 branches covered.">			if(arr[i] &lt; ret) ret = arr[i];</span>
+		}
+<span class="fc" id="L11">		return ret;</span>
+	}
+	
+	public static int max(int[] arr, int len) {
+<span class="fc bfc" id="L15" title="All 2 branches covered.">		if(len == 0) return 0;</span>
+<span class="fc" id="L16">		int ret = arr[0];</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">		for(int i = 1; i &lt; len; i++) {</span>
+<span class="fc bfc" id="L18" title="All 2 branches covered.">			if(arr[i] &gt; ret) ret = arr[i];</span>
+		}
+<span class="fc" id="L20">		return ret;</span>
+	}
+	
+	public static int avg(int[] arr, int len) {
+<span class="fc bfc" id="L24" title="All 2 branches covered.">		if(len == 0) return 0;</span>
+<span class="fc" id="L25">		int ret = 0;</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">		for(int i = 0; i &lt; len; i++) {</span>
+<span class="fc" id="L27">			ret += arr[i];</span>
+		}
+<span class="fc" id="L29">		ret /= len;</span>
+<span class="fc" id="L30">		return ret;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>PuzzlePlane (Nov 15, 2017 10:58:00 AM)</div></body></html>

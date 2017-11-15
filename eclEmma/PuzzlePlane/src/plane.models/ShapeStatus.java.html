@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>ShapeStatus.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">PuzzlePlane (Nov 15, 2017 10:58:00 AM)</a> &gt; <a href="../../index.html" class="el_group">PuzzlePlane</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">plane.models</a> &gt; <span class="el_source">ShapeStatus.java</span></div><h1>ShapeStatus.java</h1><pre class="source lang-java linenums">package plane.models;
+
+import java.awt.Color;
+import java.awt.Point;
+
+import plane.utils.ColorUtils;
+
+public class ShapeStatus {
+
+	int angle;
+	boolean onPalette;
+	boolean selected;
+	Color color;
+	boolean verticalFlipped;
+	boolean horizontalFlipped;
+	Point position;
+	
+	public String toString() {
+<span class="fc" id="L19">		String ret = &quot;&quot;;</span>
+<span class="fc" id="L20">		ret += &quot;angle: &quot; + angle + &quot;\n&quot;;</span>
+<span class="fc" id="L21">		ret += &quot;onPalette: &quot; + onPalette + &quot;\n&quot;;</span>
+<span class="fc" id="L22">		ret += &quot;selected: &quot; + selected + &quot;\n&quot;;</span>
+<span class="fc" id="L23">		ret += &quot;red: &quot; + color.getRed() + &quot;\ngreen: &quot; + color.getGreen() + &quot;\nblue: &quot; + color.getBlue() + &quot;\n&quot;;</span>
+<span class="fc" id="L24">		ret += &quot;verticalFlipped: &quot; + verticalFlipped + &quot;\n&quot;;</span>
+<span class="fc" id="L25">		ret += &quot;horizontalFlipped: &quot; + horizontalFlipped + &quot;\n&quot;;</span>
+<span class="fc" id="L26">		ret += &quot;x: &quot; + (int)position.getX() + &quot;\ny: &quot; + (int)position.getY() + &quot;\n&quot;;</span>
+<span class="fc" id="L27">		return ret;</span>
+	}
+	
+	public void reset() {
+<span class="fc" id="L31">		this.position = new Point(0, 0);</span>
+<span class="fc" id="L32">		this.verticalFlipped = false;</span>
+<span class="fc" id="L33">		this.horizontalFlipped = false;</span>
+<span class="fc" id="L34">		this.angle = 0;</span>
+<span class="fc" id="L35">		this.onPalette = true;</span>
+<span class="fc" id="L36">		this.selected = false;</span>
+<span class="fc" id="L37">	}</span>
+	
+	public void init(Color color) {
+<span class="fc" id="L40">		this.reset();</span>
+<span class="fc" id="L41">		this.color = ColorUtils.copy(color);</span>
+<span class="fc" id="L42">	}</span>
+	
+<span class="fc" id="L44">	public ShapeStatus(Color color) {</span>
+		// TODO Auto-generated constructor stub
+<span class="fc" id="L46">		this.init(color);</span>
+<span class="fc" id="L47">	}</span>
+	
+<span class="fc" id="L49">	public ShapeStatus(ShapeStatus status) {</span>
+<span class="fc" id="L50">		this.angle = status.getAngle();</span>
+<span class="fc" id="L51">		this.onPalette = status.isOnPalette();</span>
+<span class="fc" id="L52">		this.selected = status.isSelected();</span>
+<span class="fc" id="L53">		this.color = ColorUtils.copy(status.getColor());</span>
+<span class="fc" id="L54">		this.verticalFlipped = status.isVerticalFlipped();</span>
+<span class="fc" id="L55">		this.horizontalFlipped = status.isHorizontalFlipped();</span>
+<span class="fc" id="L56">		this.position = new Point(status.getPosition());</span>
+<span class="fc" id="L57">	}</span>
+	
+	public ShapeStatus copy() {
+<span class="fc" id="L60">		return new ShapeStatus(this);</span>
+	}
+	
+	public int getAngle() {
+<span class="fc" id="L64">		return angle;</span>
+	}
+
+	public void rotate(int angle) {
+<span class="fc" id="L68">		this.angle += angle;</span>
+<span class="fc" id="L69">	}</span>
+
+	public boolean isOnPalette() {
+<span class="fc" id="L72">		return onPalette;</span>
+	}
+
+	public void setOnPalette(boolean onPalette) {
+<span class="fc" id="L76">		this.onPalette = onPalette;</span>
+<span class="fc" id="L77">	}</span>
+
+	public boolean isSelected() {
+<span class="fc" id="L80">		return selected;</span>
+	}
+
+	public void select(){
+<span class="fc bfc" id="L84" title="All 2 branches covered.">		this.selected = !this.selected;</span>
+<span class="fc" id="L85">	}</span>
+
+	public Color getColor() {
+<span class="fc" id="L88">		return color;</span>
+	}
+
+	public boolean isVerticalFlipped() {
+<span class="fc" id="L92">		return verticalFlipped;</span>
+	}
+
+	public void vFlip() {
+<span class="fc bfc" id="L96" title="All 2 branches covered.">		this.verticalFlipped = !this.verticalFlipped;</span>
+<span class="fc" id="L97">	}</span>
+
+	public boolean isHorizontalFlipped() {
+<span class="fc" id="L100">		return horizontalFlipped;</span>
+	}
+
+	public void hFlip() {
+<span class="fc bfc" id="L104" title="All 2 branches covered.">		this.horizontalFlipped = !this.horizontalFlipped;</span>
+<span class="fc" id="L105">	}</span>
+	
+	public Point getPosition() {
+<span class="fc" id="L108">		return position;</span>
+	}
+
+	public void setPosition(int x, int y) {
+<span class="fc" id="L112">		this.position.setLocation(x, y);</span>
+<span class="fc" id="L113">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span>PuzzlePlane (Nov 15, 2017 10:58:00 AM)</div></body></html>
