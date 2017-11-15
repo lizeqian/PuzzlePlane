@@ -9,6 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
  
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Application.
+ */
 //This JFrame is the main Frame of application. Use JPanels as content, and switch JPanels for each different view
 public class Application extends JFrame {
 	/**
@@ -16,18 +20,35 @@ public class Application extends JFrame {
 	 */
 	private static final long serialVersionUID = 4590308406322961931L;
 	
+	/** The board. */
 	Board board;
 
+	/** The pane. */
 	public JPanel pane;
+	
+	/** The card. */
 	public CardLayout card;
+    
+    /** The p 5. */
     public JPanel p_1, p_2, p_3, p_4, p_5;
 
+	/** The width. */
 	public int height = 700, width = 1000;
 	
+	/**
+	 * Gets the pane.
+	 *
+	 * @return the pane
+	 */
 	public JPanel getPane() {
 		return pane;
 	}
 	
+	/**
+	 * Instantiates a new application.
+	 *
+	 * @param b the b
+	 */
 	public Application(Board b) {
 		super ("Puzzle Plane");
 		
@@ -56,6 +77,11 @@ public class Application extends JFrame {
 		this.setVisible(true);
 	}
 	
+	/**
+	 * Jump page.
+	 *
+	 * @param page the page
+	 */
 	public void jumpPage(String page) {
 		card.show(pane, page);
 	}

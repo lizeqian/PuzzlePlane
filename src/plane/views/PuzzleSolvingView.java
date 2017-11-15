@@ -21,6 +21,10 @@ import plane.controllers.windowJump.ExitPuzzleSolvingController;
 import plane.controllers.windowJump.ViewShapesetController;
 import plane.models.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PuzzleSolvingView.
+ */
 public class PuzzleSolvingView extends JPanel {
 
 	/**
@@ -28,17 +32,40 @@ public class PuzzleSolvingView extends JPanel {
 	 */
 	private static final long serialVersionUID = 5102883105475450390L;
 	
+	/** The board. */
 	Board board;
+	
+	/** The palette h. */
 	int palette_h;
+	
+	/** The palette w. */
 	int palette_w;
+	
+	/** The solution w. */
 	int solution_w;
+	
+	/** The solution h. */
 	int solution_h;
+	
+	/** The button area height. */
 	int buttonAreaHeight;
+	
+	/** The active listener. */
 	// Current mouse listener
 	MouseListener        activeListener;
+	
+	/** The active motion listener. */
 	MouseMotionListener  activeMotionListener;
 	
 	
+	/**
+	 * Instantiates a new puzzle solving view.
+	 *
+	 * @param b the b
+	 * @param p the p
+	 * @param w the w
+	 * @param h the h
+	 */
 	public PuzzleSolvingView(Board b, Application p, int w, int h) {
 		setLayout(null);		
 		
@@ -108,6 +135,9 @@ public class PuzzleSolvingView extends JPanel {
 		this.add(buttonViewShapeset);
 	}
 	
+	/* (non-Javadoc)
+	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+	 */
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
