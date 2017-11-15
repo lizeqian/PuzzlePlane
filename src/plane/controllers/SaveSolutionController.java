@@ -12,7 +12,9 @@ import plane.models.Board;
 import plane.models.BoardMemento;
 import plane.models.PlacedShape;
 import plane.views.Application;
-
+/**
+ * The Class SaveSolutionController.
+ */
 public class SaveSolutionController {
 	public Application plane;
 	public BoardMemento memento;

@@ -1,7 +1,14 @@
 package plane.config;
+/**
+ * the config of files path
+ */
 
 public class FilePathConfig {
 	
+
+	/**
+	 * Create the path
+	 */
 	public static String getSolvedPuzzleIconPath(String shapesetName, String puzzleName) {
 		return shapesetName + "/" + puzzleName + "/solvedPuzzleIcon.jpg";
 	}

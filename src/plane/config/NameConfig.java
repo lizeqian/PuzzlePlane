@@ -2,7 +2,15 @@ package plane.config;
 
 import java.util.*;
 
+/**
+ * The class NameConfig
+ */
+
 public class NameConfig {
+
+	/**
+	 * Create the the name of config
+	 */
 	
 	public final static List<String> shapesetNames;
 	static {

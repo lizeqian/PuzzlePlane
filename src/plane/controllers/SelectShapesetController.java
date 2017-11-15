@@ -10,12 +10,18 @@ import plane.models.Shapeset;
 import plane.views.Application;
 import plane.views.SecondPPGui;
 import plane.views.ViewShapesetPPGui;
+/**
+ * The class SelectShapesetController
+ * Respond to selection events in the Puzzle Plane, which has been configured to only 
+ * allow individual rows to be selected.
+ */
 
 public class SelectShapesetController implements ActionListener{
+	/** Needs board to be able to select elements. */
 	public Board board;
-
+	/** Needs panel so it can redraw the board. */
 	public Application plane;
-	
+	/** Needs shapesetName*/
 	public String shapesetName;
 	
 	public Board getBoard() {
@@ -33,6 +39,7 @@ public class SelectShapesetController implements ActionListener{
 	public void setShapesetName(String shapesetName) {
 		this.shapesetName = shapesetName;
 	}
+	/** Controller constructed with board (entity) and panel (boundary) and shapesetName. */
 	
 	public SelectShapesetController(Application p, Board board, String shapesetName) {
 		// TODO Auto-generated constructor stub
@@ -42,6 +49,12 @@ public class SelectShapesetController implements ActionListener{
 	}
 
 	@Override
+	/**
+	 * Selection event occurred; if activate is true, then selection starting, otherwise selection ending
+	 * 
+	 * ActionEvent which element from the model was selected
+	 * activate whether selecting or un-selecting
+	 */
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		this.board.setShapeset(new Shapeset(this.shapesetName));
