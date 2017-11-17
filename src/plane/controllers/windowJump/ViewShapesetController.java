@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import plane.views.Application;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ViewShapesetController.
  * The current shapeset will be displayed

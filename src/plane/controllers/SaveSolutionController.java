@@ -12,7 +12,7 @@ import plane.models.Board;
 import plane.models.BoardMemento;
 import plane.models.PlacedShape;
 import plane.views.Application;
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class SaveSolutionController.
  */
@@ -49,7 +49,6 @@ public class SaveSolutionController {
 	 * @param memento the memento
 	 */
 	public SaveSolutionController(Application plane, BoardMemento memento) {
-		// TODO Auto-generated constructor stub
 		this.plane =  plane;
 		this.memento = memento;
 	}

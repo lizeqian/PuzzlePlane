@@ -4,7 +4,7 @@ import plane.models.*;
 import plane.views.*;
 
 import java.awt.event.*;
-// TODO: Auto-generated Javadoc
+
 /**
  * The abstract Class AbstracAction.
  */

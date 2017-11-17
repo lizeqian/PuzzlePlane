@@ -10,7 +10,6 @@ import plane.models.Shapeset;
 import plane.views.Application;
 import plane.views.SecondPPGui;
 import plane.views.ViewShapesetPPGui;
-// TODO: Auto-generated Javadoc
 /**
  * The class SelectShapesetController
  * Respond to selection events in the Puzzle Plane, which has been configured to only 
@@ -68,7 +67,6 @@ public class SelectShapesetController implements ActionListener{
 	 * @param shapesetName the shapeset name
 	 */
 	public SelectShapesetController(Application p, Board board, String shapesetName) {
-		// TODO Auto-generated constructor stub
 		this.plane = p;
 		this.board = board;
 		this.shapesetName = shapesetName;
@@ -85,7 +83,6 @@ public class SelectShapesetController implements ActionListener{
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		this.board.setShapeset(new Shapeset(this.shapesetName));
 		((SecondPPGui)(this.plane.p_2)).reset();
 		((ViewShapesetPPGui)(this.plane.p_5)).reset();

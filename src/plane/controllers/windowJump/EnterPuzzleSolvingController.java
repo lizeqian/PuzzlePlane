@@ -5,7 +5,6 @@ import plane.views.*;
 
 import java.awt.event.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class EnterPuzzleSolvingController.
  * Display the puzzle solving view

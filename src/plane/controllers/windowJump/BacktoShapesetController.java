@@ -4,7 +4,6 @@ import java.awt.event.*;
 
 import plane.views.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class BacktoShapesetController.
  * When calling this controller, the page will jump to the shapeset selection view.
