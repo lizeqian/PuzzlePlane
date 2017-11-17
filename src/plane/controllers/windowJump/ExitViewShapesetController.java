@@ -11,6 +11,8 @@ import plane.views.Application;
 // TODO: Auto-generated Javadoc
 /**
  * The Class ExitViewShapesetController.
+ * The current shapeset display will be closed 
+ * and the application will only show the puzzle solving view
  */
 public class ExitViewShapesetController implements ActionListener{
 	
@@ -19,7 +21,7 @@ public class ExitViewShapesetController implements ActionListener{
 	
 	/**
 	 * Instantiates a new exit view shapeset controller.
-	 *
+	 * 
 	 * @param plane the plane
 	 */
 	public ExitViewShapesetController(Application plane) {
