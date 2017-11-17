@@ -7,11 +7,21 @@ import java.util.List;
 
 import junit.framework.TestCase;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TestPolygonUtils.
+ */
 public class TestPolygonUtils extends TestCase {
 	
+	/** The polygon. */
 	Polygon polygon;
+	
+	/** The empty polygon. */
 	Polygon emptyPolygon;
 	
+	/* (non-Javadoc)
+	 * @see junit.framework.TestCase#setUp()
+	 */
 	protected void setUp() throws Exception {
 		super.setUp();
 		
@@ -23,6 +33,9 @@ public class TestPolygonUtils extends TestCase {
 		polygon.addPoint(0, 0);
 	}
 	
+	/**
+	 * Test to string.
+	 */
 	public void testToString() {
 		assertEquals(PolygonUtils.toString(emptyPolygon), "npoints: 0\n");
 		assertEquals(PolygonUtils.toString(polygon), "npoints: 4\n"
@@ -32,17 +45,26 @@ public class TestPolygonUtils extends TestCase {
 										+ "x: 0, y: 0\n");
 	}
 	
+	/**
+	 * Test copy.
+	 */
 	public void testCopy() {
 		assertEquals(PolygonUtils.copy(null), null);
 		assertEquals(PolygonUtils.toString(PolygonUtils.copy(emptyPolygon)), PolygonUtils.toString(emptyPolygon));
 		assertEquals(PolygonUtils.toString(PolygonUtils.copy(polygon)), PolygonUtils.toString(polygon));
 	}
 	
+	/**
+	 * Test get center.
+	 */
 	public void testGetCenter() {
 		assertEquals(PointUtils.toString(PolygonUtils.getCenter(emptyPolygon)), PointUtils.toString(new Point(0, 0)));
 		assertEquals(PointUtils.toString(PolygonUtils.getCenter(polygon)), PointUtils.toString(new Point(3, 6)));
 	}
 	
+	/**
+	 * Test rotate.
+	 */
 	public void testRotate() {
 		Polygon rotatePolygon = PolygonUtils.copy(polygon);
 		PolygonUtils.rotate(rotatePolygon, 90);
@@ -59,6 +81,9 @@ public class TestPolygonUtils extends TestCase {
 		}
 	}
 	
+	/**
+	 * Test H flip.
+	 */
 	public void testHFlip() {
 		Polygon h = PolygonUtils.copy(polygon);
 		PolygonUtils.hFlip(h);
@@ -71,6 +96,9 @@ public class TestPolygonUtils extends TestCase {
 		assertEquals(PolygonUtils.toString(h), PolygonUtils.toString(correct));
 	}
 	
+	/**
+	 * Test V flip.
+	 */
 	public void testVFlip() {
 		Polygon v = PolygonUtils.copy(polygon);
 		PolygonUtils.vFlip(v);
@@ -83,6 +111,9 @@ public class TestPolygonUtils extends TestCase {
 		assertEquals(PolygonUtils.toString(v), PolygonUtils.toString(correct));
 	}
 	
+	/**
+	 * Test contains.
+	 */
 	public void testContains() {
 		assertTrue(PolygonUtils.contains(polygon, new Point(1, 4)));
 		assertFalse(PolygonUtils.contains(polygon, new Point(2, 30)));
@@ -101,6 +132,9 @@ public class TestPolygonUtils extends TestCase {
 		assertTrue(PolygonUtils.contains(list, polygon));
 	}
 	
+	/**
+	 * Test equals.
+	 */
 	public void testEquals() {
 		assertFalse(PolygonUtils.equals(polygon, emptyPolygon));
 		assertTrue(PolygonUtils.equals(polygon, PolygonUtils.copy(polygon)));

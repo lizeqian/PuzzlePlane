@@ -7,9 +7,18 @@ import plane.models.PlacedShape;
 import plane.utils.PolygonUtils;
 import java.util.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TestExitPuzzleSolvingController.
+ */
 public class TestExitPuzzleSolvingController extends ControllerCase {
 
+	/** The controller. */
 	ExitPuzzleSolvingController controller;
+	
+	/* (non-Javadoc)
+	 * @see plane.controllers.ControllerCase#setUp()
+	 */
 	protected void setUp() throws Exception {
 		super.setUp();
 		Polygon polygon = new Polygon();
@@ -30,11 +39,17 @@ public class TestExitPuzzleSolvingController extends ControllerCase {
 		controller = new ExitPuzzleSolvingController(board, app);
 	}
 	
+	/**
+	 * Test constructor.
+	 */
 	public void testConstructor() {
 		assertEquals(board, controller.getBoard());
 		assertEquals(app, controller.getPuzzlePlaneGui());
 	}
 	
+	/**
+	 * Test action performed.
+	 */
 	public void testActionPerformed() {
 		controller.actionPerformed(null);
 		PlacedShape shape = controller.getBoard().getShapes().get(0);

@@ -9,12 +9,24 @@ import plane.models.PlacedShape;
 import plane.models.Puzzle;
 import plane.utils.PolygonUtils;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TestSolutionCheckController.
+ */
 public class TestSolutionCheckController extends ControllerCase {
 	
+	/** The controller. */
 	SolutionCheckController controller;
+	
+	/** The shapes. */
 	List<PlacedShape> shapes;
+	
+	/** The puzzle shapes. */
 	List<Polygon> puzzleShapes;
 	
+	/* (non-Javadoc)
+	 * @see plane.controllers.ControllerCase#setUp()
+	 */
 	protected void setUp() throws Exception {
 		super.setUp();
 		Polygon polygon = new Polygon();
@@ -45,11 +57,17 @@ public class TestSolutionCheckController extends ControllerCase {
 		controller = new SolutionCheckController(board, app);
 	}
 	
+	/**
+	 * Test constructor.
+	 */
 	public void testConstructor() {
 		assertEquals(controller.getBoard(), board);
 		assertEquals(controller.getPuzzlePlaneGui(), app);
 	}
 	
+	/**
+	 * Test check.
+	 */
 	public void testCheck() {
 		assertTrue(controller.check());
 		board.getPuzzle().getPuzzleShape().remove(0);

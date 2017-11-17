@@ -9,15 +9,33 @@ import plane.models.PlacedShape;
 import plane.models.Puzzle;
 import plane.utils.PolygonUtils;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TestActions.
+ */
 public class TestActions extends ControllerCase {
 	
+	/** The h flip. */
 	AbstractAction hFlip;
+	
+	/** The v flip. */
 	AbstractAction vFlip;
+	
+	/** The left. */
 	AbstractAction left;
+	
+	/** The right. */
 	AbstractAction right;
+	
+	/** The check. */
 	SolutionCheckController check;
+	
+	/** The select. */
 	PlacedShape select;
 	
+	/* (non-Javadoc)
+	 * @see plane.controllers.ControllerCase#setUp()
+	 */
 	protected void setUp() throws Exception {
 		super.setUp();
 		
@@ -41,6 +59,9 @@ public class TestActions extends ControllerCase {
 		right = new ShapeRightRotateController(board, plane, check);
 	}
 	
+	/**
+	 * Test action performed.
+	 */
 	public void testActionPerformed() {
 		board.setSelectedShape(select.copy());
 		hFlip.actionPerformed(null);

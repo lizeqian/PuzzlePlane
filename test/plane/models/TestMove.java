@@ -8,11 +8,24 @@ import javax.management.RuntimeErrorException;
 import junit.framework.TestCase;
 import plane.utils.PolygonUtils;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TestMove.
+ */
 public class TestMove extends TestCase {
+	
+	/** The before. */
 	public PlacedShape before;
+	
+	/** The after. */
 	public PlacedShape after;
+	
+	/** The select. */
 	public PlacedShape select;
 	
+	/* (non-Javadoc)
+	 * @see junit.framework.TestCase#setUp()
+	 */
 	public void setUp() {
 		this.before = new PlacedShape(Color.RED);
 		this.before.setPosition(10, 20);
@@ -27,6 +40,9 @@ public class TestMove extends TestCase {
 		this.select = null;
 	}
 	
+	/**
+	 * Test constructor.
+	 */
 	public void testConstructor() {
 		this.select = this.after.copy();
 		Move move = new Move(this.select, this.before);
@@ -38,6 +54,9 @@ public class TestMove extends TestCase {
 										+ this.after.toString());
 	}
 	
+	/**
+	 * Test undo.
+	 */
 	public void testUndo() {
 		this.select = this.after.copy();
 		Move move = new Move(this.select, this.before);
@@ -45,6 +64,9 @@ public class TestMove extends TestCase {
 		assertEquals(this.select.toString(), this.before.toString());
 	}
 	
+	/**
+	 * Test redo.
+	 */
 	public void testRedo() {
 		this.select = this.after.copy();
 		Move move = new Move(this.select, this.before);
