@@ -18,16 +18,16 @@ import plane.models.ShapeStatus;
 
 public class TestPuzzleSolvingView extends TestCase {
 	
-	/** The psv. */
+	/** The puzzle solving view. */
 	PuzzleSolvingView psv;
 	
-	/** The ap. */
+	/** The application. */
 	Application ap;
 	
 	/** The board. */
 	Board board;
 	/** Create the polygon.
-	 * add the point of the polygon
+	 * add point of the polygon
      */
 	
 	public Polygon createPolygon(int x, int y) {
@@ -75,7 +75,7 @@ public class TestPuzzleSolvingView extends TestCase {
 	}
 	
 	/**
-	 * Test app.
+	 * Test application.
 	 */
 	public void testApp() {
 		System.out.println("Sample Puzzle Solving View");

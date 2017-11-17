@@ -4,8 +4,18 @@ import java.awt.Point;
 import java.awt.Polygon;
 import java.util.List;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class PolygonUtils.
+ */
 public class PolygonUtils {
 	
+	/**
+	 * To string.
+	 *
+	 * @param polygon the polygon
+	 * @return the string
+	 */
 	public static String toString(Polygon polygon) {
 		String ret = "";
 		ret += "npoints: " + polygon.npoints + "\n";
@@ -15,11 +25,23 @@ public class PolygonUtils {
 		return ret;
 	}
 	
+	/**
+	 * Copy.
+	 *
+	 * @param polygon the polygon
+	 * @return the polygon
+	 */
 	public static Polygon copy(Polygon polygon) {
 		if(polygon == null) return null;
 		return new Polygon(polygon.xpoints, polygon.ypoints, polygon.npoints);
 	}
 	
+	/**
+	 * Gets the center.
+	 *
+	 * @param polygon the polygon
+	 * @return the center
+	 */
 	public static Point getCenter(Polygon polygon) {
 		if(polygon.npoints == 0) return new Point(0, 0);
 		int x = 0, y = 0;
@@ -32,6 +54,12 @@ public class PolygonUtils {
 		return new Point(x, y);
 	}
 	
+	/**
+	 * Rotate.
+	 *
+	 * @param polygon the polygon
+	 * @param angle the angle
+	 */
 	public static void rotate(Polygon polygon, int angle) {
 		Point center = PolygonUtils.getCenter(polygon);
 		double ang = (angle * 1.0 / 180.0) * Math.PI;
@@ -47,6 +75,11 @@ public class PolygonUtils {
 		}
 	}
 	
+	/**
+	 * V flip.
+	 *
+	 * @param polygon the polygon
+	 */
 	public static void vFlip(Polygon polygon) {
 		Point center = PolygonUtils.getCenter(polygon);
 		for(int i = 0; i < polygon.npoints; i++) {
@@ -54,6 +87,11 @@ public class PolygonUtils {
 		}
 	}
 	
+	/**
+	 * H flip.
+	 *
+	 * @param polygon the polygon
+	 */
 	public static void hFlip(Polygon polygon) {
 		Point center = PolygonUtils.getCenter(polygon);
 		for(int i = 0; i < polygon.npoints; i++) {
@@ -61,6 +99,13 @@ public class PolygonUtils {
 		}
 	}
 	
+	/**
+	 * Contains.
+	 *
+	 * @param shape the shape
+	 * @param point the point
+	 * @return true, if successful
+	 */
 	public static boolean contains(Polygon shape, Point point){
 		int numPoints = shape.npoints;
 		boolean isCo = false;
@@ -74,6 +119,13 @@ public class PolygonUtils {
 		return isCo;
 	}
 	
+	/**
+	 * Contains.
+	 *
+	 * @param shapes the shapes
+	 * @param shape the shape
+	 * @return true, if successful
+	 */
 	public static boolean contains(List<Polygon> shapes, Polygon shape) {
 		boolean isIn = false;
 		Polygon hitShape = new Polygon();
@@ -89,6 +141,13 @@ public class PolygonUtils {
 		
 	}
 	
+	/**
+	 * Equals.
+	 *
+	 * @param shapeA the shape A
+	 * @param shapeB the shape B
+	 * @return true, if successful
+	 */
 	public static boolean equals(Polygon shapeA, Polygon shapeB) {
 		boolean isCo = true;
 		int numPointA = shapeA.npoints;
