@@ -4,6 +4,10 @@ import java.util.*;
 
 /**
  * The class NameConfig
+ * Define names of shapesets and corresponding puzzles.
+ * shapeset names include: ["traditional", "nontraditional"]
+ * puzzle names for "traditional" shapeset: ["fox", "bird", "rabbit", "cristal", "fish", "duck", "dontknow", "turtle","house", "dog"]
+ * puzzle names for "nontraditonal" shapeset: ["house", "snake", "windmill", "human", "tree", "diamond", "fish1", "horse","table", "fish2"]
  */
 
 public class NameConfig {
@@ -31,7 +35,7 @@ public class NameConfig {
 	 * Gets the puzzles.
 	 *
 	 * @param shapesetName the shapeset name
-	 * @return the puzzles
+	 * @return A list of puzzle names for the shapeset
 	 */
 	public static List<String> getPuzzles(String shapesetName) {
 		return puzzleNames.get(shapesetName);
