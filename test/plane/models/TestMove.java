@@ -11,6 +11,7 @@ import plane.utils.PolygonUtils;
 // TODO: Auto-generated Javadoc
 /**
  * The Class TestMove.
+ * Test shape moves
  */
 public class TestMove extends TestCase {
 	
