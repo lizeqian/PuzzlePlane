@@ -5,9 +5,11 @@ import java.awt.Color;
 import plane.models.Move;
 import plane.models.PlacedShape;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class TestRedoController.
+ *  Redo the last undo move, as requested by user
+ *  Test case
  */
 public class TestRedoController extends ControllerCase {
 	

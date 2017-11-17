@@ -9,9 +9,10 @@ import plane.models.PlacedShape;
 import plane.models.Puzzle;
 import plane.utils.PolygonUtils;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class TestActions.
+ * ControllerCase
  */
 public class TestActions extends ControllerCase {
 	

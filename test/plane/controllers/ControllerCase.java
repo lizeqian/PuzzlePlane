@@ -5,9 +5,10 @@ import plane.models.Board;
 import plane.views.Application;
 import plane.views.PuzzleSolvingView;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ControllerCase.
+ * Test case
  */
 public class ControllerCase extends TestCase {
 	

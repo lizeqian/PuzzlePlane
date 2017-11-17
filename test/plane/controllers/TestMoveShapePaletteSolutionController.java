@@ -12,9 +12,10 @@ import plane.models.ShapeStatus;
 import plane.views.Application;
 import plane.views.PuzzleSolvingView;
 
-// TODO: Auto-generated Javadoc
+//
 /**
  * The Class TestMoveShapePaletteSolutionController.
+ * TestCase
  */
 public class TestMoveShapePaletteSolutionController extends generic.MouseEventTestCase {
 	

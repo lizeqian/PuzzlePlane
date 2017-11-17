@@ -10,9 +10,11 @@ import plane.models.PlacedShape;
 import plane.models.Puzzle;
 import plane.models.Shapeset;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class TestSaveSolutionController.
+ * ControllerCase
+ * @author Li Zhang
  */
 public class TestSaveSolutionController extends ControllerCase{
 	

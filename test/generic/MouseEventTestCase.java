@@ -4,9 +4,9 @@ import java.awt.event.MouseEvent;
 
 import junit.framework.TestCase;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class MouseEventTestCase.
+ * Test case
  */
 public class MouseEventTestCase extends TestCase {
 	
@@ -19,7 +19,7 @@ public class MouseEventTestCase extends TestCase {
 	}
 	
 	/**
-	 * Creates the pressed.
+	 * Creates the MouseEventPressed.
 	 *
 	 * @param view the view
 	 * @param x the x
@@ -33,7 +33,7 @@ public class MouseEventTestCase extends TestCase {
 	}
 	
 	/**
-	 * Creates the dragged.
+	 * Creates the event dragged.
 	 *
 	 * @param view the view
 	 * @param x the x
@@ -47,7 +47,7 @@ public class MouseEventTestCase extends TestCase {
 	}
 	
 	/**
-	 * Creates the right click.
+	 * Creates the  event right click.
 	 *
 	 * @param view the view
 	 * @param x the x
@@ -62,7 +62,7 @@ public class MouseEventTestCase extends TestCase {
 	
 	
 	/**
-	 * Creates the released.
+	 * Creates the mouse event released.
 	 *
 	 * @param view the view
 	 * @param x the x
@@ -77,7 +77,7 @@ public class MouseEventTestCase extends TestCase {
 	
 	
 	/**
-	 * Creates the clicked.
+	 * Creates the mouse event clicked.
 	 *
 	 * @param view the view
 	 * @param x the x
@@ -92,7 +92,7 @@ public class MouseEventTestCase extends TestCase {
 	
 	
 	/**
-	 * Creates the double clicked.
+	 * Creates the mouse event double clicked.
 	 *
 	 * @param view the view
 	 * @param x the x

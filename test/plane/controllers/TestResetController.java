@@ -13,9 +13,11 @@ import plane.models.PlacedShape;
 import plane.models.Puzzle;
 import plane.models.Shapeset;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class TestResetController.
+ * rest the puzzle, as requested by user
+ *  Test case
  */
 public class TestResetController extends ControllerCase {
 	
