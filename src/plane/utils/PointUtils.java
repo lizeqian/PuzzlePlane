@@ -9,7 +9,7 @@ import java.awt.Point;
  */
 public class PointUtils {
 	/** The THRESHOLD for equality method */
-	public final static int THRESHOLD = 5;
+	public final static int THRESHOLD = 10;
 	
 	/**
 	 * Returns true if two Points are equal within the THRESHOLD range.
