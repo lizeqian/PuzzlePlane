@@ -30,6 +30,8 @@ public class FirstPPGui extends JPanel {
 	
 	/**
 	 * Create the panel view.
+	 * @param b the board.
+	 * @param p the application.
 	 */
 	public FirstPPGui(Board b, Application p) {
 		setLayout(null);

@@ -57,7 +57,10 @@ public class SecondPPGui extends JPanel {
 	/** The buttons. */
 	List<JButton> buttons;
 	
-	/** Create the panel. */
+	/** Create the panel.
+	 * @param b the board.
+	 * @param p the application.
+	 */
 	public SecondPPGui(Board b, Application p) {
 		setLayout(null);
 		this.board = b;
