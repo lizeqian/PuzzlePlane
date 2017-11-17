@@ -6,7 +6,15 @@ import java.util.ArrayList;
 
 import junit.framework.TestCase;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TestPuzzle.
+ */
 public class TestPuzzle extends TestCase {
+	
+	/**
+	 * Test constructor.
+	 */
 	public void testConstructor() {
 		ArrayList<PlacedShape> shapesBefore = new ArrayList<PlacedShape>();
 		Polygon polygon0 = new Polygon();
@@ -22,6 +30,9 @@ public class TestPuzzle extends TestCase {
 		
 	}
 	
+	/**
+	 * Test get last solution.
+	 */
 	public void testGetLastSolution() {
 		Puzzle p = new Puzzle("test");
 		ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
@@ -36,6 +47,9 @@ public class TestPuzzle extends TestCase {
 		
 	}
 	
+	/**
+	 * Test set shape.
+	 */
 	public void testSetShape() {
 		ArrayList<PlacedShape> shapesBefore = new ArrayList<PlacedShape>();
 		ArrayList<PlacedShape> shapesAfter = new ArrayList<PlacedShape>();

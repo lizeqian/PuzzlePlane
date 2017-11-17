@@ -7,8 +7,19 @@ import java.util.ArrayList;
 import junit.framework.TestCase;
 import plane.utils.PolygonUtils;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TestBoard.
+ */
 public class TestBoard extends TestCase {
 	
+	/**
+	 * Creates the polygon.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @return the polygon
+	 */
 	public Polygon createPolygon(int x, int y) {
 		Polygon polygon = new Polygon();
 		polygon.addPoint(x, y);
@@ -18,6 +29,13 @@ public class TestBoard extends TestCase {
 		return polygon;
 	}
 	
+	/**
+	 * Creates the placed shape.
+	 *
+	 * @param p1 the p 1
+	 * @param p2 the p 2
+	 * @return the placed shape
+	 */
 	public PlacedShape createPlacedShape(Polygon p1, Polygon p2) {
 		PlacedShape shape = new PlacedShape(Color.BLACK);
 		shape.setOriginalPolygon(p1);
@@ -25,6 +43,9 @@ public class TestBoard extends TestCase {
 		return shape;
 	}
 	
+	/**
+	 * Test get puzzle.
+	 */
 	public void testGetPuzzle() {
 		Board b = new Board();
 		ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
@@ -34,6 +55,9 @@ public class TestBoard extends TestCase {
 		assertEquals(p, b.getPuzzle());
 	}
 	
+	/**
+	 * Test get shapes.
+	 */
 	public void testGetShapes() {
 		Board b = new Board();
 		ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
@@ -44,6 +68,9 @@ public class TestBoard extends TestCase {
 		}
 	}
 	
+	/**
+	 * Test get selected shape.
+	 */
 	public void testGetSelectedShape() {
 		Board b = new Board();
 		PlacedShape shape = this.createPlacedShape(this.createPolygon(1, 1), this.createPolygon(1, 1));
@@ -51,6 +78,9 @@ public class TestBoard extends TestCase {
 		assertEquals(shape, b.getSelectedShape());
 	}
 	
+	/**
+	 * Test select shape.
+	 */
 	public void testSelectShape() {
 		Board b = new Board();
 		Polygon p1 = this.createPolygon(1, 1);
@@ -68,6 +98,9 @@ public class TestBoard extends TestCase {
 		assertEquals(ps1.toString(), b.getSelectedShape().toString());
 	}
 	
+	/**
+	 * Test set position.
+	 */
 	public void testSetPosition() {
 		Board b = new Board();
 		Polygon p1 = this.createPolygon(1, 1);
@@ -85,6 +118,9 @@ public class TestBoard extends TestCase {
 		assertEquals(PolygonUtils.toString(b.getSelectedShape().getChangedPolygon()), PolygonUtils.toString(expected));
 	}
 	
+	/**
+	 * Test reset position.
+	 */
 	public void testResetPosition() {
 		Board b = new Board();
 		Polygon p1 = this.createPolygon(1, 1);
@@ -103,6 +139,9 @@ public class TestBoard extends TestCase {
 		}
 	}
 	
+	/**
+	 * Test rotate.
+	 */
 	public void testRotate() {
 		Board b = new Board();
 		Polygon polygon = new Polygon();
@@ -128,6 +167,9 @@ public class TestBoard extends TestCase {
 		assertEquals(b.getSelectedShape().toString(), ps2.toString());
 	}
 	
+	/**
+	 * Test V flip.
+	 */
 	public void testVFlip() {
 		Board b = new Board();
 		Polygon polygon = new Polygon();
@@ -153,6 +195,9 @@ public class TestBoard extends TestCase {
 		assertEquals(b.getSelectedShape().toString(), ps2.toString());
 	}
 	
+	/**
+	 * Test H flip.
+	 */
 	public void testHFlip() {
 		Board b = new Board();
 		b.setPuzzle(new Puzzle("test"));
@@ -181,6 +226,9 @@ public class TestBoard extends TestCase {
 		assertEquals(b.getSelectedShape().toString(), ps2.toString());
 	}
 	
+	/**
+	 * Test create memento.
+	 */
 	public void testCreateMemento() {
 		Board b = new Board();
 		ArrayList<PlacedShape> shapes = new ArrayList<PlacedShape>();
@@ -192,6 +240,9 @@ public class TestBoard extends TestCase {
 		assertEquals(bm.shapes.get(0).toString(), shapes.get(0).toString());
 	}
 	
+	/**
+	 * Test undo.
+	 */
 	public void testUndo() {
 		Board b = new Board();
 		Polygon polygon = new Polygon();
@@ -210,6 +261,9 @@ public class TestBoard extends TestCase {
 		assertEquals(b.getSelectedShape().toString(), ps1.toString());
 	}
 	
+	/**
+	 * Test redo.
+	 */
 	public void testRedo() {
 		Board b = new Board();
 		Polygon polygon = new Polygon();
@@ -237,6 +291,9 @@ public class TestBoard extends TestCase {
 		assertEquals(b.getSelectedShape().toString(), ps2.toString());
 	}
 	
+	/**
+	 * Test push drag.
+	 */
 	public void testPushDrag() {
 		Board b = new Board();
 		Polygon polygon = new Polygon();

@@ -12,11 +12,24 @@ import plane.models.ShapeStatus;
 import plane.views.Application;
 import plane.views.PuzzleSolvingView;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TestMoveShapePaletteSolutionController.
+ */
 public class TestMoveShapePaletteSolutionController extends generic.MouseEventTestCase {
+	
+	/** The board. */
 	Board board;
+	
+	/** The ap. */
 	Application ap;
+	
+	/** The psv. */
 	PuzzleSolvingView psv;
 	
+	/* (non-Javadoc)
+	 * @see junit.framework.TestCase#setUp()
+	 */
 	protected void setUp() {
 		this.board = new Board();
 		this.ap = new Application(this.board);
@@ -47,10 +60,16 @@ public class TestMoveShapePaletteSolutionController extends generic.MouseEventTe
 		this.ap.jumpPage("p3");	
 	}
 	
+	/* (non-Javadoc)
+	 * @see junit.framework.TestCase#tearDown()
+	 */
 	protected void tearDown() {
 		this.ap.setVisible(false);
 	}
  
+	/**
+	 * Test move.
+	 */
 	public void testMove() {
 		SolutionCheckController sccontroller = new SolutionCheckController(this.board, this.ap);
 		MoveShapePaletteSolutionController controller = new MoveShapePaletteSolutionController(this.board, this.ap, this.psv, 700, 1000, sccontroller);

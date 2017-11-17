@@ -13,11 +13,21 @@ import plane.models.PlacedShape;
 import plane.models.Puzzle;
 import plane.models.Shapeset;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TestResetController.
+ */
 public class TestResetController extends ControllerCase {
 	
+	/** The controller. */
 	SolutionResetController controller;
+	
+	/** The shapes. */
 	List<PlacedShape> shapes;
 	
+	/* (non-Javadoc)
+	 * @see plane.controllers.ControllerCase#setUp()
+	 */
 	protected void setUp() throws Exception {
 		super.setUp();
 		
@@ -33,12 +43,20 @@ public class TestResetController extends ControllerCase {
 		controller = new SolutionResetController(board, app, plane);
 	}
 	
+	/**
+	 * Test contructor.
+	 */
 	public void testContructor() {
 		assertEquals(controller.board, board);
 		assertEquals(controller.plane, app);
 		assertEquals(controller.puzzleSolvingView, plane);
 	}
 	
+	/**
+	 * Test action performed.
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public void testActionPerformed() throws IOException {
 		List<PlacedShape> initShapes = new ArrayList<PlacedShape>();
 		initShapes.add(new PlacedShape(Color.BLACK));

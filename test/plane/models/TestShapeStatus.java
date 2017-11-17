@@ -4,8 +4,15 @@ import java.awt.Color;
 
 import junit.framework.TestCase;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TestShapeStatus.
+ */
 public class TestShapeStatus extends TestCase {
 	
+	/**
+	 * Test color constructor.
+	 */
 	public void testColorConstructor() {
 		try {
 			Color color = new Color(255, 0, 0);
@@ -30,6 +37,9 @@ public class TestShapeStatus extends TestCase {
 		}
 	}
 	
+	/**
+	 * Test shape status constructor.
+	 */
 	public void testShapeStatusConstructor() {
 		try {
 			ShapeStatus shapeStatus = null;
@@ -39,6 +49,9 @@ public class TestShapeStatus extends TestCase {
 		}
 	}
 	
+	/**
+	 * Test reset.
+	 */
 	public void testReset() {
 		ShapeStatus status = new ShapeStatus(new Color(200, 1, 1));
 		status.setOnPalette(false);
@@ -72,6 +85,9 @@ public class TestShapeStatus extends TestCase {
 										+ "y: 0\n");
 	}
 	
+	/**
+	 * Test copy.
+	 */
 	public void testCopy() {
 		ShapeStatus status = new ShapeStatus(new Color(200, 1, 1));
 		status.setOnPalette(false);
@@ -83,6 +99,9 @@ public class TestShapeStatus extends TestCase {
 		assertEquals(status.toString(), copy.toString());
 	}
 	
+	/**
+	 * Test flip.
+	 */
 	public void testFlip() {
 		ShapeStatus status = new ShapeStatus(new Color(100, 100, 100));
 		status.vFlip();

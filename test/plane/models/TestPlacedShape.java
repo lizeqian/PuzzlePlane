@@ -6,8 +6,19 @@ import java.awt.Polygon;
 import junit.framework.TestCase;
 import plane.utils.PolygonUtils;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TestPlacedShape.
+ */
 public class TestPlacedShape extends TestCase {
 	
+	/**
+	 * Creates the polygon.
+	 *
+	 * @param x the x
+	 * @param y the y
+	 * @return the polygon
+	 */
 	public Polygon createPolygon(int x, int y) {
 		Polygon polygon = new Polygon();
 		polygon.addPoint(x, y);
@@ -17,6 +28,9 @@ public class TestPlacedShape extends TestCase {
 		return polygon;
 	}
 	
+	/**
+	 * Test constructor.
+	 */
 	public void testConstructor() {
 		PlacedShape ps = new PlacedShape(Color.BLACK);
 		assertEquals(ps.getColor(), Color.BLACK);
@@ -24,6 +38,9 @@ public class TestPlacedShape extends TestCase {
 		assertEquals(ps2.toString(), ps.toString());
 	}
 	
+	/**
+	 * Test to solution string.
+	 */
 	public void testToSolutionString() {
 		Polygon polygon = new Polygon();
 		polygon.addPoint(10, 10);
@@ -35,6 +52,9 @@ public class TestPlacedShape extends TestCase {
 		assertEquals(ps.toSolutionString(), "255 0 0 10 10 10 20 20 10 10 10");
 	}
 	
+	/**
+	 * Test get status.
+	 */
 	public void testGetStatus() {
 		PlacedShape ps = new PlacedShape(Color.BLACK);
 		ShapeStatus ss = new ShapeStatus(Color.BLACK);
@@ -43,6 +63,9 @@ public class TestPlacedShape extends TestCase {
 		assertEquals(ss, ps.getStatus());
 	}
 	
+	/**
+	 * Test get original polygon.
+	 */
 	public void testGetOriginalPolygon() {
 		PlacedShape ps = new PlacedShape(Color.BLACK);
 		Polygon p = this.createPolygon(0, 0);
@@ -51,11 +74,17 @@ public class TestPlacedShape extends TestCase {
 		assertEquals(ps.getOriginalPolygon(), p);
 	}
 	
+	/**
+	 * Test copy.
+	 */
 	public void testCopy() {
 		PlacedShape ps = new PlacedShape(Color.BLACK);
 		assertEquals(ps.toString(), ps.copy().toString());
 	}
 	
+	/**
+	 * Test add point.
+	 */
 	public void testAddPoint() {
 		PlacedShape ps = new PlacedShape(Color.BLACK);
 		Polygon p = this.createPolygon(0, 0);
@@ -71,12 +100,18 @@ public class TestPlacedShape extends TestCase {
 		}
 	}
 	
+	/**
+	 * Test is selected.
+	 */
 	public void testIsSelected() {
 		PlacedShape p = new PlacedShape(Color.BLACK);
 		p.selectShape();
 		assertTrue(p.isSelected());
 	}
 	
+	/**
+	 * Test get left X.
+	 */
 	public void testGetLeftX() {
 		PlacedShape p = new PlacedShape(Color.BLACK);
 		p.addPoint(0, 0);
@@ -86,6 +121,9 @@ public class TestPlacedShape extends TestCase {
 		assertEquals(0, p.getLeftX());
 	}
 	
+	/**
+	 * Test get right X.
+	 */
 	public void testGetRightX() {
 		PlacedShape p = new PlacedShape(Color.BLACK);
 		p.addPoint(0, 0);
@@ -95,6 +133,9 @@ public class TestPlacedShape extends TestCase {
 		assertEquals(10, p.getRightX());
 	}
 	
+	/**
+	 * Test get top Y.
+	 */
 	public void testGetTopY() {
 		PlacedShape p = new PlacedShape(Color.BLACK);
 		p.addPoint(0, 0);
@@ -104,6 +145,9 @@ public class TestPlacedShape extends TestCase {
 		assertEquals(0, p.getTopY());
 	}
 	
+	/**
+	 * Test get bottom Y.
+	 */
 	public void testGetBottomY() {
 		PlacedShape p = new PlacedShape(Color.BLACK);
 		p.addPoint(0, 0);
@@ -113,6 +157,9 @@ public class TestPlacedShape extends TestCase {
 		assertEquals(20, p.getBottomY());
 	}
 	
+	/**
+	 * Test rotate.
+	 */
 	public void testRotate() {
 		PlacedShape p = new PlacedShape(Color.BLACK);
 		p.addPoint(0, 0);
@@ -129,6 +176,9 @@ public class TestPlacedShape extends TestCase {
 		assertEquals(PolygonUtils.toString(p.getChangedPolygon()), PolygonUtils.toString(p2));
 	}
 	
+	/**
+	 * Test V flip.
+	 */
 	public void testVFlip() {
 		PlacedShape p = new PlacedShape(Color.BLACK);
 		p.addPoint(0, 0);
@@ -145,6 +195,9 @@ public class TestPlacedShape extends TestCase {
 		assertEquals(PolygonUtils.toString(p.getChangedPolygon()), PolygonUtils.toString(p2));
 	}
 	
+	/**
+	 * Test H flip.
+	 */
 	public void testHFlip() {
 		PlacedShape p = new PlacedShape(Color.BLACK);
 		p.addPoint(0, 0);
@@ -161,6 +214,9 @@ public class TestPlacedShape extends TestCase {
 		assertEquals(PolygonUtils.toString(p.getChangedPolygon()), PolygonUtils.toString(p2));
 	}
 	
+	/**
+	 * Test reset pos.
+	 */
 	public void testResetPos() {
 		PlacedShape p = new PlacedShape(Color.BLACK);
 		p.addPoint(0, 0);
@@ -178,6 +234,9 @@ public class TestPlacedShape extends TestCase {
 		assertEquals(p.toString(), p2.toString());
 	}
 	
+	/**
+	 * Test set changed polygon.
+	 */
 	public void testSetChangedPolygon() {
 		PlacedShape ps = new PlacedShape(Color.BLACK);
 		Polygon p = this.createPolygon(0, 0);
@@ -185,6 +244,9 @@ public class TestPlacedShape extends TestCase {
 		assertEquals(p, ps.changedPolygon);
 	}
 	
+	/**
+	 * Test set position.
+	 */
 	public void testSetPosition() {
 		PlacedShape p = new PlacedShape(Color.BLACK);
 		p.addPoint(0, 0);

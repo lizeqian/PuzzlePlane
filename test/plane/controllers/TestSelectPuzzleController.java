@@ -9,22 +9,36 @@ import plane.models.PlacedShape;
 import plane.models.Puzzle;
 import plane.models.Shapeset;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TestSelectPuzzleController.
+ */
 public class TestSelectPuzzleController extends ControllerCase {
 
+	/** The controller. */
 	SelectPuzzleController controller;
 	
+	/* (non-Javadoc)
+	 * @see plane.controllers.ControllerCase#setUp()
+	 */
 	protected void setUp() throws Exception {
 		super.setUp();
 		this.board.setShapeset(new Shapeset("traditional"));
 		controller = new SelectPuzzleController(board, app, "bird");
 	}
 	
+	/**
+	 * Test constructor.
+	 */
 	public void testConstructor() {
 		assertEquals(controller.getBoard(), board);
 		assertEquals(controller.getPlane(), app);
 		assertEquals(controller.getPuzzleName(), "bird");
 	}
 	
+	/**
+	 * Test action performed.
+	 */
 	public void testActionPerformed() {
 		controller.actionPerformed(null);
 		

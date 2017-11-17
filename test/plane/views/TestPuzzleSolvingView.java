@@ -10,14 +10,21 @@ import plane.models.Board;
 import plane.models.PlacedShape;
 import plane.models.Puzzle;
 import plane.models.ShapeStatus;
+// TODO: Auto-generated Javadoc
 /**
  * The Class PuzzleSolvingView.
  * TestCase
  */
 
 public class TestPuzzleSolvingView extends TestCase {
+	
+	/** The psv. */
 	PuzzleSolvingView psv;
+	
+	/** The ap. */
 	Application ap;
+	
+	/** The board. */
 	Board board;
 	/** Create the polygon.
 	 * add the point of the polygon
@@ -33,6 +40,9 @@ public class TestPuzzleSolvingView extends TestCase {
 	}
 	
 	
+	/* (non-Javadoc)
+	 * @see junit.framework.TestCase#setUp()
+	 */
 	protected void setUp() {
 		board = new Board();
 		this.ap = new Application(board);
@@ -55,12 +65,18 @@ public class TestPuzzleSolvingView extends TestCase {
 		this.ap.jumpPage("p3");
 	}
 	
+	/* (non-Javadoc)
+	 * @see junit.framework.TestCase#tearDown()
+	 */
 	protected void tearDown() {
 		if (this.ap != null) {
 			this.ap.dispose();
 		}
 	}
 	
+	/**
+	 * Test app.
+	 */
 	public void testApp() {
 		System.out.println("Sample Puzzle Solving View");
 		PlacedShape ps = new PlacedShape(Color.BLACK);

@@ -5,11 +5,21 @@ import java.awt.Color;
 import plane.models.Move;
 import plane.models.PlacedShape;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TestRedoController.
+ */
 public class TestRedoController extends ControllerCase {
 	
+	/** The controller. */
 	RedoController controller;
+	
+	/** The move. */
 	Move move;
 	
+	/* (non-Javadoc)
+	 * @see plane.controllers.ControllerCase#setUp()
+	 */
 	protected void setUp() throws Exception {
 		super.setUp();
 		move = new Move(new PlacedShape(Color.BLUE), new PlacedShape(Color.CYAN));
@@ -18,11 +28,17 @@ public class TestRedoController extends ControllerCase {
 		controller = new RedoController(board, plane);
 	}
 	
+	/**
+	 * Test constructor.
+	 */
 	public void testConstructor() {
 		assertEquals(board, controller.getBoard());
 		assertEquals(plane, controller.getPlane());
 	}
 	
+	/**
+	 * Test action performed.
+	 */
 	public void testActionPerformed() {
 		controller.actionPerformed(null);
 		assertEquals(board.getMoves().peek(), move);

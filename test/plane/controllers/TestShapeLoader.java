@@ -10,11 +10,24 @@ import junit.framework.TestCase;
 import plane.config.FilePathConfig;
 import plane.models.PlacedShape;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TestShapeLoader.
+ */
 public class TestShapeLoader extends TestCase {
+	
+	/** The loader. */
 	ShapeLoader loader;
+	
+	/** The file. */
 	File file;
+	
+	/** The shape 6. */
 	PlacedShape shape0, shape3, shape6; 
 	
+	/* (non-Javadoc)
+	 * @see junit.framework.TestCase#setUp()
+	 */
 	protected void setUp() throws Exception {
 		super.setUp();
 		
@@ -42,10 +55,16 @@ public class TestShapeLoader extends TestCase {
 		loader = new ShapeLoader(FilePathConfig.getShapesetPath("traditional"));
 	}
 	
+	/**
+	 * Test constructor.
+	 */
 	public void testConstructor() {
 		assertEquals(file.getPath(), loader.getFile().getPath());
 	}
 	
+	/**
+	 * Test load.
+	 */
 	public void testLoad() {
 		List<PlacedShape> list = loader.load();
 		assertEquals(list.get(0).toString(), shape0.toString());
