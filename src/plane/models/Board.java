@@ -6,9 +6,10 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Stack;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Board.
+ * The Class Board
+ * Entry Point into the Entity domain space.
+ * @author cheng zhu
  */
 public class Board {
 	
@@ -100,7 +101,7 @@ public class Board {
 	}
 	
 	/**
-	 * Undo.
+	 * Undo the last move by user
 	 */
 	public void undo() {
 		if(!moves.isEmpty()) {
@@ -111,7 +112,7 @@ public class Board {
 	}
 	
 	/**
-	 * Redo.
+	 * Redo the last undo move by user
 	 */
 	public void redo() {
 		if(!redoStack.isEmpty()) {
@@ -122,7 +123,7 @@ public class Board {
 	}
 	
 	/**
-	 * Inits the.
+	 * Initialization method for Board.
 	 */
 	public void init() {
 		this.shapes = new LinkedList<PlacedShape>();
@@ -193,7 +194,7 @@ public class Board {
 	/**
 	 * Rotate.
 	 *
-	 * @param angle the angle
+	 * @param angle the rotating angle
 	 */
 	public void rotate(int angle) {
 		if(this.selectedShape != null) {
@@ -205,7 +206,7 @@ public class Board {
 	}
 	
 	/**
-	 * V flip.
+	 * Vertically flip the selected shape.
 	 */
 	public void vFlip() {
 		if(this.selectedShape != null) {
@@ -217,7 +218,7 @@ public class Board {
 	}
 	
 	/**
-	 * H flip.
+	 * Horizontally flip the selectedShape.
 	 */
 	public void hFlip() {
 		if(this.selectedShape != null) {
@@ -254,7 +255,7 @@ public class Board {
 	}
 	
 	/**
-	 * Reorder.
+	 * Reorder the selectedShape to the top.
 	 */
 	public void reorder() {
 		this.shapes.remove(this.selectedShape);

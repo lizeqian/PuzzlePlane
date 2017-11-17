@@ -2,9 +2,12 @@ package plane.models;
 
 import java.util.List;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class BoardMemento.
+ * 
+ * Memento class for Board. Memorize current shape states on board.
+ * 
+ * @author cheng zhu
  */
 public class BoardMemento {
 	
@@ -38,7 +41,7 @@ public class BoardMemento {
 	/**
 	 * Instantiates a new board memento.
 	 *
-	 * @param b the b
+	 * @param b the board
 	 */
 	public BoardMemento(Board b) {
 		// TODO Auto-generated constructor stub

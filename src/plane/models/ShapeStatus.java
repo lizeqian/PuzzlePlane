@@ -5,9 +5,11 @@ import java.awt.Point;
 
 import plane.utils.ColorUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ShapeStatus.
+ * Represents status of a PlacedShape, including color, position, whether the shape is on the Palette or Solution Space, 
+ * whether the shape is vertically flipped, is horizontally flipped, whether the shape is selected by user, and the rotating angle of the shape.
+ * @cheng zhu
  */
 public class ShapeStatus {
 
@@ -32,8 +34,8 @@ public class ShapeStatus {
 	/** The position. */
 	Point position;
 	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	/**
+	 * @return A String representing everything of the status of a shape 
 	 */
 	public String toString() {
 		String ret = "";
@@ -48,7 +50,7 @@ public class ShapeStatus {
 	}
 	
 	/**
-	 * Reset.
+	 * Resets the shape status
 	 */
 	public void reset() {
 		this.position = new Point(0, 0);
@@ -60,9 +62,9 @@ public class ShapeStatus {
 	}
 	
 	/**
-	 * Inits the.
+	 * Initialize a shape status
 	 *
-	 * @param color the color
+	 * @param color the shape color
 	 */
 	public void init(Color color) {
 		this.reset();
@@ -72,7 +74,7 @@ public class ShapeStatus {
 	/**
 	 * Instantiates a new shape status.
 	 *
-	 * @param color the color
+	 * @param color the shape color
 	 */
 	public ShapeStatus(Color color) {
 		// TODO Auto-generated constructor stub
@@ -80,9 +82,9 @@ public class ShapeStatus {
 	}
 	
 	/**
-	 * Instantiates a new shape status.
+	 * Instantiates a new shape status, by copying another shape status.
 	 *
-	 * @param status the status
+	 * @param status the shape status
 	 */
 	public ShapeStatus(ShapeStatus status) {
 		this.angle = status.getAngle();
@@ -95,27 +97,27 @@ public class ShapeStatus {
 	}
 	
 	/**
-	 * Copy.
+	 * Copy the shape status to a new instance of ShapeStatus
 	 *
-	 * @return the shape status
+	 * @return a new ShapeStatus instance with the same values of this shape status
 	 */
 	public ShapeStatus copy() {
 		return new ShapeStatus(this);
 	}
 	
 	/**
-	 * Gets the angle.
+	 * Gets the rotating angle.
 	 *
-	 * @return the angle
+	 * @return the rotating angle
 	 */
 	public int getAngle() {
 		return angle;
 	}
 
 	/**
-	 * Rotate.
+	 * Rotate the shape.
 	 *
-	 * @param angle the angle
+	 * @param angle the rotating angle
 	 */
 	public void rotate(int angle) {
 		this.angle += angle;
@@ -149,7 +151,7 @@ public class ShapeStatus {
 	}
 
 	/**
-	 * Select.
+	 * Select the shape.
 	 */
 	public void select(){
 		this.selected = !this.selected;
@@ -174,7 +176,7 @@ public class ShapeStatus {
 	}
 
 	/**
-	 * V flip.
+	 * Vertically flips the shape.
 	 */
 	public void vFlip() {
 		this.verticalFlipped = !this.verticalFlipped;
@@ -190,7 +192,7 @@ public class ShapeStatus {
 	}
 
 	/**
-	 * H flip.
+	 * Horizontally flips the shape.
 	 */
 	public void hFlip() {
 		this.horizontalFlipped = !this.horizontalFlipped;

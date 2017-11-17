@@ -4,9 +4,13 @@ import java.awt.*;
 
 import plane.utils.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class PlacedShape.
+ * Any entity being placed on the board must be of this class type. 
+ * A PlacedShape will have its initial Polygon state, when user first enters the PuzzleSolving Board.
+ * A PlaedShape will have its changed Polygon state, after several operations by user, 
+ * and a ShapeStatus to record detailed status information of the changed Polygon.
+ * @author cheng zhu
  */
 public class PlacedShape{
 	
@@ -19,8 +23,8 @@ public class PlacedShape{
 	/** The status. */
 	ShapeStatus status;
 	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	/**
+	 * @return a String representing this PlacedShape states.
 	 */
 	public String toString() {
 		String ret = "";
@@ -33,9 +37,10 @@ public class PlacedShape{
 	}
 	
 	/**
-	 * To solution string.
+	 * Return a String representing the changedPolygon states, 
+	 * so that this PlacedShape can be saved on disk as a part of a solution, and be loaded back next time
 	 *
-	 * @return the string
+	 * @return the solution string
 	 */
 	public String toSolutionString() {
 		String ret = "";
@@ -108,7 +113,7 @@ public class PlacedShape{
 	}
 	
 	/**
-	 * Copy.
+	 * Copy this placedShape to a new PlacedShape instance
 	 *
 	 * @return the placed shape
 	 */
@@ -117,7 +122,7 @@ public class PlacedShape{
 	}
 	
 	/**
-	 * Reset pos.
+	 * Reset status and Polygon to initial states.
 	 */
 	public void resetPos(){
 		int numPoints = this.originalPolygon.npoints;
@@ -140,14 +145,14 @@ public class PlacedShape{
 	}
 	
 	/**
-	 * Select shape.
+	 * Select this shape.
 	 */
 	public void selectShape() {
 		this.status.select();
 	}
 	
 	/**
-	 * Gets the position.
+	 * Gets the position of this shape.
 	 *
 	 * @return the position
 	 */
@@ -174,36 +179,36 @@ public class PlacedShape{
 	}
 	
 	/**
-	 * Gets the left X.
+	 * Gets the most left coordinate of X of this placedShape.
 	 *
-	 * @return the left X
+	 * @return the most left X
 	 */
 	public int getLeftX() {
 		return ArrayUtils.min(this.changedPolygon.xpoints, this.changedPolygon.npoints);
 	}
 	
 	/**
-	 * Gets the right X.
+	 * Gets the most right coordinate of X of this placedShape.
 	 *
-	 * @return the right X
+	 * @return the most right X
 	 */
 	public int getRightX() {
 		return ArrayUtils.max(this.changedPolygon.xpoints, this.changedPolygon.npoints);
 	}
 	
 	/**
-	 * Gets the top Y.
+	 * Gets the most top coordinate of Y of this placedShape.
 	 *
-	 * @return the top Y
+	 * @return the most top Y
 	 */
 	public int getTopY() {
 		return ArrayUtils.min(this.changedPolygon.ypoints, this.changedPolygon.npoints);
 	}
 	
 	/**
-	 * Gets the bottom Y.
+	 * Gets the most bottom coordinate of Y of this placedShape.
 	 *
-	 * @return the bottom Y
+	 * @return the most bottom Y
 	 */
 	public int getBottomY() {
 		return ArrayUtils.max(this.changedPolygon.ypoints, this.changedPolygon.npoints);
@@ -211,7 +216,7 @@ public class PlacedShape{
 	
 	
 	/**
-	 * Sets the position.
+	 * Sets the position of this shape.
 	 *
 	 * @param x the x
 	 * @param y the y
@@ -223,9 +228,9 @@ public class PlacedShape{
 	}
 	
 	/**
-	 * Rotate.
+	 * Rotate this shape.
 	 *
-	 * @param angle the angle
+	 * @param angle the rotating angle
 	 */
 	public void rotate(int angle) {
 		this.status.rotate(angle);
@@ -233,7 +238,7 @@ public class PlacedShape{
 	}
 	
 	/**
-	 * V flip.
+	 * Vertically flip the shape
 	 */
 	public void vFlip() {
 		this.status.vFlip();
@@ -241,7 +246,7 @@ public class PlacedShape{
 	}
 	
 	/**
-	 * H flip.
+	 * Horizontally flip the shape
 	 */
 	public void hFlip() {
 		this.status.hFlip();
@@ -249,7 +254,7 @@ public class PlacedShape{
 	}
 
 	/**
-	 * Gets the changed polygon.
+	 * Get the changed polygon.
 	 *
 	 * @return the changed polygon
 	 */

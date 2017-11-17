@@ -8,9 +8,12 @@ import plane.config.NameConfig;
 import plane.controllers.PuzzleChecker;
 import plane.controllers.ShapeLoader;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Shapeset.
+ * The entity class for shapeset.
+ * A shapeset has a shapeset name.
+ * A shapeset has a List of puzzles.
+ * @author cheng zhu
  */
 public class Shapeset {
 	
@@ -20,8 +23,8 @@ public class Shapeset {
 	/** The puzzles. */
 	public List<Puzzle> puzzles;
 	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	/**
+	 * @return A String representing the name and puzzle size of this Shapeset
 	 */
 	public String toString() {
 		String ret = "";
@@ -78,9 +81,9 @@ public class Shapeset {
 	}
 	
 	/**
-	 * Gets the name.
+	 * Gets the shapeset name.
 	 *
-	 * @return the name
+	 * @return the shapeset name
 	 */
 	public String getName() {
 		return name;
