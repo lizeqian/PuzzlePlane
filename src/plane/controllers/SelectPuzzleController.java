@@ -23,8 +23,14 @@ public class SelectPuzzleController implements ActionListener{
 	Application plane;
 	/** Needs puzzleName */
 	String puzzleName;
-	/** Controller constructed with board (entity) and panel (boundary) and puzzleName. */
 	
+	/**
+	 * Controller constructed with board (entity) and panel (boundary) and puzzleName. 
+	 * @param b the Board reference
+	 * @param p the Application reference
+	 * @param puzzleName the puzzle name
+	 * 
+	 */
 	public SelectPuzzleController (Board b, Application p, String puzzleName) {
 		this.board = b;
 		this.plane = p;

@@ -4,9 +4,10 @@ import java.awt.Polygon;
 
 import plane.utils.PolygonUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Move.
+ * The entity class to record a move by user. Will be used for undo and redo.
+ * @author cheng zhu
  */
 public class Move {
 	
@@ -19,8 +20,8 @@ public class Move {
 	/** The after shape. */
 	public PlacedShape afterShape;
 	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	/**
+	 * @return a String representing the Move states
 	 */
 	public String toString() {
 		String ret = "";
@@ -36,7 +37,7 @@ public class Move {
 	/**
 	 * Instantiates a new move.
 	 *
-	 * @param shape the shape
+	 * @param shape the selected shape
 	 * @param beforeShape the before shape
 	 */
 	public Move(PlacedShape shape, PlacedShape beforeShape) {
@@ -46,7 +47,7 @@ public class Move {
 	}
 	
 	/**
-	 * Undo.
+	 * Undo the Move
 	 */
 	public void undo() {
 		Polygon polygon = this.beforeShape.getChangedPolygon();
@@ -55,7 +56,7 @@ public class Move {
 	}
 	
 	/**
-	 * Redo.
+	 * Redo the Move
 	 */
 	public void redo() {
 		Polygon polygon = this.afterShape.getChangedPolygon();

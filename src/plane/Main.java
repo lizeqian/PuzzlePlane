@@ -16,7 +16,7 @@ import plane.views.*;
 public class Main {
 	/**
 	 * Launch the application.
-	 * @param Commend-line arguments
+	 * @param args Commend-line arguments
 	 */
 	public static void main(String[] args) {
 		

@@ -1,11 +1,13 @@
 package plane.models;
 
-import java.util.ArrayList;
 import java.util.List;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Puzzle.
+ * The entity class for a puzzle.
+ * Puzzle has a List of PlacedShape representing the silhouette shape
+ * Puzzle has a puzzle name.
+ * @author cheng zhu
  */
 public class Puzzle{
 
@@ -15,8 +17,8 @@ public class Puzzle{
 	/** The name. */
 	public String name;
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	/**
+	 * @return a String representing the silhouette shape
 	 */
 	public String toString() {
 		String ret = "";
@@ -27,34 +29,34 @@ public class Puzzle{
 	}
 	
 	/**
-	 * Gets the name.
+	 * Get the puzzle name.
 	 *
-	 * @return the name
+	 * @return the puzzle name
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * Sets the name.
+	 * Set the puzzle name.
 	 *
-	 * @param name the new name
+	 * @param name the puzzle name
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 	
 	/**
-	 * Instantiates a new puzzle.
+	 * Instantiate a new puzzle, with a puzzle name.
 	 *
-	 * @param name the name
+	 * @param name the puzzle name
 	 */
 	public Puzzle(String name) {
 		this.name = name;
 	}
 	
 	/**
-	 * Instantiates a new puzzle.
+	 * Instantiates a new puzzle, with silhouette shape.
 	 *
 	 * @param shapes the shapes
 	 */
@@ -66,16 +68,16 @@ public class Puzzle{
 	/**
 	 * Sets the shape.
 	 *
-	 * @param puzzleShape the new shape
+	 * @param puzzleShape set the silhouette shape
 	 */
 	public void setShape(List<PlacedShape> puzzleShape) {
 		this.puzzleShape = puzzleShape;
 	}
 	
 	/**
-	 * Gets the puzzle shape.
+	 * Gets the silhouette shape.
 	 *
-	 * @return the puzzle shape
+	 * @return the silhouette shape
 	 */
 	public List<PlacedShape> getPuzzleShape() {
 		return this.puzzleShape;
