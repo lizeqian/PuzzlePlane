@@ -3,7 +3,7 @@ package plane.views;
 import junit.framework.TestCase;
 import plane.models.Board;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class TestApplication.
  * Test the Appliation

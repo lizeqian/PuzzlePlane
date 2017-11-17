@@ -4,7 +4,7 @@ import java.util.List;
 
 import junit.framework.TestCase;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class TestShapeset.
  */

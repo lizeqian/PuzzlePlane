@@ -10,7 +10,7 @@ import plane.models.Board;
 import plane.models.PlacedShape;
 import plane.models.Puzzle;
 import plane.models.ShapeStatus;
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class PuzzleSolvingView.
  * TestCase

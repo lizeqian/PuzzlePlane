@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import junit.framework.TestCase;
 import plane.utils.PolygonUtils;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class TestBoard.
  */

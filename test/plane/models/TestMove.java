@@ -8,7 +8,7 @@ import javax.management.RuntimeErrorException;
 import junit.framework.TestCase;
 import plane.utils.PolygonUtils;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class TestMove.
  * Test shape moves

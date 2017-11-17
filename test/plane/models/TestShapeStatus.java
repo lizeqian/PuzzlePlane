@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import junit.framework.TestCase;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class TestShapeStatus.
  */

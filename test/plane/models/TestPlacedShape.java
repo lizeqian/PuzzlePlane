@@ -6,7 +6,7 @@ import java.awt.Polygon;
 import junit.framework.TestCase;
 import plane.utils.PolygonUtils;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class TestPlacedShape.
  */
