@@ -13,6 +13,7 @@ import plane.models.ShapeStatus;
 public class TestPuzzleSolvingView extends TestCase {
 	PuzzleSolvingView psv;
 	Application ap;
+	Board board;
 	
 	public Polygon createPolygon(int x, int y) {
 		Polygon polygon = new Polygon();
@@ -24,7 +25,7 @@ public class TestPuzzleSolvingView extends TestCase {
 	}
 	
 	protected void setUp() {
-		Board board = new Board();
+		board = new Board();
 		this.ap = new Application(board);
 		PlacedShape ps = new PlacedShape(Color.BLACK);
 		Polygon p = this.createPolygon(0, 0);
@@ -53,6 +54,14 @@ public class TestPuzzleSolvingView extends TestCase {
 	
 	public void testApp() {
 		System.out.println("Sample Puzzle Solving View");
+		PlacedShape ps = new PlacedShape(Color.BLACK);
+		Polygon p = this.createPolygon(0, 0);
+		ps.setOriginalPolygon(p);
+		ps.setChangedPolygon(p);
+		ShapeStatus ss = new ShapeStatus(Color.BLACK);
+		ss.select();
+		ps.setStatus(ss);
+		assertEquals(this.board.getShapes().get(0).toString(), ps.toString());
 	}
 
 }
