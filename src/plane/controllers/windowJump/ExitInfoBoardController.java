@@ -8,6 +8,7 @@ import java.awt.event.*;
 // TODO: Auto-generated Javadoc
 /**
  * The Class ExitInfoBoardController.
+ * By calling this controller, the application will display the PuzzleSolved view
  */
 public class ExitInfoBoardController implements ActionListener {
 	
@@ -20,8 +21,8 @@ public class ExitInfoBoardController implements ActionListener {
 	/**
 	 * Instantiates a new exit info board controller.
 	 *
-	 * @param b the b
-	 * @param p the p
+	 * @param b the board
+	 * @param p the plane
 	 */
 	public ExitInfoBoardController(Board b, Application p) {
 		this.puzzlePlaneGui = p;
@@ -31,6 +32,8 @@ public class ExitInfoBoardController implements ActionListener {
 	
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
+	/** The page will jump to puzzle selection view, which is SecondPPGui.
 	 */
 	public void actionPerformed(ActionEvent e) {
 		((SecondPPGui)this.puzzlePlaneGui.p_2).reset();
