@@ -24,7 +24,7 @@ public class TestSelectPuzzleController extends ControllerCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 		this.board.setShapeset(new Shapeset("traditional"));
-		controller = new SelectPuzzleController(board, app, "bird");
+		controller = new SelectPuzzleController(board, app, "test");
 	}
 	
 	/**
@@ -33,7 +33,7 @@ public class TestSelectPuzzleController extends ControllerCase {
 	public void testConstructor() {
 		assertEquals(controller.getBoard(), board);
 		assertEquals(controller.getPlane(), app);
-		assertEquals(controller.getPuzzleName(), "bird");
+		assertEquals(controller.getPuzzleName(), "test");
 	}
 	
 	/**
@@ -43,7 +43,7 @@ public class TestSelectPuzzleController extends ControllerCase {
 		controller.actionPerformed(null);
 		
 		List<PlacedShape> puzzleShapes;
-		puzzleShapes = (new ShapeLoader(FilePathConfig.getPuzzlePath("traditional", "bird"))).load();
+		puzzleShapes = (new ShapeLoader(FilePathConfig.getPuzzlePath("traditional", "test"))).load();
 		assertEquals(puzzleShapes.size(), board.getPuzzle().getPuzzleShape().size());
 		
 	}
