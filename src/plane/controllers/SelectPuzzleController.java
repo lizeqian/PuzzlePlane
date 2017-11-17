@@ -11,7 +11,6 @@ import java.util.Set;
 import plane.config.FilePathConfig;
 import plane.models.*;
 import plane.views.*;
-// TODO: Auto-generated Javadoc
 /**
  * Respond to selection events in the Puzzle Plane, which has been configured to only 
  * allow individual rows to be selected.

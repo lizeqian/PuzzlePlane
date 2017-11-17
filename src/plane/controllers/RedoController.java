@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import plane.models.Board;
 import plane.views.PuzzleSolvingView;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class RedoController.
  * Redo the last undo move, as requested by user
@@ -29,7 +28,6 @@ public class RedoController implements ActionListener{
 	 * @param puzzleSolvingView the puzzle solving view Gui
 	 */
 	public RedoController(Board b, PuzzleSolvingView puzzleSolvingView) {
-		// TODO Auto-generated constructor stub
 		this.board = b;
 		this.plane = puzzleSolvingView;
 	}

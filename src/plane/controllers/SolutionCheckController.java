@@ -8,7 +8,6 @@ import plane.models.*;
 import plane.utils.PolygonUtils;
 import plane.views.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class SolutionCheckController.
  */

@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 
 import plane.views.Application;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ExitViewShapesetController.
  * The current shapeset display will be closed 

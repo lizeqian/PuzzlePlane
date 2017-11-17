@@ -11,7 +11,6 @@ import plane.views.Application;
 import plane.views.PuzzleSolvingView;
 import plane.views.SecondPPGui;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class SolutionResetController.
  */

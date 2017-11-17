@@ -5,7 +5,6 @@ import plane.views.*;
 
 import java.awt.event.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ExitInfoBoardController.
  * By calling this controller, the application will display the PuzzleSolved view

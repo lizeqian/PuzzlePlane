@@ -5,7 +5,6 @@ import plane.views.*;
 
 import java.awt.event.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ExitPuzzleSolvingController.
  * The PuzzleSolving view will be exited and then display the puzzle selection view, which is SecondPPGui.

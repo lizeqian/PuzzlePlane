@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 import plane.models.PlacedShape;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ShapeLoader.
  */

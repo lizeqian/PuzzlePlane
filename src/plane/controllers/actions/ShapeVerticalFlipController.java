@@ -9,7 +9,6 @@ import plane.models.Board;
 import plane.models.Move;
 import plane.views.PuzzleSolvingView;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ShapeVerticalFlipController.
  */

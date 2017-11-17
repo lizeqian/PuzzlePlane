@@ -3,7 +3,6 @@ package plane.controllers.windowJump;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 
-// TODO: Auto-generated Javadoc
 /**
  * Controller to confirm request to exist application.
  */

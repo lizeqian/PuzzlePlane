@@ -9,7 +9,6 @@ import plane.views.*;
 
 import java.awt.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class MoveShapePaletteSolutionController.
  */
