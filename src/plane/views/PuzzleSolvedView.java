@@ -11,7 +11,6 @@ import javax.swing.JLabel;
 
 import javax.swing.JButton;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class PuzzleSolvedView.
  */

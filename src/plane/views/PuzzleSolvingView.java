@@ -21,7 +21,6 @@ import plane.controllers.windowJump.ExitPuzzleSolvingController;
 import plane.controllers.windowJump.ViewShapesetController;
 import plane.models.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class PuzzleSolvingView.
  */

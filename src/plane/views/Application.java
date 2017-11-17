@@ -9,7 +9,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
  
 
-// TODO: Auto-generated Javadoc
 /**
  * Create the Class Application.
  * The containing Frame for the application. This class is just a

@@ -22,7 +22,6 @@ import java.util.Set;
 
 import javax.swing.SwingConstants;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class SecondPPGui. This is a panel that displays the puzzle selection view.
  */

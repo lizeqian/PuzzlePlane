@@ -15,7 +15,6 @@ import plane.config.FilePathConfig;
 import plane.controllers.windowJump.ExitViewShapesetController;
 import plane.models.Board;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ViewShapesetPPGui. 
  * This is the view to show the current selected shapeset when player is playing a puzzle.
