@@ -18,10 +18,14 @@ public class Main {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		Board board = new Board();
 		Application g = new Application(board);
 		
 		g.addWindowListener (new WindowAdapter() {
+			/**
+			 * window
+			 */
 
 			public void windowClosing(WindowEvent e) {
 				new ExitApplicationController(g).process();

@@ -1,6 +1,3 @@
-/***********
- * @author cheng zhu
- */
 package plane.controllers.actions;
 
 import java.awt.event.ActionEvent;
@@ -8,21 +5,21 @@ import java.awt.event.ActionEvent;
 import plane.controllers.AbstractAction;
 import plane.controllers.SolutionCheckController;
 import plane.models.Board;
-import plane.models.Move;
 import plane.views.PuzzleSolvingView;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ShapeHorizontalFlipController.
+ * Horizontally flip the "selected" shape as requested by user
+ * @author cheng zhu
  */
 public class ShapeHorizontalFlipController extends AbstractAction{
 
 	/**
 	 * Instantiates a new shape horizontal flip controller.
 	 *
-	 * @param b the b
-	 * @param p the p
-	 * @param s the s
+	 * @param b the board reference
+	 * @param p the Gui variable reference
+	 * @param s the solution check controller
 	 */
 	public ShapeHorizontalFlipController(Board b, PuzzleSolvingView p, SolutionCheckController s) {
 		// TODO Auto-generated constructor stub
