@@ -16,8 +16,8 @@ public class TestBoard extends TestCase {
 	/**
 	 * Creates the polygon.
 	 *
-	 * @param x the x
-	 * @param y the y
+	 * @param x the horizontal ordinate
+	 * @param y the vertical coordinate
 	 * @return the polygon
 	 */
 	public Polygon createPolygon(int x, int y) {
@@ -32,8 +32,8 @@ public class TestBoard extends TestCase {
 	/**
 	 * Creates the placed shape.
 	 *
-	 * @param p1 the p 1
-	 * @param p2 the p 2
+	 * @param p1 the page 1
+	 * @param p2 the page 2
 	 * @return the placed shape
 	 */
 	public PlacedShape createPlacedShape(Polygon p1, Polygon p2) {
@@ -168,7 +168,7 @@ public class TestBoard extends TestCase {
 	}
 	
 	/**
-	 * Test V flip.
+	 * Test Vertical flip.
 	 */
 	public void testVFlip() {
 		Board b = new Board();
@@ -196,7 +196,7 @@ public class TestBoard extends TestCase {
 	}
 	
 	/**
-	 * Test H flip.
+	 * Test Horizontal flip.
 	 */
 	public void testHFlip() {
 		Board b = new Board();

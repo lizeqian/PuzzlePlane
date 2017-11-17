@@ -13,14 +13,14 @@ import junit.framework.TestCase;
  */
 public class TestBoardMemento extends TestCase {
 	
-	/** The b. */
+	/** The board. */
 	Board b;
 	
 	/**
 	 * Creates the polygon.
 	 *
-	 * @param x the x
-	 * @param y the y
+	 * @param x the horizontal coordinate
+	 * @param y the vertical coordinate
 	 * @return the polygon
 	 */
 	public Polygon createPolygon(int x, int y) {
@@ -35,8 +35,8 @@ public class TestBoardMemento extends TestCase {
 	/**
 	 * Creates the placed shape.
 	 *
-	 * @param p1 the p 1
-	 * @param p2 the p 2
+	 * @param p1 the page 1, which is the shapeset selection view.
+	 * @param p2 the page 2, which is the puzzle selection view.
 	 * @return the placed shape
 	 */
 	public PlacedShape createPlacedShape(Polygon p1, Polygon p2) {
