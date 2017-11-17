@@ -1,6 +1,7 @@
 package plane.views;
 
 import java.awt.Color;
+
 import java.awt.Polygon;
 import java.util.ArrayList;
 
@@ -9,11 +10,18 @@ import plane.models.Board;
 import plane.models.PlacedShape;
 import plane.models.Puzzle;
 import plane.models.ShapeStatus;
+/**
+ * The Class PuzzleSolvingView.
+ * TestCase
+ */
 
 public class TestPuzzleSolvingView extends TestCase {
 	PuzzleSolvingView psv;
 	Application ap;
 	Board board;
+	/** Create the polygon.
+	 * add the point of the polygon
+     */
 	
 	public Polygon createPolygon(int x, int y) {
 		Polygon polygon = new Polygon();
@@ -23,6 +31,7 @@ public class TestPuzzleSolvingView extends TestCase {
 		polygon.addPoint(x, y);
 		return polygon;
 	}
+	
 	
 	protected void setUp() {
 		board = new Board();

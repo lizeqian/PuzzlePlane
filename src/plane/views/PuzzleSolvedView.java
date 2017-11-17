@@ -23,7 +23,10 @@ public class PuzzleSolvedView extends JPanel {
 
 
 
-	/** Create the panel. */
+	/** Create the panel.
+	 * * @param b the board.
+	 * @param p the application.
+	 */
 	public PuzzleSolvedView(Board b, Application p) {
 		setLayout(null);
 		
