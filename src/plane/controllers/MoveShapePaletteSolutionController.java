@@ -122,7 +122,7 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 		if (this.shapeContain) {
 			PlacedShape selectedShape = this.board.getSelectedShape();
 			int topY = selectedShape.getTopY();
-			if (topY < this.palette_h) { //this.palette_h + (maximum height of a shape)
+			if (topY < this.palette_h) {
 				selectedShape.selectShape();
 				selectedShape.resetPos();
 				selectedShape.getStatus().setOnPalette(true);

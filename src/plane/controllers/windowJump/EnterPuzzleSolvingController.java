@@ -20,8 +20,9 @@ public class EnterPuzzleSolvingController implements ActionListener{
 	/**
 	 * Instantiates a new enter puzzle solving controller.
 	 *
-	 * @param p the p
-	 * @param b the b
+	 * @param p the plane
+	 * @param b the board
+	 * The puzzle solving view will be displayed to the player
 	 */
 	public EnterPuzzleSolvingController(Application p, Board b) {
 		this.puzzlePlaneGui = p;

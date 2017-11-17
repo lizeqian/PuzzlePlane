@@ -7,6 +7,7 @@ import plane.views.*;
 // TODO: Auto-generated Javadoc
 /**
  * The Class BacktoShapesetController.
+ * When calling this controller, the page will jump to the shapeset selection view.
  */
 public class BacktoShapesetController implements ActionListener{
 	
@@ -14,7 +15,7 @@ public class BacktoShapesetController implements ActionListener{
 	Application puzzlePlaneGui;
 	
 	/**
-	 * Instantiates a new backto shapeset controller.
+	 * Instantiates a new back to shapeset controller.
 	 *
 	 * @param p the p
 	 */
@@ -26,6 +27,7 @@ public class BacktoShapesetController implements ActionListener{
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
+	/** The page will jump to puzzle selection view. */
 	public void actionPerformed(ActionEvent e) {
 		this.puzzlePlaneGui.jumpPage("p1");
 	}
