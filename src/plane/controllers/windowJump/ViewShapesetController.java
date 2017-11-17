@@ -8,6 +8,7 @@ import plane.views.Application;
 // TODO: Auto-generated Javadoc
 /**
  * The Class ViewShapesetController.
+ * The current shapeset will be displayed
  */
 public class ViewShapesetController implements ActionListener{
 
