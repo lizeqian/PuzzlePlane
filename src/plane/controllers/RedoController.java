@@ -12,6 +12,7 @@ import plane.views.PuzzleSolvingView;
 // TODO: Auto-generated Javadoc
 /**
  * The Class RedoController.
+ * Redo the last undo move, as requested by user
  */
 public class RedoController implements ActionListener{
 	
@@ -24,8 +25,8 @@ public class RedoController implements ActionListener{
 	/**
 	 * Instantiates a new redo controller.
 	 *
-	 * @param b the b
-	 * @param puzzleSolvingView the puzzle solving view
+	 * @param b the board
+	 * @param puzzleSolvingView the puzzle solving view Gui
 	 */
 	public RedoController(Board b, PuzzleSolvingView puzzleSolvingView) {
 		// TODO Auto-generated constructor stub

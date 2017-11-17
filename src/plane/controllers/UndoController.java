@@ -7,9 +7,9 @@ import plane.models.Board;
 import plane.views.Application;
 import plane.views.PuzzleSolvingView;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class UndoController.
+ * Undo the last operation of user, as requested by the user
  */
 public class UndoController implements ActionListener{
 	
@@ -40,7 +40,7 @@ public class UndoController implements ActionListener{
 	/**
 	 * Instantiates a new undo controller.
 	 *
-	 * @param b the b
+	 * @param b the board
 	 * @param puzzleSolvingView the puzzle solving view
 	 */
 	public UndoController(Board b, PuzzleSolvingView puzzleSolvingView) {
@@ -51,6 +51,8 @@ public class UndoController implements ActionListener{
 
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 * undo states by "board"
+	 * update Gui by "plane"
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
