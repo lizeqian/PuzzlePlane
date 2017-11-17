@@ -11,28 +11,31 @@ import javax.swing.JPanel;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class Application.
+ * Create the Class Application.
+ * The containing Frame for the application. This class is just a
+ * GUI shell, and the real logic happens in the Board.
  */
-//This JFrame is the main Frame of application. Use JPanels as content, and switch JPanels for each different view
+
 public class Application extends JFrame {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 4590308406322961931L;
 	
-	/** The board. */
+	/** The board, which contains the real logic. */
 	Board board;
 
-	/** The pane. */
+	/** This is a JPanel, pane.
+	 *  JPanel is switched within JFrame. */
 	public JPanel pane;
 	
-	/** The card. */
+	/** This CardLayout allows the JPanel be switched within JFrame. */
 	public CardLayout card;
     
-    /** The p 5. */
+    /** Create five JPanel. */
     public JPanel p_1, p_2, p_3, p_4, p_5;
 
-	/** The width. */
+	/** The height and width of the application view. */
 	public int height = 700, width = 1000;
 	
 	/**
@@ -47,13 +50,20 @@ public class Application extends JFrame {
 	/**
 	 * Instantiates a new application.
 	 *
-	 * @param b the b
+	 * @param b the board.
 	 */
 	public Application(Board b) {
 		super ("Puzzle Plane");
 		
 		this.board = b;
+	
 		
+		/**
+		 * Create new CardLayout and JPanel.
+		 * Add name to each pane.
+		 *
+		 * @param page the page
+		 */	
 		card = new CardLayout(5, 5);
 		pane = new JPanel(card); 	
         p_1 = new FirstPPGui(this.board, this);
@@ -80,7 +90,7 @@ public class Application extends JFrame {
 	/**
 	 * Jump page.
 	 *
-	 * @param page the page
+	 * @param page the page.
 	 */
 	public void jumpPage(String page) {
 		card.show(pane, page);
