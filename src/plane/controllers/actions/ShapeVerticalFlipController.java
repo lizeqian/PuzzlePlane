@@ -1,6 +1,4 @@
-/***********
- * @author cheng zhu
- */
+
 package plane.controllers.actions;
 
 import java.awt.event.ActionEvent;
