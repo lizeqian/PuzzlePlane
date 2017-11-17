@@ -10,7 +10,11 @@ public class FilePathConfig {
 	
 
 	/**
-	 * Create the path
+	 * Get the Icon path, when a puzzle has been solved.
+	 * 
+	 * @param shapesetName the shapeset name
+	 * @param puzzleName the puzzle name
+	 * @return the puzzle Icon path
 	 */
 	public static String getSolvedPuzzleIconPath(String shapesetName, String puzzleName) {
 		return shapesetName + "/" + puzzleName + "/solvedPuzzleIcon.jpg";

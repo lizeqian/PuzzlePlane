@@ -46,7 +46,17 @@ public class MoveShapePaletteSolutionController extends MouseAdapter{
 	
 	/** The solution check controller. */
 	SolutionCheckController solutionCheckController;
-	/** Constructor holds onto key manager objects. */
+	
+	/** Constructor holds onto key manager objects. 
+	 * 
+	 * @param b the board
+	 * @param pg the application
+	 * @param p the PuzzleSolving window Gui class
+	 * @param w the width of the application window
+	 * @param h the height of the application window
+	 * @param s the solution check controller
+	 * 
+	 */
 	public MoveShapePaletteSolutionController (Board b, Application pg, PuzzleSolvingView p,int w, int h, SolutionCheckController s) {
 		this.board = b;
 		this.puzzlePlaneGui = pg;

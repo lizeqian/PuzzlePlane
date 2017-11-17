@@ -60,8 +60,13 @@ public class SelectShapesetController implements ActionListener{
 	public void setShapesetName(String shapesetName) {
 		this.shapesetName = shapesetName;
 	}
-	/** Controller constructed with board (entity) and panel (boundary) and shapesetName. */
 	
+	/** 
+	 * Controller constructed with board (entity) and panel (boundary) and shapesetName. 
+	 * @param p the Application reference
+	 * @param board the Board reference
+	 * @param shapesetName the shapeset name
+	 */
 	public SelectShapesetController(Application p, Board board, String shapesetName) {
 		// TODO Auto-generated constructor stub
 		this.plane = p;
@@ -69,16 +74,16 @@ public class SelectShapesetController implements ActionListener{
 		this.shapesetName = shapesetName;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-	 */
-	@Override
 	/**
+	 * (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 *
 	 * Selection event occurred; if activate is true, then selection starting, otherwise selection ending
 	 * 
 	 * ActionEvent which element from the model was selected
 	 * activate whether selecting or un-selecting
 	 */
+	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		this.board.setShapeset(new Shapeset(this.shapesetName));

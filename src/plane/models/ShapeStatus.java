@@ -9,7 +9,7 @@ import plane.utils.ColorUtils;
  * The Class ShapeStatus.
  * Represents status of a PlacedShape, including color, position, whether the shape is on the Palette or Solution Space, 
  * whether the shape is vertically flipped, is horizontally flipped, whether the shape is selected by user, and the rotating angle of the shape.
- * @cheng zhu
+ * @author cheng zhu
  */
 public class ShapeStatus {
 
