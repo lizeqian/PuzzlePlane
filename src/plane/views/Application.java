@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 
 public class Application extends JFrame {
 	/**
-	 * 
+	 * Serializable key
 	 */
 	private static final long serialVersionUID = 4590308406322961931L;
 	

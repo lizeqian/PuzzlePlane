@@ -27,9 +27,8 @@ import javax.swing.SwingConstants;
  * The Class SecondPPGui.
  */
 public class SecondPPGui extends JPanel {
-	/**
-	 * 
-	 */
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 5157226398944441626L;
 	
 	/** The Constant bounds. */

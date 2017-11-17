@@ -23,19 +23,17 @@ public class PuzzleSolvedView extends JPanel {
 
 
 
-	/**
-	 * Create the frame.
-	 */
+	/** Create the panel. */
 	public PuzzleSolvedView(Board b, Application p) {
 		setLayout(null);
 		
-		
+		/** Add a button to confirm the congratulation notice. */
 		ExitInfoBoardController exitInfoBoardController = new ExitInfoBoardController(b, p);
 		JButton buttonContinue = new JButton("Continue");
 		buttonContinue.addActionListener(exitInfoBoardController);
 		buttonContinue.setBounds(450, 600, 100, 30);
 		this.add(buttonContinue);
-		
+		/** Add a JLabel to display the congratulation notice on the page. */
 		JLabel jlabel = new JLabel("Congratulations! Puzzle Completed!");
 	    jlabel.setFont(new Font("Verdana",1,20));
 	    jlabel.setBounds(300, 200, 400, 30);
