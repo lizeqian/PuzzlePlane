@@ -17,14 +17,13 @@ import plane.models.Board;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class ViewShapesetPPGui.
+ * The Class ViewShapesetPPGui. 
+ * This is the view to show the current selected shapeset when player is playing a puzzle.
  */
 public class ViewShapesetPPGui extends JPanel{
 
 
-	/**
-	 * 
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -4858060950773618051L;
 	
 	/** The plane. */
@@ -33,7 +32,7 @@ public class ViewShapesetPPGui extends JPanel{
 	/** The label. */
 	public JLabel label;
 	
-	/** The board. */
+	/** The board reference. */
 	public Board board;
 	
 	/**
@@ -45,9 +44,9 @@ public class ViewShapesetPPGui extends JPanel{
 	}
 
 	/**
-	 * Instantiates a new view shapeset PP gui.
+	 * Instantiates a new view shapeset PuzzlePlane gui.
 	 *
-	 * @param b the b
+	 * @param b the board
 	 * @param plane the plane
 	 */
 	public ViewShapesetPPGui(Board b, Application plane) {
@@ -74,7 +73,8 @@ public class ViewShapesetPPGui extends JPanel{
 	}
 	
 	/**
-	 * Draw.
+	 * Add button for return.
+	 * The current shapeset view will be closed and the system only displays the puzzle solving view.
 	 */
 	public void draw() {
 		this.drawLabel();

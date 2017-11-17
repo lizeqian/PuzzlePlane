@@ -24,7 +24,7 @@ import javax.swing.SwingConstants;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class SecondPPGui.
+ * The Class SecondPPGui. This is a panel that displays the puzzle selection view.
  */
 public class SecondPPGui extends JPanel {
 	
@@ -57,9 +57,7 @@ public class SecondPPGui extends JPanel {
 	/** The buttons. */
 	List<JButton> buttons;
 	
-	/**
-	 * Create the frame.
-	 */
+	/** Create the panel. */
 	public SecondPPGui(Board b, Application p) {
 		setLayout(null);
 		this.board = b;
@@ -67,9 +65,7 @@ public class SecondPPGui extends JPanel {
 		buttons = new ArrayList<>();
 	}
 	
-	/**
-	 * Reset.
-	 */
+	/** Reset. */
 	public void reset() {
 		for(JButton button : buttons) {
 			this.remove(button);
@@ -77,9 +73,7 @@ public class SecondPPGui extends JPanel {
 		draw();
 	}
 	
-	/**
-	 * Draw buttons.
-	 */
+	/** Draw buttons. */
 	public void drawButtons() {
 		String shapesetName = this.board.getShapeset().getName();
 		if (shapesetName == null) return;
@@ -104,7 +98,8 @@ public class SecondPPGui extends JPanel {
 	}
 	
 	/**
-	 * Draw.
+	 * Add JLabel to display the title of the page
+	 * Add "Back to Shapeset" Button to go back to shpeset selection page.
 	 */
 	public void draw() {
 		this.drawButtons();
