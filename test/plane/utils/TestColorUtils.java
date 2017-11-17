@@ -4,9 +4,9 @@ import java.awt.Color;
 
 import junit.framework.TestCase;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TestColorUtils.
+ * @author cheng zhu
  */
 public class TestColorUtils extends TestCase {
 	
@@ -21,7 +21,7 @@ public class TestColorUtils extends TestCase {
 	}
 	
 	/**
-	 * Test copy.
+	 * Test copy method.
 	 */
 	public void testCopy() {
 		color = Color.cyan;

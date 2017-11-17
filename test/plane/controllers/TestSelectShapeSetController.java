@@ -1,9 +1,9 @@
 package plane.controllers;
 
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TestSelectShapeSetController.
+ * @author cheng zhu
  */
 public class TestSelectShapeSetController extends ControllerCase {
 	
@@ -12,6 +12,7 @@ public class TestSelectShapeSetController extends ControllerCase {
 	
 	/* (non-Javadoc)
 	 * @see plane.controllers.ControllerCase#setUp()
+	 * set up controller to test
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();

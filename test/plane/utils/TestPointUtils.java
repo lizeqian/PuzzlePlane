@@ -27,6 +27,7 @@ public class TestPointUtils extends TestCase {
 	
 	/* (non-Javadoc)
 	 * @see junit.framework.TestCase#setUp()
+	 * set up Points to test
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -48,7 +49,7 @@ public class TestPointUtils extends TestCase {
 	}
 	
 	/**
-	 * Test to string.
+	 * Test toString.
 	 */
 	public void testToString() {
 		assertEquals(PointUtils.toString(p1), "x: 30, y: 30");

@@ -2,9 +2,9 @@ package plane.utils;
 
 import junit.framework.TestCase;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TestArrayUtils.
+ * @author cheng zhu 
  */
 public class TestArrayUtils extends TestCase {
 	
@@ -22,7 +22,7 @@ public class TestArrayUtils extends TestCase {
 	}
 	
 	/**
-	 * Test min.
+	 * Test min method.
 	 */
 	public void testMin() {
 		assertEquals(ArrayUtils.min(arr, arr.length), 2);
@@ -30,7 +30,7 @@ public class TestArrayUtils extends TestCase {
 	}
 	
 	/**
-	 * Test max.
+	 * Test max method.
 	 */
 	public void testMax() {
 		assertEquals(ArrayUtils.max(arr, arr.length), 1000);
@@ -38,7 +38,7 @@ public class TestArrayUtils extends TestCase {
 	}
 	
 	/**
-	 * Test avg.
+	 * Test avg method.
 	 */
 	public void testAvg() {
 		assertEquals(ArrayUtils.avg(arr, arr.length), 176);
