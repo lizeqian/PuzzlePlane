@@ -2,7 +2,6 @@ package plane.config;
 
 import java.util.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class NameConfig
  */

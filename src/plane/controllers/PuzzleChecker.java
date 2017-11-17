@@ -1,10 +1,8 @@
 package plane.controllers;
 
 import java.io.File;
-
-
 import plane.config.FilePathConfig;
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class PuzzleChecker .
  */

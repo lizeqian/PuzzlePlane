@@ -1,11 +1,7 @@
 package plane.controllers;
 
-import java.awt.Color;
-
 import junit.framework.TestCase;
 import plane.models.Board;
-import plane.models.Move;
-import plane.models.PlacedShape;
 import plane.views.Application;
 import plane.views.PuzzleSolvingView;
 
