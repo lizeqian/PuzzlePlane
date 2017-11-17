@@ -13,7 +13,7 @@ public class TestShapeset extends TestCase {
 	/** The shapeset. */
 	Shapeset shapeset;
 	
-	/** The names. */
+	/** The names of the puzzles. */
 	String[] names = {"bird", "cristal", "dog", "dontknow", "duck", "fish", "fox", "house", "rabbit", "turtle"};
 	
 	/* (non-Javadoc)
