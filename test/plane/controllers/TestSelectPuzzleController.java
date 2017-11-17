@@ -9,7 +9,6 @@ import plane.models.PlacedShape;
 import plane.models.Puzzle;
 import plane.models.Shapeset;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TestSelectPuzzleController.
  */
@@ -20,6 +19,7 @@ public class TestSelectPuzzleController extends ControllerCase {
 	
 	/* (non-Javadoc)
 	 * @see plane.controllers.ControllerCase#setUp()
+	 * set up board to test
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();

@@ -15,8 +15,8 @@ public class TestPlacedShape extends TestCase {
 	/**
 	 * Creates the polygon.
 	 *
-	 * @param x the x
-	 * @param y the y
+	 * @param x the horizontal coordinate
+	 * @param y the vertical coordinate
 	 * @return the polygon
 	 */
 	public Polygon createPolygon(int x, int y) {
@@ -110,7 +110,7 @@ public class TestPlacedShape extends TestCase {
 	}
 	
 	/**
-	 * Test get left X.
+	 * Test get left horizontal coordinate.
 	 */
 	public void testGetLeftX() {
 		PlacedShape p = new PlacedShape(Color.BLACK);
@@ -122,7 +122,7 @@ public class TestPlacedShape extends TestCase {
 	}
 	
 	/**
-	 * Test get right X.
+	 * Test get right horizontal coordinate.
 	 */
 	public void testGetRightX() {
 		PlacedShape p = new PlacedShape(Color.BLACK);
@@ -134,7 +134,7 @@ public class TestPlacedShape extends TestCase {
 	}
 	
 	/**
-	 * Test get top Y.
+	 * Test get top vertical coordinate.
 	 */
 	public void testGetTopY() {
 		PlacedShape p = new PlacedShape(Color.BLACK);
@@ -146,7 +146,7 @@ public class TestPlacedShape extends TestCase {
 	}
 	
 	/**
-	 * Test get bottom Y.
+	 * Test get bottom vertical coordinate.
 	 */
 	public void testGetBottomY() {
 		PlacedShape p = new PlacedShape(Color.BLACK);
@@ -177,7 +177,7 @@ public class TestPlacedShape extends TestCase {
 	}
 	
 	/**
-	 * Test V flip.
+	 * Test Vertical flip.
 	 */
 	public void testVFlip() {
 		PlacedShape p = new PlacedShape(Color.BLACK);
@@ -196,7 +196,7 @@ public class TestPlacedShape extends TestCase {
 	}
 	
 	/**
-	 * Test H flip.
+	 * Test Horizontal flip.
 	 */
 	public void testHFlip() {
 		PlacedShape p = new PlacedShape(Color.BLACK);
@@ -215,7 +215,7 @@ public class TestPlacedShape extends TestCase {
 	}
 	
 	/**
-	 * Test reset pos.
+	 * Test reset position.
 	 */
 	public void testResetPos() {
 		PlacedShape p = new PlacedShape(Color.BLACK);

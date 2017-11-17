@@ -10,7 +10,6 @@ import junit.framework.TestCase;
 import plane.config.FilePathConfig;
 import plane.models.PlacedShape;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TestShapeLoader.
  */
@@ -22,11 +21,12 @@ public class TestShapeLoader extends TestCase {
 	/** The file. */
 	File file;
 	
-	/** The shape 6. */
+	/** Three shapes to test. */
 	PlacedShape shape0, shape3, shape6; 
 	
 	/* (non-Javadoc)
 	 * @see junit.framework.TestCase#setUp()
+	 * set up file and shapes to test
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();

@@ -7,7 +7,6 @@ import java.util.List;
 
 import junit.framework.TestCase;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TestPolygonUtils.
  */
@@ -21,6 +20,7 @@ public class TestPolygonUtils extends TestCase {
 	
 	/* (non-Javadoc)
 	 * @see junit.framework.TestCase#setUp()
+	 * set up Polygons to test
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -34,7 +34,7 @@ public class TestPolygonUtils extends TestCase {
 	}
 	
 	/**
-	 * Test to string.
+	 * Test toString.
 	 */
 	public void testToString() {
 		assertEquals(PolygonUtils.toString(emptyPolygon), "npoints: 0\n");
@@ -55,7 +55,7 @@ public class TestPolygonUtils extends TestCase {
 	}
 	
 	/**
-	 * Test get center.
+	 * Test getCenter.
 	 */
 	public void testGetCenter() {
 		assertEquals(PointUtils.toString(PolygonUtils.getCenter(emptyPolygon)), PointUtils.toString(new Point(0, 0)));

@@ -7,7 +7,6 @@ import plane.models.PlacedShape;
 import plane.utils.PolygonUtils;
 import java.util.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TestExitPuzzleSolvingController.
  */
@@ -18,6 +17,7 @@ public class TestExitPuzzleSolvingController extends ControllerCase {
 	
 	/* (non-Javadoc)
 	 * @see plane.controllers.ControllerCase#setUp()
+	 * set up Board and Application to test
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
