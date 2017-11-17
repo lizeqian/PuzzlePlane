@@ -8,6 +8,7 @@ import java.awt.event.*;
 // TODO: Auto-generated Javadoc
 /**
  * The Class EnterPuzzleSolvingController.
+ * Display the puzzle solving view
  */
 public class EnterPuzzleSolvingController implements ActionListener{
 	

@@ -9,13 +9,13 @@ import javax.swing.JFrame;
  */
 public class ExitApplicationController {
 
-	/** The app. */
+	/** The application frame. */
 	JFrame app;
 
 	/**
 	 * Instantiates a new exit application controller.
 	 *
-	 * @param app the app
+	 * @param app the application
 	 */
 	public ExitApplicationController(JFrame app) {
 		this.app = app;
@@ -23,6 +23,7 @@ public class ExitApplicationController {
 
 	/**
 	 * Process.
+	 * Ask player to confirm whether he/she wants to exit PuzzlePlane application
 	 */
 	public void process() {
 		int c = JOptionPane.showConfirmDialog (app, "Do you wish to exit Application?");
