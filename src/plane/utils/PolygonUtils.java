@@ -76,7 +76,7 @@ public class PolygonUtils {
 	}
 	
 	/**
-	 * V flip.
+	 * Vertical flip.
 	 *
 	 * @param polygon the polygon
 	 */
@@ -88,7 +88,7 @@ public class PolygonUtils {
 	}
 	
 	/**
-	 * H flip.
+	 * Horizontal flip.
 	 *
 	 * @param polygon the polygon
 	 */

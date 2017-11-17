@@ -10,19 +10,19 @@ import junit.framework.TestCase;
  */
 public class TestPointUtils extends TestCase {
 	
-	/** The p 1. */
+	/** The page 1, which is the shapeset selection view. */
 	Point p1;
 	
-	/** The p 2. */
+	/** The page 2, which is the. */
 	Point p2;
 	
-	/** The p 3. */
+	/** The page 3. */
 	Point p3;
 	
-	/** The p 4. */
+	/** The page 4. */
 	Point p4;
 	
-	/** The p 5. */
+	/** The page 5. */
 	Point p5;
 	
 	/* (non-Javadoc)

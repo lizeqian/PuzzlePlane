@@ -81,9 +81,7 @@ public class TestPolygonUtils extends TestCase {
 		}
 	}
 	
-	/**
-	 * Test H flip.
-	 */
+	/** Test Horizontal flip. */
 	public void testHFlip() {
 		Polygon h = PolygonUtils.copy(polygon);
 		PolygonUtils.hFlip(h);
@@ -96,9 +94,7 @@ public class TestPolygonUtils extends TestCase {
 		assertEquals(PolygonUtils.toString(h), PolygonUtils.toString(correct));
 	}
 	
-	/**
-	 * Test V flip.
-	 */
+	/** Test Vertical flip. */
 	public void testVFlip() {
 		Polygon v = PolygonUtils.copy(polygon);
 		PolygonUtils.vFlip(v);
@@ -111,9 +107,7 @@ public class TestPolygonUtils extends TestCase {
 		assertEquals(PolygonUtils.toString(v), PolygonUtils.toString(correct));
 	}
 	
-	/**
-	 * Test contains.
-	 */
+	/** Test contains. */
 	public void testContains() {
 		assertTrue(PolygonUtils.contains(polygon, new Point(1, 4)));
 		assertFalse(PolygonUtils.contains(polygon, new Point(2, 30)));
@@ -132,9 +126,7 @@ public class TestPolygonUtils extends TestCase {
 		assertTrue(PolygonUtils.contains(list, polygon));
 	}
 	
-	/**
-	 * Test equals.
-	 */
+	/** Test equals. */
 	public void testEquals() {
 		assertFalse(PolygonUtils.equals(polygon, emptyPolygon));
 		assertTrue(PolygonUtils.equals(polygon, PolygonUtils.copy(polygon)));
