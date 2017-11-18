@@ -7,6 +7,7 @@ import plane.models.Board;
 /**
  * The Class TestApplication.
  * Test the Appliation
+ * @author Zeqian Li
  */
 public class TestApplication extends TestCase {
 	

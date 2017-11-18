@@ -9,9 +9,9 @@ import plane.controllers.windowJump.ExitApplicationController;
 import plane.models.Board;
 import plane.views.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Main.
+ * @author Zeqian Li
  */
 public class Main {
 	/**

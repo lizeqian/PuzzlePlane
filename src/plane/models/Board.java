@@ -9,7 +9,7 @@ import java.util.Stack;
 /**
  * The Class Board
  * Entry Point into the Entity domain space.
- * @author cheng zhu
+ * @author cheng zhu Zeqian Li
  */
 public class Board {
 	

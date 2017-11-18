@@ -13,7 +13,7 @@ import plane.controllers.ShapeLoader;
  * The entity class for shapeset.
  * A shapeset has a shapeset name.
  * A shapeset has a List of puzzles.
- * @author cheng zhu
+ * @author cheng zhu Zeqian Li
  */
 public class Shapeset {
 	

@@ -10,6 +10,7 @@ import plane.views.*;
 
 /**
  * The Class SolutionCheckController.
+ * @author Zeqian Li
  */
 public class SolutionCheckController{
 	

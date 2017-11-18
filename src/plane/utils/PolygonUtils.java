@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * The Class PolygonUtils.
+ * @author cheng zhu Zeqian Li
  */
 public class PolygonUtils {
 	
@@ -136,6 +137,7 @@ public class PolygonUtils {
 			}
 		}
 		shapes.remove(hitShape);
+		System.out.println(shapes.size());
 		return isIn;
 		
 	}

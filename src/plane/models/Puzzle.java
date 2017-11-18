@@ -7,7 +7,7 @@ import java.util.List;
  * The entity class for a puzzle.
  * Puzzle has a List of PlacedShape representing the silhouette shape
  * Puzzle has a puzzle name.
- * @author cheng zhu
+ * @author cheng zhu Zeqian Li
  */
 public class Puzzle{
 

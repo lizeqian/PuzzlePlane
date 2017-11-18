@@ -10,6 +10,7 @@ import junit.framework.TestCase;
 
 /**
  * The Class TestBoardMemento.
+ * @author Zeqian Li
  */
 public class TestBoardMemento extends TestCase {
 	

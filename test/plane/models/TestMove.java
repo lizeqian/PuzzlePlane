@@ -12,6 +12,7 @@ import plane.utils.PolygonUtils;
 /**
  * The Class TestMove.
  * Test shape moves
+ * @author Zeqian Li
  */
 public class TestMove extends TestCase {
 	

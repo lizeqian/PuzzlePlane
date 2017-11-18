@@ -13,6 +13,7 @@ import javax.swing.JPanel;
  * Create the Class Application.
  * The containing Frame for the application. This class is just a
  * GUI shell, and the real logic happens in the Board.
+ * @author Zeqian Li
  */
 
 public class Application extends JFrame {

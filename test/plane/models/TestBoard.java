@@ -10,6 +10,7 @@ import plane.utils.PolygonUtils;
 
 /**
  * The Class TestBoard.
+ * @author Zeqian Li
  */
 public class TestBoard extends TestCase {
 	

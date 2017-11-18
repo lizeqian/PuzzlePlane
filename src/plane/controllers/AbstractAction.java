@@ -7,6 +7,7 @@ import java.awt.event.*;
 
 /**
  * The abstract Class AbstracAction.
+ * @author Zeqian Li
  */
 public abstract class AbstractAction implements ActionListener{
 	

@@ -11,6 +11,7 @@ import plane.views.PuzzleSolvingView;
 
 /**
  * The Class ShapeLeftRotateController.
+ * @author cheng zhu Zeqian Li
  */
 public class ShapeLeftRotateController extends AbstractAction{
 

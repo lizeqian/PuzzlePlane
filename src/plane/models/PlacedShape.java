@@ -10,7 +10,7 @@ import plane.utils.*;
  * A PlacedShape will have its initial Polygon state, when user first enters the PuzzleSolving Board.
  * A PlaedShape will have its changed Polygon state, after several operations by user, 
  * and a ShapeStatus to record detailed status information of the changed Polygon.
- * @author cheng zhu
+ * @author cheng zhu Zeqian Li
  */
 public class PlacedShape{
 	

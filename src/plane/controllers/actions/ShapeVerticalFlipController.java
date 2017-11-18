@@ -11,6 +11,7 @@ import plane.views.PuzzleSolvingView;
 
 /**
  * The Class ShapeVerticalFlipController.
+ * @author cheng zhu Zeqian Li
  */
 public class ShapeVerticalFlipController extends AbstractAction{
 

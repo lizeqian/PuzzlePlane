@@ -10,7 +10,7 @@ import plane.views.PuzzleSolvingView;
 /**
  * The Class ShapeHorizontalFlipController.
  * Horizontally flip the "selected" shape as requested by user
- * @author cheng zhu
+ * @author cheng zhu Zeqian
  */
 public class ShapeHorizontalFlipController extends AbstractAction{
 

@@ -16,6 +16,7 @@ import plane.views.PuzzleSolvingView;
 /**
  * The Class TestMoveShapePaletteSolutionController.
  * TestCase
+ * @author Zeqian Li
  */
 public class TestMoveShapePaletteSolutionController extends generic.MouseEventTestCase {
 	

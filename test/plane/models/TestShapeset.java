@@ -7,6 +7,7 @@ import junit.framework.TestCase;
 
 /**
  * The Class TestShapeset.
+ * @author Zeqian Li
  */
 public class TestShapeset extends TestCase {
 	

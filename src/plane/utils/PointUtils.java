@@ -4,7 +4,7 @@ import java.awt.Point;
 
 /**
  * Define methods to operate java.awt.Point class.
- * @author cheng zhu
+ * @author cheng zhu Zeqian Li
  *
  */
 public class PointUtils {

@@ -13,6 +13,7 @@ import javax.swing.JButton;
 
 /**
  * The Class PuzzleSolvedView.
+ * @author Zeqian Li
  */
 public class PuzzleSolvedView extends JPanel {
 
