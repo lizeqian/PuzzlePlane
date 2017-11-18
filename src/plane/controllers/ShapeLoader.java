@@ -10,7 +10,7 @@ import plane.models.PlacedShape;
 
 /**
  * The Class ShapeLoader.
- * @author cheng zhu
+ * @author cheng zhu, yinkai ma
  */
 public class ShapeLoader{
 	

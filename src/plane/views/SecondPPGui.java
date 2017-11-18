@@ -24,7 +24,7 @@ import javax.swing.SwingConstants;
 
 /**
  * The Class SecondPPGui. This is a panel that displays the puzzle selection view.
- * @author cheng zhu
+ * @author cheng zhu, yinkai ma
  */
 public class SecondPPGui extends JPanel {
 	

@@ -8,7 +8,7 @@ import java.awt.event.*;
 /**
  * The Class EnterPuzzleSolvingController.
  * Display the puzzle solving view
- * @author Zeqian Li
+ * @author Zeqian Li, yinkai ma
  */
 public class EnterPuzzleSolvingController implements ActionListener{
 	
