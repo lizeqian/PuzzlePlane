@@ -8,7 +8,7 @@ import java.awt.event.*;
 /**
  * The Class ExitInfoBoardController.
  * By calling this controller, the application will display the PuzzleSolved view
- * @author cheng zhu
+ * @author cheng zhu Zeqian Li
  */
 public class ExitInfoBoardController implements ActionListener {
 	

@@ -7,7 +7,7 @@ import plane.views.*;
 /**
  * The Class BacktoShapesetController.
  * When calling this controller, the page will jump to the shapeset selection view.
- * @author
+ * @author Zeqian Li
  */
 public class BacktoShapesetController implements ActionListener{
 	

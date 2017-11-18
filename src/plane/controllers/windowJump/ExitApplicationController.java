@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 
 /**
  * Controller to confirm request to exist application.
- * @author
+ * @author Zeqian Li
  */
 public class ExitApplicationController {
 
