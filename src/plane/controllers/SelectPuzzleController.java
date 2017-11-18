@@ -14,6 +14,7 @@ import plane.views.*;
 /**
  * Respond to selection events in the Puzzle Plane, which has been configured to only 
  * allow individual rows to be selected.
+ * @author cheng zhu
  */
 public class SelectPuzzleController implements ActionListener{
 	/** Needs board to be able to select elements. */

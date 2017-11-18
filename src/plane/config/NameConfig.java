@@ -8,6 +8,7 @@ import java.util.*;
  * shapeset names include: ["traditional", "nontraditional"]
  * puzzle names for "traditional" shapeset: ["fox", "bird", "rabbit", "cristal", "fish", "duck", "dontknow", "turtle","house", "dog"]
  * puzzle names for "nontraditonal" shapeset: ["house", "snake", "windmill", "human", "tree", "diamond", "fish1", "horse","table", "fish2"]
+ * @author cheng zhu
  */
 
 public class NameConfig {

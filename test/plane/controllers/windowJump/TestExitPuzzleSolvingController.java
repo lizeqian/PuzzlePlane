@@ -9,6 +9,7 @@ import java.util.*;
 
 /**
  * The Class TestExitPuzzleSolvingController.
+ * @author cheng zhu
  */
 public class TestExitPuzzleSolvingController extends ControllerCase {
 

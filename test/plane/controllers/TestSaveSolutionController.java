@@ -14,7 +14,7 @@ import plane.models.Shapeset;
 /**
  * The Class TestSaveSolutionController.
  * ControllerCase
- * @author Li Zhang
+ * @author Li Zhang, cheng zhu
  */
 public class TestSaveSolutionController extends ControllerCase{
 	

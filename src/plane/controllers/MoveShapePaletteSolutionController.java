@@ -11,7 +11,7 @@ import java.awt.*;
 
 /**
  * The Class MoveShapePaletteSolutionController.
- * @author Zeqian Li
+ * @author Zeqian Li, cheng zhu
  */
 public class MoveShapePaletteSolutionController extends MouseAdapter{
 	/** Needed for controller behavior. */

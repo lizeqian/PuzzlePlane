@@ -8,6 +8,7 @@ import java.awt.event.*;
 /**
  * The Class ExitPuzzleSolvingController.
  * The PuzzleSolving view will be exited and then display the puzzle selection view, which is SecondPPGui.
+ * @author
  */
 public class ExitPuzzleSolvingController implements ActionListener{
 	

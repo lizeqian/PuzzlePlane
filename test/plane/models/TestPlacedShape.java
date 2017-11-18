@@ -9,7 +9,7 @@ import plane.utils.PolygonUtils;
 
 /**
  * The Class TestPlacedShape.
- * @author Zeqian Li
+ * @author Zeqian Li, cheng zhu
  */
 public class TestPlacedShape extends TestCase {
 	

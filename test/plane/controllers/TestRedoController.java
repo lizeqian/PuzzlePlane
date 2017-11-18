@@ -10,6 +10,7 @@ import plane.models.PlacedShape;
  * The Class TestRedoController.
  *  Redo the last undo move, as requested by user
  *  Test case
+ *  @author cheng zhu
  */
 public class TestRedoController extends ControllerCase {
 	

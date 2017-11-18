@@ -4,7 +4,8 @@ import java.io.File;
 import plane.config.FilePathConfig;
 
 /**
- * The Class PuzzleChecker .
+ * The Class PuzzleChecker
+ * @author cheng zhu
  */
 
 public class PuzzleChecker {

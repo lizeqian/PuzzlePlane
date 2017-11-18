@@ -12,6 +12,7 @@ import plane.models.PlacedShape;
 
 /**
  * The Class TestShapeLoader.
+ * @author cheng zhu
  */
 public class TestShapeLoader extends TestCase {
 	

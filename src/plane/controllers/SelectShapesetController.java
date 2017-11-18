@@ -14,6 +14,7 @@ import plane.views.ViewShapesetPPGui;
  * The class SelectShapesetController
  * Respond to selection events in the Puzzle Plane, which has been configured to only 
  * allow individual rows to be selected.
+ * @author cheng zhu
  */
 
 public class SelectShapesetController implements ActionListener{

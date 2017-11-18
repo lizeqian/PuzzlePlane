@@ -23,7 +23,7 @@ import plane.models.*;
 
 /**
  * The Class PuzzleSolvingView.
- * @author Zeqian Li
+ * @author Zeqian Li cheng zhu
  */
 public class PuzzleSolvingView extends JPanel {
 

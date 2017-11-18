@@ -18,6 +18,7 @@ import plane.models.Board;
 /**
  * The Class ViewShapesetPPGui. 
  * This is the view to show the current selected shapeset when player is playing a puzzle.
+ * @author cheng zhu
  */
 public class ViewShapesetPPGui extends JPanel{
 

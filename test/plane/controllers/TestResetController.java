@@ -18,6 +18,7 @@ import plane.models.Shapeset;
  * The Class TestResetController.
  * rest the puzzle, as requested by user
  *  Test case
+ *  @author cheng zhu
  */
 public class TestResetController extends ControllerCase {
 	

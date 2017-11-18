@@ -19,6 +19,7 @@ import javax.swing.SwingConstants;
 
 /**
  * The Class FirstPPGui.
+ * @author cheng zhu
  */
 public class FirstPPGui extends JPanel {
 

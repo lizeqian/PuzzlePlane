@@ -9,7 +9,7 @@ import junit.framework.TestCase;
 
 /**
  * The Class TestPuzzle.
- * @author Zeqian Li
+ * @author Zeqian Li, cheng zhu
  */
 public class TestPuzzle extends TestCase {
 	

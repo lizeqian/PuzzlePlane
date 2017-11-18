@@ -2,7 +2,7 @@ package plane.utils;
 
 /**
  * Define utility methods for arrays
- * @author cheng
+ * @author cheng zhu
  *
  */
 public class ArrayUtils {

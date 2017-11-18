@@ -9,6 +9,7 @@ import junit.framework.TestCase;
 
 /**
  * The Class TestPolygonUtils.
+ * @author cheng zhu
  */
 public class TestPolygonUtils extends TestCase {
 	

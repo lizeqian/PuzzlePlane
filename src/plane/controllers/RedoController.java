@@ -12,6 +12,7 @@ import plane.views.PuzzleSolvingView;
 /**
  * The Class RedoController.
  * Redo the last undo move, as requested by user
+ * @author cheng zhu
  */
 public class RedoController implements ActionListener{
 	

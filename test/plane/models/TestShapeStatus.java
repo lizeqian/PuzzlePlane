@@ -7,6 +7,7 @@ import junit.framework.TestCase;
 
 /**
  * The Class TestShapeStatus.
+ * @author cheng zhu
  */
 public class TestShapeStatus extends TestCase {
 	

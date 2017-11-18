@@ -13,7 +13,7 @@ import plane.views.SecondPPGui;
 
 /**
  * The Class SolutionResetController.
- * @author Zeqian Li
+ * @author Zeqian Li, cheng zhu
  */
 public class SolutionResetController implements ActionListener{
 	

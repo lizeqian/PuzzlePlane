@@ -7,6 +7,7 @@ import junit.framework.TestCase;
 
 /**
  * The Class TestPointUtils.
+ * @author cheng zhu
  */
 public class TestPointUtils extends TestCase {
 	

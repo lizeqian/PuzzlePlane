@@ -8,6 +8,7 @@ import plane.views.Application;
 /**
  * The Class ViewShapesetController.
  * The current shapeset will be displayed
+ * @author cheng zhu
  */
 public class ViewShapesetController implements ActionListener{
 

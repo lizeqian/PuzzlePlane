@@ -9,6 +9,7 @@ import plane.views.PuzzleSolvingView;
 /**
  * The Class ControllerCase.
  * Test case
+ * @author cheng zhu
  */
 public class ControllerCase extends TestCase {
 	
