@@ -3,7 +3,7 @@ package plane.config;
 /**
  * the config of files path
  * Define methods to get image icon files and shape files for puzzles, shapesets, and solutions.
- * @author cheng zhu
+ * @author cheng zhu Li Zhang
  */
 
 public class FilePathConfig {

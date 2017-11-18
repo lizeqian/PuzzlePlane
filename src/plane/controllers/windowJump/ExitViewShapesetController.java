@@ -12,7 +12,7 @@ import plane.views.Application;
  * The Class ExitViewShapesetController.
  * The current shapeset display will be closed 
  * and the application will only show the puzzle solving view
- * @author yinkai ma
+ * @author yinkai ma ,Li Zhang
  */
 public class ExitViewShapesetController implements ActionListener{
 	

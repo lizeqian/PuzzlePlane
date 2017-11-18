@@ -7,6 +7,7 @@ import junit.framework.TestCase;
 /**
  * The Class MouseEventTestCase.
  * Test case
+ * @author cheng zhu
  */
 public class MouseEventTestCase extends TestCase {
 	
