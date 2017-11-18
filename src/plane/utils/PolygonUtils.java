@@ -137,7 +137,6 @@ public class PolygonUtils {
 			}
 		}
 		shapes.remove(hitShape);
-		System.out.println(shapes.size());
 		return isIn;
 		
 	}
