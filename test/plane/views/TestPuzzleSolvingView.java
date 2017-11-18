@@ -29,6 +29,9 @@ public class TestPuzzleSolvingView extends TestCase {
 	Board board;
 	/** Create the polygon.
 	 * add point of the polygon
+	 * @param x left top point x
+	 * @param y left top point y
+	 * @return a created polygon
      */
 	
 	public Polygon createPolygon(int x, int y) {
